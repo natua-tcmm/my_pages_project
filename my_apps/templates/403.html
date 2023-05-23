@@ -1,0 +1,17 @@
+{% extends './base/base.html' %}
+{% load static %}
+{% block content %}
+<div class="content-wrapper pt-5">
+  <section class="content">
+    <div class="error-page">
+      <h2 class="headline text-warning">403</h2>
+      <div class="error-content">
+        <h3><i class="fas fa-exclamation-triangle text-warning"></i> カギ開けてよ〜(´・ω・`)</h3>
+        <p style="font-size: 14px;"> HTTP(S)の妖精さんがページを見つけようとしましたが、そこにはカギがかけられていました。</p>
+        <p style="font-size: 14px;"> 妖精さんは鍵穴にあうカギを持っていなかったので、残念ながらページを見つけることはできませんでした。</p>
+        <p style="font-size: 14px;"> 妖精さんにカギを渡すために、ログイン情報や権限を確認してみてください。</p>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock content %}

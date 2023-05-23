@@ -5,7 +5,9 @@ app_name = "my_apps"
 from . import views
 
 urlpatterns = [
+    path("p403", views.preview403, name="p403_page"),
     path("p404", views.preview404, name="p404_page"),
+    path("p500", views.preview500, name="p500_page"),
     path("incomplete_page", views.incomplete_page, name="incomplete_page"),
 
     path("top", views.top, name="top_page"),

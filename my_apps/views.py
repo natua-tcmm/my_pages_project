@@ -12,9 +12,17 @@ def top(request):
     context = { "title":"△Natua♪▽のツールとか保管所" ,"is_beta":False, "is_app":False }
     return render(request, 'top.html',context=context)
 
+# 403ページを見るためのview
+def preview403(request):
+    return render(request,"403.html")
+
 # 404ページを見るためのview
 def preview404(request):
     return render(request,"404.html")
+
+# 500ページを見るためのview
+def preview500(request):
+    return render(request,"500.html")
 
 # 未完成ページ
 def incomplete_page(request):
