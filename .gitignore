@@ -1,0 +1,5 @@
+local_settings.py
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints
+.vscode/settings.json
