@@ -17,6 +17,11 @@ def top(request):
 def preview404(request):
     return render(request,"404.html")
 
+# 未完成ページ
+def incomplete_page(request):
+    context = { "title":"未完成のページ" ,"is_beta":False, "is_app":True }
+    return render(request, 'incomplete_page.html',context=context)
+
 # --------------------------------------------------
 
 # テンプレート こいつをコピペして作ろう

@@ -21,48 +21,69 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="404.html" class="nav-link {% if request.path == '' %}active{% endif %} ">
+                    <a href="{% url 'my_apps:incomplete_page' %}" class="nav-link {% if request.path == '' %}active{% endif %} ">
                         <i class="nav-icon far fa-address-card"></i>
                         <p>
                             私について
                         </p>
                     </a>
                 </li>
-                <li class="nav-header">各種リンク</li>
-                <li class="nav-item menu-open">
-                    <a href="#" class="nav-link {% if is_app  %}active{% endif %}">
-                        <i class="nav-icon fas fa-tools"></i>
-                        <p>
-                            作成ツール
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
+                <!-- -------------------------------- -->
+                <li class="nav-header">ツール</li>
+                <li class="nav-item">
+                    <a href="{% url 'my_apps:const_search_page' %}"
+                        class="nav-link {% if request.path == '/my_apps/const_search' %}active{% endif %} ">
+                        <i class="nav-icon fas fa-search"></i>
+                        <p>クイック定数検索</p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{% url 'my_apps:const_search_page' %}"
-                                class="nav-link {% if request.path == '/my_apps/const_search' %}active{% endif %} ">
-                                <i class="nav-icon fas fa-search"></i>
-                                <p>クイック定数検索</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="404.html" class="nav-link {% if request.path == '' %}active{% endif %} ">
-                                <i class="nav-icon far fa-question-circle"></i>
-                                <p>なにかしらのアプリ</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="404.html" class="nav-link">
-                                <i class="nav-icon far fa-question-circle"></i>
-                                <p>いい感じのアプリ</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="404.html" class="nav-link">
+                    <a href="{% url 'my_apps:incomplete_page' %}" class="nav-link {% if request.path == '' %}active{% endif %} ">
                         <i class="nav-icon far fa-question-circle"></i>
-                        <p>その他のなんか</p>
+                        <p>BPMチェッカー</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'my_apps:incomplete_page' %}" class="nav-link {% if request.path == '' %}active{% endif %}">
+                        <i class="nav-icon far fa-question-circle"></i>
+                        <p>定数別OP表示</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'my_apps:incomplete_page' %}" class="nav-link {% if request.path == '' %}active{% endif %}">
+                        <i class="nav-icon far fa-question-circle"></i>
+                        <p>これって何落ちAJ？</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'my_apps:incomplete_page' %}" class="nav-link {% if request.path == '' %}active{% endif %}">
+                        <i class="nav-icon far fa-question-circle"></i>
+                        <p>FULL BELLだったら鳥なのに</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'my_apps:incomplete_page' %}" class="nav-link {% if request.path == '' %}active{% endif %}">
+                        <i class="nav-icon far fa-question-circle"></i>
+                        <p>BS/OD計算機</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'my_apps:incomplete_page' %}" class="nav-link {% if request.path == '' %}active{% endif %}">
+                        <i class="nav-icon far fa-question-circle"></i>
+                        <p>緑数字計算機</p>
+                    </a>
+                </li>
+                <li class="nav-header">資料集</li>
+                <li class="nav-item">
+                    <a href="{% url 'my_apps:incomplete_page' %}" class="nav-link {% if request.path == '' %}active{% endif %}">
+                        <i class="nav-icon far fa-question-circle"></i>
+                        <p>SEGA音ゲー年表</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'my_apps:incomplete_page' %}" class="nav-link {% if request.path == '' %}active{% endif %}">
+                        <i class="nav-icon far fa-question-circle"></i>
+                        <p>オンゲキジャンル名集</p>
                     </a>
                 </li>
             </ul>
