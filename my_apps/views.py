@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.template.loader import render_to_string
 from django.http import JsonResponse
 from django.db.models import Q
@@ -16,6 +16,13 @@ def top(request):
 # 404ページを見るためのview
 def preview404(request):
     return render(request,"404.html")
+
+# --------------------------------------------------
+
+# テンプレート こいつをコピペして作ろう
+def app_template(request):
+    context = { "title":"タイトル" ,"is_beta":True, "is_app":True }
+    return render(request, 'app_template/app_template.html',context=context)
 
 # --------------------------------------------------
 
@@ -84,9 +91,4 @@ def const_search(request):
     context["rights"]  = SongDataManager.get_rights_data()
 
     # renderする
-    return render(request, 'const_search.html',context=context)
-
-# app2
-def app2(request):
-    context = { "title":"アプリ2(仮)" ,"is_beta":True, "is_app":True }
-    return render(request, 'app2.html',context=context)
+    return render(request, 'const_search/const_search.html',context=context)
