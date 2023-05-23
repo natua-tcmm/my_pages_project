@@ -1,0 +1,62 @@
+{% extends './base/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'top/style.css' %}">
+<!-- Content Wrapper. Contains page content -->
+<div class="container">
+    <div class="content-header">
+        <!-- Content Header (Page header) -->
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">TopPage</h1>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+
+            {% if is_beta %}
+            {% include "./common/info_alert.html" %}
+            {% endif %}
+
+            <!-- ここにいろいろ書く -->
+            <p>トップページだよ</p>
+
+            <div class="row">
+
+                <div class="col-xl-4 col-md-6 col-12">
+                    <a href="{% url 'my_apps:const_search_page' %}" class="small-box bg-light app-box">
+                        <div class="inner p-4">
+                            <h4 class="app-name font-weight-bold">クイック定数検索</h4>
+                            <p class="app-desc">CHUNITHM・オンゲキの譜面定数をささっと検索できます。</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-4 col-md-6 col-12">
+                    <a href="#" class="small-box bg-light app-box">
+                        <div class="inner p-4">
+                            <h4 class="app-name font-weight-bold">アプリ名</h4>
+                            <p class="app-desc">説明</p>
+                        </div>
+                        <div class="icon">
+                            <i class="far fa-question-circle"></i>
+                        </div>
+                    </a>
+                </div>
+
+
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+{% endblock content %}

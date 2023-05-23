@@ -1,0 +1,16 @@
+{% extends './base/base.html' %}
+{% load static %}
+{% block content %}
+<div class="content-wrapper pt-5">
+  <section class="content">
+    <div class="error-page">
+      <h2 class="headline text-warning">404</h2>
+      <div class="error-content">
+        <h3><i class="fas fa-exclamation-triangle text-warning"></i> ページさんどこ〜(´・ω・`)</h3>
+        <p style="font-size: 14px;"> HTTP(S)の妖精さんがページを見つけられませんでした。妖精さんに渡したメモ(URL)を確認してみてね。</p>
+        <p style="font-size: 14px;"> もしかしたら、まだ妖精さんが知らない(作成中)ページかも。その場合は、完成までもうちょっと待っててね。</p>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock content %}

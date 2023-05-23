@@ -1,0 +1,15 @@
+.rights-info p {
+    font-size: .8rem
+}
+.border-expert{
+    border-right: 4px solid #cc3232;
+}
+.border-master{
+    border-right: 4px solid #9932cc;
+}
+.border-ultima{
+    border-right: 4px solid #160505;
+}
+.song-description:hover{
+    background-color: initial;
+}

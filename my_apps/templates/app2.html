@@ -1,0 +1,33 @@
+{% extends './base/base.html' %}
+{% block content %}
+<!-- Content Wrapper. Contains page content -->
+<div class="container">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">App2</h1>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+
+            {% if is_beta %}
+            {% include "./common/info_alert.html" %}
+            {% endif %}
+
+            <!-- ここにいろいろ書く -->
+            <p>App2やで まだ作ってないよん</p>
+
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+{% endblock content %}

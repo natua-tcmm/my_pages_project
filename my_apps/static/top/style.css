@@ -1,0 +1,18 @@
+.app-box {
+    min-height: 150px;
+}
+
+/* .app-name {} */
+
+.app-disc {
+    font-size: 14px;
+}
+
+.small-box {
+    text-align: left;
+}
+
+.small-box .icon {
+    display: block;
+    color: rgb(0 0 0 / 8%);
+}

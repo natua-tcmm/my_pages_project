@@ -1,0 +1,254 @@
+{% extends './base/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'const_search/style.css' %}">
+<!-- Content Wrapper. Contains page content -->
+<div class="container">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">クイック定数検索</h1>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+
+            {% if is_beta %}
+            {% include "./common/info_alert.html" %}
+            {% endif %}
+
+            <!-- ここにいろいろ書く -->
+            <!-- 検索のカード -->
+            <div class="row">
+                <div class="col">
+                    <div class="card card-primary card-outline">
+
+                        <div class="card-header">
+                            <h3 class="card-title"><span class="mr-3">クイック定数検索</span>
+
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-sm btn-outline-primary active">
+                                        <input type="radio" name="options" id="option_a1" autocomplete="off" checked="">
+                                        CHUNITHM版
+                                    </label>
+                                    <label class="btn btn-sm btn-outline-primary disabled">
+                                        <input type="radio" name="options" id="option_a2" autocomplete="off"> オンゲキ版
+                                    </label>
+                                </div>
+                            </h3>
+                        </div>
+
+                        <div class="card-body">
+
+                            <!-- 検索窓 -->
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+
+                                    <form id="ajax-search" action="{% url 'my_apps:const_search_page' %}" method="POST">
+                                        {% csrf_token %}
+                                        <div class="input-group input-group-lg">
+
+                                            <input name="query" type="text" class="form-control" id="query"
+                                                placeholder="検索…" aria-label="search" aria-describedby="inputHelp"
+                                                autocomplete="off">
+
+                                            <div class="input-group-append">
+                                                <button id="clear-button" class="btn btn-outline-secondary"
+                                                    type="button"><i class="fas fa-ban"></i> <span
+                                                        class="">Clear</span></button>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="is_use_name"
+                                                value="option1" checked>
+                                            <label class="form-check-label" for="is_use_name">曲名(表記)</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="is_use_reading"
+                                                value="option2" disabled>
+                                            <label class="form-check-label" for="is_use_reading">曲名(読み)</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="is_use_artists"
+                                                value="option3">
+                                            <label class="form-check-label" for="is_use_artists">アーティスト名</label>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+
+                            <!-- 区切りhr -->
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    <hr />
+                                </div>
+                            </div>
+
+                            <!-- 検索情報 -->
+                            <div class="row justify-content-center">
+                                <div class="col-5">
+                                    <p><span id="search_hit_text">検索結果 : {{song_data_len}} 件</span> <i id="loading_text"
+                                            style="display: none;" class="ml-2 fas fa-spinner fa-pulse"></i>
+                                    </p>
+                                </div>
+                                <div class="col-5">
+                                    <button id="change_dif" class="float-right btn btn-outline-primary" type="button"><i
+                                            class="mr-2 fas fa-sync-alt"></i>難易度</button>
+                                </div>
+                            </div>
+
+                            <!-- 検索結果 -->
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    <div id="post-songs" class="list-group">
+
+                                        {% for song in song_data|slice:":30" %}
+                                        {% include "const_search/song_info.html" %}
+                                        {% endfor %}
+
+                                        {% include "const_search/result_info.html" %}
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="card-footer">
+                            <p class="mb-0 float-right fs-6 text-black-50">情報元: chunirec</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- 権利表示 -->
+            <div class="row">
+                <div class="col">
+                    <div class="card card-outline card-info collapsed-card">
+
+                        <div class="card-header">
+                            <h3 class="card-title">著作権表示</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                        class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card-body rights-info" style="display: none;">
+                            {% for r in rights %}
+                            <p class="mb-0">{{r}}</p>
+                            {% endfor %}
+                        </div>
+
+                        <div class="card-footer">
+                            <p class="mb-0 float-right fs-6 text-black-50">情報元: CHUNITHM公式サイト</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- Ajaxとか -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    // ロード時に検索窓を選択状態にする
+    window.onload = function(){
+        $("#query").select()
+    }
+
+    // クリアボタンの処理
+    $("#clear-button").on("click", function (e) {
+        $("#query").val("")
+        $("#query").select()
+        search_songs(e)
+    })
+
+    // 難易度切り替え
+    var display_dif_index = 1
+    $("#change_dif").on("click", function () {
+        display_dif_index += 1
+
+        if (display_dif_index % 3 == 0) {
+            $(".constdisp_expert").css("display", "flex")
+            $(".constdisp_master").css("display", "none")
+            $(".constdisp_ultima").css("display", "none")
+        }
+        else if (display_dif_index % 3 == 1) {
+            $(".constdisp_expert").css("display", "none")
+            $(".constdisp_master").css("display", "flex")
+            $(".constdisp_ultima").css("display", "none")
+        }
+        else if (display_dif_index % 3 == 2) {
+            $(".constdisp_expert").css("display", "none")
+            $(".constdisp_master").css("display", "none")
+            $(".constdisp_ultima").css("display", "flex")
+        }
+
+    })
+
+    // 検索ワードの送信
+    $('#ajax-search').on('submit input', function (e) {
+        console.log($("#is_use_name").prop('checked'))
+        search_songs(e)
+    });
+
+    // 楽曲検索
+    var search_songs = function (e) {
+
+        $("#loading_text").css("display", "");
+
+        // 通常の送信処理を止める
+        event.preventDefault();
+
+        // 送信する
+        $.ajax({
+            'url': '{% url "my_apps:const_search_page" %}',
+            'type': 'POST',
+            'data': {
+                "csrfmiddlewaretoken": "{{ csrf_token }}",
+                'query': $('#query').val(),
+                "is_use_name": $("#is_use_name").prop('checked'),
+                "is_use_reading": $("#is_use_reading").prop('checked'),
+                "is_use_artists": $("#is_use_artists").prop('checked'),
+            },
+            'dataType': 'json',
+        })
+            //成功時
+            .done(function (response) {
+                // 今表示されてるやつを消す
+                $(".song-group-item").remove();
+                // 新しく表示する
+                for (var i = 0; i < response.search_response.length; i++)
+                    $("#post-songs").prepend(response.search_response[i]);
+
+                $("#search_hit_text").html("検索結果 : " + response.search_hit_count + " 件")
+                $("#loading_text").css("display", "none");
+            })
+            //失敗時
+            .fail(function () {
+                // 今表示されてるやつを消す
+                $(".song-group-item").remove();
+            })
+
+    }
+
+</script>
+{% endblock content %}

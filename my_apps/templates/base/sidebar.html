@@ -1,0 +1,74 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <p class="brand-link" data-widget="pushmenu">
+        <span class="brand-text font-weight-light">SideMenu</span>
+        <i class="right fas fa-angle-double-left" style="position: absolute;right: 1rem;top: 1.1rem;"></i>
+    </p>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu"
+                data-accordion="false">
+                <li class="nav-item">
+                    <a href="{% url 'my_apps:toppage' %}"
+                        class="nav-link {% if request.path == '/my_apps/top' %}active{% endif %} ">
+                        <i class="nav-icon fas fa-desktop"></i>
+                        <p>
+                            トップページ
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="404.html" class="nav-link {% if request.path == '' %}active{% endif %} ">
+                        <i class="nav-icon far fa-address-card"></i>
+                        <p>
+                            私について
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-header">各種リンク</li>
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link {% if is_app  %}active{% endif %}">
+                        <i class="nav-icon fas fa-tools"></i>
+                        <p>
+                            作成ツール
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'my_apps:const_search_page' %}"
+                                class="nav-link {% if request.path == '/my_apps/const_search' %}active{% endif %} ">
+                                <i class="nav-icon fas fa-search"></i>
+                                <p>クイック定数検索</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="404.html" class="nav-link {% if request.path == '' %}active{% endif %} ">
+                                <i class="nav-icon far fa-question-circle"></i>
+                                <p>なにかしらのアプリ</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="404.html" class="nav-link">
+                                <i class="nav-icon far fa-question-circle"></i>
+                                <p>いい感じのアプリ</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="404.html" class="nav-link">
+                        <i class="nav-icon far fa-question-circle"></i>
+                        <p>その他のなんか</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+
+</aside>
