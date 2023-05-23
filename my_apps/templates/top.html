@@ -6,7 +6,7 @@
 <div class="container">
     <div class="content-header">
         <!-- Content Header (Page header) -->
-        <div class="container-fluid">
+        <div class="container-fluid pl-0">
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0">TopPage</h1>
@@ -25,9 +25,9 @@
             {% endif %}
 
             <!-- ここにいろいろ書く -->
-            <p>トップページだよ</p>
-
-            <div class="row">
+            <h4>作成ツール一覧</h4>
+            <hr>
+            <div class="row mb-3">
 
                 <div class="col-xl-4 col-md-6 col-12">
                     <a href="{% url 'my_apps:const_search_page' %}" class="small-box bg-light app-box">
@@ -40,9 +40,142 @@
                         </div>
                     </a>
                 </div>
+
+                <!-- <div class="col-xl-4 col-md-6 col-12">
+                    <a href="{% url 'my_apps:incomplete_page' %}" class="small-box bg-light app-box">
+                        <div class="inner p-4">
+                            <h4 class="app-name font-weight-bold">BPMチェッカー</h4>
+                            <p class="app-desc">BPMから3600族・擦り・全押し連打に関する情報を表示します。</p>
+                        </div>
+                        <div class="icon">
+                            <i class="far fa-question-circle"></i>
+                        </div>
+                    </a>
+                </div> -->
+
+                <!-- <div class="col-xl-4 col-md-6 col-12">
+                    <a href="{% url 'my_apps:incomplete_page' %}" class="small-box bg-light app-box">
+                        <div class="inner p-4">
+                            <h4 class="app-name font-weight-bold">定数別OP表示</h4>
+                            <p class="app-desc">CHUNITHMの譜面定数ごとにOPや埋まり具合を表示します。</p>
+                        </div>
+                        <div class="icon">
+                            <i class="far fa-question-circle"></i>
+                        </div>
+                    </a>
+                </div> -->
+
+                <!-- <div class="col-xl-4 col-md-6 col-12">
+                    <a href="{% url 'my_apps:incomplete_page' %}" class="small-box bg-light app-box">
+                        <div class="inner p-4">
+                            <h4 class="app-name font-weight-bold">これって何落ちAJ?</h4>
+                            <p class="app-desc">AJ時のスコアから何落ちAJかを逆算します。</p>
+                        </div>
+                        <div class="icon">
+                            <i class="far fa-question-circle"></i>
+                        </div>
+                    </a>
+                </div> -->
+
+                <!-- <div class="col-xl-4 col-md-6 col-12">
+                    <a href="{% url 'my_apps:incomplete_page' %}" class="small-box bg-light app-box">
+                        <div class="inner p-4">
+                            <h4 class="app-name font-weight-bold">新曲枠なんてねーよ</h4>
+                            <p class="app-desc">オンゲキにて、新曲枠がなかった世界線のレーティングを計算します。</p>
+                        </div>
+                        <div class="icon">
+                            <i class="far fa-question-circle"></i>
+                        </div>
+                    </a>
+                </div> -->
+
+                <!-- <div class="col-xl-4 col-md-6 col-12">
+                    <a href="{% url 'my_apps:incomplete_page' %}" class="small-box bg-light app-box">
+                        <div class="inner p-4">
+                            <h4 class="app-name font-weight-bold">FULLBELLだったら？</h4>
+                            <p class="app-desc">未FB時の情報から、FBだった場合のスコアを計算します。</p>
+                        </div>
+                        <div class="icon">
+                            <i class="far fa-question-circle"></i>
+                        </div>
+                    </a>
+                </div> -->
+
+                <!-- <div class="col-xl-4 col-md-6 col-12">
+                    <a href="{% url 'my_apps:incomplete_page' %}" class="small-box bg-light app-box">
+                        <div class="inner p-4">
+                            <h4 class="app-name font-weight-bold">BS/OD計算機</h4>
+                            <p class="app-desc">カードのスキルとノーツ数などからBS/ODを計算します。</p>
+                        </div>
+                        <div class="icon">
+                            <i class="far fa-question-circle"></i>
+                        </div>
+                    </a>
+                </div> -->
+
+                <!-- <div class="col-xl-4 col-md-6 col-12">
+                    <a href="{% url 'my_apps:incomplete_page' %}" class="small-box bg-light app-box">
+                        <div class="inner p-4">
+                            <h4 class="app-name font-weight-bold">緑数字計算機</h4>
+                            <p class="app-desc">緑数字と白数字、BPMとHS値を使った計算ができます。</p>
+                        </div>
+                        <div class="icon">
+                            <i class="far fa-question-circle"></i>
+                        </div>
+                    </a>
+                </div> -->
+
+            </div>
+
+            <!-- <h4>資料集</h4>
+            <hr>
+            <div class="row mb-3">
+
+                <div class="col-xl-4 col-md-6 col-12">
+                    <a href="{% url 'my_apps:incomplete_page' %}" class="small-box bg-light app-box">
+                        <div class="inner p-4">
+                            <h4 class="app-name font-weight-bold">SEGA音ゲー年表</h4>
+                            <p class="app-desc">ゲキチュウマイの稼働日・バージョンアップ日などをまとめたページです。</p>
+                        </div>
+                        <div class="icon">
+                            <i class="far fa-question-circle"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-xl-4 col-md-6 col-12">
+                    <a href="{% url 'my_apps:incomplete_page' %}" class="small-box bg-light app-box">
+                        <div class="inner p-4">
+                            <h4 class="app-name font-weight-bold">オンゲキジャンル名集</h4>
+                            <p class="app-desc">オンゲキの楽曲を、ポップン風の選曲画面で選ぼう！</p>
+                        </div>
+                        <div class="icon">
+                            <i class="far fa-question-circle"></i>
+                        </div>
+                    </a>
+                </div>
+
+            </div> -->
+
+            <h4>その他のページ</h4>
+            <hr>
+            <div class="row">
+
+                <div class="col-xl-4 col-md-6 col-12">
+                    <a href="{% url 'my_apps:about_page' %}" class="small-box bg-light app-box">
+                        <div class="inner p-4">
+                            <h4 class="app-name font-weight-bold">私について</h4>
+                            <p class="app-desc">△Natua♪▽についての情報が書かれています。誰得？</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-address-card"></i>
+                        </div>
+                    </a>
+                </div>
+
                 <!--
                 <div class="col-xl-4 col-md-6 col-12">
-                    <a href="#" class="small-box bg-light app-box">
+                    <a href="{% url 'my_apps:incomplete_page' %}" class="small-box bg-light app-box">
                         <div class="inner p-4">
                             <h4 class="app-name font-weight-bold">アプリ名</h4>
                             <p class="app-desc">説明</p>
@@ -52,7 +185,6 @@
                         </div>
                     </a>
                 </div> -->
-
 
             </div>
 

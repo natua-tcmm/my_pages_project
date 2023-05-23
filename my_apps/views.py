@@ -5,12 +5,11 @@ from django.db.models import Q
 
 from .models import SongData,SongDataManager
 
-
 # --------------------------------------------------
 
 # トップ画面
 def top(request):
-    context = { "title":"△Natua♪▽のツールとか保管所" ,"is_beta":True, "is_app":False }
+    context = { "title":"△Natua♪▽のツールとか保管所" ,"is_beta":False, "is_app":False }
     return render(request, 'top.html',context=context)
 
 # 404ページを見るためのview
@@ -28,6 +27,13 @@ def incomplete_page(request):
 def app_template(request):
     context = { "title":"タイトル" ,"is_beta":True, "is_app":True }
     return render(request, 'app_template/app_template.html',context=context)
+
+# --------------------------------------------------
+
+# 自己紹介ページ
+def about(request):
+    context = { "title":"△Natua♪▽について" ,"is_beta":True, "is_app":False }
+    return render(request, 'about/about.html',context=context)
 
 # --------------------------------------------------
 
