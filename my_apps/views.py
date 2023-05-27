@@ -40,7 +40,7 @@ def app_template(request):
 
 # 自己紹介ページ
 def about(request):
-    context = { "title":"△Natua♪▽について" ,"is_beta":True, "is_app":False }
+    context = { "title":"△Natua♪▽について" ,"is_beta":False, "is_app":False }
     return render(request, 'about/about.html',context=context)
 
 # --------------------------------------------------

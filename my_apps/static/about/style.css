@@ -1,0 +1,14 @@
+.card-primary.card-outline {
+    border-top: 3px solid #FF00BB;
+}
+.card-body p {
+    margin-bottom: .5rem;
+    margin-left: 1.5rem;
+}
+.card-body h4 {
+    margin-bottom: 1rem;
+}
+.card-body hr {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}

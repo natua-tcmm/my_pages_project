@@ -1,5 +1,7 @@
 {% extends '../base/base.html' %}
+{% load static %}
 {% block content %}
+<link rel="stylesheet" href="{% static 'about/style.css' %}">
 <!-- Content Wrapper. Contains page content -->
 <div class="container">
     <!-- Content Header (Page header) -->
@@ -7,7 +9,7 @@
         <div class="container-fluid pl-0">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">About</h1>
+                    <h1 class="m-0">私について</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -18,7 +20,6 @@
     <section class="content">
         <div class="container-fluid">
 
-            {% include "../common/warning_alert.html" %}
             {% if is_beta %}
             {% include "../common/info_alert.html" %}
             {% endif %}
@@ -29,23 +30,57 @@
                     <div class="card card-primary card-outline">
 
                         <div class="card-header">
-                            <h3 class="card-title">アプリ名</h3>
+                            <h3 class="card-title">△Natua♪▽って誰？</h3>
                         </div>
 
                         <div class="card-body">
 
                             <div class="row justify-content-center">
                                 <div class="col-10">
-                                    <p>あああああああああああ</p>
-                                    <p>あああああああああああ</p>
-                                    <p>あああああああああああ</p>
+                                    <h4>基本情報</h4>
+                                    <p><strong>HN:</strong> △Natua♪▽</p>
+                                    <p><strong>読み:</strong> なちゅあ</p>
+                                    <p><strong>大学:</strong> 京都S大学 (年度-2020)回生</p>
+                                    <p><strong>所属:</strong> 京大音ゲーサークル「京音」</p>
+                                    <p><strong>趣味:</strong> AC音ゲー・プログラミング・ブログ執筆</p>
+                                    <p><strong>性別:</strong> 皆様非常に残念ですが、男です。</p>
+
+                                    <hr>
+                                    <h4>音ゲーについて</h4>
+                                    <p><strong>メイン機種:</strong> CHUNITHM(16.95)・オンゲキ(16.55)</p>
+                                    <p><strong>サブ機種:</strong> SDVX・maimai・弐寺・テトコネ</p>
+
+                                    <hr>
+                                    <h4>プログラミングについて</h4>
+                                    <p><strong>普段使ってる言語:</strong> Python・JavaScript・(HTML+CSS)</p>
+                                    <p><strong>書けはする言語:</strong> C・Java・R</p>
+
+                                    <hr>
+                                    <h4>ブログについて</h4>
+                                    <p><strong>主なプラットフォーム:</strong> はてなブログ(個人・京音)</p>
+                                    <p><strong>割と広まった記事:</strong>
+                                        <ul class="ml-4">
+                                            <li><a href="https://keionkakimasen.hatenadiary.com/entry/2023/02/01/200156">【CHUNITHM】キミはいくつ知っている？ウニの裏技・マイナー仕様15選！</a></li>
+                                            <li><a href="https://keionkakimasen.hatenadiary.com/entry/2022/11/12/190000">【beatmaniaIIDX】初心者の私がつまづいた仕様・システムを全部解説します</a></li>
+                                            <li><a href="https://natua.hatenadiary.jp/entry/20230409/1681037434">【オンゲキ】キャラゲー部分の解説＆おすすめカードとデッキの組み方紹介するよ</a></li>
+                                        </ul>
+                                    </p>
+
+                                    <hr>
+                                    <h4>リンク集</h4>
+                                    <ul>
+                                        <li><a href="https://twitter.com/natua_tcmm">Twitter(音ゲー垢)</a></li>
+                                        <li><a href="https://natua.hatenadiary.jp">個人ブログ</a></li>
+                                        <li><a href="https://github.com/natua-tcmm">GitHub</a></li>
+                                        <li><a href="https://qiita.com/natua_tcmm">Qiita</a></li>
+                                    </ul>
                                 </div>
                             </div>
 
                         </div>
 
                         <div class="card-footer">
-                            <p class="mb-0 float-right fs-6 text-black-50">なにかしら書く</p>
+                            <p class="mb-0 float-right fs-6 text-black-50">最終更新:2023/05/27</p>
                         </div>
 
                     </div>
@@ -56,5 +91,7 @@
     </section>
     <!-- /.content -->
 </div>
+<style>
 
+</style>
 {% endblock content %}
