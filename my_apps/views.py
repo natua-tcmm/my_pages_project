@@ -113,3 +113,10 @@ def const_search(request):
 
     # renderする
     return render(request, 'const_search/const_search.html',context=context)
+
+# --------------------------------------------------
+
+# オンゲキジャンル
+def ongeki_genre(request):
+    context = { "title":"オンゲキジャンル名図鑑" ,"is_beta":True, "is_app":True }
+    return render(request, 'ongeki_genre/ongeki_genre.html',context=context)

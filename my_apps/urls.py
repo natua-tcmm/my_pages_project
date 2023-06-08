@@ -15,5 +15,7 @@ urlpatterns = [
 
     path("const_search", views.const_search, name="const_search_page"),
 
+    path("ongeki_genre", views.ongeki_genre, name="ongeki_genre_page"),
+
     path("app_template", views.app_template, name="app_template_page"),
 ]
