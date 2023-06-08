@@ -118,5 +118,65 @@ def const_search(request):
 
 # オンゲキジャンル
 def ongeki_genre(request):
-    context = { "title":"オンゲキジャンル名図鑑" ,"is_beta":True, "is_app":True }
+
+    context = { "title":"オンゲキジャンル名図鑑" ,"is_beta":False, "is_app":True }
+
+    genre_data = {
+
+        "Tomahawk":"Lostwizz",
+        "Wダイスケ":"脳天直撃",
+        "探偵ポップス":"キミは“見ていたね”？",
+        "Life":"心",
+        "いっぱい":"Don't Fight The Music",
+        "Hi-EnergeTech Trance":"Falsum Atlantis.",
+        "Starry Chip Rock":"AstrøNotes.",
+        "プリンセスナイトロック":"GranFatalité",
+        "Sugar core":"Pastel Sprinkles",
+        "Hard Musette":"ジャンヌ・ダルクの慟哭",
+        "ふんわりディスコ":"SWEET SHAKE!!",
+        "PANDORA FOX":"エータ・ベータ・イータ",
+        "HARD RENAISSANCE":"LAMIA",
+        "progressive/regressive":"Apollo",
+        "Meter hardcore":"Dazzle hop",
+        "僕らが紡ぐRPG":"おやすみのうた",
+        "KizunaEmotions":"絆はずっとGrowing Up!!!",
+        "Magical Panic Adventure":"Magical Panic Adventure",
+        "TITANOMAKHIA":"Op.I《fear-TITΛN-》",
+        "SUPER CORE":"SUPER AMBULANCE",
+        "Fluffy Pop":"White Magic Night!",
+        "ファンタスティックスペクタクル":"Transcend Lights",
+        "BULLET HELL GABBA":"怨撃",
+        "Dramatical":"Selenadia",
+        "Symphonic Hard Psy":"μ3",
+        "MEMORY":"HEADLINER",
+        "ChipOrchestra":"Recollect Lines",
+        "CYBER PANIC FUSION":"ゲーミングポーラーベア",
+        "Girl's House":"Princesses Holiday",
+        "BRIGHT":"光焔のラテラルアーク",
+        "Lucid Hardcore":"Lazy Addiction",
+        "Everlasting Blue":"MarbleBlue.",
+        "picopico pop":"Skip & Smile!!",
+        "NEOEDOBTZ":"ブツメツビーターズ",
+        "Helzh Out":"Ai Nov",
+        "Feline Groove":"Sword of Secret",
+        "Nightmare":"YURUSHITE",
+        "symphonic":"Opfer",
+        "LIFE STREAM":"Titania",
+        "Classical Hardcore":"Viyella’s Tears",
+        "mythology":"Aenbharr",
+        "Neuro Opera":"ω4",
+        "owl＊samba":"Baqeela",
+        "Progressive Fusion":"GEOMETRIC DANCE",
+        "Dissociative Identity Disorder":"A Man In The Mirror",
+        "220":"R'N'R Monsta",
+        "OTAKU HAPPYCORE":"まっすぐ→→→ストリーム！",
+        "Amusement Hardcore":"Good bye, Merry-Go-Round.",
+
+    }
+
+    genre_data = sorted(genre_data.items(), key = lambda e : e[0])
+    # genre_data = sorted(genre_data.items(), key = lambda e : e[1])
+
+    context["genre_data"] = genre_data
+
     return render(request, 'ongeki_genre/ongeki_genre.html',context=context)

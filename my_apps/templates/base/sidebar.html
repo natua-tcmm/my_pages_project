@@ -97,8 +97,8 @@
                 </li>
                 <li class="nav-item">
                     <a href="{% url 'my_apps:ongeki_genre_page' %}"
-                        class="nav-link {% if request.path == '' %}active{% endif %}">
-                        <i class="nav-icon far fa-question-circle"></i>
+                        class="nav-link {% if request.path == '/my_apps/ongeki_genre' %}active{% endif %}">
+                        <i class="nav-icon fas fa-book-open"></i>
                         <p>オンゲキジャンル名図鑑</p>
                     </a>
                 </li>
@@ -107,5 +107,12 @@
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
-
 </aside>
+<style>
+    .main-sidebar{
+        width: 19rem;
+    }
+    .sidebar-collapse .main-sidebar{
+        margin-left: -19rem;
+    }
+</style>
