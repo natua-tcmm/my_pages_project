@@ -65,6 +65,8 @@ def const_search(request):
         # 入力されているなら検索して返す
         if query=="":
             song_search = [ e for e in SongData.objects.all() ]
+        elif query=="/update":
+            SongDataManager.update_song_data()
         else:
             # 検索設定に沿って絞り込む
             # 検索

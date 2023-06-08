@@ -51,9 +51,9 @@ class SongDataManager(models.Manager):
         for a_song_data in new_song_data:
             o,c =SongData.objects.update_or_create(song_name=a_song_data["song_name"],defaults=a_song_data)
             if c:
-                print(f"- 作成したよん→{o.song_name}")
+                print(f"- 作成したよん→ {o.song_name}")
 
-        print("更新終わったよん")
+        print("更新終わったよん\n")
 
     @classmethod
     def get_song_data(cls):
