@@ -11,18 +11,24 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'my_apps:about_page' %}#youbou" role="button">
+                ご意見・ご要望
+            </a>
+        </li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              ゲスト
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                ゲスト
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-              <a class="dropdown-item" href="#">(未実装)</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{% url 'my_apps:p403_page' %}">403</a>
-              <a class="dropdown-item" href="{% url 'my_apps:p404_page' %}">404</a>
-              <a class="dropdown-item" href="{% url 'my_apps:p500_page' %}">500</a>
+                <a class="dropdown-item" href="#">(未実装)</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'my_apps:p403_page' %}">403</a>
+                <a class="dropdown-item" href="{% url 'my_apps:p404_page' %}">404</a>
+                <a class="dropdown-item" href="{% url 'my_apps:p500_page' %}">500</a>
             </div>
-          </li>
+        </li>
         <!-- <li class="nav-item">
             <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
                 <i class="fas fa-th-large"></i>
