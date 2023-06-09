@@ -116,6 +116,14 @@ def const_search(request):
 
 # --------------------------------------------------
 
+# SEGA音ゲー年表
+def sega_nenpyo(request):
+
+    context = { "title":"SEGA音ゲー年表" ,"is_beta":False, "is_app":True }
+
+    return render(request, 'sega_nenpyo/sega_nenpyo.html',context=context)
+
+
 # オンゲキジャンル
 def ongeki_genre(request):
 
