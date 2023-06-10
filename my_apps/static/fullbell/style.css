@@ -1,0 +1,15 @@
+.bell-input {
+    width: 5rem;
+}
+.score-input {
+    width: 10rem;
+}
+
+#calc_button, #detail-button {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+#alert-error{
+    display: none;
+}

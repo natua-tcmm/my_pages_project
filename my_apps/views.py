@@ -114,6 +114,11 @@ def const_search(request):
     # renderする
     return render(request, 'const_search/const_search.html',context=context)
 
+# FULLBELLだったら
+def fullbell(request):
+    context = { "title":"FULL BELLだったら？" ,"is_beta":False, "is_app":True }
+    return render(request, 'fullbell/fullbell.html',context=context)
+
 # --------------------------------------------------
 
 # SEGA音ゲー年表
