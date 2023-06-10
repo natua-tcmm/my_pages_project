@@ -1,10 +1,12 @@
 {% extends '../base/base.html' %}
+{% load static %}
 {% block content %}
+<link rel="stylesheet" href="{% static 'bpm_checker/style.css' %}">
 <!-- Content Wrapper. Contains page content -->
 <div class="container">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-        <div class="container-fluid pl-0">
+        <div class="container-fluid  pl-0">
             <div class="row mb-2">
                 <div class="col">
                     <h1 class="m-0">BPMチェッカー</h1>
@@ -22,10 +24,10 @@
             {% include "../common/info_alert.html" %}
             {% endif %}
 
-            <!-- ここにいろいろ書く -->
+            <!-- BPM入力 -->
             <div class="row">
                 <div class="col">
-                    <div class="card card-primary card-outline">
+                    <div class="card card-primary card-outline mb-0">
 
                         <div class="card-header">
                             <h3 class="card-title">BPM入力</h3>
@@ -33,12 +35,33 @@
 
                         <div class="card-body">
 
-                            <div class="row justify-content-center">
-                                <div class="col-10">
-                                    <p>あああああああああああ</p>
-                                    <p>あああああああああああ</p>
-                                    <p>あああああああああああ</p>
+                            <div class="row justify-content-center align-item-middle">
+
+                                <div class="col-auto">
+                                    <button class="btn btn-outline-secondary btn-lg bpm-button"
+                                        value="-100">-100</button>
                                 </div>
+                                <div class="col-auto">
+                                    <button class="btn btn-outline-secondary btn-lg bpm-button" value="-10">-10</button>
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn btn-outline-secondary btn-lg bpm-button" value="-1">-1</button>
+                                </div>
+                                <div class="col-12 col-md-auto">
+                                    <input type="text" class="form-control form-control-lg text-center ml-auto mr-auto mt-2 mb-2 mt-md-0 mb-md-0"
+                                        placeholder="BPM" value="200" id="bpm-input" />
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn btn-outline-secondary btn-lg bpm-button" value="1">+1</button>
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn btn-outline-secondary btn-lg bpm-button" value="10">+10</button>
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn btn-outline-secondary btn-lg bpm-button"
+                                        value="100">+100</button>
+                                </div>
+
                             </div>
 
                         </div>
@@ -46,10 +69,335 @@
                     </div>
                 </div>
             </div>
+            <hr />
+            <!-- 一段目 -->
+            <div class="row">
 
-        </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+                <!-- 擦り情報 -->
+                <div class="col-12 col-lg-6">
+                    <div class="card card-success card-outline">
+
+                        <div class="card-header">
+                            <h3 class="card-title">擦り情報(CHUNITHM)</h3>
+                            <div class="card-tools">
+                                <p class="inputvalue-indicate text-secondary mb-0 mr-2">入力値: BPM 200</p>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    <p>まだつくってないよん</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 全押し情報 -->
+                <div class="col-12 col-lg-6">
+                    <div class="card card-success card-outline">
+
+                        <div class="card-header">
+                            <h3 class="card-title">全押し連打情報(主にオンゲキ)</h3>
+                            <div class="card-tools">
+                                <p class="inputvalue-indicate text-secondary mb-0 mr-2">入力値: BPM 200</p>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    <p>まだつくってないよん</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 二段目 -->
+            <div class="row">
+
+                <!-- n分変換 -->
+                <div class="col-12 col-lg-6">
+                    <div class="card card-success card-outline">
+
+                        <div class="card-header">
+                            <h3 class="card-title">n分音符相互変換</h3>
+                            <div class="card-tools">
+                                <p class="inputvalue-indicate text-secondary mb-0 mr-2">入力値: BPM 200</p>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    <div class="mb-2 form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="disp_detail"
+                                            value="option1">
+                                        <label class="form-check-label" for="disp_detail">6分・12分・19.2分・48分を表示</label>
+                                    </div>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center" scope="col">n分音符</th>
+                                                <th class="text-center" scope="col">間隔[ms]</th>
+                                                <th class="text-center" scope="col">16分変換[BPM]</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th class="text-center" scope="row">4</th>
+                                                <td class="text-right" id="kankaku-4">10.00</td>
+                                                <td class="text-right" id="henkan-4">150.00</td>
+                                            </tr>
+                                            <tr class="nbu-detail">
+                                                <th class="text-center" scope="row">6</th>
+                                                <td class="text-right" id="kankaku-6">10.00</td>
+                                                <td class="text-right" id="henkan-6">150.00</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-center" scope="row">8</th>
+                                                <td class="text-right" id="kankaku-8">10.00</td>
+                                                <td class="text-right" id="henkan-8">150.00</td>
+                                            </tr>
+                                            <tr class="nbu-detail">
+                                                <th class="text-center" scope="row">12</th>
+                                                <td class="text-right" id="kankaku-12">10.00</td>
+                                                <td class="text-right" id="henkan-12">150.00</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-center" scope="row">16</th>
+                                                <td class="text-right" id="kankaku-16">10.00</td>
+                                                <td class="text-right" id="henkan-16">150.00</td>
+                                            </tr>
+                                            <tr class="nbu-detail">
+                                                <th class="text-center" scope="row">19.2</th>
+                                                <td class="text-right" id="kankaku-192">10.00</td>
+                                                <td class="text-right" id="henkan-192">150.00</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-center" scope="row">24</th>
+                                                <td class="text-right" id="kankaku-24">10.00</td>
+                                                <td class="text-right" id="henkan-24">150.00</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-center" scope="row">32</th>
+                                                <td class="text-right" id="kankaku-32">10.00</td>
+                                                <td class="text-right" id="henkan-32">150.00</td>
+                                            </tr>
+                                            <tr class="nbu-detail">
+                                                <th class="text-center" scope="row">48</th>
+                                                <td class="text-right" id="kankaku-48">10.00</td>
+                                                <td class="text-right" id="henkan-48">150.00</td>
+                                            </tr>
+                                            <!-- <tr>
+                                                <th class="text-center" scope="row">
+                                                    <input type="text" class="form-control text-center" placeholder="入力"
+                                                        value="" id="" />
+                                                </th>
+                                                <td class="text-right" id="kankaku-n">10.00</td>
+                                                <td class="text-right" id="henkan-n">150.00</td>
+                                            </tr> -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 3600族情報 -->
+                <div class="col-12 col-lg-6">
+                    <div class="card card-success card-outline">
+
+                        <div class="card-header">
+                            <h3 class="card-title">3600族(7200族)情報</h3>
+                            <div class="card-tools">
+                                <p class="inputvalue-indicate text-secondary mb-0 mr-2">入力値: BPM 200</p>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    <div class="row">
+
+                                        <div class="col-12">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-light">
+                                                    <i id="jicon-36-o" class=" far fa-circle"></i>
+                                                    <i id="jicon-36-x" class="fas fa-times"></i>
+                                                </span>
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">3600族 (60fps)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-light">
+                                                    <i id="jicon-72-o" class="far fa-circle"></i>
+                                                    <i id="jicon-72-x" class="fas fa-times"></i>
+                                                </span>
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">7200族 (120fps)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-12">
+                                            <button id="detail-button"
+                                                class="btn btn-outline-secondary btn-sm btn-block" type="button"
+                                                data-toggle="collapse" data-target="#collapseExample"
+                                                aria-expanded="false" aria-controls="collapseExample">
+                                                詳細
+                                                <i class="pl-2 fas fa-chevron-down"></i>
+                                            </button>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="collapse" id="collapseExample">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center" scope="col">n分音符</th>
+                                                            <th class="text-center" scope="col">ズレなし(60fps)</th>
+                                                            <th class="text-center" scope="col">ズレなし(120fps)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th class="text-center" scope="row">4</th>
+                                                            <td class="text-center">
+                                                                <i id="zure-60-4-o" class=" far fa-circle"></i>
+                                                                <i id="zure-60-4-x" class="fas fa-times"></i>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <i id="zure-120-4-o" class=" far fa-circle"></i>
+                                                                <i id="zure-120-4-x" class="fas fa-times"></i>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-center" scope="row">6</th>
+                                                            <td class="text-center">
+                                                                <i id="zure-60-6-o" class=" far fa-circle"></i>
+                                                                <i id="zure-60-6-x" class="fas fa-times"></i>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <i id="zure-120-6-o" class=" far fa-circle"></i>
+                                                                <i id="zure-120-6-x" class="fas fa-times"></i>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-center" scope="row">8</th>
+                                                            <td class="text-center">
+                                                                <i id="zure-60-8-o" class=" far fa-circle"></i>
+                                                                <i id="zure-60-8-x" class="fas fa-times"></i>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <i id="zure-120-8-o" class=" far fa-circle"></i>
+                                                                <i id="zure-120-8-x" class="fas fa-times"></i>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-center" scope="row">12</th>
+                                                            <td class="text-center">
+                                                                <i id="zure-60-12-o" class=" far fa-circle"></i>
+                                                                <i id="zure-60-12-x" class="fas fa-times"></i>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <i id="zure-120-12-o" class=" far fa-circle"></i>
+                                                                <i id="zure-120-12-x" class="fas fa-times"></i>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-center" scope="row">16</th>
+                                                            <td class="text-center">
+                                                                <i id="zure-60-16-o" class=" far fa-circle"></i>
+                                                                <i id="zure-60-16-x" class="fas fa-times"></i>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <i id="zure-120-16-o" class=" far fa-circle"></i>
+                                                                <i id="zure-120-16-x" class="fas fa-times"></i>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-center" scope="row">19.2</th>
+                                                            <td class="text-center">
+                                                                <i id="zure-60-192-o" class=" far fa-circle"></i>
+                                                                <i id="zure-60-192-x" class="fas fa-times"></i>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <i id="zure-120-192-o" class=" far fa-circle"></i>
+                                                                <i id="zure-120-192-x" class="fas fa-times"></i>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-center" scope="row">24</th>
+                                                            <td class="text-center">
+                                                                <i id="zure-60-24-o" class=" far fa-circle"></i>
+                                                                <i id="zure-60-24-x" class="fas fa-times"></i>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <i id="zure-120-24-o" class=" far fa-circle"></i>
+                                                                <i id="zure-120-24-x" class="fas fa-times"></i>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-center" scope="row">32</th>
+                                                            <td class="text-center">
+                                                                <i id="zure-60-32-o" class=" far fa-circle"></i>
+                                                                <i id="zure-60-32-x" class="fas fa-times"></i>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <i id="zure-120-32-o" class=" far fa-circle"></i>
+                                                                <i id="zure-120-32-x" class="fas fa-times"></i>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-center" scope="row">48</th>
+                                                            <td class="text-center">
+                                                                <i id="zure-60-48-o" class=" far fa-circle"></i>
+                                                                <i id="zure-60-48-x" class="fas fa-times"></i>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <i id="zure-120-48-o" class=" far fa-circle"></i>
+                                                                <i id="zure-120-48-x" class="fas fa-times"></i>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+</div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
 </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{% static 'bpm_checker/script.js' %}"></script>
 {% endblock content %}
