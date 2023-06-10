@@ -18,6 +18,7 @@ urlpatterns = [
     # ツール
     path("const_search", views.const_search, name="const_search_page"),
     path("fullbell", views.fullbell, name="fullbell_page"),
+    path("bpm_checker", views.bpm_checker, name="bpm_checker_page"),
 
     # 資料集
     path("ongeki_genre", views.ongeki_genre, name="ongeki_genre_page"),

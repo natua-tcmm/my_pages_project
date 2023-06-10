@@ -119,6 +119,11 @@ def fullbell(request):
     context = { "title":"FULL BELLだったら？" ,"is_beta":False, "is_app":True }
     return render(request, 'fullbell/fullbell.html',context=context)
 
+# BPMチェッカー
+def bpm_checker(request):
+    context = { "title":"BPMチェッカー" ,"is_beta":False, "is_app":True }
+    return render(request, 'bpm_checker/bpm_checker.html',context=context)
+
 # --------------------------------------------------
 
 # SEGA音ゲー年表
