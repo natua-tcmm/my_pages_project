@@ -48,7 +48,8 @@
                                     <button class="btn btn-outline-secondary btn-lg bpm-button" value="-1">-1</button>
                                 </div>
                                 <div class="col-12 col-md-auto">
-                                    <input type="text" class="form-control form-control-lg text-center ml-auto mr-auto mt-2 mb-2 mt-md-0 mb-md-0"
+                                    <input type="text"
+                                        class="form-control form-control-lg text-center ml-auto mr-auto mt-2 mb-2 mt-md-0 mb-md-0"
                                         placeholder="BPM" value="200" id="bpm-input" />
                                 </div>
                                 <div class="col-auto">
@@ -88,7 +89,67 @@
 
                             <div class="row justify-content-center">
                                 <div class="col-10">
-                                    <p>まだつくってないよん</p>
+                                    <div class="row">
+
+                                        <div class="col-12">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-light">
+                                                    <i id="kosuri-8-oo" class="far fa-check-circle"></i>
+                                                    <i id="kosuri-8-o" class=" far fa-circle"></i>
+                                                    <i id="kosuri-8-x" class="fas fa-times"></i>
+                                                </span>
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">8分間隔</span>
+                                                    <span id="kosuri-8-info" class="info-box-number">AJ通過できます</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-light">
+                                                    <i id="kosuri-16-oo" class="far fa-check-circle"></i>
+                                                    <i id="kosuri-16-o" class=" far fa-circle"></i>
+                                                    <i id="kosuri-16-x" class="fas fa-times"></i>
+                                                </span>
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">16分間隔</span>
+                                                    <span id="kosuri-16-info" class="info-box-number">理論値通過できます</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-light">
+                                                    <i id="kosuri-24-oo" class="far fa-check-circle"></i>
+                                                    <i id="kosuri-24-o" class=" far fa-circle"></i>
+                                                    <i id="kosuri-24-x" class="fas fa-times"></i>
+                                                </span>
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">24分間隔</span>
+                                                    <span id="kosuri-24-info" class="info-box-number">理論値通過できます</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <button id="detail-button1"
+                                                class="btn btn-outline-secondary btn-sm btn-block" type="button"
+                                                data-toggle="collapse" data-target="#collapse1" aria-expanded="false"
+                                                aria-controls="collapse1">
+                                                詳細
+                                                <i class="pl-2 fas fa-chevron-down"></i>
+                                            </button>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="collapse" id="collapse1">
+                                                <ul class="list-unstyled mt-2">
+                                                    <li><span id="kosuri-n-aj">8</span>分未満 ATTACKが出ます</li>
+                                                    <li><span id="kosuri-n-ajc">8</span>分未満 赤JUSTICEが出ます</li>
+                                                    <li>それより狭ければ理論値通過できます</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -112,7 +173,68 @@
 
                             <div class="row justify-content-center">
                                 <div class="col-10">
-                                    <p>まだつくってないよん</p>
+                                    <div class="row">
+
+                                        <div class="col-12">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-light">
+                                                    <i id="zen-8-oo" class="far fa-check-circle"></i>
+                                                    <i id="zen-8-o" class=" far fa-circle"></i>
+                                                    <i id="zen-8-x" class="fas fa-times"></i>
+                                                </span>
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">8分間隔</span>
+                                                    <span id="zen-8-info" class="info-box-number">AJ通過できます</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-light">
+                                                    <i id="zen-12-oo" class="far fa-check-circle"></i>
+                                                    <i id="zen-12-o" class=" far fa-circle"></i>
+                                                    <i id="zen-12-x" class="fas fa-times"></i>
+                                                </span>
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">12分間隔</span>
+                                                    <span id="zen-12-info" class="info-box-number">理論値通過できます</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-light">
+                                                    <i id="zen-16-oo" class="far fa-check-circle"></i>
+                                                    <i id="zen-16-o" class=" far fa-circle"></i>
+                                                    <i id="zen-16-x" class="fas fa-times"></i>
+                                                </span>
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">16分間隔</span>
+                                                    <span id="zen-16-info" class="info-box-number">理論値通過できます</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-12">
+                                            <button id="detail-button2"
+                                                class="btn btn-outline-secondary btn-sm btn-block" type="button"
+                                                data-toggle="collapse" data-target="#collapse2" aria-expanded="false"
+                                                aria-controls="collapse2">
+                                                詳細
+                                                <i class="pl-2 fas fa-chevron-down"></i>
+                                            </button>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="collapse" id="collapse2">
+                                                <ul class="list-unstyled mt-2">
+                                                    <li><span id="zen-n-oo">8</span>分 より広いと全押しできます</li>
+                                                    <li><span id="zen-n-o">8</span>分 より広いと全押しできます(遅B注意)</li>
+                                                    <li>それより狭いと巻き込む可能性があります</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -144,14 +266,19 @@
                                     <div class="mb-2 form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" id="disp_detail"
                                             value="option1">
-                                        <label class="form-check-label" for="disp_detail">6分・12分・19.2分・48分を表示</label>
+                                        <label class="form-check-label" for="disp_detail">6分・12分・19.2分・48分を表示する</label>
+                                    </div>
+                                    <div class="mb-2 form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="disp_f"
+                                            value="option_a2">
+                                        <label class="form-check-label" for="disp_f">間隔を60fpsフレーム数で表示する</label>
                                     </div>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th class="text-center" scope="col">n分音符</th>
-                                                <th class="text-center" scope="col">間隔[ms]</th>
-                                                <th class="text-center" scope="col">16分変換[BPM]</th>
+                                                <th class="text-center" scope="col">間隔 <span id="tanni">[ms]</span></th>
+                                                <th class="text-center" scope="col">16分変換 [BPM]</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -260,17 +387,16 @@
 
 
                                         <div class="col-12">
-                                            <button id="detail-button"
-                                                class="btn btn-outline-secondary btn-sm btn-block" type="button"
-                                                data-toggle="collapse" data-target="#collapseExample"
-                                                aria-expanded="false" aria-controls="collapseExample">
+                                            <button class="btn btn-outline-secondary btn-sm btn-block" type="button"
+                                                data-toggle="collapse" data-target="#collapse0"
+                                                aria-expanded="false" aria-controls="collapse0">
                                                 詳細
                                                 <i class="pl-2 fas fa-chevron-down"></i>
                                             </button>
                                         </div>
 
                                         <div class="col-12">
-                                            <div class="collapse" id="collapseExample">
+                                            <div class="collapse" id="collapse0">
                                                 <table class="table table-bordered">
                                                     <thead>
                                                         <tr>
