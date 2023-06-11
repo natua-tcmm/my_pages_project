@@ -17,7 +17,7 @@ $(".bpm-button").on("click", function () {
 $("#bpm-input").change(function () { calc(); });
 
 // 読み込んだときに計算する
-window.onload = function(){
+$(document).ready(function(){
 
     // クエリ文字列からbpm入力
     const searchParams = new URLSearchParams(window.location.search)
@@ -26,8 +26,7 @@ window.onload = function(){
     }
 
     calc();
-};
-
+});
 
 
 // -------------------------------

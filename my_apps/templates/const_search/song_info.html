@@ -47,9 +47,15 @@
                 <p class="mb-1 mt-1">収録日: {{song.song_release}}</p>
                 <div class="container mt-2">
                     <div class="row">
-                        <!-- <button class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary" type="button">
+
+                        <button id="bpm_link_{{song.id}}" class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary"
+                            type="button">
                             BPMチェック
-                        </button> -->
+                        </button>
+                        <script>
+                            document.getElementById("bpm_link_{{song.id}}").onclick = function () { window.location.href = "{% url 'my_apps:bpm_checker_page' %}?bpm={{song.song_bpm}}"; };
+                        </script>
+
                         <button onclick='window.open("https://db.chunirec.net/search?q={{song.song_name}}")'
                             class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary" type="button">
                             統計情報 <span style="font-size:.7rem">(外部ページ)</span>
