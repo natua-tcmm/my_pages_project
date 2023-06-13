@@ -24,5 +24,7 @@ urlpatterns = [
     path("ongeki_genre", views.ongeki_genre, name="ongeki_genre_page"),
     path("sega_nenpyo", views.sega_nenpyo, name="sega_nenpyo_page"),
 
+    # その他
+    path("kadaikyoku", views.kadaikyoku, name="kadaikyoku_page"),
     path("app_template", views.app_template, name="app_template_page"),
 ]

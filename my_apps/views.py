@@ -149,7 +149,6 @@ def sega_nenpyo(request):
 
     return render(request, 'sega_nenpyo/sega_nenpyo.html',context=context)
 
-
 # オンゲキジャンル
 def ongeki_genre(request):
 
@@ -214,3 +213,10 @@ def ongeki_genre(request):
     context["genre_data"] = genre_data
 
     return render(request, 'ongeki_genre/ongeki_genre.html',context=context)
+
+# --------------------------------------------------
+
+# 課題曲選択
+def kadaikyoku(request):
+    context = { "title":"課題曲セレクト" ,"is_beta":False, "is_app":False }
+    return render(request, 'kadaikyoku/kadaikyoku.html',context=context)

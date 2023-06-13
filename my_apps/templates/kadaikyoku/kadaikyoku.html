@@ -1,0 +1,190 @@
+{% extends '../base/base.html' %}
+{% load static %}
+{% block content %}
+<!-- Content Wrapper. Contains page content -->
+<div class="container">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid pl-0">
+            <div class="row mb-2">
+                <div class="col">
+                    <h1 class="m-0">課題曲セレクト</h1>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+
+            {% if is_beta %}
+            {% include "../common/info_alert.html" %}
+            {% endif %}
+
+            <!-- 抽選＆ツイート -->
+            <div class="row">
+                <div class="col">
+                    <div class="card card-primary card-outline">
+
+                        <div class="card-header">
+                            <h3 class="card-title">対戦情報 自動入力</h3>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+
+                                    <!-- ボタン -->
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">大会名</span>
+                                                </div>
+                                                <select class="form-control">
+                                                    <option>京音部内戦2023</option>
+                                                </select>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">機種名</span>
+                                                </div>
+                                                <select class="form-control">
+                                                    <option>音ゲー</option>
+                                                </select>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">試合名</span>
+                                                </div>
+                                                <select class="form-control">
+                                                    <option>第1試合 あるふぁさん vs べーたさん</option>
+                                                </select>
+                                            </div>
+                                            <button id="auto-input" type="button"
+                                                class="btn btn-outline-primary mb-3">自動入力(仮)</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- 抽選＆ツイート -->
+            <div class="row">
+                <div class="col">
+                    <div class="card card-primary card-outline">
+
+                        <div class="card-header">
+                            <h3 class="card-title">抽選＆ツイート</h3>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+
+                                    <!-- 対戦情報 -->
+                                    <p class="mb-2">対戦情報</p>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">#</span>
+                                        </div>
+                                        <input id="hashtag-in" type="text" class="form-control" value="京音部内戦2023">
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">機種名</span>
+                                        </div>
+                                        <input id="vs-game" type="text" class="form-control" placeholder="機種名...">
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">対戦名</span>
+                                        </div>
+                                        <input id="vs-name" type="text" class="form-control" placeholder="第n試合...">
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">対戦プレイヤー</span>
+                                        </div>
+                                        <input id="vs-player" type="text" class="form-control"
+                                            placeholder="プレイヤー名 vs プレイヤー名 vs ...">
+
+                                    </div>
+
+                                    <hr />
+
+                                    <!-- 課題曲たち -->
+                                    <p class="mb-2">課題曲</p>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <input id="kadai-check-1" type="checkbox">
+                                            </div>
+                                        </div>
+                                        <input id="kadai-in-1" type="text" class="form-control" placeholder="課題曲1...">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <input id="kadai-check-2" type="checkbox">
+                                            </div>
+                                        </div>
+                                        <input id="kadai-in-2" type="text" class="form-control" placeholder="課題曲2...">
+                                    </div>
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <input id="kadai-check-3" type="checkbox">
+                                            </div>
+                                        </div>
+                                        <input id="kadai-in-3" type="text" class="form-control" placeholder="課題曲3...">
+                                    </div>
+
+                                    <hr />
+
+                                    <!-- 操作ボタン -->
+                                    <div class="row mb-2">
+
+                                        <div class="col-auto">
+                                            <button id="start" type="button" class="btn btn-primary">抽選</button>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button id="tweet" type="button" class="btn btn-outline-secondary"
+                                                disabled>ツイート</button>
+                                        </div>
+                                    </div>
+                                    <p class="mb-2 text-red">ツイート時は画像を貼るのを忘れずに！</p>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<script>
+    var csrfmiddlewaretoken = "{{ csrf_token }}"
+    var send_url = '{% url "my_apps:kadaikyoku_page" %}'
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{% static 'kadaikyoku/script.js' %}"></script>
+{% endblock content %}
