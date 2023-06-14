@@ -61,8 +61,7 @@
 
                                             <div class="input-group-append">
                                                 <button id="clear-button" class="btn btn-outline-secondary"
-                                                    type="button"><i class="fas fa-ban"></i> <span
-                                                        class="">Clear</span></button>
+                                                    type="button"><i class="fas fa-backspace"></i>
                                             </div>
 
                                         </div>
@@ -97,19 +96,21 @@
 
                             <!-- 検索情報 -->
                             <div class="row justify-content-center">
-                                <div class="col-5">
+                                <div class="col-1"></div>
+                                <div class="col-auto">
                                     <p><span id="search_hit_text">検索結果 : {{song_data_len}} 件</span> <i id="loading_text"
                                             style="display: none;" class="ml-2 fas fa-spinner fa-pulse"></i>
                                     </p>
                                 </div>
-                                <div class="col-5">
+                                <div class="col">
                                     <button id="change_dif" class="float-right btn btn-outline-primary" type="button"><i
                                             class="mr-2 fas fa-sync-alt"></i>難易度</button>
                                 </div>
+                                <div class="col-1"></div>
                             </div>
 
                             <!-- 検索結果 -->
-                            <div class="row justify-content-center">
+                            <div class="row justify-content-center search-result">
                                 <div class="col-10">
                                     <div id="post-songs" class="list-group">
 
@@ -163,7 +164,7 @@
     <!-- /.content -->
 </div>
 <script>
-    var csrfmiddlewaretoken =  "{{ csrf_token }}"
+    var csrfmiddlewaretoken = "{{ csrf_token }}"
     var send_url = '{% url "my_apps:const_search_page" %}'
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

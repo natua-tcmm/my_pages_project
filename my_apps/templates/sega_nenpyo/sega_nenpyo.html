@@ -2,338 +2,345 @@
 {% block content %}
 <!-- Content Wrapper. Contains page content -->
 <div class="container">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid pl-0">
-            <div class="row mb-2">
-                <div class="col">
-                    <h1 class="m-0">SEGA音ゲー年表</h1>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid pl-0">
+      <div class="row mb-2">
+        <div class="col">
+          <h1 class="m-0">SEGA音ゲー年表</h1>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
 
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
 
-            {% if is_beta %}
-            {% include "../common/info_alert.html" %}
-            {% endif %}
+      {% if is_beta %}
+      {% include "../common/info_alert.html" %}
+      {% endif %}
 
-            <!-- ここにいろいろ書く -->
-            <div class="row">
-                <div class="col">
-                    <div class="card card-primary card-outline">
+      <!-- ここにいろいろ書く -->
+      <div class="row">
+        <div class="col">
+          <div class="card card-primary card-outline">
 
-                        <div class="card-header">
-                            <h3 class="card-title">ゲキチュウマイの歴史</h3>
-                        </div>
-
-                        <div class="card-body">
-
-                            <div class="row justify-content-center">
-                                <div class="col-10">
-                                    <table class="table table-hover table-striped">
-                                        <thead>
-                                          <tr>
-                                            <th class="text-center" scope="col">日付</th>
-                                            <th class="text-center" scope="col">maimai</th>
-                                            <th class="text-center" scope="col">CHUNITHM</th>
-                                            <th class="text-center" scope="col">オンゲキ</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <th class="text-center" scope="row">2012/07/11</th>
-                                            <td class="text-center">無印</td>
-                                            <td class="text-center"></td>
-                                            <td class="text-center"></td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2012/12/13</th>
-                                            <td class="text-center">無印 PLUS</td>
-                                            <td class="text-center"></td>
-                                            <td class="text-center"></td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2013/07/11</th>
-                                            <td class="text-center">GreeN</td>
-                                            <td class="text-center"></td>
-                                            <td class="text-center"></td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2014/01/31</th>
-                                            <td class="text-center">GreeN PLUS</td>
-                                            <td class="text-center"></td>
-                                            <td class="text-center"></td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2014/09/18</th>
-                                            <td class="text-center">ORANGE</td>
-                                            <td class="text-center"></td>
-                                            <td class="text-center"></td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2015/03/19</th>
-                                            <td class="text-center">ORANGE PLUS</td>
-                                            <td class="text-center"></td>
-                                            <td class="text-center"></td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2015/07/16</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">無印</td>
-                                            <td class="text-center"></td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2015/12/09</th>
-                                            <td class="text-center">PiNK</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center"></td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2016/02/04</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">無印 PLUS</td>
-                                            <td class="text-center"></td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2016/06/30</th>
-                                            <td class="text-center">PiNK PLUS</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center"></td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2016/08/25</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">AIR</td>
-                                            <td class="text-center"></td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2016/12/15</th>
-                                            <td class="text-center">MURASAKi</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center"></td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2017/02/09</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">AIR PLUS</td>
-                                            <td class="text-center"></td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2017/06/22</th>
-                                            <td class="text-center">MURASAKi PLUS</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center"></td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2017/08/24</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">STAR</td>
-                                            <td class="text-center"></td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2017/12/14</th>
-                                            <td class="text-center">MiLK</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center"></td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2018/03/08</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">STAR PLUS</td>
-                                            <td class="text-center"></td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2018/06/21</th>
-                                            <td class="text-center">MiLK PLUS</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center"></td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2018/07/26</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">無印</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2018/10/25</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">AMAZON</td>
-                                            <td class="text-center">|</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2018/12/13</th>
-                                            <td class="text-center">FiNALE</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">|</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2019/02/07</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">無印 PLUS</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2019/04/11</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">AMAZON PLUS</td>
-                                            <td class="text-center">|</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2019/07/11</th>
-                                            <td class="text-center">でらっくす</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">|</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2019/08/22</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">SUMMER</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2019/10/24</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">CRYSTAL</td>
-                                            <td class="text-center">|</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2020/01/23</th>
-                                            <td class="text-center">でらっくす PLUS</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">|</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2020/02/20</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">SUMMER PLUS</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2020/07/16</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">CRYSTAL PLUS</td>
-                                            <td class="text-center">|</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2020/09/17</th>
-                                            <td class="text-center">Splash</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">|</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2020/09/30</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">R.E.D.</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2021/01/21</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">PARADISE</td>
-                                            <td class="text-center">|</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2021/03/18</th>
-                                            <td class="text-center">Splash PLUS</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">|</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2021/03/31</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">R.E.D. PLUS</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2021/05/13</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">PARADISE LOST</td>
-                                            <td class="text-center">|</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2021/09/16</th>
-                                            <td class="text-center">UNiVERSE</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">|</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2021/10/21</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">bright</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2021/11/04</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">NEW</td>
-                                            <td class="text-center">|</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2022/03/03</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">bright MEMORY</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2022/03/24</th>
-                                            <td class="text-center">UNiVERSE PLUS</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">|</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2022/04/14</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">NEW PLUS</td>
-                                            <td class="text-center">|</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2022/09/15</th>
-                                            <td class="text-center">FESTiVAL</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">|</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2022/10/13</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">SUN</td>
-                                            <td class="text-center">|</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2023/03/23</th>
-                                            <td class="text-center">FESTiVAL PLUS</td>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">|</td>
-                                          </tr>
-                                          <tr>
-                                            <th class="text-center" scope="row">2023/05/11</th>
-                                            <td class="text-center">|</td>
-                                            <td class="text-center">SUN PLUS</td>
-                                            <td class="text-center">|</td>
-                                          </tr>
-
-                                        </tbody>
-                                      </table>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="card-footer">
-                            <p class="mb-0 float-right fs-6 text-black-50">最終更新:2023/06/10</p>
-                        </div>
-
-                    </div>
-                </div>
+            <div class="card-header">
+              <h3 class="card-title">ゲキチュウマイの歴史</h3>
             </div>
 
-        </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-</div>
+            <div class="card-body">
 
+              <div class="row justify-content-center">
+                <div class="col-10">
+                  <div class="table-responsive">
+                    <table class="table table-hover table-striped main-table">
+                      <thead>
+                        <tr>
+                          <th class="text-center" scope="col">日付</th>
+                          <th class="text-center" scope="col">maimai</th>
+                          <th class="text-center" scope="col">CHUNITHM</th>
+                          <th class="text-center" scope="col">オンゲキ</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th class="text-center" scope="row">2012/07/11</th>
+                          <td class="text-center">無印</td>
+                          <td class="text-center"></td>
+                          <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2012/12/13</th>
+                          <td class="text-center">無印 PLUS</td>
+                          <td class="text-center"></td>
+                          <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2013/07/11</th>
+                          <td class="text-center">GreeN</td>
+                          <td class="text-center"></td>
+                          <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2014/01/31</th>
+                          <td class="text-center">GreeN PLUS</td>
+                          <td class="text-center"></td>
+                          <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2014/09/18</th>
+                          <td class="text-center">ORANGE</td>
+                          <td class="text-center"></td>
+                          <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2015/03/19</th>
+                          <td class="text-center">ORANGE PLUS</td>
+                          <td class="text-center"></td>
+                          <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2015/07/16</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">無印</td>
+                          <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2015/12/09</th>
+                          <td class="text-center">PiNK</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2016/02/04</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">無印 PLUS</td>
+                          <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2016/06/30</th>
+                          <td class="text-center">PiNK PLUS</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2016/08/25</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">AIR</td>
+                          <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2016/12/15</th>
+                          <td class="text-center">MURASAKi</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2017/02/09</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">AIR PLUS</td>
+                          <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2017/06/22</th>
+                          <td class="text-center">MURASAKi PLUS</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2017/08/24</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">STAR</td>
+                          <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2017/12/14</th>
+                          <td class="text-center">MiLK</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2018/03/08</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">STAR PLUS</td>
+                          <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2018/06/21</th>
+                          <td class="text-center">MiLK PLUS</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2018/07/26</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center">無印</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2018/10/25</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">AMAZON</td>
+                          <td class="text-center">|</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2018/12/13</th>
+                          <td class="text-center">FiNALE</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center">|</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2019/02/07</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center">無印 PLUS</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2019/04/11</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">AMAZON PLUS</td>
+                          <td class="text-center">|</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2019/07/11</th>
+                          <td class="text-center">でらっくす</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center">|</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2019/08/22</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center">SUMMER</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2019/10/24</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">CRYSTAL</td>
+                          <td class="text-center">|</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2020/01/23</th>
+                          <td class="text-center">でらっくす PLUS</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center">|</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2020/02/20</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center">SUMMER PLUS</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2020/07/16</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">CRYSTAL PLUS</td>
+                          <td class="text-center">|</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2020/09/17</th>
+                          <td class="text-center">Splash</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center">|</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2020/09/30</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center">R.E.D.</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2021/01/21</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">PARADISE</td>
+                          <td class="text-center">|</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2021/03/18</th>
+                          <td class="text-center">Splash PLUS</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center">|</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2021/03/31</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center">R.E.D. PLUS</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2021/05/13</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">PARADISE LOST</td>
+                          <td class="text-center">|</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2021/09/16</th>
+                          <td class="text-center">UNiVERSE</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center">|</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2021/10/21</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center">bright</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2021/11/04</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">NEW</td>
+                          <td class="text-center">|</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2022/03/03</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center">bright MEMORY</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2022/03/24</th>
+                          <td class="text-center">UNiVERSE PLUS</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center">|</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2022/04/14</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">NEW PLUS</td>
+                          <td class="text-center">|</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2022/09/15</th>
+                          <td class="text-center">FESTiVAL</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center">|</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2022/10/13</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">SUN</td>
+                          <td class="text-center">|</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2023/03/23</th>
+                          <td class="text-center">FESTiVAL PLUS</td>
+                          <td class="text-center">|</td>
+                          <td class="text-center">|</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">2023/05/11</th>
+                          <td class="text-center">|</td>
+                          <td class="text-center">SUN PLUS</td>
+                          <td class="text-center">|</td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="card-footer">
+              <p class="mb-0 float-right fs-6 text-black-50">最終更新:2023/06/10</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+<style>
+.main-table{
+  /* width: 100%; */
+  white-space: nowrap
+}
+</style>
 {% endblock content %}
