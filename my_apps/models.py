@@ -278,3 +278,14 @@ class SongDataOManager(models.Manager):
                 ongeki_rights.append(e["copyright1"])
 
         return (list(set(ongeki_rights)))
+
+# ----------------------------------
+
+# 部内戦2023試合データ
+class GameDataB2023(models.Model):
+    game_kisyu = models.CharField(max_length=30)
+    game_no = models.CharField(max_length=30)
+    game_player = models.CharField(max_length=100)
+    game_kadai1 = models.CharField(max_length=50)
+    game_kadai2 = models.CharField(max_length=50)
+    game_kadai3 = models.CharField(max_length=50)

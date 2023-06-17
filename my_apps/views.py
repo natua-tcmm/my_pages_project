@@ -5,6 +5,8 @@ from django.db.models import Q
 
 from .models import SongDataC,SongDataCManager,SongDataO,SongDataOManager
 
+import pandas as pd
+
 # --------------------------------------------------
 
 # トップ画面
@@ -219,6 +221,9 @@ def ongeki_genre(request):
 # 課題曲選択
 def kadaikyoku(request):
     context = { "title":"課題曲セレクト" ,"is_beta":False, "is_app":False }
+
+    # 試合情報を読み込む
+    # ...
 
     if request.POST:
 
