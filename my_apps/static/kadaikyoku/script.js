@@ -1,22 +1,22 @@
 // ルーレット表示
-function roulette(n) {
+function roulette(n,all) {
 
     var times = [0];
-    for (let i = 0; i < 21 + n - 1; i++) {
+    for (let i = 0; i < all*7 + n - 1; i++) {
         times.push(times[times.length - 1] + 50)
     }
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < all*5; i++) {
         times.push(times[times.length - 1] + 75)
     }
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < all*4; i++) {
         times.push(times[times.length - 1] + 100)
     }
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < all*2; i++) {
         times.push(times[times.length - 1] + 150)
     }
 
     for (let i = 0; i < times.length; i++) {
-        setTimeout(function () { roulette_onoff(i % 3) }, times[i]);
+        setTimeout(function () { roulette_onoff(i % all) }, times[i]);
     }
 
     return times[times.length - 1];
@@ -70,7 +70,7 @@ var load_kadaikyoku = function (e) {
         .done(function (response) {
 
             $("#loading-text").css("display", "none");
-            console.log(response.test);
+            // console.log(response.test);
 
             // 機種名から試合名
             if (response.games_response) {
@@ -126,8 +126,8 @@ var auto_input_kadaikyoku = function (e) {
         .done(function (response) {
 
             $("#loading-text").css("display", "none");
-            console.log(response.test);
-            console.log(response.games_info);
+            // console.log(response.test);
+            // console.log(response.games_info);
 
             // 試合情報の自動入力
             if (response.games_info) {
@@ -162,13 +162,17 @@ $("#start").on("click", function () {
     // 抽選ボタンをdisableに
     $("#start").prop("disabled", true);
 
+    var all = 3;
+    if( $("#kadai-in-3").val()=="" )
+        var all = 2;
+
     // 抽選
-    var min = 1; var max = 3;
+    var min = 1; var max = all;
     var n = Math.floor(Math.random() * (max + 1 - min)) + min;
 
     // ルーレットを回す演出
     roulette_onoff(-10);
-    var t = roulette(n);
+    var t = roulette(n,all);
     console.log(n, t);
 
     // ルーレット停止後の処理
@@ -216,5 +220,20 @@ $("#tweet").on("click", function () {
         window.open(tweetLink);
     }
 
+
+});
+
+// リセット
+$("#reset").on("click", function () {
+
+    $("#vs-game").val("");
+    $("#vs-name").val("");
+    $("#vs-player").val("");
+
+    for (var i = 0; i < 3; i++) {
+        $("#kadai-in-" + (i + 1)).val("");
+        $("#kadai-check-" + (i + 1)).attr('checked', false).prop("checked", false).change();
+        $("#kadai-in-" + (i + 1)).removeClass("is-valid").change();
+    }
 
 });

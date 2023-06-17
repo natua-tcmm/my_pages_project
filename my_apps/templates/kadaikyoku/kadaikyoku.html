@@ -76,11 +76,16 @@
                                                     <option class="games" selected>(まずは機種を選んでください)</option>
                                                 </select>
                                             </div>
-                                            <div class="row align-items-center">
-                                                <button id="auto-input" type="button"
-                                                    class="btn btn-outline-primary mb-3">自動入力</button>
-                                                <p id="loading-text" class="ml-3" style="display: none;">通信中…</p>
-                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <button id="auto-input" type="button"
+                                                class="btn btn-outline-primary mb-3"><i
+                                                    class="pr-1 fas fa-pen-square"></i>自動入力</button>
+                                        </div>
+                                        <div class="col">
+                                            <p id="loading-text" class="" style="display: none;">通信中…</p>
                                         </div>
                                     </div>
 
@@ -175,11 +180,22 @@
                                     <div class="row mb-2">
 
                                         <div class="col-auto">
-                                            <button id="start" type="button" class="btn btn-primary">抽選</button>
+                                            <button id="start" type="button" class="btn btn-primary">
+                                                <i class="pr-1 far fa-play-circle"></i>
+                                                抽選
+                                            </button>
                                         </div>
                                         <div class="col-auto">
-                                            <button id="tweet" type="button"
-                                                class="btn btn-outline-secondary">ツイート</button>
+                                            <button id="tweet" type="button" class="btn btn-outline-secondary">
+                                                <i class="pr-1 fab fa-twitter"></i>
+                                                ツイート
+                                            </button>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button id="reset" type="button" class="btn btn-outline-secondary">
+                                                <i class="pr-1 far fa-times-circle"></i>
+                                                クリア
+                                            </button>
                                         </div>
                                     </div>
                                     <p class="mb-2 text-red">ツイート時は画像を貼るのを忘れずに！</p>

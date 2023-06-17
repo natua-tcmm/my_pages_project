@@ -3,7 +3,7 @@ from django.template.loader import render_to_string
 from django.http import JsonResponse
 from django.db.models import Q
 
-from .models import SongDataC,SongDataCManager,SongDataO,SongDataOManager
+from .models import *
 
 import pandas as pd
 
@@ -223,7 +223,8 @@ def kadaikyoku(request):
     context = { "title":"課題曲セレクト" ,"is_beta":False, "is_app":False }
 
     # 試合情報を読み込む
-    # ...
+    gamedata = GameDataB2023
+
 
     if request.POST:
 
@@ -239,7 +240,8 @@ def kadaikyoku(request):
             if not kisyu.startswith("("):
 
                 # 試合名を読み込む
-                games = ["第1試合 A vs B","第2試合 C vs D","第3試合 E vs F"]
+                game_list = [ o for o in gamedata.objects.filter(game_kisyu=kisyu)]
+                games = [ o.game_no for o in game_list ]
 
                 # 試合一覧を整えて返す
                 games_response = [ f'<option class="games">{g}</option>' for g in games ]
@@ -248,18 +250,21 @@ def kadaikyoku(request):
         # 試合名から試合情報を返す
         else:
             if not game.startswith("("):
+
                 # 試合情報を読み込む
+                game_selected = gamedata.objects.filter(game_no=game)[0]
+
                 games_info = {
 
-                    "vs_game":kisyu,
-                    "vs_name":"第1試合",
-                    "vs_player":"Xさん vs Yさん",
+                    "vs_game":game_selected.game_kisyu,
+                    "vs_name":game_selected.game_no,
+                    "vs_player":game_selected.game_player,
 
                     "kadai":[
 
-                        "楽曲AAA",
-                        "楽曲BBB",
-                        "楽曲CCC",
+                        game_selected.game_kadai1,
+                        game_selected.game_kadai2,
+                        game_selected.game_kadai3,
 
                     ],
 
