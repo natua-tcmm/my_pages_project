@@ -1,17 +1,22 @@
+// 課題曲の数
+var kadaikyoku_count = 3;
+
+// ---------------------------------
+
 // ルーレット表示
-function roulette(n,all) {
+function roulette(n, all) {
 
     var times = [0];
-    for (let i = 0; i < all*7 + n - 1; i++) {
+    for (let i = 0; i < all * 7 + n - 1; i++) {
         times.push(times[times.length - 1] + 50)
     }
-    for (let i = 0; i < all*5; i++) {
+    for (let i = 0; i < all * 5; i++) {
         times.push(times[times.length - 1] + 75)
     }
-    for (let i = 0; i < all*4; i++) {
+    for (let i = 0; i < all * 4; i++) {
         times.push(times[times.length - 1] + 100)
     }
-    for (let i = 0; i < all*2; i++) {
+    for (let i = 0; i < all * 2; i++) {
         times.push(times[times.length - 1] + 150)
     }
 
@@ -70,7 +75,6 @@ var load_kadaikyoku = function (e) {
         .done(function (response) {
 
             $("#loading-text").css("display", "none");
-            // console.log(response.test);
 
             // 機種名から試合名
             if (response.games_response) {
@@ -126,20 +130,26 @@ var auto_input_kadaikyoku = function (e) {
         .done(function (response) {
 
             $("#loading-text").css("display", "none");
-            // console.log(response.test);
-            // console.log(response.games_info);
 
             // 試合情報の自動入力
             if (response.games_info) {
 
                 var r = response.games_info;
 
+                reset_form();
+
                 $("#vs-game").val(r.vs_game);
                 $("#vs-name").val(r.vs_name);
                 $("#vs-player").val(r.vs_player);
 
+                kadaikyoku_count = r.kadai_count;
+
                 for (var i = 0; i < r.kadai.length; i++) {
                     $("#kadai-in-" + (i + 1)).val(r.kadai[i]);
+                }
+
+                if (kadaikyoku_count == 1) {
+                    $("#kadai-check-1").attr('checked', true).prop("checked", true).change()
                 }
 
             }
@@ -163,7 +173,7 @@ $("#start").on("click", function () {
     $("#start").prop("disabled", true);
 
     var all = 3;
-    if( $("#kadai-in-3").val()=="" )
+    if ($("#kadai-in-3").val() == "")
         var all = 2;
 
     // 抽選
@@ -172,8 +182,8 @@ $("#start").on("click", function () {
 
     // ルーレットを回す演出
     roulette_onoff(-10);
-    var t = roulette(n,all);
-    console.log(n, t);
+    var t = roulette(n, all);
+    console.log("抽選結果: "+n,"抽選時間: "+t+"ms");
 
     // ルーレット停止後の処理
     setTimeout(function () {
@@ -207,13 +217,16 @@ $("#tweet").on("click", function () {
 
     }
 
-    if (c == false) {
+    if (c == false && kadaikyoku_count > 0) {
         alert("楽曲を選択してください");
     }
     else {
         // ツイート生成
         var base_url = "https://twitter.com/intent/tweet";
-        var text = vs_game + "部門" + vs_name + "、" + vs_player + "の対決！\n課題曲は『" + kadai_song + "』です！";
+        var text = vs_game + "部門" + vs_name + "、" + vs_player + "の対決！";
+        if (kadaikyoku_count > 0) {
+            text += "\n課題曲は『" + kadai_song + "』です！";
+        }
 
         // リンクを開く
         var tweetLink = base_url + "?text=" + encodeURIComponent(text) + "&hashtags=" + hashtags;
@@ -226,6 +239,12 @@ $("#tweet").on("click", function () {
 // リセット
 $("#reset").on("click", function () {
 
+    reset_form();
+
+});
+
+var reset_form = function () {
+
     $("#vs-game").val("");
     $("#vs-name").val("");
     $("#vs-player").val("");
@@ -236,4 +255,4 @@ $("#reset").on("click", function () {
         $("#kadai-in-" + (i + 1)).removeClass("is-valid").change();
     }
 
-});
+};

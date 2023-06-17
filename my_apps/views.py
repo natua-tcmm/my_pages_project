@@ -241,7 +241,7 @@ def kadaikyoku(request):
 
                 # 試合名を読み込む
                 game_list = [ o for o in gamedata.objects.filter(game_kisyu=kisyu)]
-                games = [ o.game_no for o in game_list ]
+                games = [ f"{o.game_no} {o.game_player}" for o in game_list ]
 
                 # 試合一覧を整えて返す
                 games_response = [ f'<option class="games">{g}</option>' for g in games ]
@@ -252,8 +252,9 @@ def kadaikyoku(request):
             if not game.startswith("("):
 
                 # 試合情報を読み込む
-                game_selected = gamedata.objects.filter(game_no=game)[0]
+                game_selected = gamedata.objects.filter(game_kisyu=kisyu,game_no=game.split()[0])[0]
 
+                # 試合情報を整形する
                 games_info = {
 
                     "vs_game":game_selected.game_kisyu,
@@ -269,6 +270,9 @@ def kadaikyoku(request):
                     ],
 
                 }
+
+                # 課題曲数を数える
+                games_info["kadai_count"] =  len([ s for s in games_info["kadai"] if len(s)>0])
 
                 # 試合情報を返す
                 response["games_info"]=games_info
