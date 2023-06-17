@@ -43,17 +43,118 @@ function roulette_onoff(index_on) {
 
 // ---------------------------------
 
-// 自動入力
-$("#auto-input").on("click", function () {
+// 機種名が選ばれたら試合情報を読み込む
+$("#kisyu-select").on("change", function (e) {
+    load_kadaikyoku(e);
+});
 
-    $("#vs-game").val("音ゲー")
-    $("#vs-name").val("第1試合")
-    $("#vs-player").val("あるふぁさん vs べーたさん")
-    $("#kadai-in-1").val("楽曲A")
-    $("#kadai-in-2").val("楽曲B")
-    $("#kadai-in-3").val("楽曲C")
+var load_kadaikyoku = function (e) {
+
+    $("#loading-text").css("display", "");
+
+    // 通常の送信処理を止める
+    e.preventDefault();
+
+    // 送信する
+    $.ajax({
+        'url': send_url,
+        'type': 'POST',
+        'data': {
+            "csrfmiddlewaretoken": csrfmiddlewaretoken,
+            "kisyu": $("#kisyu-select").val(),
+            "game": "",
+        },
+        'dataType': 'json',
+    })
+        //成功時
+        .done(function (response) {
+
+            $("#loading-text").css("display", "none");
+            console.log(response.test);
+
+            // 機種名から試合名
+            if (response.games_response) {
+                // 今表示されてるやつを消す
+                $(".games").remove();
+                // 新しく表示する
+                for (var i = 0; i < response.games_response.length; i++) {
+                    $("#game-select").prepend(response.games_response[i]);
+                }
+                $("#game-select").prepend('<option class="games" selected>(試合を選択…)</option>');
+            }
+            else {
+                $(".games").remove();
+                $("#game-select").prepend('<option class="games" selected>(まずは機種を選んでください)</option>');
+            }
+
+        })
+        //失敗時
+        .fail(function () {
+            alert("ajax送信に失敗しました。")
+            $("#loading-text").css("display", "none");
+            // 今表示されてるやつを消す
+            $(".games").remove();
+        });
+}
+
+// 機種名と試合から試合情報を自動入力する
+$("#auto-input").on("click", function (e) {
+
+    auto_input_kadaikyoku(e);
 
 });
+
+var auto_input_kadaikyoku = function (e) {
+
+    $("#loading-text").css("display", "");
+
+    // 通常の送信処理を止める
+    e.preventDefault();
+
+    // 送信する
+    $.ajax({
+        'url': send_url,
+        'type': 'POST',
+        'data': {
+            "csrfmiddlewaretoken": csrfmiddlewaretoken,
+            "kisyu": $("#kisyu-select").val(),
+            "game": $("#game-select").val(),
+        },
+        'dataType': 'json',
+    })
+        //成功時
+        .done(function (response) {
+
+            $("#loading-text").css("display", "none");
+            console.log(response.test);
+            console.log(response.games_info)
+
+            // 試合情報の自動入力
+            if (response.games_info) {
+
+                var r=response.games_info
+
+                $("#vs-game").val(r.vs_game)
+                $("#vs-name").val(r.vs_name)
+                $("#vs-player").val(r.vs_player)
+
+                for( var i=0; i<r.kadai.length; i++ ){
+                    $("#kadai-in-"+(i+1)).val(r.kadai[i])
+                }
+
+            }
+            else {
+
+            }
+        })
+        //失敗時
+        .fail(function () {
+            alert("ajax送信に失敗しました。")
+            $("#loading-text").css("display", "none");
+        });
+}
+
+// ---------------------------------
 
 // 抽選処理
 $("#start").on("click", function () {
@@ -101,7 +202,7 @@ $("#tweet").on("click", function () {
 
     // ツイート生成
     var base_url = "https://twitter.com/intent/tweet";
-    var text = vs_game + "部門" + vs_name +  "、" + vs_player + "の対決！\n課題曲は『" + kadai_song + "』です！";
+    var text = vs_game + "部門" + vs_name + "、" + vs_player + "の対決！\n課題曲は『" + kadai_song + "』です！";
 
     // リンクを開く
     var tweetLink = base_url + "?text=" + encodeURIComponent(text) + "&hashtags=" + hashtags;

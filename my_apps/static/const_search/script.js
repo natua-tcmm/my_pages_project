@@ -70,7 +70,7 @@ var search_songs = function (e, type) {
     $("#loading_text").css("display", "");
 
     // 通常の送信処理を止める
-    event.preventDefault();
+    e.preventDefault();
 
     // 送信する
     $.ajax({

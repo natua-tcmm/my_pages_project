@@ -37,9 +37,10 @@
                             <div class="row justify-content-center">
                                 <div class="col-10">
 
-                                    <!-- ボタン -->
+                                    <!-- 情報選択 -->
                                     <div class="row">
                                         <div class="col">
+                                            <!-- 大会名 -->
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">大会名</span>
@@ -48,24 +49,37 @@
                                                     <option>京音部内戦2023</option>
                                                 </select>
                                             </div>
+                                            <!-- 機種名 -->
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">機種名</span>
                                                 </div>
-                                                <select class="form-control">
-                                                    <option>音ゲー</option>
+                                                <select class="form-control" id="kisyu-select">
+                                                    <option selected>(機種を選択…)</option>
+                                                    <option>CHUNITHM</option>
+                                                    <option>maimai</option>
+                                                    <option>オンゲキ</option>
+                                                    <option>SDVX</option>
+                                                    <option>SDVX MEGAMIX</option>
+                                                    <option>太鼓の達人</option>
+                                                    <option>DDR</option>
+                                                    <option>pop'n</option>
                                                 </select>
                                             </div>
+                                            <!-- 試合 -->
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">試合名</span>
                                                 </div>
-                                                <select class="form-control">
-                                                    <option>第1試合 あるふぁさん vs べーたさん</option>
+                                                <select class="form-control" id="game-select">
+                                                    <option class="games" selected>(まずは機種を選んでください)</option>
                                                 </select>
                                             </div>
-                                            <button id="auto-input" type="button"
-                                                class="btn btn-outline-primary mb-3">自動入力(仮)</button>
+                                            <div class="row align-items-center">
+                                                <button id="auto-input" type="button"
+                                                    class="btn btn-outline-primary mb-3">自動入力</button>
+                                                <p id="loading-text" class="ml-3" style="display: none;">通信中…</p>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -77,6 +91,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- 抽選＆ツイート -->
             <div class="row">
                 <div class="col">

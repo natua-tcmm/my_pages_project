@@ -219,4 +219,50 @@ def ongeki_genre(request):
 # 課題曲選択
 def kadaikyoku(request):
     context = { "title":"課題曲セレクト" ,"is_beta":False, "is_app":False }
+
+    if request.POST:
+
+        # POSTから機種を取得
+        post = request.POST
+        kisyu = post.get("kisyu")
+        game = post.get("game")
+
+        response = { "kisyu":kisyu, "test":f"{kisyu}の{game}が選択されました！", }
+
+        # 機種名から試合名を読み込む
+        if len(game)==0:
+            if kisyu in ["CHUNITHM","maimai","オンゲキ","SDVX","SDVX MEGAMIX","DDR","pop'n"]:
+
+                # 試合名を読み込む
+                games = ["第1試合 A vs B","第2試合 C vs D","第3試合 E vs F"]
+
+                # 試合一覧を整えて返す
+                games_response = [ f'<option class="games">{g}</option>' for g in games ]
+                response["games_response"]=games_response[::-1]
+
+        # 試合名から試合情報を返す
+        else:
+
+            # 試合情報を読み込む
+            games_info = {
+
+                "vs_game":kisyu,
+                "vs_name":"第1試合",
+                "vs_player":"Xさん vs Yさん",
+
+                "kadai":[
+
+                    "楽曲AAA",
+                    "楽曲BBB",
+                    "楽曲CCC",
+
+                ],
+
+            }
+
+            # 試合情報を返す
+            response["games_info"]=games_info
+
+        return JsonResponse(response)
+
     return render(request, 'kadaikyoku/kadaikyoku.html',context=context)
