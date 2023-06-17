@@ -108,7 +108,7 @@ $("#tweet").on("click", function () {
 
     // ツイート生成
     var base_url = "https://twitter.com/intent/tweet";
-    var text = "はい、私は本来" + original_score_for_tweet + "点だったスコアを、ベルを取り逃した結果" + result_score_for_tweet + "点にしてしまい…";
+    var text = "はい、私は本来" + result_score_for_tweet + "点だったスコアを、ベルを取り逃した結果" + original_score_for_tweet + "点にしてしまい…";
     // var hashtags = "";
 
     // リンクを開く
@@ -123,11 +123,16 @@ $("#tweet-copy").on("click", function () {
     var text = "はい、私は本来" + result_score_for_tweet + "点だったスコアを、ベルを取り逃した結果" +original_score_for_tweet + "点にしてしまい…";
 
     // コピー
-    navigator.clipboard.writeText(text).then(
-        () => {
-            alert("コピーしました。")
-        },
-        () => {
-            alert("コピーに失敗しました。")
-        });
+    if( !navigator.clipboard ) {
+        alert("エラー:コピーできませんでした。ブラウザが対応していない可能性があります。");
+    }
+    else{
+        navigator.clipboard.writeText(text).then(
+            () => {
+                alert("コピーしました。")
+            },
+            () => {
+                alert("コピーに失敗しました。")
+            });
+    }
 });
