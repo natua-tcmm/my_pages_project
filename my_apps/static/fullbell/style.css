@@ -11,7 +11,7 @@
     padding-right: 2rem;
 }
 
-#detail-button{
+#detail-button {
     color: #212529;
 }
 
@@ -23,6 +23,12 @@
     font-size: 2.92rem;
     margin-right: .05rem;
 }
+
 #result-lo {
     font-size: 2.5rem;
+}
+
+.small-p {
+    color: #c2c2c2;
+    font-size: .75rem;
 }

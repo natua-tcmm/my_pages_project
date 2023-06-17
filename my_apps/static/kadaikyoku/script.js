@@ -218,7 +218,7 @@ $("#tweet").on("click", function () {
     }
 
     if (c == false && kadaikyoku_count > 0) {
-        alert("楽曲を選択してください");
+        alert("ツイート前に、抽選を行うか手動選択してください。");
     }
     else {
         // ツイート生成
