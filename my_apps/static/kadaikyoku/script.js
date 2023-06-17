@@ -90,7 +90,7 @@ var load_kadaikyoku = function (e) {
         })
         //失敗時
         .fail(function () {
-            alert("ajax送信に失敗しました。")
+            alert("ajax送信に失敗しました。");
             $("#loading-text").css("display", "none");
             // 今表示されてるやつを消す
             $(".games").remove();
@@ -127,19 +127,19 @@ var auto_input_kadaikyoku = function (e) {
 
             $("#loading-text").css("display", "none");
             console.log(response.test);
-            console.log(response.games_info)
+            console.log(response.games_info);
 
             // 試合情報の自動入力
             if (response.games_info) {
 
-                var r=response.games_info
+                var r = response.games_info;
 
-                $("#vs-game").val(r.vs_game)
-                $("#vs-name").val(r.vs_name)
-                $("#vs-player").val(r.vs_player)
+                $("#vs-game").val(r.vs_game);
+                $("#vs-name").val(r.vs_name);
+                $("#vs-player").val(r.vs_player);
 
-                for( var i=0; i<r.kadai.length; i++ ){
-                    $("#kadai-in-"+(i+1)).val(r.kadai[i])
+                for (var i = 0; i < r.kadai.length; i++) {
+                    $("#kadai-in-" + (i + 1)).val(r.kadai[i]);
                 }
 
             }
@@ -149,7 +149,7 @@ var auto_input_kadaikyoku = function (e) {
         })
         //失敗時
         .fail(function () {
-            alert("ajax送信に失敗しました。")
+            alert("ajax送信に失敗しました。");
             $("#loading-text").css("display", "none");
         });
 }
@@ -191,21 +191,30 @@ $("#tweet").on("click", function () {
     var vs_player = $("#vs-player").val();
     var hashtags = $("#hashtag-in").val();
 
+    var c = false;
+
     for (var j = 1; j <= 3; j++) {
 
         if ($("#kadai-check-" + j).prop("checked")) {
             var kadai_song = $("#kadai-in-" + j).val();
+            c = true;
             break;
         }
 
     }
 
-    // ツイート生成
-    var base_url = "https://twitter.com/intent/tweet";
-    var text = vs_game + "部門" + vs_name + "、" + vs_player + "の対決！\n課題曲は『" + kadai_song + "』です！";
+    if (c == false) {
+        alert("楽曲を選択してください");
+    }
+    else {
+        // ツイート生成
+        var base_url = "https://twitter.com/intent/tweet";
+        var text = vs_game + "部門" + vs_name + "、" + vs_player + "の対決！\n課題曲は『" + kadai_song + "』です！";
 
-    // リンクを開く
-    var tweetLink = base_url + "?text=" + encodeURIComponent(text) + "&hashtags=" + hashtags;
-    window.open(tweetLink);
+        // リンクを開く
+        var tweetLink = base_url + "?text=" + encodeURIComponent(text) + "&hashtags=" + hashtags;
+        window.open(tweetLink);
+    }
+
 
 });

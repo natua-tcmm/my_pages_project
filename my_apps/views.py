@@ -231,7 +231,7 @@ def kadaikyoku(request):
 
         # 機種名から試合名を読み込む
         if len(game)==0:
-            if kisyu in ["CHUNITHM","maimai","オンゲキ","SDVX","SDVX MEGAMIX","DDR","pop'n"]:
+            if not kisyu.startswith("("):
 
                 # 試合名を読み込む
                 games = ["第1試合 A vs B","第2試合 C vs D","第3試合 E vs F"]
@@ -242,26 +242,26 @@ def kadaikyoku(request):
 
         # 試合名から試合情報を返す
         else:
+            if not game.startswith("("):
+                # 試合情報を読み込む
+                games_info = {
 
-            # 試合情報を読み込む
-            games_info = {
+                    "vs_game":kisyu,
+                    "vs_name":"第1試合",
+                    "vs_player":"Xさん vs Yさん",
 
-                "vs_game":kisyu,
-                "vs_name":"第1試合",
-                "vs_player":"Xさん vs Yさん",
+                    "kadai":[
 
-                "kadai":[
+                        "楽曲AAA",
+                        "楽曲BBB",
+                        "楽曲CCC",
 
-                    "楽曲AAA",
-                    "楽曲BBB",
-                    "楽曲CCC",
+                    ],
 
-                ],
+                }
 
-            }
-
-            # 試合情報を返す
-            response["games_info"]=games_info
+                # 試合情報を返す
+                response["games_info"]=games_info
 
         return JsonResponse(response)
 
