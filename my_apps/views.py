@@ -203,6 +203,9 @@ def ongeki_genre(request):
         "Lucid Hardcore":"Lazy Addiction",
         "Everlasting Blue":"MarbleBlue.",
         "picopico pop":"Skip & Smile!!",
+        "Ai":"Ai C",
+        "モンスターJKロック":"P！P！P！P！がおー!!",
+
         "NEOEDOBTZ":"ブツメツビーターズ",
         "Helzh Out":"Ai Nov",
         "Feline Groove":"Sword of Secret",
