@@ -51,7 +51,18 @@ def about(request):
 def const_search(request):
 
     song_data = SongDataC.objects.all()
-    context = { "title":"クイック定数検索", "is_beta":True, "is_app":True, "song_data":song_data, "song_data_len":len(song_data) }
+    context = {
+
+        "title":"クイック定数検索",
+        "is_beta":True,
+        "is_app":True,
+        "song_data":song_data,
+        "song_data_len":len(song_data),
+
+    }
+
+    with open("my_apps/my_data/const_update_time.txt","r") as f:
+        context["const_update_time"] = f.readline()
 
     if request.POST:
 
@@ -79,7 +90,8 @@ def const_search(request):
         # 文字が入力されてないなら全部返す
         # 入力されているなら検索して返す
         if query=="/update":
-            update_log = SDM.update_song_data()
+            from my_apps.ap_scheduler import periodic_execution
+            update_log = periodic_execution()
             response["update_log"] = update_log
 
         else:

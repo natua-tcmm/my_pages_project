@@ -52,8 +52,8 @@ class SongDataCManager(models.Manager):
         # 更新する
         result = ""
 
-        print("更新するよん")
-        result += "更新するよん\n"
+        print("CHUNITHM 更新するよん")
+        result += "CHUNITHM 更新するよん\n"
 
         for a_song_data in new_song_data:
             o,c =SongDataC.objects.update_or_create(song_name=a_song_data["song_name"],defaults=a_song_data)
@@ -61,8 +61,8 @@ class SongDataCManager(models.Manager):
                 print(f"- 作成したよん→ {o.song_name}")
                 result += f"- 作成したよん→ {o.song_name}\n"
 
-        print("更新終わったよん")
-        result += "更新終わったよん\n"
+        print("CHUNITHM 更新終わったよん")
+        result += "CHUNITHM 更新終わったよん\n"
 
         return result
 
@@ -108,15 +108,24 @@ class SongDataCManager(models.Manager):
 
 
             d["expert_const"]=j["data"]["EXP"]["const"]
+            if j["data"]["EXP"]["is_const_unknown"]:
+                d["expert_const"]=0
             d["expert_notes"]=j["data"]["EXP"]["maxcombo"]
+
             d["master_const"]=j["data"]["MAS"]["const"]
+            if j["data"]["MAS"]["is_const_unknown"]:
+                d["master_const"]=0
             d["master_notes"]=j["data"]["MAS"]["maxcombo"]
+
             try:
                 d["ultima_const"]=j["data"]["ULT"]["const"]
+                if j["data"]["ULT"]["is_const_unknown"]:
+                    d["ultima_const"]=0
                 d["ultima_notes"]=j["data"]["ULT"]["maxcombo"]
             except:
                 d["ultima_const"]=0
                 d["ultima_notes"]=0
+
 
             # # 定数未確定情報
             # tmp = 0
@@ -187,8 +196,8 @@ class SongDataOManager(models.Manager):
         # 更新する
         result = ""
 
-        print("更新するよん")
-        result += "更新するよん\n"
+        print("オンゲキ 更新するよん")
+        result += "オンゲキ 更新するよん\n"
 
         for a_song_data in new_song_data:
             o,c =SongDataO.objects.update_or_create(song_name=a_song_data["song_name"],defaults=a_song_data)
@@ -196,8 +205,8 @@ class SongDataOManager(models.Manager):
                 print(f"- 作成したよん→ {o.song_name}")
                 result += f"- 作成したよん→ {o.song_name}\n"
 
-        print("更新終わったよん")
-        result += "更新終わったよん\n"
+        print("オンゲキ 更新終わったよん")
+        result += "オンゲキ 更新終わったよん\n"
 
         return result
 
@@ -231,16 +240,22 @@ class SongDataOManager(models.Manager):
 
             try:
                 d["expert_const"]=float(j["expert"]["const"])
+                if j["expert"]["is_unknown"]:
+                    d["expert_const"] = 0
             except:
                 d["expert_const"] = 0
 
             try:
                 d["master_const"]=float(j["master"]["const"])
+                if j["master"]["is_unknown"]:
+                    d["master_const"] = 0
             except:
                 d["master_const"] = 0
 
             try:
                 d["lunatic_const"] = float(j["lunatic"]["const"])
+                if j["lunatic"]["is_unknown"]:
+                    d["lunatic_const"] = 0
             except:
                 d["lunatic_const"] = 0
 
