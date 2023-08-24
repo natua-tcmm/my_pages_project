@@ -2,7 +2,7 @@ import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 from django import setup
 setup()
-
+from django.conf import settings
 from datetime import datetime, date
 from apscheduler.schedulers.background import BackgroundScheduler
 from my_apps.models import *
@@ -17,7 +17,7 @@ def periodic_execution():
     t_delta = datetime.timedelta(hours=9)
     jst = datetime.timezone(t_delta, 'JST')
     now = datetime.datetime.now(jst)
-    with open("my_apps/my_data/const_update_time.txt","w") as f:
+    with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_time.txt"),"w") as f:
         f.write(now.strftime("%Y年%m月%d日 %H:%M"))
 
     return str(update_log_c+update_log_o)

@@ -5,6 +5,8 @@ from django.db.models import Q
 
 from .models import *
 
+import os
+from django.conf import settings
 import pandas as pd
 
 # --------------------------------------------------
@@ -61,7 +63,7 @@ def const_search(request):
 
     }
 
-    with open("my_apps/my_data/const_update_time.txt","r") as f:
+    with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_time.txt"),"r") as f:
         context["const_update_time"] = f.readline()
 
     if request.POST:
