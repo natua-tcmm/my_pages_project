@@ -1,9 +1,13 @@
+import os
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
+from django import setup
+setup()
+
 from datetime import datetime, date
 from apscheduler.schedulers.background import BackgroundScheduler
-from .models import *
+from my_apps.models import *
 import datetime
 
-# 定期的に実行する関数
 def periodic_execution():
     # 定数情報のアップデート
     update_log_c = SongDataCManager.update_song_data()
@@ -19,8 +23,5 @@ def periodic_execution():
     return str(update_log_c+update_log_o)
 
 
-def start():
-  scheduler = BackgroundScheduler()
-  # scheduler.add_job( periodic_execution, 'interval', hours=2, start_date='2023-01-01 00:00:00' )
-  scheduler.add_job( periodic_execution, 'date', run_date="2023-08-24 20:09:50" )
-  scheduler.start()
+if __name__=="__main__":
+   periodic_execution()

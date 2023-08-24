@@ -90,7 +90,7 @@ def const_search(request):
         # 文字が入力されてないなら全部返す
         # 入力されているなら検索して返す
         if query=="/update":
-            from my_apps.ap_scheduler import periodic_execution
+            from my_apps.schedule_run import periodic_execution
             update_log = periodic_execution()
             response["update_log"] = update_log
 
