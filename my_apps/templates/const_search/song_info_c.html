@@ -39,46 +39,17 @@
         <div class="row">
 
             <!-- 情報表示 -->
-            <div class="col-sm col-12 order-last order-sm-first">
+            <div class="col order-first">
 
                 <p class="mb-1 mt-1">ジャンル: {{song.song_catname}}</p>
                 <p class="mb-1 mt-1">BPM: {% if song.song_bpm != 0 %}<span>{{song.song_bpm}}</span>{% else %}<span
                         class="text-black-50">No Data</span>{% endif %}</p>
                 <p class="mb-1 mt-1">収録日: {{song.song_release}}</p>
 
-                <!-- ツールボタン -->
-                <div class="container mt-2">
-                    <div class="row">
-                        <button id="actionbtn_{{song.id}}"
-                            class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-toggle" type="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            計算ツール・リンク
-                        </button>
-                        <div class="dropdown-menu">
-                            <button id="bpm_link_{{song.id}}"
-                                class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
-                                {% if song.song_bpm == 0 %} disabled {% endif %}>
-                                BPMチェック
-                            </button>
-                            <button onclick='window.open("https://db.chunirec.net/search?q={{song.song_name}}")'
-                                class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item"
-                                type="button">
-                                統計情報 <span style="font-size:.7rem">(外部ページ)</span>
-                                <i class="ml-2 fas fa-external-link-alt"></i>
-                            </button>
-                        </div>
-                        <script>
-                            document.getElementById("bpm_link_{{song.id}}").onclick = function () {
-                                window.location.href = "{% url 'my_apps:bpm_checker_page' %}?bpm={{song.song_bpm}}";
-                            };
-                        </script>
-                    </div>
-                </div>
-
             </div>
 
             <!-- 各定数表示 -->
-            <div class="col-sm col-12 order-first order-sm-last">
+            <div class="col order-last">
 
                 <div class="row d-flex justify-content-end align-items-center border-expert pt-1 pb-1">
                     {% if song.expert_notes != 0 %}<p class="mb-1 mt-1 pr-2 border-right">{{song.expert_notes}} Notes
@@ -103,7 +74,41 @@
                 </div>
 
             </div>
+
         </div>
+        <div class="row">
+            <div class="col">
+                <!-- ツールボタン -->
+                <div class="container mt-2">
+                    <div class="row justify-content-end align-items-center">
+                        <button id="actionbtn_{{song.id}}"
+                            class="col-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-toggle" type="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            計算ツール・リンク
+                        </button>
+                        <div class="dropdown-menu">
+                            <button id="bpm_link_{{song.id}}"
+                                class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
+                                {% if song.song_bpm == 0 %} disabled {% endif %}>
+                                BPMチェック
+                            </button>
+                            <button onclick='window.open("https://db.chunirec.net/search?q={{song.song_name}}")'
+                                class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item"
+                                type="button">
+                                統計情報 <span style="font-size:.7rem">(外部ページ)</span>
+                                <i class="ml-2 fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                        <script>
+                            document.getElementById("bpm_link_{{song.id}}").onclick = function () {
+                                window.location.href = "{% url 'my_apps:bpm_checker_page' %}?bpm={{song.song_bpm}}";
+                            };
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 
