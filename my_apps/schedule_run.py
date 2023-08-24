@@ -1,7 +1,10 @@
-import os
+import os, sys
+from pathlib import Path
+sys.path.append(Path(__file__).resolve().parent.parent.__str__())
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 from django import setup
 setup()
+
 from django.conf import settings
 from datetime import datetime, date
 from apscheduler.schedulers.background import BackgroundScheduler
