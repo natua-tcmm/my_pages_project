@@ -36,8 +36,8 @@ class SongDataC(models.Model):
     ultima_const = models.DecimalField(max_digits=4,decimal_places=1)
     ultima_notes = models.IntegerField()
 
-    # 定数の未確定さ
-    # is_const_unknown = models.BooleanField()
+    # 譜面保管所ID
+    fumen_id = models.IntegerField()
 
 class SongDataCManager(models.Manager):
 
@@ -71,7 +71,8 @@ class SongDataCManager(models.Manager):
         """
         定数情報を取得するメソッド
         """
-        import requests
+        import requests,re
+        from bs4 import BeautifulSoup
 
         chuni_const_url = "https://reiwa.f5.si/chunirec_all.json"
         chuni_offi_url = "https://chunithm.sega.jp/storage/json/music.json"
@@ -85,6 +86,27 @@ class SongDataCManager(models.Manager):
         response= requests.get(chuni_offi_url)
         response.encoding = response.apparent_encoding
         offi_json = response.json()
+
+        # 譜面保管所IDを取得する
+        ids_c = {}
+        target = ["pops","niconico","toho","variety","irodorimidori","gekimai","original","ultima"]
+
+        for t in target:
+            TARGET_URL = f"https://www.sdvx.in/chunithm/sort/{t}.htm"
+            html = requests.get(TARGET_URL)
+            soup = BeautifulSoup(html.content, "html.parser")
+            songs = soup.select("body > center > table > tr > td > td > td > tr > td > td> table > tr > td")
+            songs_str = str(songs)
+
+            pattern1 = re.compile(r'script src=\"/chunithm/.*/js/.*sort\.js\"></script><script>SORT.*\(\);</script><!--.*-->')
+            result1 = pattern1.findall(songs_str)
+            for r in result1:
+                ids_c[r[84:-3]]=int(r[28:33])
+
+            pattern2 = re.compile(r'script src=\"/chunithm/ult/js/.*ult\.js\"></script><script>SORT.*\(\);</script><!--.*-->')
+            result2 = pattern2.findall(songs_str)
+            for r in result2:
+                ids_c[r[85:-3]]=int(r[29:34])
 
         # 整形する
         new_songdata = []
@@ -126,6 +148,18 @@ class SongDataCManager(models.Manager):
                 d["ultima_const"]=0
                 d["ultima_notes"]=0
 
+            # reading
+            for e in offi_json:
+                if e["title"]==d["song_name"]:
+                    d["song_name_reading"]=e["reading"]
+                    break
+
+            # 譜面id
+            try:
+                d["fumen_id"] = ids_c[d["song_name"]]
+            except:
+                print(f"-- 保管所にないで 曲名:{d['song_name']}")
+                d["fumen_id"] = 0
 
             # # 定数未確定情報
             # tmp = 0
@@ -139,11 +173,6 @@ class SongDataCManager(models.Manager):
             # else:
             #     d["is_const_unknown"]=False
 
-            # reading
-            for e in offi_json:
-                if e["title"]==d["song_name"]:
-                    d["song_name_reading"]=e["reading"]
-                    break
 
             # jsonに足す
             new_songdata.append(d)
@@ -183,6 +212,10 @@ class SongDataO(models.Model):
     lunatic_const = models.DecimalField(max_digits=4,decimal_places=1)
     lunatic_notes = models.IntegerField()
 
+    # 譜面保管所ID
+    fumen_id = models.IntegerField()
+
+
 class SongDataOManager(models.Manager):
 
     @classmethod
@@ -215,7 +248,8 @@ class SongDataOManager(models.Manager):
         """
         定数情報を取得するメソッド
         """
-        import requests
+        import requests,re
+        from bs4 import BeautifulSoup
 
         ongeki_const_url = "https://reiwa.f5.si/ongeki_const_all.json"
 
@@ -223,6 +257,28 @@ class SongDataOManager(models.Manager):
         response= requests.get(ongeki_const_url)
         response.encoding = response.apparent_encoding
         ongeki_json = response.json()
+
+        # 譜面保管所IDを取得する
+        ids_o = {}
+        target = ["pops","niconico","toho","variety","chumai","ongeki","lunatic"]
+
+        for t in target:
+
+            TARGET_URL = f"https://www.sdvx.in/ongeki/sort/{t}.htm"
+            html = requests.get(TARGET_URL)
+            soup = BeautifulSoup(html.content, "html.parser")
+            songs = soup.select("body > center > table > tr > td > td > td > tr > td > td> table > tr > td")
+            songs_str = str(songs)
+
+            pattern1 = re.compile(r'script src=\"/ongeki/.*/js/.*sort\.js\"></script><script>SORT.*\(\);</script><!--.*-->')
+            result1 = pattern1.findall(songs_str)
+            for r in result1:
+                ids_o[r[82:-3]]=int(r[26:31])
+
+            pattern2 = re.compile(r'script src=\"/ongeki/luna/js/.*luna\.js\"></script><script>SORT.*\(\);</script><!--.*-->')
+            result2 = pattern2.findall(songs_str)
+            for r in result2:
+                ids_o[r[85:-3]]=int(r[28:33])
 
         # 整形する
         new_songdata = []
@@ -265,6 +321,13 @@ class SongDataOManager(models.Manager):
             # d["expert_notes"]=j["expert"]["maxcombo"]
             # d["master_notes"]=j["master"]["maxcombo"]
             # d["lunatic_notes"]=j["data"]["ULT"]["maxcombo"]
+
+            # 譜面id
+            try:
+                d["fumen_id"] = ids_o[d["song_name"]]
+            except:
+                print(f"-- 保管所にないで 曲名:{d['song_name']}")
+                d["fumen_id"] = 0
 
             # jsonに足す
             new_songdata.append(d)

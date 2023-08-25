@@ -85,21 +85,37 @@
                 <div class="col-auto pr-0 pb-1">
                     <button id="actionbtn1_{{song.id}}" class="col-auto pl-4  btn btn-outline-secondary dropdown-toggle"
                         type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        譜面画像(開発中)
+                        譜面画像
                     </button>
                     <div class="dropdown-menu">
-                        <button class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
-                            disabled>
+                        <button id="fumenbtn-e_{{song.id}}"
+                            class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
+                            {% if song.fumen_id == 0 %} disabled {% endif %}>
                             EXPERT
                         </button>
-                        <button class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
-                            disabled>
+                        <button id="fumenbtn-m_{{song.id}}"
+                            class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
+                            {% if song.fumen_id == 0 %} disabled {% endif %}>
                             MASTER
                         </button>
-                        <button class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
-                            disabled>
+                        <button id="fumenbtn-u_{{song.id}}"
+                            class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
+                            {% if song.fumen_id == 0 or song.ultima_const == 0 %} disabled {% endif %}>
                             ULTIMA
                         </button>
+                        <script>
+                            // var fumen_id_{{ song.id }} = Number("{{song.fumen_id}}");
+                            document.getElementById("fumenbtn-e_{{song.id}}").onclick = function () {
+                                window.open("https://www.sdvx.in/chunithm/" + ( Number("{{song.fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.fumen_id}}").toFixed().padStart(5, "0") + "exp.htm");
+                            }
+                            document.getElementById("fumenbtn-m_{{song.id}}").onclick = function () {
+                                window.open("https://www.sdvx.in/chunithm/" + ( Number("{{song.fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.fumen_id}}").toFixed().padStart(5, "0") + "mst.htm");
+                            }
+                            document.getElementById("fumenbtn-u_{{song.id}}").onclick = function () {
+                                window.open("https://www.sdvx.in/chunithm/ult/" +  Number("{{song.fumen_id}}").toFixed().padStart(5, "0") + "ult.htm");
+                            }
+
+                        </script>
                     </div>
                 </div>
                 <div class="col-auto pr-0 pb-1">
