@@ -47,6 +47,11 @@ def about(request):
     context = { "title":"△Natua♪▽について" ,"is_beta":False, "is_app":False }
     return render(request, 'about/about.html',context=context)
 
+# 更新情報ページ
+def update_info(request):
+    context = { "title":"更新情報" ,"is_beta":False, "is_app":False }
+    return render(request, 'update_info/update_info.html',context=context)
+
 # --------------------------------------------------
 
 # 定数検索ページ

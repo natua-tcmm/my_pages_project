@@ -158,7 +158,7 @@ class SongDataCManager(models.Manager):
             try:
                 d["fumen_id"] = ids_c[d["song_name"]]
             except:
-                print(f"-- 保管所にないで 曲名:{d['song_name']}")
+                print(f"-- リンク失敗 曲名:{d['song_name']}")
                 d["fumen_id"] = 0
 
             # # 定数未確定情報
@@ -326,7 +326,7 @@ class SongDataOManager(models.Manager):
             try:
                 d["fumen_id"] = ids_o[d["song_name"]]
             except:
-                print(f"-- 保管所にないで 曲名:{d['song_name']}")
+                print(f"-- リンク失敗 曲名:{d['song_name']}")
                 d["fumen_id"] = 0
 
             # jsonに足す

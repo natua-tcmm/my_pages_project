@@ -1,0 +1,96 @@
+{% extends '../base/base.html' %}
+{% block content %}
+<!-- Content Wrapper. Contains page content -->
+<div class="container">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid pl-0">
+            <div class="row mb-2">
+                <div class="col">
+                    <h1 class="m-0">更新情報</h1>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+
+            <!-- ここにいろいろ書く -->
+            <div class="row">
+                <div class="col">
+                    <div class="card card-primary card-outline">
+
+                        <div class="card-header">
+                            <h3 class="card-title">アップデートの記録</h3>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    <h4>2023/08/25</h4>
+                                    <ul>
+                                        <li>更新情報ページ(このページ)を作りました。nav-bar(上のバー)も更新しました。</li>
+                                        <li>クイック定数検索: 定数情報の更新時、譜面保管所の楽曲ID(？)も一緒に取得するようにしました。(一部、曲データとの対応付けができていないため、楽曲IDが使用できない楽曲があります。)</li>
+                                        <li>クイック定数検索: 検索結果から譜面画像に飛べるようになりました。</li>
+                                    </ul>
+                                    <h4>2023/08/24</h4>
+                                    <ul>
+                                        <li>クイック定数検索: 定数情報の自動更新に対応しました。</li>
+                                        <li>クイック定数検索: ボタンの位置を若干変更しました。</li>
+                                        <li>オンゲキジャンル名図鑑: 「Ai」と「モンスターJKロック」を追加しました。</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="card-footer">
+                            <p class="mb-0 float-right fs-6 text-black-50">日付はだいたいです。</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card card-primary card-outline">
+
+                        <div class="card-header">
+                            <h3 class="card-title">既知の不具合とか</h3>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    <h4>クイック定数検索</h4>
+                                    <ul>
+                                        <li>曲名の読み検索が使えない。(そもそも実装する気はあるのか)</li>
+                                        <li>一部のEXPERTなど、用意されていない譜面画像にもリンクを貼ってしまっている。</li>
+                                        <li>譜面画像に飛べない楽曲がある。</li>
+                                        <li>オンゲキ LUNATIC レベル0がNo Data扱いになる。</li>
+                                        <li>オンゲキ LUNATIC専用曲のMASTER譜面・EXPERT譜面のリンクが無効になっていない。</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="card-footer">
+                            <p class="mb-0 float-right fs-6 text-black-50">・ω・ｶﾞﾝﾊﾞﾙ</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+{% endblock content %}

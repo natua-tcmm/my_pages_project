@@ -83,24 +83,24 @@
 
                 <div class="col-auto pr-0 pb-1">
                     <button id="actionbtn1_{{song.id}}" class="col-auto pl-4  btn btn-outline-secondary dropdown-toggle"
-                        type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        譜面画像
+                        type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" {% if song.fumen_id == 0 %} disabled {% endif %}>
+                        譜面画像<span style="font-size:.7rem">(外部ページ)</span>
                     </button>
                     <div class="dropdown-menu">
                         <button id="fumenbtn-e_{{song.id}}"
                             class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
                             {% if song.fumen_id == 0 %} disabled {% endif %}>
-                            EXPERT
+                            EXPERT<i class="ml-2 fas fa-external-link-alt"></i>
                         </button>
                         <button id="fumenbtn-m_{{song.id}}"
                             class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
                             {% if song.fumen_id == 0 %} disabled {% endif %}>
-                            MASTER
+                            MASTER<i class="ml-2 fas fa-external-link-alt"></i>
                         </button>
                         <button id="fumenbtn-l_{{song.id}}"
                             class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
                             {% if song.fumen_id == 0 or song.lunatic_const == 0 %} disabled {% endif %}>
-                            LUNATIC
+                            LUNATIC<i class="ml-2 fas fa-external-link-alt"></i>
                         </button>
                         <script>
                             // var fumen_id_{{ song.id }} = Number("{{song.fumen_id}}");

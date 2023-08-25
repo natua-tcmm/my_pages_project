@@ -14,6 +14,7 @@ urlpatterns = [
     # トップ
     path("top", views.top, name="top_page"),
     path("about", views.about, name="about_page"),
+    path("update_info", views.update_info, name="update_info_page"),
 
     # ツール
     path("const_search", views.const_search, name="const_search_page"),
