@@ -11,6 +11,10 @@ import pandas as pd
 
 # --------------------------------------------------
 
+title_base = "| △Natua♪▽のツールとか保管所"
+
+# --------------------------------------------------
+
 # トップ画面
 def top(request):
     context = { "title":"△Natua♪▽のツールとか保管所" ,"is_beta":False, "is_app":False }
@@ -37,19 +41,19 @@ def incomplete_page(request):
 
 # テンプレート こいつをコピペして作ろう
 def app_template(request):
-    context = { "title":"タイトル" ,"is_beta":True, "is_app":True }
+    context = { "title":f"タイトル {title_base}" ,"is_beta":True, "is_app":True }
     return render(request, 'app_template/app_template.html',context=context)
 
 # --------------------------------------------------
 
 # 自己紹介ページ
 def about(request):
-    context = { "title":"△Natua♪▽について" ,"is_beta":False, "is_app":False }
+    context = { "title":f"△Natua♪▽について {title_base}" ,"is_beta":False, "is_app":False }
     return render(request, 'about/about.html',context=context)
 
 # 更新情報ページ
 def update_info(request):
-    context = { "title":"更新情報" ,"is_beta":False, "is_app":False }
+    context = { "title":f"更新情報 {title_base}" ,"is_beta":False, "is_app":False }
     return render(request, 'update_info/update_info.html',context=context)
 
 # --------------------------------------------------
@@ -60,7 +64,7 @@ def const_search(request):
     song_data = SongDataC.objects.all()
     context = {
 
-        "title":"クイック定数検索",
+        "title":f"クイック定数検索 {title_base}",
         "is_beta":True,
         "is_app":True,
         "song_data":song_data,
@@ -153,12 +157,12 @@ def const_search(request):
 
 # FULLBELLだったら
 def fullbell(request):
-    context = { "title":"FULL BELLだったら？" ,"is_beta":False, "is_app":True }
+    context = { "title":f"FULL BELLだったら？  {title_base}" ,"is_beta":False, "is_app":True }
     return render(request, 'fullbell/fullbell.html',context=context)
 
 # BPMチェッカー
 def bpm_checker(request):
-    context = { "title":"BPMチェッカー" ,"is_beta":False, "is_app":True }
+    context = { "title":f"BPMチェッカー  {title_base}" ,"is_beta":False, "is_app":True }
     return render(request, 'bpm_checker/bpm_checker.html',context=context)
 
 # --------------------------------------------------
@@ -166,14 +170,14 @@ def bpm_checker(request):
 # SEGA音ゲー年表
 def sega_nenpyo(request):
 
-    context = { "title":"SEGA音ゲー年表" ,"is_beta":False, "is_app":True }
+    context = { "title":f"SEGA音ゲー年表 {title_base}" ,"is_beta":False, "is_app":True }
 
     return render(request, 'sega_nenpyo/sega_nenpyo.html',context=context)
 
 # オンゲキジャンル
 def ongeki_genre(request):
 
-    context = { "title":"オンゲキジャンル名図鑑" ,"is_beta":False, "is_app":True }
+    context = { "title":f"オンゲキジャンル名図鑑 {title_base}" ,"is_beta":False, "is_app":True }
 
     genre_data = {
 
@@ -242,7 +246,7 @@ def ongeki_genre(request):
 
 # 課題曲選択
 def kadaikyoku(request):
-    context = { "title":"課題曲セレクト" ,"is_beta":False, "is_app":False }
+    context = { "title":f"課題曲セレクト {title_base}" ,"is_beta":False, "is_app":False }
 
     # 試合情報を読み込む
     gamedata = GameDataB2023
