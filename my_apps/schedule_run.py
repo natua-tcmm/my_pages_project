@@ -16,6 +16,10 @@ def periodic_execution():
     update_log_c = SongDataCManager.update_song_data()
     update_log_o = SongDataOManager.update_song_data()
 
+    # 著作権情報のアップデート
+    SongDataCManager.update_rights_data()
+    SongDataOManager.update_rights_data()
+
     #現在時刻をフォーマットを整えて既定の場所に出力
     t_delta = datetime.timedelta(hours=9)
     jst = datetime.timezone(t_delta, 'JST')

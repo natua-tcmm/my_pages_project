@@ -72,8 +72,18 @@ def const_search(request):
 
     }
 
+    # 更新日を取得
     with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_time.txt"),"r") as f:
         context["const_update_time"] = f.readline()
+
+    # 著作権表示を取得
+    context["rights"] = []
+    context["rights"] += ["【CHUNITHM】"]
+    with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_chunithm.txt"),"r") as f:
+        context["rights"] += f.readlines()
+    context["rights"] += ["","【オンゲキ】"]
+    with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_ongeki.txt"),"r") as f:
+        context["rights"] += f.readlines()
 
     if request.POST:
 
@@ -148,9 +158,6 @@ def const_search(request):
         # time.sleep(1)
 
         return JsonResponse(response)
-
-    # 著作権表示を取得
-    context["rights"] = SongDataCManager.get_rights_data() + SongDataOManager.get_rights_data()
 
     # renderする
     return render(request, 'const_search/const_search.html',context=context)
@@ -232,6 +239,7 @@ def ongeki_genre(request):
         "220":"R'N'R Monsta",
         "OTAKU HAPPYCORE":"まっすぐ→→→ストリーム！",
         "Amusement Hardcore":"Good bye, Merry-Go-Round.",
+        "Bibliophilia":"霧の書斎",
 
     }
 

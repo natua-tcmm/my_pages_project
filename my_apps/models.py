@@ -1,5 +1,6 @@
 from django.db import models
-import requests
+from django.conf import settings
+import requests,os
 
 # Create your models here.
 
@@ -181,13 +182,15 @@ class SongDataCManager(models.Manager):
         return new_songdata
 
     @classmethod
-    def get_rights_data(cls):
+    def update_rights_data(cls):
         """
         著作権情報を取得するメソッド
         """
         rights_data= requests.get("https://chunithm.sega.jp/storage/json/rightsInfo.json")
         rights_data.encoding = rights_data.apparent_encoding
-        return rights_data.json()
+
+        with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_chunithm.txt"),"w") as f:
+            f.write("\n".join(rights_data.json()))
 
 # ----------------------------------
 
@@ -214,7 +217,6 @@ class SongDataO(models.Model):
 
     # 譜面保管所ID
     fumen_id = models.IntegerField()
-
 
 class SongDataOManager(models.Manager):
 
@@ -336,12 +338,10 @@ class SongDataOManager(models.Manager):
         return new_songdata
 
     @classmethod
-    def get_rights_data(cls):
+    def update_rights_data(cls):
         """
         著作権情報を取得するメソッド
         """
-        import requests
-
         ongeki_rights_url = "https://ongeki.sega.jp/assets/json/music/music.json"
 
         # 定数情報を取得する
@@ -355,7 +355,8 @@ class SongDataOManager(models.Manager):
             if e["copyright1"] != "-":
                 ongeki_rights.append(e["copyright1"])
 
-        return (list(set(ongeki_rights)))
+        with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_ongeki.txt"),"w") as f:
+            f.write("\n".join(list(set(ongeki_rights))))
 
 # ----------------------------------
 
