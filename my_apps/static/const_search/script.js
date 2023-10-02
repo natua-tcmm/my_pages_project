@@ -65,6 +65,7 @@ $('#ajax-search').on('submit input', function (e) {
 });
 
 // 楽曲検索
+var before_request_time = 0
 var search_songs = function (e, type) {
 
     $("#loading_text").css("display", "");
@@ -82,23 +83,35 @@ var search_songs = function (e, type) {
             "is_use_name": $("#is_use_name").prop('checked'),
             "is_use_reading": $("#is_use_reading").prop('checked'),
             "is_use_artists": $("#is_use_artists").prop('checked'),
-            "type": type
+            "type": type,
+            "request_time": new Date().getTime(),
         },
         'dataType': 'json',
     })
         //成功時
         .done(function (response) {
 
+            // console.log( before_request_time +" < "+response.request_timeaa );
+
+            // update時
             if (response.update_log.length > 2)
                 console.log(response.update_log);
-            else {
+
+            // より新しい検索ならば
+            if(before_request_time < response.request_time){
+
+                // 前回検索時間を更新
+                before_request_time = response.request_time
+
                 // 今表示されてるやつを消す
                 $(".song-group-item").remove();
+
                 // 新しく表示する
                 for (var i = 0; i < response.search_response.length; i++)
                     $("#post-songs").prepend(response.search_response[i]);
 
                 $("#search_hit_text").html("検索結果 : " + response.search_hit_count + " 件");
+
             }
 
             $("#loading_text").css("display", "none");

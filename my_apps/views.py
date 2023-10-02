@@ -68,7 +68,7 @@ def const_search(request):
         "is_beta":True,
         "is_app":True,
         "song_data":song_data,
-        "song_data_len":len(song_data),
+        "song_data_len":"-",
 
     }
 
@@ -85,6 +85,7 @@ def const_search(request):
     with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_ongeki.txt"),"r") as f:
         context["rights"] += f.readlines()
 
+    # 検索情報が送られてきたら……
     if request.POST:
 
         # POSTから検索queryを取得
@@ -94,8 +95,9 @@ def const_search(request):
         is_use_reading = True if post.get("is_use_reading")=="true" else False
         is_use_artists = True if post.get("is_use_artists")=="true" else False
         type_game = post.get("type")
+        request_time = post.get("request_time")
 
-        response = { "query":query, "update_log":" " }
+        response = { "query":query, "request_time":request_time, "update_log":" " }
 
         # 機種選択
         if type_game=="c":
@@ -108,34 +110,42 @@ def const_search(request):
             print(type_game)
             raise ValueError
 
-        # 文字が入力されてないなら全部返す
-        # 入力されているなら検索して返す
+        # 検索結果の処理
+        # updateのとき
         if query=="/update":
             from my_apps.schedule_run import periodic_execution
             update_log = periodic_execution()
             response["update_log"] = update_log
 
+        # 初期状態
+        elif query=="":
+
+            # song_search = [ e for e in SD.objects.all() ]
+
+            song_search = [ ]
+
+            search_hit_count = "-"
+            song_response = [ render_to_string(f"const_search/song_info_{type_game}.html",context={"song":song}) for song in song_search[:30] ]
+            song_response.append(render_to_string("const_search/result_info.html",context={"info_text":"検索ワードを入力してね"}))
+
+        # 検索ワードの処理
         else:
-            if query=="":
-                song_search = [ e for e in SD.objects.all() ]
-            else:
-                # 検索設定に沿って絞り込む
-                # 検索
-                song_search_by_name = SD.objects.filter(song_name__icontains=query)
-                # song_search_by_reading = SD.objects.filter(...)
-                song_search_by_artists = SD.objects.filter(song_auther__icontains=query)
+            # 検索
+            song_search_by_name = SD.objects.filter(song_name__icontains=query)
+            # song_search_by_reading = SD.objects.filter(...)
+            song_search_by_artists = SD.objects.filter(song_auther__icontains=query)
 
-                # 必要に合わせて結合
-                song_search_tmp = SD.objects.none()
-                if is_use_name:
-                    song_search_tmp = song_search_tmp|song_search_by_name
-                # if is_use_reading:
-                #     song_search_tmp = song_search_tmp|song_search_by_reading
-                if is_use_artists:
-                    song_search_tmp = song_search_tmp|song_search_by_artists
+            # 必要に合わせて結合
+            song_search_tmp = SD.objects.none()
+            if is_use_name:
+                song_search_tmp = song_search_tmp|song_search_by_name
+            # if is_use_reading:
+            #     song_search_tmp = song_search_tmp|song_search_by_reading
+            if is_use_artists:
+                song_search_tmp = song_search_tmp|song_search_by_artists
 
-                # リストにして完成
-                song_search = [ e for e in song_search_tmp]
+            # リストにして完成
+            song_search = [ e for e in song_search_tmp ]
 
             # 整える
             search_hit_count = len(song_search)
@@ -143,19 +153,17 @@ def const_search(request):
 
             # 多すぎたらこうすうる
             if search_hit_count  > 30:
-                song_response.append(render_to_string("const_search/result_info.html",context={}))
+                song_response.append(render_to_string("const_search/result_info.html",context={"info_text":"検索結果が多すぎだよ〜 もう少しワードを絞ってみてね"}))
             # 少なすぎたらこうする
             if search_hit_count  == 0:
                 song_response.append(render_to_string("const_search/result_info.html",context={"info_text":"検索結果が0件だよ〜 ワードや設定を確認してみてね"}))
 
-            # Jsonとして返す
-            response |= {
-                "search_response":song_response[::-1],
-                "search_hit_count":search_hit_count,
-                "type":type_game,
-            }
-
-        # time.sleep(1)
+        # Jsonとして返す
+        response |= {
+            "search_response":song_response[::-1],
+            "search_hit_count":search_hit_count,
+            "type":type_game,
+        }
 
         return JsonResponse(response)
 
