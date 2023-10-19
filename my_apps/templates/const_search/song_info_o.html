@@ -10,19 +10,19 @@
         </div>
 
         <!-- 定数 -->
-        <div class="col-auto justify-content-end align-items-center border-expert constdisp_expert"
+        <div class="col-auto justify-content-end align-items-center border-right-expert constdisp_expert"
             style="display: none;">
             <h5 class="mb-0">{% if song.expert_const != 0 %}<span
                     class="font-weight-bold">{{song.expert_const}}</span>{% else %}<span class="text-black-50 h6">No
                     Data</span>{% endif %}</h5>
         </div>
-        <div class="col-auto justify-content-end align-items-center border-master constdisp_master"
+        <div class="col-auto justify-content-end align-items-center border-right-master constdisp_master"
             style="display: flex;">
             <h5 class="mb-0">{% if song.master_const != 0 %}<span
                     class="font-weight-bold">{{song.master_const}}</span>{% else %}<span class="text-black-50 h6">No
                     Data</span>{% endif %}</h5>
         </div>
-        <div class="col-auto justify-content-end align-items-center border-lunatic constdisp_ultima"
+        <div class="col-auto justify-content-end align-items-center border-right-lunatic constdisp_ultima"
             style="display: none;">
             <h5 class="mb-0">{% if song.lunatic_const != 0 %}<span
                     class="font-weight-bold">{{song.lunatic_const}}</span>{% else %}<span class="text-black-50 h6">No
@@ -50,21 +50,21 @@
             <!-- 各定数表示 -->
             <div class="col order-last">
 
-                <div class="row d-flex justify-content-end align-items-center border-expert pt-1 pb-1">
+                <div class="row d-flex justify-content-end align-items-center border-right-expert pt-1 pb-1">
                     {% if song.expert_notes != 0 %}<p class="mb-1 mt-1 pr-2 border-right">{{song.expert_notes}} Notes
                     </p>{% endif %}
                     <h5 class="pl-2 mb-1 mt-1 mr-2">{% if song.expert_const != 0 %}<span
                             class="font-weight-bold">{{song.expert_const}}</span>{% else %}<span
                             class="text-black-50 h6">No Data</span>{% endif %}</h5>
                 </div>
-                <div class="row d-flex justify-content-end align-items-center border-master mt-1 mb-1">
+                <div class="row d-flex justify-content-end align-items-center border-right-master mt-1 mb-1">
                     {% if song.master_notes != 0 %}<p class="mb-1 mt-1 pr-2 border-right">{{song.master_notes}} Notes
                     </p>{% endif %}
                     <h5 class="pl-2 mb-1 mt-1 mr-2">{% if song.master_const != 0 %}<span
                             class="font-weight-bold">{{song.master_const}}</span>{% else %}<span
                             class="text-black-50 h6">No Data</span>{% endif %}</h5>
                 </div>
-                <div class="row d-flex justify-content-end align-items-center border-lunatic pt-1 pb-1">
+                <div class="row d-flex justify-content-end align-items-center border-right-lunatic pt-1 pb-1">
                     {% if song.lunatic_notes != 0 %}<p class="mb-1 mt-1 pr-2 border-right">{{song.lunatic_notes}} Notes
                     </p>{% endif %}
                     <h5 class="pl-2 mb-1 mt-1 mr-2">{% if song.lunatic_const != 0 %}<span
@@ -83,44 +83,71 @@
 
                 <div class="col-auto pr-0 pb-1">
                     <button id="actionbtn1_{{song.id}}" class="col-auto pl-4  btn btn-outline-secondary dropdown-toggle"
-                        type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" {% if song.fumen_id == 0 %} disabled {% endif %}>
+                        type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        {% if song.fumen_id == 0 %} disabled {% endif %}>
                         譜面画像<span style="font-size:.7rem">(外部ページ)</span>
                     </button>
                     <div class="dropdown-menu">
                         <button id="fumenbtn-e_{{song.id}}"
                             class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
                             {% if song.fumen_id == 0 %} disabled {% endif %}>
-                            EXPERT<i class="ml-2 fas fa-external-link-alt"></i>
+                            <span class="color-expert mr-1">■</span>EXPERT<i class="ml-2 fas fa-external-link-alt"></i>
                         </button>
                         <button id="fumenbtn-m_{{song.id}}"
                             class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
                             {% if song.fumen_id == 0 %} disabled {% endif %}>
-                            MASTER<i class="ml-2 fas fa-external-link-alt"></i>
+                            <span class="color-master mr-1">■</span>MASTER<i class="ml-2 fas fa-external-link-alt"></i>
                         </button>
                         <button id="fumenbtn-l_{{song.id}}"
                             class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
                             {% if song.fumen_id == 0 or song.lunatic_const == 0 %} disabled {% endif %}>
-                            LUNATIC<i class="ml-2 fas fa-external-link-alt"></i>
+                            <span class="color-lunatic mr-1">■</span>LUNATIC<i
+                                class="ml-2 fas fa-external-link-alt"></i>
                         </button>
                         <script>
                             // var fumen_id_{{ song.id }} = Number("{{song.fumen_id}}");
                             document.getElementById("fumenbtn-e_{{song.id}}").onclick = function () {
-                                window.open("https://www.sdvx.in/ongeki/" + ( Number("{{song.fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.fumen_id}}").toFixed().padStart(5, "0") + "exp.htm");
+                                window.open("https://www.sdvx.in/ongeki/" + (Number("{{song.fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.fumen_id}}").toFixed().padStart(5, "0") + "exp.htm");
                             }
                             document.getElementById("fumenbtn-m_{{song.id}}").onclick = function () {
-                                window.open("https://www.sdvx.in/ongeki/" + ( Number("{{song.fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.fumen_id}}").toFixed().padStart(5, "0") + "mst.htm");
+                                window.open("https://www.sdvx.in/ongeki/" + (Number("{{song.fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.fumen_id}}").toFixed().padStart(5, "0") + "mst.htm");
                             }
                             document.getElementById("fumenbtn-l_{{song.id}}").onclick = function () {
-                                window.open("https://www.sdvx.in/ongeki/luna/" +  Number("{{song.fumen_id}}").toFixed().padStart(5, "0") + "luna.htm");
+                                window.open("https://www.sdvx.in/ongeki/luna/" + Number("{{song.fumen_id}}").toFixed().padStart(5, "0") + "luna.htm");
                             }
 
                         </script>
                     </div>
                 </div>
-
-
+                <div class="col-auto pr-0 pb-1">
+                    <button id="actionbtn2_{{song.id}}" class="col-auto pl-4 btn btn-outline-secondary dropdown-toggle"
+                        type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        計算ツール・リンク
+                    </button>
+                    <div class="dropdown-menu">
+                        <!-- <button id="bpm_link_{{song.id}}"
+                                class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
+                                {% if song.song_bpm == 0 %} disabled {% endif %}>
+                                BPMチェック
+                            </button> -->
+                        <button onclick='window.open("https://wikiwiki.jp/gameongeki/{{song.song_name}}")'
+                            class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button">
+                            攻略wiki <span style="font-size:.7rem">(外部ページ)</span>
+                            <i class="ml-2 fas fa-external-link-alt"></i>
+                        </button>
+                    </div>
+                    <!-- <script>
+                            document.getElementById("bpm_link_{{song.id}}").onclick = function () {
+                            window.location.href = "{% url 'my_apps:bpm_checker_page' %}?bpm={{song.song_bpm}}";
+                            };
+                        </script> -->
+                </div>
             </div>
         </div>
+
+
+    </div>
+    </div>
     </div>
 
 

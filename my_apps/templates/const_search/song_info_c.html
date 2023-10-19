@@ -10,19 +10,19 @@
         </div>
 
         <!-- 定数 -->
-        <div class="col-auto justify-content-end align-items-center border-expert constdisp_expert"
+        <div class="col-auto justify-content-end align-items-center border-right-expert constdisp_expert"
             style="display: none;">
             <h5 class="mb-0">{% if song.expert_const != 0 %}<span
                     class="font-weight-bold">{{song.expert_const}}</span>{% else %}<span class="text-black-50 h6">No
                     Data</span>{% endif %}</h5>
         </div>
-        <div class="col-auto justify-content-end align-items-center border-master constdisp_master"
+        <div class="col-auto justify-content-end align-items-center border-right-master constdisp_master"
             style="display: flex;">
             <h5 class="mb-0">{% if song.master_const != 0 %}<span
                     class="font-weight-bold">{{song.master_const}}</span>{% else %}<span class="text-black-50 h6">No
                     Data</span>{% endif %}</h5>
         </div>
-        <div class="col-auto justify-content-end align-items-center border-ultima constdisp_ultima"
+        <div class="col-auto justify-content-end align-items-center border-right-ultima constdisp_ultima"
             style="display: none;">
             <h5 class="mb-0">{% if song.ultima_const != 0 %}<span
                     class="font-weight-bold">{{song.ultima_const}}</span>{% else %}<span class="text-black-50 h6">No
@@ -51,21 +51,21 @@
             <!-- 各定数表示 -->
             <div class="col order-last">
 
-                <div class="row d-flex justify-content-end align-items-center border-expert pt-1 pb-1">
+                <div class="row d-flex justify-content-end align-items-center border-right-expert pt-1 pb-1">
                     {% if song.expert_notes != 0 %}<p class="mb-1 mt-1 pr-2 border-right">{{song.expert_notes}} Notes
                     </p>{% endif %}
                     <h5 class="pl-2 mb-1 mt-1 mr-2">{% if song.expert_const != 0 %}<span
                             class="font-weight-bold">{{song.expert_const}}</span>{% else %}<span
                             class="text-black-50 h6">No Data</span>{% endif %}</h5>
                 </div>
-                <div class="row d-flex justify-content-end align-items-center border-master mt-1 mb-1">
+                <div class="row d-flex justify-content-end align-items-center border-right-master mt-1 mb-1">
                     {% if song.master_notes != 0 %}<p class="mb-1 mt-1 pr-2 border-right">{{song.master_notes}} Notes
                     </p>{% endif %}
                     <h5 class="pl-2 mb-1 mt-1 mr-2">{% if song.master_const != 0 %}<span
                             class="font-weight-bold">{{song.master_const}}</span>{% else %}<span
                             class="text-black-50 h6">No Data</span>{% endif %}</h5>
                 </div>
-                <div class="row d-flex justify-content-end align-items-center border-ultima pt-1 pb-1">
+                <div class="row d-flex justify-content-end align-items-center border-right-ultima pt-1 pb-1">
                     {% if song.ultima_notes != 0 %}<p class="mb-1 mt-1 pr-2 border-right">{{song.ultima_notes}} Notes
                     </p>{% endif %}
                     <h5 class="pl-2 mb-1 mt-1 mr-2">{% if song.ultima_const != 0 %}<span
@@ -91,17 +91,17 @@
                         <button id="fumenbtn-e_{{song.id}}"
                             class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
                             {% if song.fumen_id == 0 %} disabled {% endif %}>
-                            EXPERT<i class="ml-2 fas fa-external-link-alt"></i>
+                            <span class="color-expert mr-1">■</span>EXPERT<i class="ml-2 fas fa-external-link-alt"></i>
                         </button>
                         <button id="fumenbtn-m_{{song.id}}"
                             class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
                             {% if song.fumen_id == 0 %} disabled {% endif %}>
-                            MASTER<i class="ml-2 fas fa-external-link-alt"></i>
+                            <span class="color-master mr-1">■</span>MASTER<i class="ml-2 fas fa-external-link-alt"></i>
                         </button>
                         <button id="fumenbtn-u_{{song.id}}"
                             class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
                             {% if song.fumen_id == 0 or song.ultima_const == 0 %} disabled {% endif %}>
-                            ULTIMA<i class="ml-2 fas fa-external-link-alt"></i>
+                            <span class="color-ultima mr-1">■</span>ULTIMA<i class="ml-2 fas fa-external-link-alt"></i>
                         </button>
                         <script>
                             // var fumen_id_{{ song.id }} = Number("{{song.fumen_id}}");
@@ -128,6 +128,11 @@
                             class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
                             {% if song.song_bpm == 0 %} disabled {% endif %}>
                             BPMチェック
+                        </button>
+                        <button onclick='window.open("https://wikiwiki.jp/chunithmwiki/{{song.song_name}}")'
+                            class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button">
+                            攻略wiki <span style="font-size:.7rem">(外部ページ)</span>
+                            <i class="ml-2 fas fa-external-link-alt"></i>
                         </button>
                         <button onclick='window.open("https://db.chunirec.net/search?q={{song.song_name}}")'
                             class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button">

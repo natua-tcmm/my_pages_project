@@ -2,21 +2,42 @@
     font-size: .8rem
 }
 
-.border-expert {
+/* -------------- */
+
+.border-right-expert {
     border-right: 4px solid #cc3232;
 }
 
-.border-master {
+.border-right-master {
     border-right: 4px solid #9932cc;
 }
 
-.border-ultima {
+.border-right-ultima {
     border-right: 4px solid #160505;
 }
 
-.border-lunatic {
+.border-right-lunatic {
     border-right: 4px solid #b0b0b0;
 }
+
+.color-expert {
+    color: #cc3232;
+}
+
+.color-master {
+    color: #9932cc;
+}
+
+.color-ultima {
+    color: #160505;
+}
+
+.color-lunatic {
+    color: #b0b0b0;
+}
+
+/* -------------- */
+
 
 .song-description:hover {
     background-color: initial;

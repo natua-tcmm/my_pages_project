@@ -30,6 +30,8 @@ $("#change_dif").on("click", function () {
 $("#clear-button").on("click", function (e) {
     $("#query").val("");
     $("#query").select();
+
+    // 空表示を取得
     search_songs(e, type);
 });
 
@@ -63,6 +65,7 @@ var request_count = 0;
 var response_count = 0;
 var invalid_response_count = 0;
 
+// 検索ステータスを更新する
 var update_search_status = function(){
     $("#search-status").html("↑"+request_count+"↓"+response_count+"(-"+invalid_response_count+")");
 }
@@ -71,10 +74,6 @@ var update_search_status = function(){
 $('#ajax-search').on('submit input', function (e) {
     // console.log($("#is_use_name").prop('checked'));
 
-    // 検索ステータスを更新
-    request_count++;
-    update_search_status();
-
     // 検索
     search_songs(e, type);
 });
@@ -82,6 +81,10 @@ $('#ajax-search').on('submit input', function (e) {
 // 楽曲検索
 var before_request_time = 0
 var search_songs = function (e, type) {
+
+    // 検索ステータスを更新
+    request_count++;
+    update_search_status();
 
     $("#loading_text").css("display", "");
 
