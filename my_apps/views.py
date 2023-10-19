@@ -248,6 +248,7 @@ def ongeki_genre(request):
         "OTAKU HAPPYCORE":"まっすぐ→→→ストリーム！",
         "Amusement Hardcore":"Good bye, Merry-Go-Round.",
         "Bibliophilia":"霧の書斎",
+        "Hybrid SpeedSamba":"其のエメラルドを見よ",
 
     }
 
