@@ -194,6 +194,8 @@ def ongeki_genre(request):
 
     context = { "title":f"オンゲキジャンル名図鑑 {title_base}" ,"is_beta":False, "is_app":True }
 
+    # ---------------
+
     genre_data = {
 
         "Tomahawk":"Lostwizz",
@@ -252,10 +254,15 @@ def ongeki_genre(request):
 
     }
 
+    updated_date = "2023/10/12"
+
+    # ---------------
+
     genre_data = sorted(genre_data.items(), key = lambda e : e[0])
     # genre_data = sorted(genre_data.items(), key = lambda e : e[1])
 
     context["genre_data"] = genre_data
+    context["updated_date"] = updated_date
 
     return render(request, 'ongeki_genre/ongeki_genre.html',context=context)
 
