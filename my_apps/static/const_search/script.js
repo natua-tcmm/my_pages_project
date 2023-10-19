@@ -58,9 +58,24 @@ $("#type-o").on("click", function (e) {
 
 // --------------------------------
 
+// 検索ステータス
+var request_count = 0;
+var response_count = 0;
+var invalid_response_count = 0;
+
+var update_search_status = function(){
+    $("#search-status").html("↑"+request_count+"↓"+response_count+"(-"+invalid_response_count+")");
+}
+
 // 検索ワードの送信
 $('#ajax-search').on('submit input', function (e) {
     // console.log($("#is_use_name").prop('checked'));
+
+    // 検索ステータスを更新
+    request_count++;
+    update_search_status();
+
+    // 検索
     search_songs(e, type);
 });
 
@@ -93,6 +108,10 @@ var search_songs = function (e, type) {
 
             // console.log( before_request_time +" < "+response.request_timeaa );
 
+            // 検索ステータスを更新
+            response_count++;
+            update_search_status();
+
             // update時
             if (response.update_log.length > 2)
                 console.log(response.update_log);
@@ -112,6 +131,12 @@ var search_songs = function (e, type) {
 
                 $("#search_hit_text").html("検索結果 : " + response.search_hit_count + " 件");
 
+            }
+            // 無効にされる検索結果ならば
+            else{
+                // 検索ステータスを更新
+                invalid_response_count++;
+                update_search_status();
             }
 
             $("#loading_text").css("display", "none");
