@@ -122,9 +122,13 @@
                 <div class="col-auto pr-0 pb-1">
                     <button id="actionbtn2_{{song.id}}" class="col-auto pl-4 btn btn-outline-secondary dropdown-toggle"
                         type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        計算ツール・リンク
+                        各種ツール・リンク
                     </button>
                     <div class="dropdown-menu">
+                        <button onclick="navigator.clipboard.writeText('{{song.song_name}}')" id="song_name_copy"
+                            class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button">
+                            曲名をコピー<i class="pl-2 far fa-copy"></i>
+                        </button>
                         <!-- <button id="bpm_link_{{song.id}}"
                                 class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
                                 {% if song.song_bpm == 0 %} disabled {% endif %}>

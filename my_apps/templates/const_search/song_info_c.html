@@ -84,7 +84,8 @@
 
                 <div class="col-auto pr-0 pb-1">
                     <button id="actionbtn1_{{song.id}}" class="col-auto pl-4  btn btn-outline-secondary dropdown-toggle"
-                        type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" {% if song.fumen_id == 0 %} disabled {% endif %}>
+                        type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        {% if song.fumen_id == 0 %} disabled {% endif %}>
                         譜面画像<span style="font-size:.7rem">(外部ページ)</span>
                     </button>
                     <div class="dropdown-menu">
@@ -106,13 +107,13 @@
                         <script>
                             // var fumen_id_{{ song.id }} = Number("{{song.fumen_id}}");
                             document.getElementById("fumenbtn-e_{{song.id}}").onclick = function () {
-                                window.open("https://www.sdvx.in/chunithm/" + ( Number("{{song.fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.fumen_id}}").toFixed().padStart(5, "0") + "exp.htm");
+                                window.open("https://www.sdvx.in/chunithm/" + (Number("{{song.fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.fumen_id}}").toFixed().padStart(5, "0") + "exp.htm");
                             }
                             document.getElementById("fumenbtn-m_{{song.id}}").onclick = function () {
-                                window.open("https://www.sdvx.in/chunithm/" + ( Number("{{song.fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.fumen_id}}").toFixed().padStart(5, "0") + "mst.htm");
+                                window.open("https://www.sdvx.in/chunithm/" + (Number("{{song.fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.fumen_id}}").toFixed().padStart(5, "0") + "mst.htm");
                             }
                             document.getElementById("fumenbtn-u_{{song.id}}").onclick = function () {
-                                window.open("https://www.sdvx.in/chunithm/ult/" +  Number("{{song.fumen_id}}").toFixed().padStart(5, "0") + "ult.htm");
+                                window.open("https://www.sdvx.in/chunithm/ult/" + Number("{{song.fumen_id}}").toFixed().padStart(5, "0") + "ult.htm");
                             }
 
                         </script>
@@ -121,9 +122,19 @@
                 <div class="col-auto pr-0 pb-1">
                     <button id="actionbtn2_{{song.id}}" class="col-auto pl-4 btn btn-outline-secondary dropdown-toggle"
                         type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        計算ツール・リンク
+                        各種ツール・リンク
                     </button>
                     <div class="dropdown-menu">
+                        <button onclick="navigator.clipboard.writeText('{{song.song_name}}')" id="song_name_copy"
+                            class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button">
+                            曲名をコピー<i class="pl-2 far fa-copy"></i>
+                        </button>
+                        <button onclick="navigator.clipboard.writeText('{{song.song_name}} / {{song.song_auther}}')"
+                            id="song_name_copy"
+                            class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button">
+                            曲名＆アーティスト名をコピー<i class="pl-2 far fa-copy"></i>
+                        </button>
+                        <div class="dropdown-divider"></div>
                         <button id="bpm_link_{{song.id}}"
                             class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
                             {% if song.song_bpm == 0 %} disabled {% endif %}>
