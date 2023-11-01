@@ -5,7 +5,7 @@ from django.db.models import Q
 
 from .models import *
 
-import os,json
+import os,json,datetime
 from django.conf import settings
 import pandas as pd
 
@@ -61,13 +61,12 @@ def update_info(request):
 # 定数検索ページ
 def const_search(request):
 
-    song_data = SongDataC.objects.all()
+
     context = {
 
         "title":f"クイック定数検索 {title_base}",
         "is_beta":True,
         "is_app":True,
-        "song_data":song_data,
         "song_data_len":"-",
 
     }
@@ -120,13 +119,15 @@ def const_search(request):
         # 初期状態
         elif query=="":
 
-            # song_search = [ e for e in SD.objects.all() ]
+            # 新曲を表示
+            date_before_2_weekly = (datetime.date.today()-datetime.timedelta(days=14)).strftime("%Y-%m-%d")
+            print(date_before_2_weekly)
+            song_new = SD.objects.filter(song_release__gt=date_before_2_weekly)
+            song_search = [ e for e in song_new ]
 
-            song_search = [ ]
-
-            search_hit_count = "-"
+            search_hit_count = f"[新曲] {len(song_search)}"
             song_response = [ render_to_string(f"const_search/song_info_{type_game}.html",context={"song":song}) for song in song_search[:30] ]
-            song_response.append(render_to_string("const_search/result_info.html",context={"info_text":"検索ワードを入力してね"}))
+            song_response.append(render_to_string("const_search/result_info.html",context={"info_text":"新曲を表示しています。検索ワードを入力してね！"}))
 
         # 検索ワードの処理
         else:

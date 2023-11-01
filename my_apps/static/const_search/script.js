@@ -1,6 +1,9 @@
 // ロード時に検索窓を選択状態にする
 window.onload = function () {
-    $("#query").select();
+    window.setTimeout(function(e){
+        $("#query").select();
+        search_songs(e, "c");
+    },10);
 };
 
 // 難易度切り替え
@@ -89,7 +92,9 @@ var search_songs = function (e, type) {
     $("#loading_text").css("display", "");
 
     // 通常の送信処理を止める
-    e.preventDefault();
+    if(e){
+        e.preventDefault();
+    }
 
     // 送信する
     $.ajax({
