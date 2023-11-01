@@ -129,6 +129,12 @@
                             class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button">
                             曲名をコピー<i class="pl-2 far fa-copy"></i>
                         </button>
+                        <button onclick="navigator.clipboard.writeText('{{song.song_name}} / {{song.song_auther}}')"
+                            id="song_name_copy"
+                            class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button">
+                            曲名＆アーティスト名をコピー<i class="pl-2 far fa-copy"></i>
+                        </button>
+                        <div class="dropdown-divider"></div>
                         <!-- <button id="bpm_link_{{song.id}}"
                                 class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
                                 {% if song.song_bpm == 0 %} disabled {% endif %}>
