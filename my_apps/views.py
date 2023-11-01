@@ -5,7 +5,7 @@ from django.db.models import Q
 
 from .models import *
 
-import os,json,datetime
+import os,json,datetime,jaconv,re
 from django.conf import settings
 import pandas as pd
 
@@ -121,7 +121,6 @@ def const_search(request):
 
             # 新曲を表示
             date_before_2_weekly = (datetime.date.today()-datetime.timedelta(days=14)).strftime("%Y-%m-%d")
-            print(date_before_2_weekly)
             song_new = SD.objects.filter(song_release__gt=date_before_2_weekly)
             song_search = [ e for e in song_new ]
 
@@ -131,9 +130,28 @@ def const_search(request):
 
         # 検索ワードの処理
         else:
+
             # 検索
-            song_search_by_name = SD.objects.filter(song_name__icontains=query)
-            # song_search_by_reading = SD.objects.filter(...)
+
+            # 曲名
+            query_list = [query]
+            # 末尾にアルファベットがあれば消す
+            if re.match(r".+[a-zA-Z0-9_]",query) :
+                query_list += [query[:-1]]
+            # ひらがな・カタカナ変換
+            for q in query_list[:]:
+                query_list += [jaconv.kata2hira(q),jaconv.hira2kata(q)]
+
+            # 重複削除
+            query_list = list(set(query_list))
+            # print(query_list)
+
+            song_search_by_name = SD.objects.none()
+            for q in query_list:
+                song_search_by_name = song_search_by_name|SD.objects.filter(song_name__icontains=q)
+                # song_search_by_reading = SD.objects.filter(...)
+
+            # アーティスト名
             song_search_by_artists = SD.objects.filter(song_auther__icontains=query)
 
             # 必要に合わせて結合

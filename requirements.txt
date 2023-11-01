@@ -9,6 +9,7 @@ Django==4.2.1
 django-import-export==3.2.0
 et-xmlfile==1.1.0
 idna==3.4
+jaconv==0.3.4
 MarkupPy==1.14
 numpy==1.25.0
 odfpy==1.4.1
