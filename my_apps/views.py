@@ -137,14 +137,14 @@ def const_search(request):
             query_list = [query]
             # 末尾にアルファベットがあれば消す
             if re.match(r".+[a-zA-Z0-9_]",query) :
-                query_list += [query[:-1]]
+                query_list += [query[:-1],query[:-2]]
             # ひらがな・カタカナ変換
             for q in query_list[:]:
                 query_list += [jaconv.kata2hira(q),jaconv.hira2kata(q)]
 
             # 重複削除
             query_list = list(set(query_list))
-            # print(query_list)
+            print(query_list)
 
             song_search_by_name = SD.objects.none()
             for q in query_list:
