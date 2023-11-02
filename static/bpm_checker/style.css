@@ -1,0 +1,9 @@
+#bpm-input {
+    width: 5rem;
+    font-weight: bold;
+}
+
+.nbu-detail{
+    display: none;
+    background-color: #F5F5F5;
+}

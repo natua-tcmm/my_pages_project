@@ -1,0 +1,34 @@
+.bell-input {
+    width: 5rem;
+}
+
+.score-input {
+    width: 10rem;
+}
+
+#calc_button {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+#detail-button {
+    color: #212529;
+}
+
+#alert-error {
+    display: none;
+}
+
+#result-hi {
+    font-size: 2.92rem;
+    margin-right: .05rem;
+}
+
+#result-lo {
+    font-size: 2.5rem;
+}
+
+.small-p {
+    color: #c2c2c2;
+    font-size: .75rem;
+}
