@@ -90,6 +90,7 @@ def const_search(request):
         # POSTから検索queryを取得
         post = request.POST
         query = post.get("query")
+        query_list = [query]
         is_use_name = True if post.get("is_use_name")=="true" else False
         is_use_reading = True if post.get("is_use_reading")=="true" else False
         is_use_artists = True if post.get("is_use_artists")=="true" else False
@@ -97,6 +98,7 @@ def const_search(request):
         request_time = post.get("request_time")
 
         response = { "query":query, "request_time":request_time, "update_log":" " }
+
 
         # 機種選択
         if type_game=="c":
@@ -134,10 +136,11 @@ def const_search(request):
             # 検索
 
             # 曲名
-            query_list = [query]
             # 末尾にアルファベットがあれば消す
-            if re.match(r".+[a-zA-Z0-9_]",query) :
-                query_list += [query[:-1],query[:-2]]
+            if re.match(r".*[^a-zA-Z]+[a-zA-Z]{1}$",query) :
+                query_list += [query[:-1]]
+            if re.match(r".*[^a-zA-Z]+[a-zA-Z]{2}$",query) :
+                query_list += [query[:-2]]
             # ひらがな・カタカナ変換
             for q in query_list[:]:
                 query_list += [jaconv.kata2hira(q),jaconv.hira2kata(q)]
@@ -181,6 +184,7 @@ def const_search(request):
         response |= {
             "search_response":song_response[::-1],
             "search_hit_count":search_hit_count,
+            "search_query_list":sorted(query_list).__str__(),
             "type":type_game,
         }
 
