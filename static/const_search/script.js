@@ -138,6 +138,7 @@ var search_songs = function (e, type) {
                     $("#post-songs").prepend(response.search_response[i]);
 
                 $("#search_hit_text").html("検索結果 : " + response.search_hit_count + " 件");
+                $("#search-query-list-display").html(response.search_query_list);
 
             }
             // 無効にされる検索結果ならば
