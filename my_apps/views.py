@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.template.loader import render_to_string
 from django.http import JsonResponse
 from django.db.models import Q
+# from django.core.handlers.wsgi import WSGIRequest
 
 from .models import *
 
@@ -84,11 +85,21 @@ def const_search(request):
     with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_ongeki.txt"),"r") as f:
         context["rights"] += f.readlines()
 
+    # アクセス時にエージェント表示
+    if request.method=="GET":
+        print(request.META.get('HTTP_USER_AGENT', None))
+
     # 検索情報が送られてきたら……
-    if request.POST:
+    if request.method=="POST":
 
         # POSTから検索queryを取得
         post = request.POST
+
+        # メタ情報を取得
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        ip = x_forwarded_for.split(',')[0] if x_forwarded_for else request.META.get('REMOTE_ADDR')
+
+        # 入力情報を取得
         query = post.get("query")
         query_list = [query]
         is_use_name = True if post.get("is_use_name")=="true" else False
@@ -99,6 +110,7 @@ def const_search(request):
 
         response = { "query":query, "request_time":request_time, "update_log":" " }
 
+        print(f"[{ip}][{type_game}] q:{query}")
 
         # 機種選択
         if type_game=="c":
@@ -147,7 +159,6 @@ def const_search(request):
 
             # 重複削除
             query_list = list(set(query_list))
-            print(query_list)
 
             song_search_by_name = SD.objects.none()
             for q in query_list:
