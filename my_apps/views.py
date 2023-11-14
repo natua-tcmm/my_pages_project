@@ -149,9 +149,9 @@ def const_search(request):
 
             # 曲名
             # 末尾にアルファベットがあれば消す
-            if re.match(r".*[^a-zA-Z]+[a-zA-Z]{1}$",query) :
+            if re.match(r".*^[\u3040-\u309F]+[a-zA-Z]{1}$",query) :
                 query_list += [query[:-1]]
-            if re.match(r".*[^a-zA-Z]+[a-zA-Z]{2}$",query) :
+            if re.match(r".*^[\u3040-\u309F]+[a-zA-Z]{2}$",query) :
                 query_list += [query[:-2]]
             # ひらがな・カタカナ変換
             for q in query_list[:]:
