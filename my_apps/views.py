@@ -306,3 +306,8 @@ def kadaikyoku(request):
         return JsonResponse(response)
 
     return render(request, 'kadaikyoku/kadaikyoku.html',context=context)
+
+# 雑多なツール
+def random_tools(request):
+    context = { "title":f"雑多なツール集 {title_base}" ,"is_beta":False, "is_app":True }
+    return render(request, 'random_tools/random_tools.html',context=context)

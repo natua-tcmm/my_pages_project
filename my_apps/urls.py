@@ -27,5 +27,6 @@ urlpatterns = [
 
     # その他
     path("kadaikyoku", views.kadaikyoku, name="kadaikyoku_page"),
+    path("random_tools", views.random_tools, name="random_tools_page"),
     path("app_template", views.app_template, name="app_template_page"),
 ]
