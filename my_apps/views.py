@@ -309,5 +309,21 @@ def kadaikyoku(request):
 
 # 雑多なツール
 def random_tools(request):
+
     context = { "title":f"雑多なツール集 {title_base}" ,"is_beta":False, "is_app":True }
+
+    if request.method=="POST":
+
+        # POSTから検索queryを取得
+        post = request.POST
+
+        # 入力情報を取得
+        query = post.get("query")
+
+        print(query)
+
+        response = { "query":query }
+
+        return JsonResponse(response)
+
     return render(request, 'random_tools/random_tools.html',context=context)

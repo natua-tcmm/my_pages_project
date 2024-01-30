@@ -87,7 +87,7 @@
                         <p>緑数字計算機</p>
                     </a>
                 </li> -->
-
+                <!-- -------------------------------- -->
                 <li class="nav-header">資料集</li>
                 <li class="nav-item">
                     <a href="{% url 'my_apps:sega_nenpyo_page' %}"
@@ -101,6 +101,15 @@
                         class="nav-link {% if request.path == '/my_apps/ongeki_genre' %}active{% endif %}">
                         <i class="nav-icon fas fa-book-open"></i>
                         <p>オンゲキジャンル名図鑑</p>
+                    </a>
+                </li>
+                <!-- -------------------------------- -->
+                <li class="nav-header">その他</li>
+                <li class="nav-item">
+                    <a href="{% url 'my_apps:random_tools_page' %}"
+                        class="nav-link {% if request.path == '/my_apps/random_tools' %}active{% endif %}">
+                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <p>雑多なツール集</p>
                     </a>
                 </li>
             </ul>

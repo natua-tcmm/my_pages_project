@@ -1,4 +1,5 @@
 {% extends '../base/base.html' %}
+{% load static %}
 {% block content %}
 <!-- Content Wrapper. Contains page content -->
 <div class="container">
@@ -18,7 +19,6 @@
     <section class="content">
         <div class="container-fluid">
 
-            {% include "../common/warning_alert.html" %}
             {% if is_beta %}
             {% include "../common/info_alert.html" %}
             {% endif %}
@@ -36,9 +36,14 @@
 
                             <div class="row justify-content-center">
                                 <div class="col-10">
-                                    <p>あああああああああああ</p>
-                                    <p>あああああああああああ</p>
-                                    <p>あああああああああああ</p>
+                                    <p>ほげほげ <i id="loading_text" style="display: none;"
+                                        class="ml-2 fas fa-spinner fa-pulse"></i></p>
+                                    <form id="ajax-search" action="{% url 'my_apps:random_tools_page' %}" method="POST">
+                                        {% csrf_token %}
+                                        <input name="query" type="text" class="form-control" id="query"
+                                            placeholder="入力" aria-label="search" aria-describedby="inputHelp"
+                                            autocomplete="off">
+                                    </form>
                                 </div>
                             </div>
 
@@ -56,5 +61,10 @@
     </section>
     <!-- /.content -->
 </div>
-
+<script>
+    var csrfmiddlewaretoken = "{{ csrf_token }}"
+    var send_url = '{% url "my_apps:random_tools_page" %}'
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{% static 'random_tools/script.js' %}"></script>
 {% endblock content %}
