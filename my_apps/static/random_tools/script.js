@@ -1,7 +1,34 @@
-// 検索ワードの送信
-$('#ajax-search').on('submit input', function (e) {
+// IDをformは#ajax-xxx、queryは#query-xxxにする
 
-    $("#loading_text").css("display", "");
+// 送信時の処理
+$('#ajax-unicode').on('submit', function (e) {
+
+    ajax_send(e, "unicode",$('#query-unicode').val())
+    .done(function (response) {
+
+        $("#loading-text").css("display", "none");
+        console.log(response.result);
+
+        // 今表示されてるやつを消す
+        $("#unicode-table-wrapper").children().remove();
+
+        // 新しく表示する
+        $("#unicode-table-wrapper").prepend(response.result);
+
+    })
+    .fail(function () {
+        alert("Ajax通信に失敗しました(´・ω・`)")
+    });
+
+});
+
+
+
+// ------------------------
+
+var ajax_send = function (e, type, query) {
+
+    $("#loading-text").css("display", "");
 
     // 通常の送信処理を止める
     if (e) {
@@ -9,27 +36,16 @@ $('#ajax-search').on('submit input', function (e) {
     }
 
     // 送信する
-    $.ajax({
+    return $.ajax({
         'url': send_url,
         'type': 'POST',
         'data': {
             "csrfmiddlewaretoken": csrfmiddlewaretoken,
-            'query': $('#query').val(),
+            "query": query,
             "request_time": new Date().getTime(),
+            "type":type,
         },
         'dataType': 'json',
     })
-        //成功時
-        .done(function (response) {
 
-            console.log(response.query);
-
-            $("#loading_text").css("display", "none");
-
-        })
-        //失敗時
-        .fail(function () {
-
-        })
-
-});
+}

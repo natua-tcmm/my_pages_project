@@ -6,7 +6,7 @@ from django.db.models import Q
 
 from .models import *
 
-import os,json,datetime,jaconv,re
+import os,json,datetime,jaconv,re,unicodedata
 from django.conf import settings
 import pandas as pd
 
@@ -318,12 +318,30 @@ def random_tools(request):
         post = request.POST
 
         # 入力情報を取得
+        type = post.get("type")
         query = post.get("query")
 
-        print(query)
+        result = ""
 
-        response = { "query":query }
+        # typeによって分岐
+        if type=="unicode":
+            table_start = '<table class="table mb-0" id="unicode-table"><thead class="thead-light"><tr><th scope="col">#</th><th scope="col">Char</th><th scope="col">CodePoint</th><th scope="col">Name & Link</th></tr></thead><tbody class="table-hover">'
+            table_end = f'</tbody></table><small class="text-muted float-right">Unicode Version: {unicodedata.unidata_version}</small>'
 
+            # 表を生成する
+            if not len(query)==0:
+                result+=table_start
+                for n,char in enumerate(query):
+                    char = unicodedata.normalize("NFC", char)
+                    codepoint = str.upper(str(hex(ord(char)))[2:]).zfill(4)
+                    unicode_name = unicodedata.name(char)
+                    unicode_url = f"https://www.compart.com/en/unicode/U+{codepoint}"
+                    # result += f"【 {char} 】 : U+{codepoint}\n{unicodedata.name(char)}\nhttps://www.compart.com/en/unicode/U+{codepoint}\n"
+                    result += f'<tr><th scope="row">{n}</th><td>{char}</td><td>U+{codepoint}</td><td><a href="{unicode_url}">{unicode_name}</a></td></tr>'
+                result+=table_end
+
+        # お返しする
+        response = { "result":result }
         return JsonResponse(response)
 
     return render(request, 'random_tools/random_tools.html',context=context)

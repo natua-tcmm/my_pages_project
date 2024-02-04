@@ -1,6 +1,7 @@
 {% extends '../base/base.html' %}
 {% load static %}
 {% block content %}
+<link rel="stylesheet" href="{% static 'random_tools/style.css' %}">
 <!-- Content Wrapper. Contains page content -->
 <div class="container">
     <!-- Content Header (Page header) -->
@@ -8,7 +9,8 @@
         <div class="container-fluid pl-0">
             <div class="row mb-2">
                 <div class="col">
-                    <h1 class="m-0">雑多なツール集</h1>
+                    <h1 class="m-0">雑多なツール集 <i id="loading-text" style="display: none;"
+                            class="ml-2 fas fa-spinner fa-pulse"></i></h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -23,34 +25,63 @@
             {% include "../common/info_alert.html" %}
             {% endif %}
 
-            <!-- ここにいろいろ書く -->
+            <!-- Unicodeのやつ -->
             <div class="row">
                 <div class="col">
                     <div class="card card-primary card-outline">
 
                         <div class="card-header">
-                            <h3 class="card-title">アプリ名</h3>
+                            <h3 class="card-title">Unicodeコードポイント・各種情報 </h3>
                         </div>
 
                         <div class="card-body">
 
                             <div class="row justify-content-center">
                                 <div class="col-10">
-                                    <p>ほげほげ <i id="loading_text" style="display: none;"
-                                        class="ml-2 fas fa-spinner fa-pulse"></i></p>
-                                    <form id="ajax-search" action="{% url 'my_apps:random_tools_page' %}" method="POST">
+                                    <!-- 入力 -->
+                                    <form id="ajax-unicode" action="{% url 'my_apps:random_tools_page' %}"
+                                        method="POST">
                                         {% csrf_token %}
-                                        <input name="query" type="text" class="form-control" id="query"
-                                            placeholder="入力" aria-label="search" aria-describedby="inputHelp"
-                                            autocomplete="off">
+                                        <div class="input-group">
+                                            <input name="query" type="text" class="form-control" id="query-unicode"
+                                                placeholder="文字列を入力..." aria-label="search" aria-describedby="inputHelp"
+                                                autocomplete="off">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-primary" type="submit"
+                                                    id="button-addon2">決定</button>
+                                            </div>
+                                        </div>
+                                        <small id="inputHelp" class="form-text text-muted mb-3">
+                                            Unicode正規化形式はNFDです。
+                                        </small>
                                     </form>
+                                    <!-- 出力 -->
+                                    <div id="unicode-table-wrapper">
+                                        <!-- ここに結果のテーブルがくるよ -->
+                                        <!-- <table class="table mb-0" id="unicode-table">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Char</th>
+                                                    <th scope="col">CodePoint</th>
+                                                    <th scope="col">Name &amp; Link</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="table-striped table-hover">
+                                                <tr>
+                                                    <th scope="row">0</th>
+                                                    <td>h</td>
+                                                    <td>U+0068</td>
+                                                    <td><a href="https://www.compart.com/en/unicode/U+0068">LATIN SMALL
+                                                            LETTER H</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <small class="text-muted float-right">aaa</small> -->
+
+                                    </div>
                                 </div>
                             </div>
-
-                        </div>
-
-                        <div class="card-footer">
-                            <p class="mb-0 float-right fs-6 text-black-50">なにかしら書く</p>
                         </div>
 
                     </div>
