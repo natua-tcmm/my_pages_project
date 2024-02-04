@@ -337,7 +337,7 @@ def random_tools(request):
                     unicode_name = unicodedata.name(char)
                     unicode_url = f"https://www.compart.com/en/unicode/U+{codepoint}"
                     # result += f"【 {char} 】 : U+{codepoint}\n{unicodedata.name(char)}\nhttps://www.compart.com/en/unicode/U+{codepoint}\n"
-                    result += f'<tr><th scope="row">{n}</th><td>{char}</td><td>U+{codepoint}</td><td><a href="{unicode_url}">{unicode_name}</a></td></tr>'
+                    result += f'<tr><th scope="row">{n}</th><td>{char}</td><td>U+{codepoint}</td><td><a href="{unicode_url}" target="_blank" rel="noopener noreferrer">{unicode_name}</a></td></tr>'
                 result+=table_end
 
         # お返しする
