@@ -49,3 +49,16 @@ var ajax_send = function (e, type, query) {
     })
 
 }
+
+// ------------------------
+
+// 一時だし寝るか
+$("#itijidashi-neruka").on("click",function(){
+
+    // ツイート生成
+    var base_url = "https://twitter.com/intent/tweet";
+    var text = "1時だし寝るか(  ･᷄ᯅ･᷅ )";
+    var tweetLink = base_url + "?text=" + encodeURIComponent(text);
+    window.open(tweetLink);
+
+});
