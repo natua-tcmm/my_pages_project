@@ -58,7 +58,35 @@ $("#itijidashi-neruka").on("click",function(){
     // ツイート生成
     var base_url = "https://twitter.com/intent/tweet";
     var text = "1時だし寝るか(  ･᷄ᯅ･᷅ )";
-    var tweetLink = base_url + "?text=" + encodeURIComponent(text);
-    window.open(tweetLink);
+    var tweet_link = base_url + "?text=" + encodeURIComponent(text);
+    window.open(tweet_link);
+
+});
+
+// ------------------------
+
+// ついったー検索
+
+$("#xs-ok-btn").on("click",function(){
+
+    var keyword_and = $("#xs-keyword-and").val();
+    var xs_accout_from = $("#xs-account-from").val();
+    var xs_accout_from_isnot = $("#xs-account-from-isnot").prop('checked');
+    var xs_accout_to = $("#xs-account-to").val();
+    var xs_accout_to_isnot = $("#xs-account-to-isnot").prop('checked');
+    var xs_media_option = $("#xs-media-option").val();
+
+    var q = "";
+    if(keyword_and.length>0) q += keyword_and+" ";
+    if(xs_accout_from.length>0) q += "-".repeat(xs_accout_from_isnot) + "from:"+xs_accout_from+" ";
+    if(xs_accout_to.length>0) q += "-".repeat(xs_accout_to_isnot) + "to:"+xs_accout_to+" ";
+    if(xs_media_option.length>0) q += "filter:"+xs_media_option+" ";
+
+    console.log(q)
+
+    // URL生成
+    var base_url = "https://twitter.com/search";
+    var x_search_link = base_url + "?q=" + encodeURIComponent(q);
+    window.open(x_search_link);
 
 });
