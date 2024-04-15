@@ -214,6 +214,12 @@ def bpm_checker(request):
     context = { "title":f"BPMチェッカー  {title_base}" ,"is_beta":False, "is_app":True }
     return render(request, 'bpm_checker/bpm_checker.html',context=context)
 
+# オンゲキOP
+def ongeki_op(request):
+    context = { "title":f"オンゲキ版OVERPOWER {title_base}" ,"is_beta":True, "is_app":True }
+    return render(request, 'ongeki_op/ongeki_op.html',context=context)
+
+
 # --------------------------------------------------
 
 # SEGA音ゲー年表

@@ -1,0 +1,60 @@
+{% extends '../base/base.html' %}
+{% block content %}
+<!-- Content Wrapper. Contains page content -->
+<div class="container">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid pl-0">
+            <div class="row mb-2">
+                <div class="col">
+                    <h1 class="m-0">オンゲキ版OVERPOWER</h1>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+
+            {% include "../common/warning_alert.html" %}
+            {% if is_beta %}
+            {% include "../common/info_alert.html" %}
+            {% endif %}
+
+            <!-- ここにいろいろ書く -->
+            <div class="row">
+                <div class="col">
+                    <div class="card card-primary card-outline">
+
+                        <div class="card-header">
+                            <h3 class="card-title">ONGEKIPOWER</h3>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    <p>あああああああああああ</p>
+                                    <p>あああああああああああ</p>
+                                    <p>あああああああああああ</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="card-footer">
+                            <p class="mb-0 float-right fs-6 text-black-50">なにかしら書く</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+{% endblock content %}
