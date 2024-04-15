@@ -1,3 +1,47 @@
 #osl-id {
     width: 5rem;
 }
+
+#result-hi {
+    font-size: 2.92rem;
+    margin-right: .05rem;
+}
+
+#result-lo {
+    font-size: 2rem;
+}
+
+.overpower-graph-base {
+    position: relative;
+    width: 100%;
+    height: 22px;
+    background: #6e6e6e;
+    outline: #dddddd 1px solid
+}
+
+.overpower-graph-base .bg-gold,.overpower-graph-base .bg-platinum,.overpower-graph-base .bg-silver,.overpower-graph-base .bg-white {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.overpower-graph-base .bg-white {
+    z-index: 12;
+    background: linear-gradient(180deg,#fff,#fff 50%,#d0d6da 50%,#e4edf3 75%,#fff)!important
+}
+
+.overpower-graph-base .bg-platinum {
+    z-index: 10;
+    background: linear-gradient(180deg,#fff1ba,#ffeb9c 50%,#fc0 50%,#ffeca4 75%,#fff)!important
+}
+
+.overpower-graph-base .bg-gold {
+    z-index: 8;
+    background: linear-gradient(180deg,#ffe4a3,#efae10 50%,#ff8300 50%,#ffc947 75%,#fff)!important
+}
+
+.overpower-graph-base .bg-silver {
+    z-index: 6;
+    background: linear-gradient(180deg,#c8e7ff,#8fceff 50%,#6eb5ff 50%,#b7ddff 75%,#fff)!important
+}
