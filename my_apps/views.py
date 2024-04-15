@@ -216,7 +216,25 @@ def bpm_checker(request):
 
 # オンゲキOP
 def ongeki_op(request):
+
     context = { "title":f"オンゲキ版OVERPOWER {title_base}" ,"is_beta":True, "is_app":True }
+
+    # Ajax処理
+    if request.method=="POST":
+
+        # POSTから検索queryを取得
+        post = request.POST
+
+        # 入力情報を取得
+        type = post.get("type")
+        query = post.get("query")
+
+        result = "にゃーん"
+
+        # お返しする
+        response = { "result":result }
+        return JsonResponse(response)
+
     return render(request, 'ongeki_op/ongeki_op.html',context=context)
 
 
