@@ -29,9 +29,11 @@ $("#calc-button").on("click",function(e){
             // op概要
             // 今表示されてるやつを消す
             $("#op_summary").children().remove();
+            $("#op_card").children().remove();
 
             // 新しく表示する
             $("#op_summary").prepend(response.op_summary_html);
+            $("#op_card").prepend(response.op_card_html);
 
         })
         .fail(function () {

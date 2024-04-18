@@ -51,22 +51,29 @@ def ongeki_op(request):
 
 
 
-
+        # 概要
         c = {
             "op_p_int":op_aggregate["ALL"]["op_percent_str"].split(".")[0],
             "op_p_dec":op_aggregate["ALL"]["op_percent_str"].split(".")[1][:-1],
-            "op":op_aggregate["ALL"]["op"],
-            "op_max":op_aggregate["ALL"]["op_max"],
+            "op":f'{op_aggregate["ALL"]["op"]:.4f}',
+            "op_max":f'{op_aggregate["ALL"]["op_max"]:.4f}',
             "player_name":player_data["name"],
             "rating":player_data["rating"],
             "max_rating":player_data["max_rating"],
         }
         op_summary_html = render_to_string("ongeki_op/op_summary.html",context=c)
 
-        result = f"にゃーん {osl_id}"
+
+        # カード
+        op_card_all_html = ""
+
+        for category_name in op_aggregate.keys():
+            op_aggr_cat = op_aggregate[category_name]
+            op_card_all_html += rendar_op_card(category_name,op_aggr_cat)
+
 
         # お返しする
-        ajax_response = { "result":result, "op_summary_html":op_summary_html }
+        ajax_response = { "op_summary_html":op_summary_html, "op_card_html":op_card_all_html }
         return JsonResponse(ajax_response)
 
     return render(request, 'ongeki_op/ongeki_op.html',context=context)
@@ -309,5 +316,48 @@ def aggr_op(records):
     op_tmp["ranks"] = ranks
     op_tmp["lumps"] = lumps
     op_tmp["bells"] = bells
+    op_tmp["music_count"] = music_count
 
     return op_tmp
+
+# カードのhtmlをレンダリング
+def rendar_op_card(category_name,op_aggr_cat):
+
+    c = {
+        "category_name":category_name,
+        "op_percent_str":op_aggr_cat["op_percent_str"],
+        "op":f'{op_aggr_cat["op"]:.2f}',
+        "op_max":f'{op_aggr_cat["op_max"]:.2f}',
+
+        "rank_max":op_aggr_cat["ranks"]["MAX"],
+        "rank_sssp":op_aggr_cat["ranks"]["SSS+"],
+        "rank_sss":op_aggr_cat["ranks"]["SSS"],
+        "rank_ss":op_aggr_cat["ranks"]["SS"],
+        "rank_s":op_aggr_cat["ranks"]["S"],
+        "rank_max":op_aggr_cat["ranks"]["MAX"],
+
+        "rank_max_r":op_aggr_cat["ranks"]["MAX"]*100/op_aggr_cat["music_count"],
+        "rank_sssp_r":(op_aggr_cat["ranks"]["SSS+"]+op_aggr_cat["ranks"]["MAX"])*100/op_aggr_cat["music_count"],
+        "rank_sss_r":(op_aggr_cat["ranks"]["SSS"]+op_aggr_cat["ranks"]["SSS+"]+op_aggr_cat["ranks"]["MAX"])*100/op_aggr_cat["music_count"],
+        "rank_ss_r":(op_aggr_cat["ranks"]["SS"]+op_aggr_cat["ranks"]["SSS"]+op_aggr_cat["ranks"]["SSS+"]+op_aggr_cat["ranks"]["MAX"])*100/op_aggr_cat["music_count"],
+        "rank_s_r":(op_aggr_cat["ranks"]["S"]+op_aggr_cat["ranks"]["SS"]+op_aggr_cat["ranks"]["SSS"]+op_aggr_cat["ranks"]["SSS+"]+op_aggr_cat["ranks"]["MAX"])*100/op_aggr_cat["music_count"],
+
+        "lump_abp":op_aggr_cat["lumps"]["AB+"],
+        "lump_ab":op_aggr_cat["lumps"]["AB"],
+        "lump_fc":op_aggr_cat["lumps"]["FC"],
+        "lump_others":op_aggr_cat["lumps"]["others"],
+
+        "lump_abp_r":op_aggr_cat["lumps"]["AB+"]*100/op_aggr_cat["music_count"],
+        "lump_ab_r":(op_aggr_cat["lumps"]["AB"]+op_aggr_cat["lumps"]["AB+"])*100/op_aggr_cat["music_count"],
+        "lump_fc_r":(op_aggr_cat["lumps"]["FC"]+op_aggr_cat["lumps"]["AB"]+op_aggr_cat["lumps"]["AB+"])*100/op_aggr_cat["music_count"],
+
+        "bell_fb":op_aggr_cat["bells"]["FB"],
+        "bell_others":op_aggr_cat["bells"]["others"],
+
+        "bell_fb_r":op_aggr_cat["bells"]["FB"]*100/op_aggr_cat["music_count"],
+
+    }
+
+    op_card_html = render_to_string("ongeki_op/op_card.html",context=c)
+
+    return op_card_html
