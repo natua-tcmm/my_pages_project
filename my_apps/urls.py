@@ -2,7 +2,9 @@ from django.urls import path
 
 app_name = "my_apps"
 
-from . import views
+from .views import views
+from .views import view_ongeki_op
+from .views import view_const_search
 
 urlpatterns = [
     # システム
@@ -17,10 +19,10 @@ urlpatterns = [
     path("update_info", views.update_info, name="update_info_page"),
 
     # ツール
-    path("const_search", views.const_search, name="const_search_page"),
+    path("const_search", view_const_search.const_search, name="const_search_page"),
     path("fullbell", views.fullbell, name="fullbell_page"),
     path("bpm_checker", views.bpm_checker, name="bpm_checker_page"),
-    path("ongeki_op", views.ongeki_op, name="ongeki_op_page"),
+    path("ongeki_op", view_ongeki_op.ongeki_op, name="ongeki_op_page"),
 
     # 資料集
     path("ongeki_genre", views.ongeki_genre, name="ongeki_genre_page"),
