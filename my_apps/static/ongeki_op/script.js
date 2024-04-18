@@ -1,3 +1,14 @@
+window.addEventListener('DOMContentLoaded', function(){
+
+    // osl_idをlocalStrageとやりとり
+    var ls_osl_id = localStorage.getItem("ongeki_op__osl_id");
+    if (ls_osl_id !== null) {
+        $("#osl-id").val(ls_osl_id);
+    }
+
+
+});
+
 // IDの送信
 $("#calc-button").on("click",function(e){
 
@@ -5,10 +16,12 @@ $("#calc-button").on("click",function(e){
     if(!isNaN(osl_id)&&osl_id.length>0){
 
         osl_id = Number(osl_id);
-        console.log(osl_id);
+        // console.log(osl_id);
 
         ajax_send(e, osl_id)
         .done(function (response) {
+
+            localStorage.setItem("ongeki_op__osl_id",osl_id);
 
             $("#loading-text").css("display", "none");
             // console.log(response.result);
