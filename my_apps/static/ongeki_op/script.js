@@ -11,7 +11,8 @@ $("#calc-button").on("click",function(e){
         .done(function (response) {
 
             $("#loading-text").css("display", "none");
-            console.log(response.result);
+            // console.log(response.result);
+            console.log(response);
 
             // // 今表示されてるやつを消す
             // $("#unicode-table-wrapper").children().remove();
