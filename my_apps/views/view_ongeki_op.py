@@ -329,7 +329,7 @@ def rendar_op_card(category_name,op_aggr_cat):
         "rank_sss":op_aggr_cat["ranks"]["SSS"],
         "rank_ss":op_aggr_cat["ranks"]["SS"],
         "rank_s":op_aggr_cat["ranks"]["S"],
-        "rank_max":op_aggr_cat["ranks"]["MAX"],
+        "rank_others":op_aggr_cat["ranks"]["others"],
 
         "rank_max_r":op_aggr_cat["ranks"]["MAX"]*100/op_aggr_cat["music_count"],
         "rank_sssp_r":(op_aggr_cat["ranks"]["SSS+"]+op_aggr_cat["ranks"]["MAX"])*100/op_aggr_cat["music_count"],
