@@ -49,7 +49,7 @@
 
                             <!-- 検索窓 -->
                             <div class="row justify-content-center">
-                                <div class="col-10">
+                                <div class="col-12 col-md-10">
 
                                     <form id="ajax-search" action="{% url 'my_apps:const_search_page' %}" method="POST">
                                         {% csrf_token %}
@@ -113,7 +113,7 @@
 
                             <!-- 検索結果 -->
                             <div class="row justify-content-center search-result">
-                                <div class="col-10">
+                                <div class="col-12 col-md-10">
                                     <div id="post-songs" class="list-group">
 
                                         {% include "const_search/result_info.html" %}
@@ -123,7 +123,7 @@
                             </div>
 
                             <div class="row justify-content-center mt-2">
-                                <div class="col-10">
+                                <div class="col-12 col-md-10">
                                     <details>
                                         <summary><span class="text-black-50">検索クエリを表示</span></summary>
                                         <p class="text-black-50"><span id="search-query-list-display">['']</span></p>
