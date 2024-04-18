@@ -24,14 +24,14 @@ $("#calc-button").on("click",function(e){
             localStorage.setItem("ongeki_op__osl_id",osl_id);
 
             $("#loading-text").css("display", "none");
-            // console.log(response.result);
-            console.log(response);
+            // console.log(response);
 
-            // // 今表示されてるやつを消す
-            // $("#unicode-table-wrapper").children().remove();
+            // op概要
+            // 今表示されてるやつを消す
+            $("#op_summary").children().remove();
 
-            // // 新しく表示する
-            // $("#unicode-table-wrapper").prepend(response.result);
+            // 新しく表示する
+            $("#op_summary").prepend(response.op_summary_html);
 
         })
         .fail(function () {

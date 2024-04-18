@@ -52,13 +52,21 @@ def ongeki_op(request):
 
 
 
-
-
+        c = {
+            "op_p_int":op_aggregate["ALL"]["op_percent_str"].split(".")[0],
+            "op_p_dec":op_aggregate["ALL"]["op_percent_str"].split(".")[1][:-1],
+            "op":op_aggregate["ALL"]["op"],
+            "op_max":op_aggregate["ALL"]["op_max"],
+            "player_name":player_data["name"],
+            "rating":player_data["rating"],
+            "max_rating":player_data["max_rating"],
+        }
+        op_summary_html = render_to_string("ongeki_op/op_summary.html",context=c)
 
         result = f"にゃーん {osl_id}"
 
         # お返しする
-        ajax_response = { "result":result, "player_data":player_data, "op_aggregate":op_aggregate }
+        ajax_response = { "result":result, "op_summary_html":op_summary_html }
         return JsonResponse(ajax_response)
 
     return render(request, 'ongeki_op/ongeki_op.html',context=context)
@@ -240,6 +248,9 @@ def calc_op(response,n = 0):
 
     # OP集計
     op_aggregate = {}
+
+    op_aggregate["ALL"] = aggr_op(records_master)
+
     for k in opkey:
 
         try:
@@ -247,47 +258,56 @@ def calc_op(response,n = 0):
         except KeyError:
             continue
 
-        music_count = 0
-        op = 0
-        op_max = 0
-        ranks = {"MAX":0,"SSS+":0,"SSS":0,"SS":0,"S":0,"others":0}
-        lumps = {"AB+":0,"AB":0,"FC":0,"others":0}
-        bells = {"FB":0,"others":0}
-
-        for r in records_master_one_division:
-
-            music_count += 1
-            op += r["music_op"]
-            op_max += r["music_op_max"]
-
-            if r["score_rank"]=="AB+":
-                ranks["MAX"]+=1
-            else:
-                try:
-                    ranks[r["score_rank"]]+=1
-                except:
-                    ranks["others"]+=1
-
-            if r["score_rank"]=="AB+":
-                lumps["AB+"]+=1
-            elif r["is_AB"]:
-                lumps["AB"]+=1
-            elif r["is_FC"]:
-                lumps["FC"]+=1
-            else:
-                lumps["others"]+=1
-
-            if r["is_FB"]:
-                bells["FB"]+=1
-            else:
-                bells["others"]+=1
-
-        op_aggregate[k] = {}
-        op_aggregate[k]["op"] = int((op*10000)+0.5)/10000
-        op_aggregate[k]["op_max"] = int((op_max*10000)+0.5)/10000
-        op_aggregate[k]["op_percent_str"] = f"{op*100/op_max:.6}%"
-        op_aggregate[k]["ranks"] = ranks
-        op_aggregate[k]["lumps"] = lumps
-        op_aggregate[k]["bells"] = bells
+        op_tmp = aggr_op(records_master_one_division)
+        op_aggregate[k] = op_tmp
 
     return op_aggregate
+
+# OP集計
+def aggr_op(records):
+
+    music_count = 0
+    op = 0
+    op_max = 0
+    ranks = {"MAX":0,"SSS+":0,"SSS":0,"SS":0,"S":0,"others":0}
+    lumps = {"AB+":0,"AB":0,"FC":0,"others":0}
+    bells = {"FB":0,"others":0}
+
+    for r in records:
+
+        music_count += 1
+        op += r["music_op"]
+        op_max += r["music_op_max"]
+
+        if r["score_rank"]=="AB+":
+            ranks["MAX"]+=1
+        else:
+            try:
+                ranks[r["score_rank"]]+=1
+            except:
+                ranks["others"]+=1
+
+        if r["score_rank"]=="AB+":
+            lumps["AB+"]+=1
+        elif r["is_AB"]:
+            lumps["AB"]+=1
+        elif r["is_FC"]:
+            lumps["FC"]+=1
+        else:
+            lumps["others"]+=1
+
+        if r["is_FB"]:
+            bells["FB"]+=1
+        else:
+            bells["others"]+=1
+
+
+    op_tmp = {}
+    op_tmp["op"] = int((op*10000)+0.5)/10000
+    op_tmp["op_max"] = int((op_max*10000)+0.5)/10000
+    op_tmp["op_percent_str"] = f"{op*100/op_max:.6}%"
+    op_tmp["ranks"] = ranks
+    op_tmp["lumps"] = lumps
+    op_tmp["bells"] = bells
+
+    return op_tmp
