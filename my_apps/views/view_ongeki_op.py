@@ -45,13 +45,10 @@ def ongeki_op(request):
         player_data,records_data_list = get_ongeki_score_log_player_data(osl_id)
         response = {"player_data":player_data,"records":records_data_list}
 
+        # OPを計算
         op_aggregate = calc_op(response,0)
 
-        # print(op_aggregate)
-
-
-
-        # 概要
+        # 概要を描画
         c = {
             "op_p_int":op_aggregate["ALL"]["op_percent_str"].split(".")[0],
             "op_p_dec":op_aggregate["ALL"]["op_percent_str"].split(".")[1][:-1],
@@ -63,14 +60,12 @@ def ongeki_op(request):
         }
         op_summary_html = render_to_string("ongeki_op/op_summary.html",context=c)
 
-
-        # カード
+        # カードを描画
         op_card_all_html = ""
 
         for category_name in op_aggregate.keys():
             op_aggr_cat = op_aggregate[category_name]
             op_card_all_html += rendar_op_card(category_name,op_aggr_cat)
-
 
         # お返しする
         ajax_response = { "op_summary_html":op_summary_html, "op_card_html":op_card_all_html }
@@ -312,7 +307,7 @@ def aggr_op(records):
     op_tmp = {}
     op_tmp["op"] = int((op*10000)+0.5)/10000
     op_tmp["op_max"] = int((op_max*10000)+0.5)/10000
-    op_tmp["op_percent_str"] = f"{op*100/op_max:.6}%"
+    op_tmp["op_percent_str"] = f"{op*100/op_max:.4f}%"
     op_tmp["ranks"] = ranks
     op_tmp["lumps"] = lumps
     op_tmp["bells"] = bells
