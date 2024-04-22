@@ -9,16 +9,22 @@ window.addEventListener('DOMContentLoaded', function(){
 
 });
 
-// IDの送信
+// 実行ボタンが押されたとき
 $("#calc-button").on("click",function(e){
 
     var osl_id = $("#osl-id").val();
+
     if(!isNaN(osl_id)&&osl_id.length>0){
 
         osl_id = Number(osl_id);
-        // console.log(osl_id);
+        var type = $("#type").val();
+        // console.log(type)
 
-        ajax_send(e, osl_id)
+        // localStrageにIDを保存
+        localStorage.setItem("ongeki_op__osl_id",osl_id);
+
+        // 送信
+        ajax_send(e, osl_id, type)
         .done(function (response) {
 
             localStorage.setItem("ongeki_op__osl_id",osl_id);
@@ -48,7 +54,7 @@ $("#calc-button").on("click",function(e){
 });
 
 
-var ajax_send = function (e, osl_id) {
+var ajax_send = function (e, osl_id, type) {
 
     $("#loading-text").css("display", "");
 
@@ -64,6 +70,7 @@ var ajax_send = function (e, osl_id) {
         'data': {
             "csrfmiddlewaretoken": csrfmiddlewaretoken,
             "osl_id": osl_id,
+            "type":type,
             "request_time": new Date().getTime(),
         },
         'dataType': 'json',

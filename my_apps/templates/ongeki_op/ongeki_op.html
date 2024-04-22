@@ -38,7 +38,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-12 col-md-10">
 
-                                    <div class="row justify-content-center align-items-center">
+                                    <div class="row justify-content-center align-items-center mb-3">
 
                                         <div class="col-auto">
                                             <div class="input-group mb-1">
@@ -51,6 +51,32 @@
                                                     <button class="btn btn-primary" type="button"
                                                         id="calc-button">実行</button>
                                                 </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row justify-content-center align-items-center">
+
+                                        <div class="col-auto">
+                                            <div class="form-group">
+                                                <label for="type">分類</label>
+                                                <select class="form-control" id="type">
+                                                    <option value="1">ジャンル順</option>
+                                                    <option value="2">バージョン順</option>
+                                                    <option value="0">レベル順</option>
+                                                    <option value="3">定数順</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-group">
+                                                <label for="type">表示形式</label>
+                                                <select class="form-control" id="type" disabled>
+                                                    <option>通常</option>
+                                                    <option>通常(FB割合非表示)</option>
+                                                    <option>スコアランク割合のみ一覧表示</option>
+                                                </select>
                                             </div>
                                         </div>
 

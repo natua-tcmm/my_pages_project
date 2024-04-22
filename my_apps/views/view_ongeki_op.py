@@ -40,13 +40,14 @@ def ongeki_op(request):
 
         # 入力情報を取得
         osl_id = post.get("osl_id")
+        type = int(post.get("type"))
 
         # OngekiScoreLogにrequest送る
         player_data,records_data_list = get_ongeki_score_log_player_data(osl_id)
         response = {"player_data":player_data,"records":records_data_list}
 
         # OPを計算
-        op_aggregate = calc_op(response,0)
+        op_aggregate = calc_op(response,type)
 
         # 概要を描画
         c = {
