@@ -45,3 +45,13 @@
     z-index: 6;
     background: linear-gradient(180deg,#c8e7ff,#8fceff 50%,#6eb5ff 50%,#b7ddff 75%,#fff)!important
 }
+
+.possession-color .pc-rainbow {
+   background: linear-gradient(to bottom, #fbfe9a 33%, #99ffff 34%, #99ffff 50%, #99ffff 66%, #ffb3e8 67%);
+}
+.possession-color .pc-platinum {
+   background: linear-gradient(to bottom, #ffe387 28%, #fff8c9 50%, #ffce68 51%, #fff8c9 80%);
+}
+.possession-color .pc-gold {
+   background: linear-gradient(to bottom, #efba00 28%, #fff8c9 50%, #ffd7a3 51%, #fff8c9 75%);
+}

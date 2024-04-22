@@ -17,14 +17,15 @@ $("#calc-button").on("click",function(e){
     if(!isNaN(osl_id)&&osl_id.length>0){
 
         osl_id = Number(osl_id);
-        var type = $("#type").val();
+        var classification = $("#classification").val();
+        var display_format = $("#display-format").val();
         // console.log(type)
 
         // localStrageにIDを保存
         localStorage.setItem("ongeki_op__osl_id",osl_id);
 
         // 送信
-        ajax_send(e, osl_id, type)
+        ajax_send(e, osl_id, classification, display_format)
         .done(function (response) {
 
             localStorage.setItem("ongeki_op__osl_id",osl_id);
@@ -54,7 +55,7 @@ $("#calc-button").on("click",function(e){
 });
 
 
-var ajax_send = function (e, osl_id, type) {
+var ajax_send = function (e, osl_id, classification, display_format) {
 
     $("#loading-text").css("display", "");
 
@@ -70,7 +71,8 @@ var ajax_send = function (e, osl_id, type) {
         'data': {
             "csrfmiddlewaretoken": csrfmiddlewaretoken,
             "osl_id": osl_id,
-            "type":type,
+            "classification":classification,
+            "display_format":display_format,
             "request_time": new Date().getTime(),
         },
         'dataType': 'json',

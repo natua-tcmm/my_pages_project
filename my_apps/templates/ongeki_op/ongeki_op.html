@@ -60,8 +60,8 @@
 
                                         <div class="col-auto">
                                             <div class="form-group">
-                                                <label for="type">分類</label>
-                                                <select class="form-control" id="type">
+                                                <label for="classification">分類</label>
+                                                <select class="form-control" id="classification">
                                                     <option value="1">ジャンル順</option>
                                                     <option value="2">バージョン順</option>
                                                     <option value="0">レベル順</option>
@@ -71,15 +71,25 @@
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-group">
-                                                <label for="type">表示形式</label>
-                                                <select class="form-control" id="type" disabled>
-                                                    <option>通常</option>
-                                                    <option>通常(FB割合非表示)</option>
-                                                    <option>スコアランク割合のみ一覧表示</option>
+                                                <label for="display-format">表示形式</label>
+                                                <select class="form-control" id="display-format">
+                                                    <option value="0">通常</option>
+                                                    <option value="1">通常(FB割合非表示)</option>
+                                                    <option value="2" disabled>スコアランク割合のみ一覧表示</option>
                                                 </select>
                                             </div>
                                         </div>
 
+                                    </div>
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-auto">
+                                            <p>設定変更後は再度実行してください。</p>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-auto">
+                                            <p><a href="#calc-details">計算式について ▼</a></p>
+                                        </div>
                                     </div>
 
                                     <hr />
@@ -93,11 +103,14 @@
 
                                             <div class="col-auto">
                                                 <h5 class="mt-2 mb-2 text-center">O.N.G.E.K.I. POWER</h5>
-                                                <h2 class="mb-2 text-center"><span id="result-hi">100</span><span
-                                                        id="result-lo">.0000%</span></h2>
+                                                <div class="possession-color">
+                                                    <h2 class="mb-2 text-center pc-rainbow"><span id="result-hi">100</span><span
+                                                            id="result-lo">.0000%</span></h2>
+                                                </div>
                                                 <h5 class="mb-3 text-center">99999.99/99999.99</h5>
                                                 <p class="mb-3 text-center">Player: △Natua♪▽ [17.00/17.00]</p>
                                             </div>
+
 
                                         </div> -->
                                     </div>
@@ -170,6 +183,30 @@
                                         </div>
                                     </div> -->
 
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-primary card-outline" id="calc-details">
+
+                        <div class="card-header">
+                            <h3 class="card-title">計算式について</h3>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+
+                                <div class="col-12 col-md-10">
+                                    <p>CHUNITHMのOPと同じ計算式を採用しています。ただし、対象曲はMASTER譜面のみです。</p>
+                                    <p>各楽曲のMASTER譜面ごとに単曲OPを計算します。それらの総和がプレイヤーのOPとなります。</p>
+                                    <p>単曲OPは以下の式で計算されます。<br>※ランプ補正: FC=0.5, AB=1.0, AB+=1.25</p>
+                                    <p style="text-align:center;">単曲OP = min(譜面定数+2,単曲レート)*5 + ランプ補正 +
+                                        max(0,(Tスコア-1007500)*0.0015) </p>
+                                    <p>AB+達成時の単曲OPは (定数+3)*5 となり、これが単曲OPの最大値となります。</p>
+                                    <p>プレイヤーOPの背景色は、99.62%で虹、98.85%でプラチナ、97.50%で金色になります。</p>
 
                                 </div>
 

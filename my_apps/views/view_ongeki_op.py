@@ -40,14 +40,15 @@ def ongeki_op(request):
 
         # 入力情報を取得
         osl_id = post.get("osl_id")
-        type = int(post.get("type"))
+        classification = int(post.get("classification"))
+        display_format = int(post.get("display_format"))
 
         # OngekiScoreLogにrequest送る
         player_data,records_data_list = get_ongeki_score_log_player_data(osl_id)
         response = {"player_data":player_data,"records":records_data_list}
 
         # OPを計算
-        op_aggregate = calc_op(response,type)
+        op_aggregate = calc_op(response,classification)
 
         # 概要を描画
         c = {
@@ -58,6 +59,7 @@ def ongeki_op(request):
             "player_name":player_data["name"],
             "rating":player_data["rating"],
             "max_rating":player_data["max_rating"],
+            "pc_class":f"pc-{op_aggregate['ALL']['op_color']}",
         }
         op_summary_html = render_to_string("ongeki_op/op_summary.html",context=c)
 
@@ -66,7 +68,7 @@ def ongeki_op(request):
 
         for category_name in op_aggregate.keys():
             op_aggr_cat = op_aggregate[category_name]
-            op_card_all_html += rendar_op_card(category_name,op_aggr_cat)
+            op_card_all_html += rendar_op_card(category_name,op_aggr_cat,is_display_fb=(display_format!=1))
 
         # お返しする
         ajax_response = { "op_summary_html":op_summary_html, "op_card_html":op_card_all_html }
@@ -220,7 +222,7 @@ def calc_op(response,n = 0):
     for r in records[:]:
         if not r["difficulty"]=="MASTER":
             continue
-        if r["score_rank"]=="P":
+        if r["score_rank"]=="AB+":
             r["music_op"] = (r["const"]+3)*5
         else:
             lump_op = 0.5*r["is_FC"] + 0.5*r["is_AB"]
@@ -304,11 +306,20 @@ def aggr_op(records):
         else:
             bells["others"]+=1
 
+    op_percent = op*100/op_max
+    op_color = ""
+    if op_percent>=99.62:
+        op_color = "rainbow"
+    elif op_percent>=98.85:
+        op_color = "platinum"
+    elif op_percent>=97.50:
+        op_color = "gold"
 
     op_tmp = {}
     op_tmp["op"] = int((op*10000)+0.5)/10000
     op_tmp["op_max"] = int((op_max*10000)+0.5)/10000
-    op_tmp["op_percent_str"] = f"{op*100/op_max:.4f}%"
+    op_tmp["op_percent_str"] = f"{op_percent:.4f}%"
+    op_tmp["op_color"] = op_color
     op_tmp["ranks"] = ranks
     op_tmp["lumps"] = lumps
     op_tmp["bells"] = bells
@@ -317,7 +328,7 @@ def aggr_op(records):
     return op_tmp
 
 # カードのhtmlをレンダリング
-def rendar_op_card(category_name,op_aggr_cat):
+def rendar_op_card( category_name:str, op_aggr_cat:dict, is_display_fb:bool ) -> str:
 
     c = {
         "category_name":category_name,
@@ -351,6 +362,8 @@ def rendar_op_card(category_name,op_aggr_cat):
         "bell_others":op_aggr_cat["bells"]["others"],
 
         "bell_fb_r":op_aggr_cat["bells"]["FB"]*100/op_aggr_cat["music_count"],
+
+        "is_display_fb":is_display_fb,
 
     }
 
