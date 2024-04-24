@@ -30,7 +30,7 @@ title_base = "| △Natua♪▽のツールとか保管所"
 # オンゲキOP
 def ongeki_op(request):
 
-    context = { "title":f"オンゲキ版OVERPOWER {title_base}" ,"is_beta":True, "is_app":True }
+    context = { "title":f"オンゲキ版OVERPOWER {title_base}" ,"is_beta":False, "is_app":True }
 
     # Ajax処理
     if request.method=="POST":
@@ -221,6 +221,8 @@ def calc_op(response,n = 0):
     records_master = []
     for r in records[:]:
         if not r["difficulty"]=="MASTER":
+            continue
+        if "ソロver." in r["title"]:
             continue
         if r["score_rank"]=="AB+":
             r["music_op"] = (r["const"]+3)*5

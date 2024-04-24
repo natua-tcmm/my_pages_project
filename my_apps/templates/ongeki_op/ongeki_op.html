@@ -75,7 +75,7 @@
                                                 <select class="form-control" id="display-format">
                                                     <option value="0">通常</option>
                                                     <option value="1">通常(FB割合非表示)</option>
-                                                    <option value="2" disabled>スコアランク割合のみ一覧表示</option>
+                                                    <!-- <option value="2" disabled>スコアランク割合のみ一覧表示</option> -->
                                                 </select>
                                             </div>
                                         </div>
@@ -98,91 +98,12 @@
                                         class="ml-2 fas fa-spinner fa-pulse"></i>
 
                                     <!-- 概要 -->
-                                    <div id="op_summary">
-                                        <!-- <div class="row mb-3 justify-content-center align-items-center">
-
-                                            <div class="col-auto">
-                                                <h5 class="mt-2 mb-2 text-center">O.N.G.E.K.I. POWER</h5>
-                                                <div class="possession-color">
-                                                    <h2 class="mb-2 text-center pc-rainbow"><span id="result-hi">100</span><span
-                                                            id="result-lo">.0000%</span></h2>
-                                                </div>
-                                                <h5 class="mb-3 text-center">99999.99/99999.99</h5>
-                                                <p class="mb-3 text-center">Player: △Natua♪▽ [17.00/17.00]</p>
-                                            </div>
-
-
-                                        </div> -->
-                                    </div>
+                                    <div id="op_summary"></div>
 
 
                                     <!-- 個別 -->
                                     <hr />
                                     <div id="op_card"></div>
-                                    <!-- <div class="row mb-3">
-                                        <div class="col-12">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="row justify-content-end align-items-center">
-                                                        <div class="col-auto h3">ALL</div>
-                                                        <div class="col"></div>
-                                                        <div class="col-auto h3">100.0000%</div>
-                                                        <div class="col-auto h5">[ 99999.99/99999.99 ]</div>
-                                                    </div>
-                                                    <hr>
-                                                    <div class="row mb-1">
-                                                        <div class="col-4">P: 999</div>
-                                                        <div class="col-4">SSS+: 999</div>
-                                                        <div class="col-4">SSS: 999</div>
-                                                        <div class="col-4">SS: 999</div>
-                                                        <div class="col-4">S: 999</div>
-                                                        <div class="col-4">Others: 999</div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col">
-                                                            <div class="overpower-graph-base">
-                                                                <div class="bg-white" style="width: 20%;"></div>
-                                                                <div class="bg-platinum" style="width:40%"></div>
-                                                                <div class="bg-gold" style="width:60%"></div>
-                                                                <div class="bg-silver" style="width:80%"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-1">
-                                                        <div class="col-6">P: 999</div>
-                                                        <div class="col-6">AB: 999</div>
-                                                        <div class="col-6">FC: 999</div>
-                                                        <div class="col-6">Others: 999</div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col">
-                                                            <div class="overpower-graph-base">
-                                                                <div class="bg-white" style="width: 20%;"></div>
-                                                                <div class="bg-platinum" style="width:40%"></div>
-                                                                <div class="bg-gold" style="width:60%"></div>
-                                                                <div class="bg-silver" style="width:80%"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-1">
-                                                        <div class="col-6">FB: 999</div>
-                                                        <div class="col-6">Others: 999</div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col">
-                                                            <div class="overpower-graph-base">
-                                                                <div class="bg-white" style="width: 20%;"></div>
-                                                                <div class="bg-platinum" style="width:40%"></div>
-                                                                <div class="bg-gold" style="width:60%"></div>
-                                                                <div class="bg-silver" style="width:80%"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> -->
-
 
                                 </div>
 
@@ -200,7 +121,7 @@
                             <div class="row justify-content-center">
 
                                 <div class="col-12 col-md-10">
-                                    <p>CHUNITHMのOPと同じ計算式を採用しています。ただし、対象曲はMASTER譜面のみです。</p>
+                                    <p>CHUNITHMのOPと同じ計算式を採用しています。<br>ただし、対象曲はMASTER譜面のみです。また、ボーナストラックは対象外です。</p>
                                     <p>各楽曲のMASTER譜面ごとに単曲OPを計算します。それらの総和がプレイヤーのOPとなります。</p>
                                     <p>単曲OPは以下の式で計算されます。<br>※ランプ補正: FC=0.5, AB=1.0, AB+=1.25</p>
                                     <p style="text-align:center;">単曲OP = min(譜面定数+2,単曲レート)*5 + ランプ補正 +
