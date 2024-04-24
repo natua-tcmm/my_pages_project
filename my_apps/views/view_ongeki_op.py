@@ -137,10 +137,20 @@ def date2ongekiversion(t:str) -> str:
 # OSLからデータを取得
 def get_ongeki_score_log_player_data( user_id:str ) -> tuple:
 
+    CONST_URL = "https://reiwa.f5.si/ongeki_const_all.json"
+    ALL_URL = "https://reiwa.f5.si/ongeki_all.json"
+
     # 定数情報の取得
     r_const= requests.get(CONST_URL)
     r_const.encoding = r_const.apparent_encoding
     ongeki_const_json = r_const.json()
+
+    # 基本情報の取得
+    r_all= requests.get(ALL_URL)
+    r_all.encoding = r_all.apparent_encoding
+    ongeki_all_json = r_all.json()
+
+    # -------------------------
 
     # OngekiScoreLogにrequest
     url = f"https://ongeki-score.net/user/{user_id}/technical?archive=1"
@@ -149,6 +159,7 @@ def get_ongeki_score_log_player_data( user_id:str ) -> tuple:
     # 解析
     soup = BeautifulSoup(r.text,"html.parser")
 
+    # -------------------------
 
     # プロフィール文字列
     profiles = soup.find_all(class_="table")[0].tbody.contents
@@ -163,8 +174,14 @@ def get_ongeki_score_log_player_data( user_id:str ) -> tuple:
     player_data["money"] = int(profiles[11].td.text.split()[0])
     player_data["money_total"] = int(profiles[11].td.text.split()[-1][:-1])
     player_data["total_play"] = int(profiles[13].td.text)
-
     player_data["comment"] = profiles[15].td.text
+
+    # プレミアム確認
+    player_data["is_premium"] = bool(soup.find_all(class_="net-premium"))
+    player_data["is_developer"] = bool(soup.find_all(class_="developer"))
+
+    # -------------------------
+
     # レコード
     records_raw = soup.find_all(class_="list")[0].children
     records_data_list = []
@@ -179,24 +196,36 @@ def get_ongeki_score_log_player_data( user_id:str ) -> tuple:
         music_id = int(re.findall(r'href="(.*)"',str(list(r.contents[1].descendants)[2]))[0].split("/")[-2])
         try:
             music_const_data = [ d for d in ongeki_const_json if d["music_id"]==music_id ][0]
+            music_title = list(r.contents[1].descendants)[1].text
+            music_diff = str.upper(r.contents[25].text)
         # Noneなら多分曲が存在していない
         except IndexError:
             continue
 
+        # 基本情報を検索
+        music_all_data_list = [ m for m in ongeki_all_json if m["title"]==music_title]
+        music_all_data = [ m for m in music_all_data_list if m["lunatic"]==( "1" if music_diff=="LUNATIC" else "" )][0]
 
         # 入れ物
         record_data = {}
 
         # データ
         record_data["id"] = music_id
-        record_data["title"] = list(r.contents[1].descendants)[1].text
+        record_data["title"] = music_title
         record_data["artist"] = music_const_data["artist"]
-        record_data["difficulty"] = str.upper(r.contents[25].text)
+        record_data["difficulty"] = music_diff
         record_data["level"] = r.contents[5].text
         record_data["const"] = music_const_data[record_data["difficulty"].lower()]["const"]
         record_data["category"] = music_const_data["category"]
         record_data["is_const_unknown"] = music_const_data[record_data["difficulty"].lower()]["is_unknown"]
-        record_data["version"] = date2ongekiversion(music_const_data["add_date"])
+        record_data["is_bonus"] = (music_all_data["bonus"]=="1")
+
+        # 追加日(LUNはLUN追加日)
+        if record_data["difficulty"]=="LUNATIC":
+            d = music_all_data["date"]
+            record_data["version"] = date2ongekiversion((datetime.datetime.strptime(d,"%Y%m%d")-datetime.timedelta(hours=9)).isoformat()+"Z")
+        else:
+            record_data["version"] = date2ongekiversion(music_const_data["add_date"])
 
         record_data["score_rank"] = r.contents[21].text
         record_data["t-score"] = int(list(r.contents[11].descendants)[1].text)
@@ -222,7 +251,7 @@ def calc_op(response,n = 0):
     for r in records[:]:
         if not r["difficulty"]=="MASTER":
             continue
-        if "ソロver." in r["title"]:
+        if r["is_bonus"]:
             continue
         if r["score_rank"]=="AB+":
             r["music_op"] = (r["const"]+3)*5
