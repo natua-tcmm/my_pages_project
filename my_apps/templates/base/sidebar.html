@@ -39,13 +39,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'my_apps:bpm_checker_page' %}"
-                        class="nav-link {% if request.path == '/my_apps/bpm_checker' %}active{% endif %} ">
-                        <i class="nav-icon fas fa-music"></i>
-                        <p>BPMチェッカー</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="{% url 'my_apps:ongeki_op_page' %}"
                         class="nav-link {% if request.path == '/my_apps/ongeki_op' %}active{% endif %} ">
                         <i class="nav-icon fas fa-percent"></i>
@@ -66,13 +59,27 @@
                         <p>これって何落ちAJ？</p>
                     </a>
                 </li> -->
-                <!-- <li class="nav-item">
-                    <a href="{% url 'my_apps:incomplete_page' %}"
-                        class="nav-link {% if request.path == '/my_apps/hoge' %}active{% endif %}">
-                        <i class="nav-icon far fa-question-circle"></i>
-                        <p>新曲枠なんてねーよ</p>
+                <li class="nav-item">
+                    <a href="{% url 'my_apps:ongeki_rating_act2_page' %}"
+                        class="nav-link {% if request.path == '/my_apps/ongeki_rating_act2' %}active{% endif %}">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>オンゲキAct2基準レート</p>
                     </a>
-                </li> -->
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'my_apps:ongeki_rating_all_page' %}"
+                        class="nav-link {% if request.path == '/my_apps/ongeki_rating_all' %}active{% endif %}">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>オンゲキ(新曲枠なし)</p>
+                    </a>
+                <li class="nav-item">
+                    <a href="{% url 'my_apps:bpm_checker_page' %}"
+                        class="nav-link {% if request.path == '/my_apps/bpm_checker' %}active{% endif %} ">
+                        <i class="nav-icon fas fa-music"></i>
+                        <p>BPMチェッカー</p>
+                    </a>
+                </li>
+                </li>
                 <li class="nav-item">
                     <a href="{% url 'my_apps:fullbell_page' %}"
                         class="nav-link {% if request.path == '/my_apps/fullbell' %}active{% endif %}">

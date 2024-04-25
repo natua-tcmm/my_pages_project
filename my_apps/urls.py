@@ -4,6 +4,7 @@ app_name = "my_apps"
 
 from .views import views
 from .views import view_ongeki_op
+from .views import view_ongeki_rating
 from .views import view_const_search
 
 urlpatterns = [
@@ -23,6 +24,8 @@ urlpatterns = [
     path("fullbell", views.fullbell, name="fullbell_page"),
     path("bpm_checker", views.bpm_checker, name="bpm_checker_page"),
     path("ongeki_op", view_ongeki_op.ongeki_op, name="ongeki_op_page"),
+    path("ongeki_rating_all", view_ongeki_rating.ongeki_rating_all, name="ongeki_rating_all_page"),
+    path("ongeki_rating_act2", view_ongeki_rating.ongeki_rating_act2, name="ongeki_rating_act2_page"),
 
     # 資料集
     path("ongeki_genre", views.ongeki_genre, name="ongeki_genre_page"),
