@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', function(){
 
     // osl_idをlocalStrageとやりとり
-    var ls_osl_id = localStorage.getItem("ongeki_op__osl_id");
+    var ls_osl_id = localStorage.getItem("ongeki_rating_all__osl_id");
     if (ls_osl_id !== null) {
         $("#osl-id").val(ls_osl_id);
     }
@@ -17,30 +17,28 @@ $("#calc-button").on("click",function(e){
     if(!isNaN(osl_id)&&osl_id.length>0){
 
         osl_id = Number(osl_id);
-        var classification = $("#classification").val();
-        var display_format = $("#display-format").val();
         // console.log(type)
 
         // localStrageにIDを保存
-        localStorage.setItem("ongeki_op__osl_id",osl_id);
+        localStorage.setItem("ongeki_rating_all__osl_id",osl_id);
 
         // 送信
-        ajax_send(e, osl_id, classification, display_format)
+        ajax_send(e, osl_id)
         .done(function (response) {
 
-            localStorage.setItem("ongeki_op__osl_id",osl_id);
+            localStorage.setItem("ongeki_rating_all__osl_id",osl_id);
 
             $("#loading-text").css("display", "none");
             // console.log(response);
 
             // op概要
             // 今表示されてるやつを消す
-            $("#op_summary").children().remove();
-            $("#op_card").children().remove();
+            $("#summary").children().remove();
+            $("#result").children().remove();
 
             // 新しく表示する
-            $("#op_summary").prepend(response.op_summary_html);
-            $("#op_card").prepend(response.op_card_html);
+            $("#summary").prepend(response.summary);
+            $("#result").prepend(response.result);
 
         })
         .fail(function () {
@@ -55,7 +53,7 @@ $("#calc-button").on("click",function(e){
 });
 
 
-var ajax_send = function (e, osl_id, classification, display_format) {
+var ajax_send = function (e, osl_id) {
 
     $("#loading-text").css("display", "");
 
@@ -71,8 +69,6 @@ var ajax_send = function (e, osl_id, classification, display_format) {
         'data': {
             "csrfmiddlewaretoken": csrfmiddlewaretoken,
             "osl_id": osl_id,
-            "classification":classification,
-            "display_format":display_format,
             "request_time": new Date().getTime(),
         },
         'dataType': 'json',

@@ -1,5 +1,7 @@
 {% extends '../base/base.html' %}
+{% load static %}
 {% block content %}
+<link rel="stylesheet" href="{% static 'ongeki_rating_all/style.css' %}">
 <!-- Content Wrapper. Contains page content -->
 <div class="container">
     <!-- Content Header (Page header) -->
@@ -7,7 +9,7 @@
         <div class="container-fluid pl-0">
             <div class="row mb-2">
                 <div class="col">
-                    <h1 class="m-0">オンゲキレーティング計算(新曲枠なし)</h1>
+                    <h1 class="m-0">オンゲキベスト枠計算(新曲枠なし)</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -28,22 +30,57 @@
                     <div class="card card-primary card-outline">
 
                         <div class="card-header">
-                            <h3 class="card-title">オンゲキレーティング計算(新曲枠なし)</h3>
+                            <h3 class="card-title">オンゲキベスト枠計算(新曲枠なし)</h3>
                         </div>
 
                         <div class="card-body">
 
                             <div class="row justify-content-center">
-                                <div class="col-10">
-                                    <p>あああああああああああ</p>
+                                <div class="col-12 col-md-10">
+
+                                    <!-- oslid入力窓 -->
+                                    <div class="row justify-content-center align-items-center mb-3">
+                                        <div class="col-auto">
+                                            <div class="input-group mb-1">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">OngekiScoreLog ID</span>
+                                                </div>
+                                                <input type="text" class="form-control text-center" placeholder="xxxx"
+                                                    value="" id="osl-id" />
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-primary" type="button"
+                                                        id="calc-button">実行</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-auto">
+                                            <p>新曲・旧曲関係なく、単曲レート上位30曲をベスト枠平均とします。</p>
+                                        </div>
+                                    </div>
+
+                                    <hr />
+
+                                    <i id="loading-text" style="display: none;"
+                                        class="ml-2 fas fa-spinner fa-pulse"></i>
+
+                                    <!-- 出力 -->
+                                    <div class="row justify-content-center align-items-center mb-3">
+                                        <div class="col-auto">
+
+                                            <div id="summary" class="table-responsive"></div>
+
+                                        </div>
+                                    </div>
+
+                                    <div id="result" class="table-responsive"></div>
+
                                 </div>
                             </div>
 
                         </div>
 
-                        <div class="card-footer">
-                            <p class="mb-0 float-right fs-6 text-black-50">なにかしら書く</p>
-                        </div>
 
                     </div>
                 </div>
@@ -53,5 +90,10 @@
     </section>
     <!-- /.content -->
 </div>
-
+<script>
+    var csrfmiddlewaretoken = "{{ csrf_token }}"
+    var send_url = '{% url "my_apps:ongeki_rating_all_page" %}'
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{% static 'ongeki_rating_all/script.js' %}"></script>
 {% endblock content %}

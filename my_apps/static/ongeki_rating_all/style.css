@@ -1,0 +1,24 @@
+#osl-id {
+    width: 5rem;
+}
+
+th{
+    text-align: center;
+}
+
+td{
+    white-space: nowrap;
+}
+
+.ratingtable-diff{
+    width: 3rem;
+    text-align: center;
+}
+.ratingtable-num{
+    width: 3rem;
+    text-align: center;
+}
+.ratingtable-score{
+    width: 5.5rem;
+    text-align: center;
+}
