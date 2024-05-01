@@ -6,7 +6,7 @@ from django.http import JsonResponse
 
 from ..models import *
 
-import requests,re,math,datetime
+import requests,re,math,datetime,dateutil.parser
 from bs4 import BeautifulSoup
 from django.conf import settings
 
@@ -33,6 +33,10 @@ def ongeki_op(request):
     # Ajax処理
     if request.method=="POST":
 
+        # メタ情報を取得
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        ip = x_forwarded_for.split(',')[0] if x_forwarded_for else request.META.get('REMOTE_ADDR')
+
         # POSTから検索queryを取得
         post = request.POST
 
@@ -47,6 +51,9 @@ def ongeki_op(request):
 
         # OPを計算
         op_aggregate = calc_op(response,classification)
+
+        # 情報収集
+        print(f"[{ip}][ongeki_op] oslid:{osl_id} name:{player_data['name']}")
 
         # 概要を描画
         c = {
@@ -99,7 +106,9 @@ def calc_music_rate( score_rank:str, t_score:int, const:float )->float:
 
 # オンゲキのバージョンを求める
 def date2ongekiversion(t:str) -> str:
-    d = datetime.datetime.fromisoformat(t).astimezone(datetime.timezone(datetime.timedelta(hours=9))).date()
+    JST = datetime.timezone(datetime.timedelta(hours=+9), 'JST')
+    d = dateutil.parser.parse(t).astimezone(JST).date()
+    # d = datetime.datetime.fromisoformat(t).astimezone(datetime.timezone(datetime.timedelta(hours=9))).date()
 
     ongeki_versions = [
         "無印",
