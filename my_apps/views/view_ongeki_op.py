@@ -42,6 +42,11 @@ def ongeki_op(request):
 
         # 入力情報を取得
         osl_id = post.get("osl_id")
+        op_before = post.get("op_before")
+        if op_before == "":
+            op_before = 0
+        else:
+            op_before = int(float(post.get("op_before"))*10000+0.5)/10000
         classification = int(post.get("classification"))
         display_format = int(post.get("display_format"))
 
@@ -53,18 +58,37 @@ def ongeki_op(request):
         op_aggregate = calc_op(response,classification)
 
         # 情報収集
-        print(f"[{ip}][ongeki_op] oslid:{osl_id} name:{player_data['name']}")
+        print(f"[{ip}][ongeki_op] {osl_id} / {player_data['name']} / {op_aggregate['ALL']['op_percent_str']}")
 
         # 概要を描画
+        op_rank = f'{op_aggregate["ALL"]["op_color"].capitalize()}{("-"+str(op_aggregate["ALL"]["op_rank"])) if op_aggregate["ALL"]["op_color"]!="rainbow" else ""}'
+        op_rank_bool = bool(op_aggregate["ALL"]["op_color"]!="")
+        op_diff = max( int((op_aggregate['ALL']['op_percent']-op_before)*10000+0.5)/10000, 0)
+
+        tweet_text = f'{player_data["name"]}さんのO.N.G.E.K.I. POWER\n{op_aggregate["ALL"]["op_percent_str"]}'
+        if op_rank_bool:
+            tweet_text += f' 【{op_rank}】'
+        tweet_text += "\n"
+        if op_diff!=0:
+            tweet_text += f'前回からの更新差分: +{op_diff}%\n'
+        tweet_text += "\n"
+
         c = {
+            "oslid":int(osl_id),
             "op_p_int":op_aggregate["ALL"]["op_percent_str"].split(".")[0],
             "op_p_dec":op_aggregate["ALL"]["op_percent_str"].split(".")[1][:-1],
             "op":f'{op_aggregate["ALL"]["op"]:.4f}',
+            "op_diff":op_diff,
             "op_max":f'{op_aggregate["ALL"]["op_max"]:.4f}',
+            "op_rank_bool":op_rank_bool,
+            "op_rank":op_rank,
             "player_name":player_data["name"],
             "rating":player_data["rating"],
             "max_rating":player_data["max_rating"],
-            "pc_class":f"pc-{op_aggregate['ALL']['op_color']}",
+            "pc_class":f'pc-{op_aggregate["ALL"]["op_color"]}',
+            "is_developer":player_data["is_developer"],
+            "is_premium":player_data["is_premium"],
+            "tweet_text": tweet_text,
         }
         op_summary_html = render_to_string("ongeki_op/op_summary.html",context=c)
 
@@ -76,7 +100,7 @@ def ongeki_op(request):
             op_card_all_html += rendar_op_card(category_name,op_aggr_cat,is_display_fb=(display_format!=1))
 
         # お返しする
-        ajax_response = { "op_summary_html":op_summary_html, "op_card_html":op_card_all_html }
+        ajax_response = { "op_summary_html":op_summary_html, "op_card_html":op_card_all_html, "op_new":op_aggregate['ALL']['op_percent'] }
         return JsonResponse(ajax_response)
 
     return render(request, 'ongeki_op/ongeki_op.html',context=context)
@@ -344,20 +368,42 @@ def aggr_op(records):
         else:
             bells["others"]+=1
 
+    op_color_dict = {
+        "rainbow":99.6,
+        "platinum3":99.2,
+        "platinum2":98.8,
+        "platinum1":98.5,
+        "gold3":98.0,
+        "gold2":97.5,
+        "gold1":97.0,
+        "silver3":96.5,
+        "silver2":96.0,
+        "silver1":95.5,
+        "blonze3":95.0,
+        "blonze2":94.0,
+        "blonze1":93.0,
+    }
+
     op_percent = op*100/op_max
     op_color = ""
-    if op_percent>=99.62:
-        op_color = "rainbow"
-    elif op_percent>=98.85:
-        op_color = "platinum"
-    elif op_percent>=97.50:
-        op_color = "gold"
+    op_rank = 0
+
+    for op_color_name,op_color_border in op_color_dict.items():
+        if op_percent>=op_color_border:
+            if op_color_name=="rainbow":
+                op_color = op_color_name
+            else:
+                op_color = op_color_name[:-1]
+                op_rank = int(op_color_name[-1])
+            break
 
     op_tmp = {}
     op_tmp["op"] = int((op*10000)+0.5)/10000
     op_tmp["op_max"] = int((op_max*10000)+0.5)/10000
+    op_tmp["op_percent"] = int(op_percent*10000+0.5)/10000
     op_tmp["op_percent_str"] = f"{op_percent:.4f}%"
     op_tmp["op_color"] = op_color
+    op_tmp["op_rank"] = op_rank
     op_tmp["ranks"] = ranks
     op_tmp["lumps"] = lumps
     op_tmp["bells"] = bells

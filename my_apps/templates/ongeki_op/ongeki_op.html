@@ -121,14 +121,82 @@
                             <div class="row justify-content-center">
 
                                 <div class="col-12 col-md-10">
+                                    <h4>O.N.G.E.K.I. POWERの計算</h4>
                                     <p>CHUNITHMのOPと同じ計算式を採用しています。<br>ただし、対象曲はMASTER譜面のみです。また、ボーナストラックは対象外です。</p>
                                     <p>各楽曲のMASTER譜面ごとに単曲OPを計算します。それらの総和がプレイヤーのOPとなります。</p>
                                     <p>単曲OPは以下の式で計算されます。<br>※ランプ補正: FC=0.5, AB=1.0, AB+=1.25</p>
                                     <p style="text-align:center;">単曲OP = min(譜面定数+2,単曲レート)*5 + ランプ補正 +
                                         max(0,(Tスコア-1007500)*0.0015) </p>
                                     <p>AB+達成時の単曲OPは (定数+3)*5 となり、これが単曲OPの最大値となります。</p>
-                                    <p>プレイヤーOPの背景色は、99.62%で虹、98.85%でプラチナ、97.50%で金色になります。</p>
-
+                                    <h4 class="mt-4">プレイヤーOPの背景色について</h4>
+                                    <p>背景色はOP値によってのみ決まります。CHUNITHMと違って、全曲ランク条件はありません。</p>
+                                    <p>背景色はブロンズ/シルバー/ゴールド/プラチナ/レインボーの5種類です。 レインボー以外は同一色内で3つにランク分け(細分化)されています。</p>
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-auto">
+                                            <table class="table table-sm table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col" style="width: 10rem;">背景色・ランク</th>
+                                                        <th scope="col" style="width: 10rem;">ボーダー</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Rainbow</td>
+                                                        <td>99.6%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Platinum-3</td>
+                                                        <td>99.2%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Platinum-2</td>
+                                                        <td>98.8%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Platinum-1</td>
+                                                        <td>98.5%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Gold-3</td>
+                                                        <td>98.0%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Gold-2</td>
+                                                        <td>97.5%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Gold-1</td>
+                                                        <td>97.0%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Silver-3</td>
+                                                        <td>96.5%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Silver-2</td>
+                                                        <td>96.0%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Silver-1</td>
+                                                        <td>95.5%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Blonze-3</td>
+                                                        <td>95.0%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Blonze-2</td>
+                                                        <td>94.0%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Blonze-1</td>
+                                                        <td>93.0%</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>

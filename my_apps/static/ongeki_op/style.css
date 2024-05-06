@@ -19,7 +19,7 @@
     outline: #dddddd 1px solid
 }
 
-.overpower-graph-base .bg-gold,.overpower-graph-base .bg-platinum,.overpower-graph-base .bg-silver,.overpower-graph-base .bg-white {
+.overpower-graph-base .bg-blue,.overpower-graph-base .bg-gold,.overpower-graph-base .bg-platinum,.overpower-graph-base .bg-silver,.overpower-graph-base .bg-white {
     position: absolute;
     left: 0;
     top: 0;
@@ -27,31 +27,60 @@
 }
 
 .overpower-graph-base .bg-white {
+    z-index: 14;
+    background: #ff979f!important
+}
+
+.overpower-graph-base .bg-blue {
     z-index: 12;
-    background: linear-gradient(180deg,#fff,#fff 50%,#d0d6da 50%,#e4edf3 75%,#fff)!important
+    background: #d3ff97!important
 }
 
 .overpower-graph-base .bg-platinum {
     z-index: 10;
-    background: linear-gradient(180deg,#fff1ba,#ffeb9c 50%,#fc0 50%,#ffeca4 75%,#fff)!important
+    background: #fff797!important
 }
 
 .overpower-graph-base .bg-gold {
     z-index: 8;
-    background: linear-gradient(180deg,#ffe4a3,#efae10 50%,#ff8300 50%,#ffc947 75%,#fff)!important
+    background: #ffc397!important
 }
 
 .overpower-graph-base .bg-silver {
     z-index: 6;
-    background: linear-gradient(180deg,#c8e7ff,#8fceff 50%,#6eb5ff 50%,#b7ddff 75%,#fff)!important
+    background: #97edff!important
+}
+
+.possession-color{
+    display: flex;
+    justify-content: center;
 }
 
 .possession-color .pc-rainbow {
    background: linear-gradient(to bottom, #fbfe9a 33%, #99ffff 34%, #99ffff 50%, #99ffff 66%, #ffb3e8 67%);
 }
 .possession-color .pc-platinum {
-   background: linear-gradient(to bottom, #ffe387 28%, #fff8c9 50%, #ffce68 51%, #fff8c9 80%);
+   background: #fff797;
 }
 .possession-color .pc-gold {
-   background: linear-gradient(to bottom, #efba00 28%, #fff8c9 50%, #ffd7a3 51%, #fff8c9 75%);
+   background: #ffdd97
+}
+.possession-color .pc-silver {
+   background: #97edff
+}
+.possession-color .pc-blonze {
+   background: #ffc397
+}
+
+.badge-premium{
+    color: #fff;
+    background-color: #ff97ed;
+}
+.badge-dev{
+    color: #fff;
+    background-color: #979fff;
+}
+
+th,td{
+    text-align: center;
 }

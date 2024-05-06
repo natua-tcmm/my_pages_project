@@ -24,11 +24,14 @@ $("#calc-button").on("click",function(e){
         // localStrageにIDを保存
         localStorage.setItem("ongeki_op__osl_id",osl_id);
 
+        var ls_op_before = localStorage.getItem("ongeki_op__op_before");
+
         // 送信
-        ajax_send(e, osl_id, classification, display_format)
+        ajax_send(e, osl_id, classification, display_format, ls_op_before)
         .done(function (response) {
 
             localStorage.setItem("ongeki_op__osl_id",osl_id);
+            localStorage.setItem("ongeki_op__op_before",response.op_new)
 
             $("#loading-text").css("display", "none");
             // console.log(response);
@@ -55,7 +58,7 @@ $("#calc-button").on("click",function(e){
 });
 
 
-var ajax_send = function (e, osl_id, classification, display_format) {
+var ajax_send = function (e, osl_id, classification, display_format, ls_op_before) {
 
     $("#loading-text").css("display", "");
 
@@ -71,6 +74,7 @@ var ajax_send = function (e, osl_id, classification, display_format) {
         'data': {
             "csrfmiddlewaretoken": csrfmiddlewaretoken,
             "osl_id": osl_id,
+            "op_before": ls_op_before,
             "classification":classification,
             "display_format":display_format,
             "request_time": new Date().getTime(),
