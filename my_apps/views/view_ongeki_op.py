@@ -379,9 +379,9 @@ def aggr_op(records):
         "silver3":96.5,
         "silver2":96.0,
         "silver1":95.5,
-        "blonze3":95.0,
-        "blonze2":94.0,
-        "blonze1":93.0,
+        "bronze3":95.0,
+        "bronze2":94.0,
+        "bronze1":93.0,
     }
 
     op_percent = op*100/op_max
