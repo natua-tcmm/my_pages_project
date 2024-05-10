@@ -234,12 +234,12 @@ def get_ongeki_score_log_player_data( user_id:str ) -> tuple:
             print("[ongeki_op][warning] 楽曲ID取得時に見つからんかったぞ",music_id)
             continue
 
-        music_title_search = music_title
+        music_title_search = [music_title]
         if music_title=="Cogito ergo sum":
-            music_title_search = "Cogit ergo sum"
+            music_title_search.append("Cogit ergo sum")
 
         # 基本情報を検索
-        music_all_data_list = [ m for m in ongeki_all_json if m["title"]==music_title_search]
+        music_all_data_list = [ m for m in ongeki_all_json if m["title"] in music_title_search]
         if len(music_all_data_list)==0:
             print(f"[ongeki_op][warning] all_jsonの検索結果が0件やぞ title:{music_title} id:{music_id}")
             continue
