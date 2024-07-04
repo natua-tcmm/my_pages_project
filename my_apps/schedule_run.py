@@ -7,7 +7,7 @@ setup()
 
 from django.conf import settings
 # from datetime import datetime, date
-from apscheduler.schedulers.background import BackgroundScheduler
+# from apscheduler.schedulers.background import BackgroundScheduler
 from my_apps.models import *
 import datetime, requests, json
 

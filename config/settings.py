@@ -12,11 +12,17 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # ベースディレクトリの設定
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# 環境変数のロード
+load_dotenv(verbose=True)
+dotenv_path = os.path.join(BASE_DIR.parent, '.env')
+load_dotenv(dotenv_path)
 
 ###################################
 
@@ -101,7 +107,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'natua$myApps',
         'USER': 'natua',
-        'PASSWORD': 'sAi4uX2Mk%ALi9b8HM',
+        'PASSWORD': os.environ.get("MYSQL_PASSWORD"),
         'HOST': 'natua.mysql.pythonanywhere-services.com',
         'PORT': '3306',
          'OPTIONS': {
