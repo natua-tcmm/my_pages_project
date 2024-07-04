@@ -14,6 +14,68 @@ import requests,os
 
 # CHUNITHM 曲データ
 
+class SongDataCN(models.Model):
+
+    song_official_id = models.CharField(max_length=10,unique=True)
+    song_name = models.CharField(max_length=100)
+    song_reading = models.CharField(max_length=100)
+    song_artist = models.CharField(max_length=100)
+    song_genre = models.CharField(max_length=20)
+    song_bpm = models.IntegerField(null=True)
+    song_bpm_nodata = models.BooleanField()
+    song_release = models.DateField()
+    song_image_url = models.CharField(max_length=100)
+    song_fumen_id = models.CharField(max_length=10,null=True,unique=True)
+
+    is_worldsend = models.BooleanField()
+    has_ultima = models.BooleanField()
+    only_ultima = models.BooleanField()
+
+    exp_const = models.DecimalField(max_digits=4,decimal_places=1,null=True)
+    exp_const_nodata = models.BooleanField()
+    exp_notes = models.IntegerField(null=True)
+    exp_notes_nodata = models.BooleanField()
+    exp_notesdesigner = models.CharField(max_length=100,null=True)
+    exp_notesdesigner_nodata = models.BooleanField()
+
+    mas_const = models.DecimalField(max_digits=4,decimal_places=1,null=True)
+    mas_const_nodata = models.BooleanField()
+    mas_notes = models.IntegerField(null=True)
+    mas_notes_nodata = models.BooleanField()
+    mas_notesdesigner = models.CharField(max_length=100,null=True)
+    mas_notesdesigner_nodata = models.BooleanField()
+
+    ult_const = models.DecimalField(max_digits=4,decimal_places=1,null=True)
+    ult_const_nodata = models.BooleanField(null=True)
+    ult_notes = models.IntegerField(null=True)
+    ult_notes_nodata = models.BooleanField(null=True)
+    ult_notesdesigner = models.CharField(max_length=100,null=True)
+    ult_notesdesigner_nodata = models.BooleanField(null=True)
+
+    we_star = models.CharField(max_length=10,null=True)
+    we_kanji = models.CharField(max_length=10,null=True)
+
+
+class SongDataCNManager(models.Manager):
+
+    # jsonからインポートするやつ
+
+    @classmethod
+    def update_rights_data(cls):
+        """
+        著作権情報を取得するメソッド
+        """
+        rights_data= requests.get("https://chunithm.sega.jp/storage/json/rightsInfo.json")
+        rights_data.encoding = rights_data.apparent_encoding
+
+        with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_chunithm.txt"),"w") as f:
+            f.write("\n".join(rights_data.json()))
+
+
+# ----------------------------------
+
+# CHUNITHM 曲データ(旧)
+
 class SongDataC(models.Model):
 
     # 曲名など
