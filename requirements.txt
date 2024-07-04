@@ -11,6 +11,7 @@ et-xmlfile==1.1.0
 idna==3.4
 jaconv==0.3.4
 MarkupPy==1.14
+mysqlclient==2.2.4
 numpy==1.25.0
 odfpy==1.4.1
 openpyxl==3.1.2
