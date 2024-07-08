@@ -1,6 +1,11 @@
 from django.db import models
 from django.conf import settings
-import requests,os
+import requests,os,json
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+JSON_C_FILE_PATH = os.path.join(BASE_DIR,"my_apps/my_data/songdata_c_dict.json")
+
 
 # Create your models here.
 
@@ -17,9 +22,9 @@ import requests,os
 class SongDataCN(models.Model):
 
     song_official_id = models.CharField(max_length=10,unique=True)
-    song_name = models.CharField(max_length=100)
-    song_reading = models.CharField(max_length=100)
-    song_artist = models.CharField(max_length=100)
+    song_name = models.CharField(max_length=200)
+    song_reading = models.CharField(max_length=200)
+    song_artist = models.CharField(max_length=500)
     song_genre = models.CharField(max_length=20)
     song_bpm = models.IntegerField(null=True)
     song_bpm_nodata = models.BooleanField()
@@ -59,6 +64,21 @@ class SongDataCN(models.Model):
 class SongDataCNManager(models.Manager):
 
     # jsonからインポートするやつ
+    @classmethod
+    def import_songdata_from_json(cls):
+        """
+        楽曲情報をjsonからインポートするメソッド
+        """
+        # データ一覧を読み込む
+        with open(JSON_C_FILE_PATH, "r") as f:
+            songdata_c_dict = json.load(f)
+        # DBを更新する
+        for a_song_data in songdata_c_dict["songs"]:
+            o,c =SongDataCN.objects.update_or_create(song_official_id=a_song_data["song_official_id"],defaults=a_song_data)
+            if c:
+                print(f"- 作成したよん→ {o.song_name}")
+            else:
+                print(f"- 更新したよん→ {o.song_name}")
 
     @classmethod
     def update_rights_data(cls):

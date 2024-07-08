@@ -1,7 +1,6 @@
 ©'12,'16 SANRIO(H)　SP
 ©1998-2021 PRODUCE published by D4Enterprise Co.,Ltd.<br>「パカパカパッション」はD4エンタープライズの登録商標です。
 ©1984 by DAIICHI MUSIC PUBLISHER CO.,LTD. <br>吉幾三「俺ら東京さ行ぐだ」<br>徳間ジャパンコミュニケーションズ
-©1989 by Sony Music Artists Inc.
 ©1st PLACE Co., Ltd. / IA PROJECT
 ©2000永井豪・石川賢／ダイナミック企画・早乙女研究所
 ©2007 BANDAI NAMCO Arts Inc.<br>©美水かがみ/らっきー☆ぱらだいす
@@ -11,7 +10,6 @@
 ©2009-2015 MAGES.／5pb.／Nitroplus
 ©2010  by  NICHION,INC.&  PONY CANYON MUSIC PUBLISHING INC.<br>©かきふらい・芳文社／桜高軽音部<br>Licensed by PONY CANYON Inc.
 ©2011 mebae/ Kaikai Kiki Co., Ltd. All Rights Reserved. <br>©FANTASISTAUTAMARO ALL RIGHTS RESERVED.
-© 2012 by FUJIPACIFIC MUSIC INC. & Sony Music Publishing (Japan) Inc.
 © 2012 DWANGO Co.,Ltd.
 ©2013 海冬レイジ・株式会社KADOKAWA メディアファクトリー刊／機巧少女は傷つかない製作委員会
 ©2013 佐島 勤/ＫＡＤＯＫＡＷＡ　アスキー・メディアワークス刊/魔法科高校製作委員会
@@ -51,11 +49,14 @@
 ©2021 NBCUniversal Entertainment. All Rights Reserved.
 ©2021 THINKR inc.
 © 2021 アニメ「ウマ娘 プリティーダービー Season 2」製作委員会
+©2022 by TV ASAHI MUSIC CO., LTD. & Sony Music Artists Inc. & TOY'S FACTORY INC.
 © 2022 DWANGO Co.,Ltd.
 ©2022 KAMITSUBAKI STUDIO
 ©2022 THINKR inc.
 ©℗2022 TUYU Records
+©℗2022 TUYU Records / PONY CANYON
 ©2022 Warner Bros. Entertainment Inc. All rights reserved.
+©2023 EMP Inc.<br>©AHS Co. Ltd.
 ©2023 Rayark Inc. CYTUS II®
 ©âge
 ©AI, Inc.
@@ -66,7 +67,6 @@
 ©Ark Performance／少年画報社・アルペジオパートナーズ
 Art by Shirow Miwa © CFM<br>©supercell / INCS toenter Co., ltd. / Sony Music Labels Inc.
 ©ATLUS
-©BANDAI NAMCO Arts Inc.
 ©Bandai Namco Entertainment Inc. / PROJECT U149
 ©BanG Dream! Project
 ©BNP/BANDAI, DENTSU, TV TOKYO
@@ -83,8 +83,6 @@ GUMI(Megpoid)©INTERNET Co., LTD.
 ©HARDCORE TANO*C
 © HARUKAZE
 ©ICHI／鈴川鉄久
-©KADOKAWA CORPORATION 2020
-©KADOKAWA CORPORATION 2021
 ©KAGEROU PROJECT/1stPLACE
 ©KAMITSUBAKI RECORD
 © KAMITSUBAKI STUDIO / KAF
@@ -118,6 +116,7 @@ Licensed by Virgin Music, A UNIVERSAL MUSIC COMPANY
 ©ONE・小学館／「モブサイコ100 Ⅲ」製作委員会
 ©OTOIRO Inc.
 ©PONY CANYON/IRORI Records
+©peropero
 ©Princess Principal Project
 © Project Revue Starlight<br>©2018  by  NICHION,INC.&  PONY CANYON MUSIC PUBLISHING INC.
 ©PROJECT W.A.2
@@ -156,6 +155,7 @@ TVアニメ『Hi☆sCoool! セハガール』©SEGA/セハガガ学園理事会
 ®WSS playground
 ©YORIMOI PARTNERS
 ©あfろ・芳文社／野外活動サークル
+©荒井チェリー/一迅社・未確認で進行形製作委員会
 ©荒井チェリー・芳文社／三者三葉製作委員会
 ©諫山創・講談社／「進撃の巨人」The Final Season製作委員会
 ©異世界かるてっと／ＫＡＤＯＫＡＷＡ
@@ -170,9 +170,9 @@ TVアニメ『Hi☆sCoool! セハガール』©SEGA/セハガガ学園理事会
 ©蝸牛くも・SBクリエイティブ／ゴブリンスレイヤー製作委員会
 重音テト© 線/小山乃舞世/ツインドリル
 ©カヅホ・芳文社／キルミーベイベー製作委員会
-©賀東招二・なかじまゆか/甘ブリ再生委員会
+©金城宗幸・ノ村優介・講談社／「ブルーロック」製作委員会
 ©鎌池和馬／冬川基／アスキー・メディアワークス／PROJECT-RAILGUN S
-© カラー／Project Eva. Licensed by KING RECORD Co.,LTD.
+© かめりあ
 ©河本ほむら・尚村透／SQUARE ENIX・「賭ケグルイ××」製作委員会
 ©窪岡俊之 ©BANDAI NAMCO Entertainment Inc.
 ©クール教信者・双葉社／ドラゴン生活向上委員会
@@ -216,6 +216,7 @@ TVアニメ『Hi☆sCoool! セハガール』©SEGA/セハガガ学園理事会
 ©水野あつ<br>©2021 KAMITSUBAKI STUDIO<br>©2021 by XING MUSIC ENTERTAINMENT,INC.
 ©椋木ななつ・一迅社／わたてん製作委員会
 ©山口悟・一迅社／はめふら製作委員会
+©山田鐘人・アベツカサ／小学館／「葬送のフリーレン」製作委員会
 ©四葉夕卜・小川亮／講談社
 ©ルーツ / Piyo / アース・スター エンターテイメント / 亀井戸高校テニス部
 ©和久井健・講談社／アニメ「東京リベンジャーズ」製作委員会
