@@ -69,16 +69,26 @@ class SongDataCNManager(models.Manager):
         """
         楽曲情報をjsonからインポートするメソッド
         """
+
         # データ一覧を読み込む
         with open(JSON_C_FILE_PATH, "r") as f:
             songdata_c_dict = json.load(f)
+
         # DBを更新する
+        print("[SongDataCNManager]データベースに送信します")
         for a_song_data in songdata_c_dict["songs"]:
-            o,c =SongDataCN.objects.update_or_create(song_official_id=a_song_data["song_official_id"],defaults=a_song_data)
-            if c:
-                print(f"- 作成したよん→ {o.song_name}")
-            else:
-                print(f"- 更新したよん→ {o.song_name}")
+            # 更新されたやつだけ
+            if  (a_song_data["song_official_id"] in songdata_c_dict["new_song_offi_ids"]) or \
+                (a_song_data["song_official_id"] in songdata_c_dict["update_song_offi_ids"]):
+
+                o,c =SongDataCN.objects.update_or_create(song_official_id=a_song_data["song_official_id"],defaults=a_song_data)
+                if c:
+                    print(f"- 作成したよん→ {o.song_name}")
+                else:
+                    print(f"- 更新したよん→ {o.song_name}")
+
+        print("[SongDataCNManager]送信が完了しました")
+        return songdata_c_dict["update_at"]
 
     @classmethod
     def update_rights_data(cls):

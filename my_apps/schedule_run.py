@@ -12,12 +12,12 @@ from my_apps.models import *
 import datetime, requests, json
 
 def periodic_execution():
+
     # 定数情報のアップデート
-    update_log_c = SongDataCManager.update_song_data()
-    update_log_o = SongDataOManager.update_song_data()
+    update_at_c = SongDataCNManager.import_songdata_from_json()
 
     # 著作権情報のアップデート
-    SongDataCManager.update_rights_data()
+    SongDataCNManager.update_rights_data()
     SongDataOManager.update_rights_data()
 
     # オンゲキジャンル名を取得して既定の場所に出力
@@ -28,13 +28,12 @@ def periodic_execution():
         json.dump(r.json(), f, indent=2)
 
     # 現在時刻をフォーマットを整えて既定の場所に出力
-    t_delta = datetime.timedelta(hours=9)
-    jst = datetime.timezone(t_delta, 'JST')
-    now = datetime.datetime.now(jst)
-    with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_time.txt"),"w") as f:
-        f.write(now.strftime("%Y年%m月%d日 %H:%M"))
+    with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_at_c.txt"),"w") as f:
+        f.write(update_at_c)
+    # with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_at_o.txt"),"w") as f:
+    #     f.write(update_at_o)
 
-    return str(update_log_c+update_log_o)
+    return
 
 
 if __name__=="__main__":
