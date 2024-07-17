@@ -21,14 +21,14 @@ def periodic_execution():
     SongDataCNManager.update_rights_data()
     SongDataOManager.update_rights_data()
 
-    # オンゲキジャンル名を取得して既定の場所に出力
-    get_ongeki_genre()
-
     # 現在時刻をフォーマットを整えて既定の場所に出力
     with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_at_c.txt"),"w") as f:
         f.write(update_at_c)
     # with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_at_o.txt"),"w") as f:
     #     f.write(update_at_o)
+
+    # オンゲキジャンル名を取得して既定の場所に出力
+    get_ongeki_genre()
 
     return
 
