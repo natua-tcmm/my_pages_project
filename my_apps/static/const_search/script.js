@@ -15,16 +15,25 @@ $("#change_dif").on("click", function () {
         $(".constdisp_expert").css("display", "flex");
         $(".constdisp_master").css("display", "none");
         $(".constdisp_ultima").css("display", "none");
+        $(".constdisp_expert_inline").css("display", "inline");
+        $(".constdisp_master_inline").css("display", "none");
+        $(".constdisp_ultima_inline").css("display", "none");
     }
     else if (display_dif_index % 3 == 1) {
         $(".constdisp_expert").css("display", "none");
         $(".constdisp_master").css("display", "flex");
         $(".constdisp_ultima").css("display", "none");
+        $(".constdisp_expert_inline").css("display", "none");
+        $(".constdisp_master_inline").css("display", "inline");
+        $(".constdisp_ultima_inline").css("display", "none");
     }
     else if (display_dif_index % 3 == 2) {
         $(".constdisp_expert").css("display", "none");
         $(".constdisp_master").css("display", "none");
         $(".constdisp_ultima").css("display", "flex");
+        $(".constdisp_expert_inline").css("display", "none");
+        $(".constdisp_master_inline").css("display", "none");
+        $(".constdisp_ultima_inline").css("display", "inline");
     }
 
 });

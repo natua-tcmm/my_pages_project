@@ -80,7 +80,7 @@ def const_search(request:HttpRequest):
         elif query=="":
 
             # 新曲を表示
-            date_before_2_weekly = (datetime.date.today()-datetime.timedelta(days=14)).strftime("%Y-%m-%d")
+            date_before_2_weekly = (datetime.date.today()-datetime.timedelta(days=15)).strftime("%Y-%m-%d")
             search_results_song_list = SDM.get_new_songs(date_before_2_weekly)
 
             search_hit_count = f"[新曲] {len(search_results_song_list)}"
@@ -115,7 +115,7 @@ def const_search(request:HttpRequest):
 
 # 更新日を取得
 def get_update_time():
-    with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_time.txt"),"r") as f:
+    with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_at_c.txt"),"r") as f:
         update_time = f.readline()
     return update_time
 
