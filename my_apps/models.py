@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-import requests,os,json
+import requests,os,json,datetime
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -349,7 +349,9 @@ class SongDataOManager(models.Manager):
         print("オンゲキ 更新終わったよん")
         result += "オンゲキ 更新終わったよん\n"
 
-        return result
+        update_at = datetime.datetime.now().strftime("%Y/%m/%d %H:%M")
+
+        return result,update_at
 
     @classmethod
     def get_song_data(cls):
