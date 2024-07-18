@@ -14,10 +14,8 @@ from bs4 import BeautifulSoup
 
 def periodic_execution():
     # 定数情報のアップデート
-    update_log_c = ""
-    # update_log_c = SongDataCManager.update_song_data()
-    update_log_o = ""
-    # update_log_o = SongDataOManager.update_song_data()
+    update_log_c = SongDataCManager.update_song_data()
+    update_log_o = SongDataOManager.update_song_data()
 
     # 著作権情報のアップデート
     SongDataCManager.update_rights_data()
