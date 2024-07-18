@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-import requests,os,json,datetime
+import requests,os,json,datetime,jaconv,unicodedata
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -106,14 +106,35 @@ class SongDataCNManager(models.Manager):
         """
         query_listから曲データを検索するメソッド
         """
-        return []
+        search_results = SongDataCN.objects.none()
+
+        # 曲名
+        if search_settings["is_use_name"]:
+            for query in query_list:
+                search_results = search_results|SongDataCN.objects.filter(song_name__icontains=query)
+
+        # 読み方
+        if search_settings["is_use_reading"]:
+            # query_list[0]をカタカナとアルファベット大文字に変換して濁点を取る 他の文字はなし
+            query_reading = "".join([ c for c in jaconv.hira2kata(unicodedata.normalize("NFKD",query_list[0])).upper().translate(str.maketrans("ァィゥェォャュョッヮヵヶ","アイウエオヤユヨツワカケ")) if ( "\u30a1"<=c<="\u30fa" or "A"<=c<="Z" ) ])
+            print(query_reading)
+            search_results = search_results|SongDataCN.objects.filter(song_reading__icontains=query_reading)
+
+        # アーティスト名
+        if search_settings["is_use_artists"]:
+            for query in query_list:
+                search_results = search_results|SongDataCN.objects.filter(song_artist__icontains=query)
+
+        return list(search_results)
 
     @classmethod
     def get_new_songs(cls,date_before_2_weekly):
         """
         新曲を返すメソッド
         """
-        return []
+        song_new = SongDataCN.objects.filter(song_release__gt=date_before_2_weekly)
+        search_results_song_list = list(song_new)
+        return search_results_song_list
 
 
 # ----------------------------------

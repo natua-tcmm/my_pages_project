@@ -95,6 +95,7 @@ def const_search(request:HttpRequest):
 
             # 検索
             search_results_song_list = SDM.search_song_by_query_list(query_list,search_settings)
+            search_hit_count = len(search_results_song_list)
 
             # 整える
             search_results_html = render_search_result(search_results_song_list,type_game)
