@@ -101,6 +101,20 @@ class SongDataCNManager(models.Manager):
         with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_chunithm.txt"),"w") as f:
             f.write("\n".join(rights_data.json()))
 
+    @classmethod
+    def search_song_by_query_list(cls,query_list,search_settings):
+        """
+        query_listから曲データを検索するメソッド
+        """
+        return []
+
+    @classmethod
+    def get_new_songs(cls,date_before_2_weekly):
+        """
+        新曲を返すメソッド
+        """
+        return []
+
 
 # ----------------------------------
 
@@ -449,6 +463,43 @@ class SongDataOManager(models.Manager):
 
         with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_ongeki.txt"),"w") as f:
             f.write("\n".join(list(set(ongeki_rights))))
+
+    @classmethod
+    def search_song_by_query_list(cls,query_list,search_settings):
+        """
+        query_listから曲データを検索するメソッド
+        """
+        # 曲名
+        song_search_by_name = SongDataO.objects.none()
+        for q in query_list:
+            song_search_by_name = song_search_by_name|SongDataO.objects.filter(song_name__icontains=q)
+            # song_search_by_reading = SongDataO.objects.filter(...)
+
+        # アーティスト名
+        song_search_by_artists = SongDataO.objects.filter(song_auther__icontains=query_list[0])
+
+        # 必要に合わせて結合
+        song_search_tmp = SongDataO.objects.none()
+        if search_settings["is_use_name"]:
+            song_search_tmp = song_search_tmp|song_search_by_name
+        # if is_use_reading:
+        #     song_search_tmp = song_search_tmp|song_search_by_reading
+        if search_settings["is_use_artists"]:
+            song_search_tmp = song_search_tmp|song_search_by_artists
+
+        # リストにして完成
+        song_search = list(song_search_tmp)
+
+        return song_search
+
+    @classmethod
+    def get_new_songs(cls,date_before_2_weekly):
+        """
+        新曲を返すメソッド
+        """
+        song_new = SongDataO.objects.filter(song_release__gt=date_before_2_weekly)
+        search_results_song_list = list(song_new)
+        return search_results_song_list
 
 # ----------------------------------
 
