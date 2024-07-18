@@ -16,6 +16,7 @@ def periodic_execution():
 
     # 定数情報のアップデート
     update_at_c = SongDataCNManager.import_songdata_from_json()
+    update_log_o = SongDataOManager.update_song_data()
 
     # 著作権情報のアップデート
     SongDataCNManager.update_rights_data()
@@ -24,13 +25,14 @@ def periodic_execution():
     # 現在時刻をフォーマットを整えて既定の場所に出力
     with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_at_c.txt"),"w") as f:
         f.write(update_at_c)
-    # with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_at_o.txt"),"w") as f:
-    #     f.write(update_at_o)
+    with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_at_o.txt"),"w") as f:
+        f.write(update_at_c) # TODO 仮です
+        # f.write(update_at_o)
 
     # オンゲキジャンル名を取得して既定の場所に出力
     get_ongeki_genre()
 
-    return
+    return str(update_log_o)
 
 def get_ongeki_genre():
     URL = "https://wikiwiki.jp/gameongeki/%E7%A7%B0%E5%8F%B7%E4%B8%80%E8%A6%A7"
