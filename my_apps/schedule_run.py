@@ -46,9 +46,11 @@ def get_ongeki_genre():
     genre_list = []
     for i,d in enumerate(genre_table):
         if i%2==0:
+            if len(d.text)==0:
+                break
             genre_list.append(d.text)
         else:
-            genre_list.append(re.findall(P,d.text)[0])
+            genre_list.append(re.findall(P,d.text)[0].replace("」「",", "))
     genre_pairs = [genre_list[i:i+2] for i in range(0, len(genre_list), 2)]
 
     # json化して出力
