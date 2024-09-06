@@ -86,6 +86,11 @@ class SongDataCNManager(models.Manager):
                     print(f"- 作成したよん→ {o.song_name}")
                 else:
                     print(f"- 更新したよん→ {o.song_name}")
+            # 削除曲
+            elif (a_song_data["song_official_id"] in songdata_c_dict["delete_song_offi_ids"]):
+                # 削除するってコード
+                pass
+
 
         print("[SongDataCNManager]送信が完了しました")
         return songdata_c_dict["update_at"]

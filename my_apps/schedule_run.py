@@ -14,24 +14,28 @@ from bs4 import BeautifulSoup
 
 def periodic_execution():
 
-    # 定数情報のアップデート
+
+    # 楽曲情報のアップデート
+    # ここにjson更新用のコードを入れる
+
+    # 楽曲情報をDBに送信
     update_at_c = SongDataCNManager.import_songdata_from_json()
-    update_log_o, update_at_o = SongDataOManager.update_song_data()
+    # update_log_o, update_at_o = SongDataOManager.update_song_data()
 
     # 著作権情報のアップデート
     SongDataCNManager.update_rights_data()
-    SongDataOManager.update_rights_data()
+    # SongDataOManager.update_rights_data()
 
     # 現在時刻をフォーマットを整えて既定の場所に出力
     with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_at_c.txt"),"w") as f:
         f.write(update_at_c)
-    with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_at_o.txt"),"w") as f:
-        f.write(update_at_o)
+    # with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_at_o.txt"),"w") as f:
+    #     f.write(update_at_o)
 
     # オンゲキジャンル名を取得して既定の場所に出力
     get_ongeki_genre()
 
-    return str(update_log_o)
+    # return str(update_log_o)
 
 def get_ongeki_genre():
     URL = "https://wikiwiki.jp/gameongeki/%E7%A7%B0%E5%8F%B7%E4%B8%80%E8%A6%A7"
