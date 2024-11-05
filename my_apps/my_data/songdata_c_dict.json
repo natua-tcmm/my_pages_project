@@ -47601,26 +47601,8 @@
             "we_kanji": null
         }
     ],
-    "new_song_offi_ids": [
-        "2673",
-        "2674",
-        "2618",
-        "2675",
-        "2642",
-        "2643",
-        "2621",
-        "2622",
-        "2623",
-        "2624",
-        "2619",
-        "2625"
-    ],
-    "update_song_offi_ids": [
-        "455",
-        "720",
-        "628",
-        "669"
-    ],
-    "delete_song_offi_ids": [],
+    "new_song_offi_ids": [],
+    "update_song_offi_ids": [],
+    "delete_song_offi_ids": ["2615"],
     "update_at": "2024/08/28 17:35"
 }

@@ -12,8 +12,7 @@ from my_apps.models import *
 import datetime, requests, json, re
 from bs4 import BeautifulSoup
 
-def periodic_execution():
-
+def schedule_run():
 
     # 楽曲情報のアップデート
     # ここにjson更新用のコードを入れる
@@ -66,4 +65,4 @@ def get_ongeki_genre():
 
 
 if __name__=="__main__":
-   periodic_execution()
+   schedule_run()

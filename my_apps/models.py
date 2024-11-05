@@ -77,7 +77,7 @@ class SongDataCNManager(models.Manager):
         # DBを更新する
         print("[SongDataCNManager]データベースに送信します")
         for a_song_data in songdata_c_dict["songs"]:
-            # 更新されたやつだけ
+            # 追加・更新された曲
             if  (a_song_data["song_official_id"] in songdata_c_dict["new_song_offi_ids"]) or \
                 (a_song_data["song_official_id"] in songdata_c_dict["update_song_offi_ids"]):
 
@@ -88,9 +88,10 @@ class SongDataCNManager(models.Manager):
                     print(f"- 更新したよん→ {o.song_name}")
             # 削除曲
             elif (a_song_data["song_official_id"] in songdata_c_dict["delete_song_offi_ids"]):
-                # 削除するってコード
-                pass
-
+                print(f"- 削除するよん→ {a_song_data['song_name']}")
+                n,_ = SongDataCN.objects.filter(song_official_id=a_song_data["song_official_id"]).delete()
+                if n!=1:
+                    print(f"-- 削除に失敗したよん")
 
         print("[SongDataCNManager]送信が完了しました")
         return songdata_c_dict["update_at"]
