@@ -1,6 +1,7 @@
 import os, sys
 from pathlib import Path
-sys.path.append(Path(__file__).resolve().parent.parent.__str__())
+BASE_DIR = Path(__file__).resolve().parent.parent
+sys.path.append(BASE_DIR.__str__())
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 from django import setup
 setup()
@@ -8,6 +9,7 @@ setup()
 from django.conf import settings
 # from datetime import datetime, date
 # from apscheduler.schedulers.background import BackgroundScheduler
+from my_apps.my_script import handle_songdata_c
 from my_apps.models import *
 import datetime, requests, json, re
 from bs4 import BeautifulSoup
@@ -15,7 +17,7 @@ from bs4 import BeautifulSoup
 def schedule_run():
 
     # 楽曲情報のアップデート
-    # ここにjson更新用のコードを入れる
+    handle_songdata_c.json_file_update()
 
     # 楽曲情報をDBに送信
     update_at_c = SongDataCNManager.import_songdata_from_json()
