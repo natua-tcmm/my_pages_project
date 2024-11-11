@@ -59,20 +59,20 @@
                         <p>これって何落ちAJ？</p>
                     </a>
                 </li> -->
-                <!-- <li class="nav-item">
+                {% comment %} <li class="nav-item">
                     <a href="{% url 'my_apps:ongeki_rating_act2_page' %}"
                         class="nav-link {% if request.path == '/my_apps/ongeki_rating_act2' %}active{% endif %}">
                         <i class="nav-icon fas fa-table"></i>
                         <p>オンゲキAct2基準レート</p>
                     </a>
-                </li>
+                </li> {% endcomment %}
                 <li class="nav-item">
                     <a href="{% url 'my_apps:ongeki_rating_all_page' %}"
                         class="nav-link {% if request.path == '/my_apps/ongeki_rating_all' %}active{% endif %}">
                         <i class="nav-icon fas fa-table"></i>
-                        <p>オンゲキ(新曲枠なし)</p>
+                        <p>オンゲキ(全曲ベスト枠)</p>
                     </a>
-                </li> -->
+                </li>
                 <li class="nav-item">
                     <a href="{% url 'my_apps:bpm_checker_page' %}"
                         class="nav-link {% if request.path == '/my_apps/bpm_checker' %}active{% endif %} ">
