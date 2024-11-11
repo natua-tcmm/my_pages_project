@@ -9,12 +9,16 @@
             <td style="text-align: center;">{{rating}} / {{max_rating}}</td>
         </tr>
         <tr>
-            <th scope="row">計算結果[BEST]</th>
+            <th scope="row">計算結果(ベスト枠平均)</th>
             <td style="text-align: center;">{{result_best}}</td>
         </tr>
-        <tr>
+        {% comment %} <tr>
             <th scope="row">計算結果[REACHABLE]</th>
             <td style="text-align: center;">{{result_reachable}}</td>
+        </tr> {% endcomment %}
+        <tr>
+            <th scope="row">計算結果(ベスト枠範囲)</th>
+            <td style="text-align: center;">{{result_range}}</td>
         </tr>
     </tbody>
 </table>
