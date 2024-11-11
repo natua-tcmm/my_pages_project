@@ -54,7 +54,7 @@
                     </a>
                 </div>
 
-                <!-- <div class="col-xl-4 col-md-6 col-12">
+                {% comment %} <div class="col-xl-4 col-md-6 col-12">
                     <a href="{% url 'my_apps:ongeki_rating_act2_page' %}" class="small-box bg-light app-box">
                         <div class="inner p-4">
                             <h4 class="app-name font-weight-bold">オンゲキAct.2基準レート</h4>
@@ -64,19 +64,19 @@
                             <i class="fas fa-table"></i>
                         </div>
                     </a>
-                </div>
+                </div> {% endcomment %}
 
                 <div class="col-xl-4 col-md-6 col-12">
                     <a href="{% url 'my_apps:ongeki_rating_all_page' %}" class="small-box bg-light app-box">
                         <div class="inner p-4">
-                            <h4 class="app-name font-weight-bold">オンゲキ(新曲枠なし)</h4>
-                            <p class="app-desc">新曲含めたベスト枠30曲の平均レートを計算します。</p>
+                            <h4 class="app-name font-weight-bold">オンゲキ(全曲ベスト枠)</h4>
+                            <p class="app-desc">新曲・旧曲関係なくベスト枠(30枠)を計算します。</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-table"></i>
                         </div>
                     </a>
-                </div> -->
+                </div>
 
                 <div class="col-xl-4 col-md-6 col-12">
                     <a href="{% url 'my_apps:bpm_checker_page' %}" class="small-box bg-light app-box">
