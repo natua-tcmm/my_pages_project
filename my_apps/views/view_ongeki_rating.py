@@ -18,7 +18,7 @@ title_base = "| △Natua♪▽のツールとか保管所"
 
 # テンプレート こいつをコピペして作ろう
 def ongeki_rating_all(request):
-    context = { "title":f"オンゲキベスト枠計算(新曲枠なし) {title_base}" ,"is_beta":False, "is_app":True }
+    context = { "title":f"オンゲキベスト枠計算(全曲対象) {title_base}" ,"is_beta":False, "is_app":True }
 
 
     # Ajax処理
@@ -57,6 +57,7 @@ def ongeki_rating_all(request):
 
         result_best = int(sum(music_rate_list)*100/30)/100
         result_reachable = int(( sum(music_rate_list)*3/120 + music_rate_max/4 )*100)/100
+        result_range = int((music_rate_list[0]-music_rate_list[-1])*100)/100
 
 
         # プレイヤー情報を描画
@@ -66,6 +67,7 @@ def ongeki_rating_all(request):
             "max_rating":player_data["max_rating"],
             "result_best":result_best,
             "result_reachable":result_reachable,
+            "result_range":result_range,
         }
         or_player_info_table_html = render_to_string("ongeki_rating_all/or_player_info_table.html",context=c)
 
@@ -82,6 +84,6 @@ def ongeki_rating_all(request):
 
     return render(request, 'ongeki_rating_all/ongeki_rating_all.html',context=context)
 
-def ongeki_rating_act2(request):
-    context = { "title":f"オンゲキ brightMEMORY Act.2基準レーティング {title_base}" ,"is_beta":False, "is_app":True }
-    return render(request, 'ongeki_rating_act2/ongeki_rating_act2.html',context=context)
+# def ongeki_rating_act2(request):
+#     context = { "title":f"オンゲキ brightMEMORY Act.2基準レーティング {title_base}" ,"is_beta":False, "is_app":True }
+#     return render(request, 'ongeki_rating_act2/ongeki_rating_act2.html',context=context)
