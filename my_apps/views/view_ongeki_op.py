@@ -124,7 +124,7 @@ def calc_music_rate( score_rank:str, t_score:int, const:float )->float:
     elif score_rank == "AAA" or score_rank == "AA":
         music_rate = const - 4 + math.floor((t_score-900_000)/175)*0.01
 
-    music_rate = int(music_rate*100)/100
+    music_rate = int(music_rate*100+0.5)/100
 
     return music_rate
 
