@@ -113,7 +113,7 @@ def calc_music_rate( score_rank:str, t_score:int, const:float )->float:
 
     music_rate = 0
 
-    if score_rank == "SSS+" or score_rank == "P":
+    if score_rank == "SSS+" or score_rank == "AB+":
         music_rate = const + 2
     elif score_rank == "SSS":
         music_rate = const + 1.5 + math.floor((t_score-1_000_000)/150)*0.01
