@@ -19,8 +19,8 @@ API_TOKEN = "44e59971ab6bc588baf33d18867971d11e9b742d80a9c89388a0e9d59afa5614394
 
 # テンプレート こいつをコピペして作ろう
 def chunithm_rating_all(request):
-    context = { "title":f"CHUNITHMベスト枠計算(全曲対象) {title_base}" ,"is_beta":False, "is_app":True }
 
+    context = { "title":f"CHUNITHMベスト枠計算(全曲対象) {title_base}" ,"is_beta":False, "is_app":True }
 
     # Ajax処理
     if request.method=="POST":

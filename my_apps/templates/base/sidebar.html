@@ -74,6 +74,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{% url 'my_apps:chunithm_rating_all_page' %}"
+                        class="nav-link {% if request.path == '/my_apps/chunithm_rating_all' %}active{% endif %}">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>CHUNITHM(全曲ベスト枠)</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{% url 'my_apps:bpm_checker_page' %}"
                         class="nav-link {% if request.path == '/my_apps/bpm_checker' %}active{% endif %} ">
                         <i class="nav-icon fas fa-music"></i>
