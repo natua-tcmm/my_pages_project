@@ -12,8 +12,16 @@ from django.conf import settings
 
 # from .view_chunithm_rating import get_chunithm_score_log_player_data
 
+from pathlib import Path
+import os
+from dotenv import load_dotenv
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+load_dotenv(verbose=True)
+dotenv_path = os.path.join(BASE_DIR.parent, '.env')
+load_dotenv(dotenv_path)
+
 title_base = "| △Natua♪▽のツールとか保管所"
-API_TOKEN = "44e59971ab6bc588baf33d18867971d11e9b742d80a9c89388a0e9d59afa5614394470cc63b5fdd262709b63c45aa6a0b2e132ca1a3d78688fd86d7a3e98f796"
+API_TOKEN = os.environ.get("CHUNIREC_API_TOKEN")
 
 # --------------------------------------------------
 
