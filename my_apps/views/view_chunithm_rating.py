@@ -14,7 +14,7 @@ from django.conf import settings
 # from .view_chunithm_rating import get_chunithm_score_log_player_data
 
 from pathlib import Path
-import os
+import os, math
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -65,6 +65,7 @@ def chunithm_rating_all(request):
                     "const_old": f'{new2old_const(d["const"]):2.1f}',
                     "music_rate": f'{calculate_rating(d["score"],d["const"]):2.2f}',
                     "music_rate_old": f'{calculate_rating(d["score"],new2old_const(d["const"])):2.2f}',
+                    # "music_rate_old": f'{d["rating"]}',
                     "score": f'{d["score"]:7n}',
                     "diff": f'{d["diff"]}',
                     "title": f'{d["title"]}',
@@ -73,10 +74,10 @@ def chunithm_rating_all(request):
                 music_rate_old_list.append(float(a_song_dict["music_rate_old"]))
                 rating_all_best_songs_str.append(a_song_dict)
 
-            result_best_30 = f"{sum(music_rate_list[:30]) / 30:2.4f}"
-            result_best_50 = f"{sum(music_rate_list) / 50:2.4f}"
-            result_best_old_30 = f"{sum(music_rate_old_list[:30]) / 30:2.4f}"
-            result_best_old_50 = f"{sum(music_rate_old_list) / 50:2.4f}"
+            result_best_30 = f"{sum(music_rate_list[:30])/30:2.4f}"
+            result_best_50 = f"{sum(music_rate_list)/50:2.4f}"
+            result_best_old_30 = f"{sum(music_rate_old_list[:30])/30:2.4f}"
+            result_best_old_50 = f"{sum(music_rate_old_list)/50:2.4f}"
 
             # プレイヤー情報を描画
             c = {
@@ -87,7 +88,9 @@ def chunithm_rating_all(request):
                 "result_best_old_30": result_best_old_30,
                 "result_best_old_50": result_best_old_50,
             }
-            c["tweet_text"] = f'{c["name"]}さんのCHUNITHM全曲対象ベスト枠\n\nベスト枠平均(30枠/50枠)\n{c["result_best_30"]} / {c["result_best_50"]}\nベスト枠平均(旧基準)(30枠/50枠)\n{c["result_best_old_30"]} / {c["result_best_old_50"]}\n\n'
+            c["tweet_text"] = (
+                f'{c["name"]}さんのCHUNITHM全曲対象ベスト枠\n\nベスト枠平均(30枠/50枠)\n{c["result_best_30"]} / {c["result_best_50"]}\nベスト枠平均(旧基準)(30枠/50枠)\n{c["result_best_old_30"]} / {c["result_best_old_50"]}\n\n'
+            )
             cr_player_info_table_html = render_to_string("chunithm_rating_all/cr_player_info_table.html", context=c)
 
             # ベスト枠を描画
@@ -105,6 +108,7 @@ def chunithm_rating_all(request):
 # ユーザー情報の取得
 class TooManyRequestsError(Exception):
     pass
+
 
 def get_chunirec_player_info(user_name):
     endpoint_url = "https://api.chunirec.net/2.0/records/profile.json"
@@ -157,7 +161,11 @@ def calculate_rating(score, const):
     else:
         rating = None
 
+    rating += 0.00001
+    rating =  (int(rating*100))/100
+    print(f"{rating:2.50f}")
     return rating
+
 
 # 定数変換
 def new2old_const(new_const: float) -> float:
