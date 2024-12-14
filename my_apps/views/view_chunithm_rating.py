@@ -89,7 +89,7 @@ def chunithm_rating_all(request):
                 "result_best_old_50": result_best_old_50,
             }
             c["tweet_text"] = (
-                f'{c["name"]}さんのCHUNITHM全曲対象ベスト枠\n\nベスト枠平均(30枠/50枠)\n{c["result_best_30"]} / {c["result_best_50"]}\nベスト枠平均(旧基準)(30枠/50枠)\n{c["result_best_old_30"]} / {c["result_best_old_50"]}\n\n'
+                f'{c["name"]}さんのCHUNITHM全曲対象ベスト枠\n\nベスト枠平均(30枠/50枠)\n{c["result_best_30"]} / {c["result_best_50"]}\nベスト枠平均(旧基準)(30枠/50枠)\n{c["result_best_old_30"]} / {c["result_best_old_50"]}\n'
             )
             cr_player_info_table_html = render_to_string("chunithm_rating_all/cr_player_info_table.html", context=c)
 
