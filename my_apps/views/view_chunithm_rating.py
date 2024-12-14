@@ -75,22 +75,21 @@ def chunithm_rating_all(request):
         c = {
             "name":player_data["player_name"],
             "rating":player_data["rating"],
-            "max_rating":player_data["rating_max"],
             "result_best":result_best,
             "result_reachable":result_reachable,
             "result_range":result_range,
         }
-        or_player_info_table_html = render_to_string("chunithm_rating_all/or_player_info_table.html",context=c)
+        cr_player_info_table_html = render_to_string("chunithm_rating_all/cr_player_info_table.html",context=c)
 
         # ベスト枠を描画
         c = {
             "rating_all_best_songs_str":rating_all_best_songs_str
         }
-        or_rating_table_html = render_to_string("chunithm_rating_all/or_rating_table.html",context=c)
+        cr_rating_table_html = render_to_string("chunithm_rating_all/cr_rating_table.html",context=c)
 
 
         # お返しする
-        ajax_response = { "summary":or_player_info_table_html ,"result":or_rating_table_html }
+        ajax_response = { "summary":cr_player_info_table_html ,"result":cr_rating_table_html }
         return JsonResponse(ajax_response)
 
     return render(request, 'chunithm_rating_all/chunithm_rating_all.html',context=context)
