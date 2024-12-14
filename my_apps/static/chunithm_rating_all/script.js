@@ -41,8 +41,11 @@ $("#calc-button").on("click",function(e){
             $("#result").prepend(response.result);
 
         })
-        .fail(function () {
-            alert("Ajax通信に失敗しました(´・ω・`)\nページを再読み込みしてください。")
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            let date = new Date();
+            var d1 = date.getFullYear() + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' +('0' + date.getDate()).slice(-2) + ' ' +  ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ':' + ('0' + date.getSeconds()).slice(-2) + '.' + date.getMilliseconds();
+            alert("エラーが発生しました。ページを再読み込みして再実行してください。\n何度も発生する場合は、お手数ですが次の画面のスクリーンショットを管理者(@natua_tcmm)へ報告してください。");
+            alert(+jqXHR.status+" / "+textStatus+" / "+errorThrown+"\ntime:"+d1);
         });
 
     }
