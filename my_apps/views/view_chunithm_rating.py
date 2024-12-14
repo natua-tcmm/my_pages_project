@@ -43,60 +43,69 @@ def chunithm_rating_all(request):
         rec_id = post.get("rec_id")
 
         # chunirecにrequest送る
-        player_data = get_chunirec_player_info(rec_id)
-        records_data_list = get_chunirec_player_all_records(rec_id)["records"]
-        # player_data,records_data_list = get_chunithm_score_log_player_data(rec_id)
-        response = {"player_data": player_data, "records": records_data_list}
+        try:
+            player_data = get_chunirec_player_info(rec_id)
+            records_data_list = get_chunirec_player_all_records(rec_id)["records"]
+        except TooManyRequestsError as e:
+            ajax_response = {"summary": "<p>アクセス過多です。15分ほど待って再度お試しください。</p>", "result": ""}
+        # except requests.HTTPError as e:
+        #     ...
+        else:
+            response = {"player_data": player_data, "records": records_data_list}
 
-        # ベスト枠を算出
-        rating_all_best_songs_raw = sorted(response["records"], key=lambda x: x["rating"], reverse=True)[:50]
-        music_rate_list = []
-        music_rate_old_list = []
-        rating_all_best_songs_str = []
-        for i, d in enumerate(rating_all_best_songs_raw):
-            a_song_dict = {
-                "n": f"{i+1:3n}",
-                "const": f'{d["const"]:2.1f}',
-                "const_old": f'{new2old_const(d["const"]):2.1f}',
-                "music_rate": f'{calculate_rating(d["score"],d["const"]):2.2f}',
-                "music_rate_old": f'{calculate_rating(d["score"],new2old_const(d["const"])):2.2f}',
-                "score": f'{d["score"]:7n}',
-                "diff": f'{d["diff"]}',
-                "title": f'{d["title"]}',
+            # ベスト枠を算出
+            rating_all_best_songs_raw = sorted(response["records"], key=lambda x: x["rating"], reverse=True)[:50]
+            music_rate_list = []
+            music_rate_old_list = []
+            rating_all_best_songs_str = []
+            for i, d in enumerate(rating_all_best_songs_raw):
+                a_song_dict = {
+                    "n": f"{i+1:3n}",
+                    "const": f'{d["const"]:2.1f}',
+                    "const_old": f'{new2old_const(d["const"]):2.1f}',
+                    "music_rate": f'{calculate_rating(d["score"],d["const"]):2.2f}',
+                    "music_rate_old": f'{calculate_rating(d["score"],new2old_const(d["const"])):2.2f}',
+                    "score": f'{d["score"]:7n}',
+                    "diff": f'{d["diff"]}',
+                    "title": f'{d["title"]}',
+                }
+                music_rate_list.append(float(a_song_dict["music_rate"]))
+                music_rate_old_list.append(float(a_song_dict["music_rate_old"]))
+                rating_all_best_songs_str.append(a_song_dict)
+
+            result_best_30 = f"{sum(music_rate_list[:30]) / 30:2.4f}"
+            result_best_50 = f"{sum(music_rate_list) / 50:2.4f}"
+            result_best_old_30 = f"{sum(music_rate_old_list[:30]) / 30:2.4f}"
+            result_best_old_50 = f"{sum(music_rate_old_list) / 50:2.4f}"
+
+            # プレイヤー情報を描画
+            c = {
+                "name": player_data["player_name"],
+                "rating": player_data["rating"],
+                "result_best_30": result_best_30,
+                "result_best_50": result_best_50,
+                "result_best_old_30": result_best_old_30,
+                "result_best_old_50": result_best_old_50,
             }
-            music_rate_list.append(float(a_song_dict["music_rate"]))
-            music_rate_old_list.append(float(a_song_dict["music_rate_old"]))
-            rating_all_best_songs_str.append(a_song_dict)
+            c["tweet_text"] = f'{c["name"]}さんのCHUNITHM全曲対象ベスト枠\n\nベスト枠平均(30枠/50枠)\n{c["result_best_30"]} / {c["result_best_50"]}\nベスト枠平均(旧基準)(30枠/50枠)\n{c["result_best_old_30"]} / {c["result_best_old_50"]}\n\n'
+            cr_player_info_table_html = render_to_string("chunithm_rating_all/cr_player_info_table.html", context=c)
 
-        result_best_30 = f"{sum(music_rate_list[:30]) / 30:2.4f}"
-        result_best_50 = f"{sum(music_rate_list) / 50:2.4f}"
-        result_best_old_30 = f"{sum(music_rate_old_list[:30]) / 30:2.4f}"
-        result_best_old_50 = f"{sum(music_rate_old_list) / 50:2.4f}"
+            # ベスト枠を描画
+            c = {"rating_all_best_songs_str": rating_all_best_songs_str}
+            cr_rating_table_html = render_to_string("chunithm_rating_all/cr_rating_table.html", context=c)
 
-        # プレイヤー情報を描画
-        c = {
-            "name": player_data["player_name"],
-            "rating": player_data["rating"],
-            "result_best_30": result_best_30,
-            "result_best_50": result_best_50,
-            "result_best_old_30": result_best_old_30,
-            "result_best_old_50": result_best_old_50,
-        }
-        c["tweet_text"] = f'{c["name"]}さんのCHUNITHM全曲対象ベスト枠\n\nベスト枠平均(30枠/50枠)\n{c["result_best_30"]} / {c["result_best_50"]}\nベスト枠平均(旧基準)(30枠/50枠)\n{c["result_best_old_30"]} / {c["result_best_old_50"]}\n\n'
-        cr_player_info_table_html = render_to_string("chunithm_rating_all/cr_player_info_table.html", context=c)
+            # お返しする
+            ajax_response = {"summary": cr_player_info_table_html, "result": cr_rating_table_html}
 
-        # ベスト枠を描画
-        c = {"rating_all_best_songs_str": rating_all_best_songs_str}
-        cr_rating_table_html = render_to_string("chunithm_rating_all/cr_rating_table.html", context=c)
-
-        # お返しする
-        ajax_response = {"summary": cr_player_info_table_html, "result": cr_rating_table_html}
         return JsonResponse(ajax_response)
 
     return render(request, "chunithm_rating_all/chunithm_rating_all.html", context=context)
 
 
 # ユーザー情報の取得
+class TooManyRequestsError(Exception):
+    pass
+
 def get_chunirec_player_info(user_name):
     endpoint_url = "https://api.chunirec.net/2.0/records/profile.json"
     q = {"token": API_TOKEN, "region": "jp2", "user_name": user_name}
@@ -106,6 +115,10 @@ def get_chunirec_player_info(user_name):
         player_data = r.json()
         # pprint.pprint(player_data)
         return player_data
+    elif r.status_code == 429:
+        raise TooManyRequestsError
+    else:
+        raise requests.HTTPError
 
 
 # 全曲スコアの取得
@@ -121,8 +134,10 @@ def get_chunirec_player_all_records(user_name):
     if r.ok:
         score_data = r.json()
         return score_data
+    elif r.status_code == 429:
+        raise TooManyRequestsError
     else:
-        return None
+        raise requests.HTTPError
 
 
 # レート値計算
