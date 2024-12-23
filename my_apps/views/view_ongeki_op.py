@@ -166,18 +166,18 @@ def date2ongekiversion(t:str) -> str:
             return ongeki_versions[i]
 
 # OSLからデータを取得
-def get_ongeki_score_log_player_data( user_id:str ) -> tuple:
+def get_ongeki_score_log_player_data(user_id: str) -> tuple:
 
     CONST_URL = "https://reiwa.f5.si/ongeki_const_all.json"
     ALL_URL = "https://reiwa.f5.si/ongeki_all.json"
 
     # 定数情報の取得
-    r_const= requests.get(CONST_URL)
+    r_const = requests.get(CONST_URL)
     r_const.encoding = r_const.apparent_encoding
     ongeki_const_json = r_const.json()
 
     # 基本情報の取得
-    r_all= requests.get(ALL_URL)
+    r_all = requests.get(ALL_URL)
     r_all.encoding = r_all.apparent_encoding
     ongeki_all_json = r_all.json()
 
@@ -188,7 +188,7 @@ def get_ongeki_score_log_player_data( user_id:str ) -> tuple:
     r = requests.get(url)
 
     # 解析
-    soup = BeautifulSoup(r.text,"html.parser")
+    soup = BeautifulSoup(r.text, "html.parser")
 
     # -------------------------
 
@@ -224,27 +224,22 @@ def get_ongeki_score_log_player_data( user_id:str ) -> tuple:
             continue
 
         # 楽曲IDを取得
-        music_id = int(re.findall(r'href="(.*)"',str(list(r.contents[1].descendants)[2]))[0].split("/")[-2])
+        music_id = int(re.findall(r'href="(.*)"', str(list(r.contents[1].descendants)[2]))[0].split("/")[-2])
         try:
-            music_const_data = [ d for d in ongeki_const_json if d["music_id"]==music_id ][0]
+            music_const_data = [d for d in ongeki_const_json if d["music_id"] == music_id][0]
             music_title = list(r.contents[1].descendants)[1].text
             music_diff = str.upper(r.contents[25].text)
         # Noneなら多分曲が存在していない
         except IndexError:
-            print("[ongeki_op][warning] 楽曲ID取得時に見つからんかったぞ",music_id)
             continue
-
-        music_title_search = [music_title]
-        if music_title=="Cogito ergo sum":
-            music_title_search.append("Cogit ergo sum")
 
         # 基本情報を検索
-        music_all_data_list = [ m for m in ongeki_all_json if m["title"] in music_title_search]
-        if len(music_all_data_list)==0:
-            print(f"[ongeki_op][warning] all_jsonの検索結果が0件やぞ title:{music_title} id:{music_id}")
-            continue
-
-        music_all_data = [ m for m in music_all_data_list if m["lunatic"]==( "1" if music_diff=="LUNATIC" else "" )][0]
+        music_all_data_list = [m for m in ongeki_all_json if m["meta"]["title"] == music_title]
+        music_all_data = music_all_data_list[0]
+        # if music_diff == "LUNATIC":
+        #     music_all_data = [m for m in music_all_data_list if m["lunatic"] == "1"][0]
+        # else:
+        #     music_all_data = [m for m in music_all_data_list if ("LUN" not in m["data"].keys())][0]
 
         # 入れ物
         record_data = {}
@@ -258,12 +253,15 @@ def get_ongeki_score_log_player_data( user_id:str ) -> tuple:
         record_data["const"] = music_const_data[record_data["difficulty"].lower()]["const"]
         record_data["category"] = music_const_data["category"]
         record_data["is_const_unknown"] = music_const_data[record_data["difficulty"].lower()]["is_unknown"]
-        record_data["is_bonus"] = (music_all_data["bonus"]=="1")
+        # record_data["is_bonus"] = music_all_data["bonus"] == "1"
+        record_data["is_bonus"] = "ソロ" in music_title
 
         # 追加日(LUNはLUN追加日)
-        if record_data["difficulty"]=="LUNATIC":
-            d = music_all_data["date"]
-            record_data["version"] = date2ongekiversion((datetime.datetime.strptime(d,"%Y%m%d")-datetime.timedelta(hours=9)).isoformat()+"Z")
+        if record_data["difficulty"] == "LUNATIC":
+            d = music_all_data["meta"]["release"].replace("-", "")
+            record_data["version"] = date2ongekiversion(
+                (datetime.datetime.strptime(d, "%Y%m%d") - datetime.timedelta(hours=9)).isoformat() + "Z"
+            )
         else:
             record_data["version"] = date2ongekiversion(music_const_data["add_date"])
 
@@ -272,15 +270,15 @@ def get_ongeki_score_log_player_data( user_id:str ) -> tuple:
 
         lamp_key = int(r.contents[7].text)
 
-        record_data["is_AB"] = (lamp_key==5 or lamp_key==4)
-        record_data["is_FC"] = (lamp_key==5 or lamp_key==4 or lamp_key==3 or lamp_key==2)
-        record_data["is_FB"] = (lamp_key==5 or lamp_key==3 or lamp_key==1)
+        record_data["is_AB"] = lamp_key == 5 or lamp_key == 4
+        record_data["is_FC"] = lamp_key == 5 or lamp_key == 4 or lamp_key == 3 or lamp_key == 2
+        record_data["is_FB"] = lamp_key == 5 or lamp_key == 3 or lamp_key == 1
 
-        record_data["music_rate"] = calc_music_rate(record_data["score_rank"],record_data["t-score"],record_data["const"])
+        record_data["music_rate"] = calc_music_rate(record_data["score_rank"], record_data["t-score"], record_data["const"])
 
         records_data_list.append(record_data)
 
-    return player_data,records_data_list
+    return player_data, records_data_list
 
 # OP計算
 def calc_op(response,n = 0):
