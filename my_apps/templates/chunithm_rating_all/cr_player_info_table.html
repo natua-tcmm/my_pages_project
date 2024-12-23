@@ -17,17 +17,19 @@
             <td style="text-align: center;">{{result_best_30}}</td>
         </tr>
         <tr>
-            <th scope="row">計算結果(50枠)</th>
-            <td style="text-align: center;">{{result_best_50}}</td>
-        </tr>
-        <tr>
             <th scope="row">計算結果(30枠旧基準)</th>
             <td style="text-align: center;">{{result_best_old_30}}</td>
+        </tr>
+        {% if waku_count == 50 %}
+        <tr>
+            <th scope="row">計算結果(50枠)</th>
+            <td style="text-align: center;">{{result_best_50}}</td>
         </tr>
         <tr>
             <th scope="row">計算結果(50枠旧基準)</th>
             <td style="text-align: center;">{{result_best_old_50}}</td>
         </tr>
+        {% endif %}
 
     </tbody>
 </table>
