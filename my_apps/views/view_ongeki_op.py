@@ -51,7 +51,8 @@ def ongeki_op(request):
         display_format = int(post.get("display_format"))
 
         # OngekiScoreLogにrequest送る
-        player_data,records_data_list = get_ongeki_score_log_player_data(osl_id)
+        # TODO : invalic_music_listの情報を送り届ける
+        player_data,records_data_list, _ = get_ongeki_score_log_player_data(osl_id)
         response = {"player_data":player_data,"records":records_data_list}
 
         # OPを計算
@@ -216,6 +217,7 @@ def get_ongeki_score_log_player_data(user_id: str) -> tuple:
     # レコード
     records_raw = soup.find_all(class_="list")[0].children
     records_data_list = []
+    invalid_music_list = []
 
     for r in records_raw:
 
@@ -231,10 +233,15 @@ def get_ongeki_score_log_player_data(user_id: str) -> tuple:
             music_diff = str.upper(r.contents[25].text)
         # Noneなら多分曲が存在していない
         except IndexError:
+            print("[ongeki_op][warning] 楽曲ID取得時に見つからんかったぞ",music_id)
             continue
 
         # 基本情報を検索
         music_all_data_list = [m for m in ongeki_all_json if m["meta"]["title"] == music_title]
+        if len(music_all_data_list)==0:
+            print(f"[ongeki_op][warning] all_jsonの検索結果が0件やぞ title:{music_title} id:{music_id}")
+            invalid_music_list.append(music_title)
+            continue
         music_all_data = music_all_data_list[0]
         # if music_diff == "LUNATIC":
         #     music_all_data = [m for m in music_all_data_list if m["lunatic"] == "1"][0]
@@ -278,7 +285,7 @@ def get_ongeki_score_log_player_data(user_id: str) -> tuple:
 
         records_data_list.append(record_data)
 
-    return player_data, records_data_list
+    return player_data, records_data_list, invalid_music_list
 
 # OP計算
 def calc_op(response,n = 0):

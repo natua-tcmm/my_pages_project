@@ -16,14 +16,13 @@ $("#calc-button").on("click",function(e){
 
     if(rec_id.length>0){
 
-        // rec_id = Number(rec_id);
-        // console.log(type)
+        var display_format = $("#display-format").val();
 
         // localStrageにIDを保存
         localStorage.setItem("chunithm_rating_all__rec_id",rec_id);
 
         // 送信
-        ajax_send(e, rec_id)
+        ajax_send(e, rec_id, display_format)
         .done(function (response) {
 
             localStorage.setItem("chunithm_rating_all__rec_id",rec_id);
@@ -56,7 +55,7 @@ $("#calc-button").on("click",function(e){
 });
 
 
-var ajax_send = function (e, rec_id) {
+var ajax_send = function (e, rec_id, display_format) {
 
     $("#loading-text").css("display", "");
 
@@ -72,6 +71,7 @@ var ajax_send = function (e, rec_id) {
         'data': {
             "csrfmiddlewaretoken": csrfmiddlewaretoken,
             "rec_id": rec_id,
+            "display_format":display_format,
             "request_time": new Date().getTime(),
         },
         'dataType': 'json',

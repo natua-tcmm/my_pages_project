@@ -36,11 +36,17 @@ def chunithm_rating_all(request):
     # Ajax処理
     if request.method == "POST":
 
+        # メタ情報を取得
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        ip = x_forwarded_for.split(',')[0] if x_forwarded_for else request.META.get('REMOTE_ADDR')
+
         # POSTから検索queryを取得
         post = request.POST
 
         # 入力情報を取得
         rec_id = post.get("rec_id")
+        display_format = int(post.get("display_format"))
+        waku_count = 30 if display_format == 0 else 50
 
         # chunirecにrequest送る
         try:
@@ -54,7 +60,7 @@ def chunithm_rating_all(request):
             response = {"player_data": player_data, "records": records_data_list}
 
             # ベスト枠を算出
-            rating_all_best_songs_raw = sorted(response["records"], key=lambda x: x["rating"], reverse=True)[:50]
+            rating_all_best_songs_raw = sorted(response["records"], key=lambda x: x["rating"], reverse=True)[:waku_count]
             music_rate_list = []
             music_rate_old_list = []
             rating_all_best_songs_str = []
@@ -87,10 +93,16 @@ def chunithm_rating_all(request):
                 "result_best_50": result_best_50,
                 "result_best_old_30": result_best_old_30,
                 "result_best_old_50": result_best_old_50,
+                "waku_count": waku_count,
             }
-            c["tweet_text"] = (
-                f'{c["name"]}さんのCHUNITHM全曲対象ベスト枠\n\nベスト枠平均(30枠/50枠)\n{c["result_best_30"]} / {c["result_best_50"]}\nベスト枠平均(旧基準)(30枠/50枠)\n{c["result_best_old_30"]} / {c["result_best_old_50"]}\n'
-            )
+            if waku_count == 30:
+                c["tweet_text"] = (
+                    f'{c["name"]}さんのCHUNITHM全曲対象ベスト枠\n\nベスト枠平均(30枠): {c["result_best_30"]}\nベスト枠平均(旧基準)(30枠): {c["result_best_old_30"]}\n'
+                )
+            else:
+                c["tweet_text"] = (
+                    f'{c["name"]}さんのCHUNITHM全曲対象ベスト枠\n\nベスト枠平均(30枠/50枠)\n{c["result_best_30"]} / {c["result_best_50"]}\nベスト枠平均(旧基準)(30枠/50枠)\n{c["result_best_old_30"]} / {c["result_best_old_50"]}\n'
+                )
             cr_player_info_table_html = render_to_string("chunithm_rating_all/cr_player_info_table.html", context=c)
 
             # ベスト枠を描画
@@ -99,6 +111,10 @@ def chunithm_rating_all(request):
 
             # お返しする
             ajax_response = {"summary": cr_player_info_table_html, "result": cr_rating_table_html}
+
+            # 情報収集
+            print(f"[{ip}][chunithm_rating] {rec_id} / {player_data['player_name']} / {result_best_30}(30)")
+
 
         return JsonResponse(ajax_response)
 
@@ -163,7 +179,7 @@ def calculate_rating(score, const):
 
     rating += 0.00001
     rating =  (int(rating*100))/100
-    print(f"{rating:2.50f}")
+    # print(f"{rating:2.50f}")
     return rating
 
 

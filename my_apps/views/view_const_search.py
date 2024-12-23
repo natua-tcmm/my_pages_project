@@ -66,7 +66,7 @@ def const_search(request):
 
         response = { "query":query, "request_time":request_time, "update_log":" " }
 
-        print(f"[{ip}][{type_game}] q:{query}")
+        print(f"[{ip}][const_search][{type_game}] q:{query}")
 
         # 機種選択
         if type_game=="c":
@@ -76,7 +76,7 @@ def const_search(request):
             SD = SongDataO
             SDM = SongDataOManager
         else:
-            print(type_game)
+            # print(type_game)
             raise ValueError
 
         # 検索結果の処理
