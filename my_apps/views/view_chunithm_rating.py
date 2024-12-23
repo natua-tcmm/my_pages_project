@@ -36,6 +36,10 @@ def chunithm_rating_all(request):
     # Ajax処理
     if request.method == "POST":
 
+        # メタ情報を取得
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        ip = x_forwarded_for.split(',')[0] if x_forwarded_for else request.META.get('REMOTE_ADDR')
+
         # POSTから検索queryを取得
         post = request.POST
 
@@ -100,6 +104,10 @@ def chunithm_rating_all(request):
             # お返しする
             ajax_response = {"summary": cr_player_info_table_html, "result": cr_rating_table_html}
 
+            # 情報収集
+            print(f"[{ip}][chunithm_rating] {rec_id} / {player_data['player_name']} / {result_best_30}(30)")
+
+
         return JsonResponse(ajax_response)
 
     return render(request, "chunithm_rating_all/chunithm_rating_all.html", context=context)
@@ -163,7 +171,7 @@ def calculate_rating(score, const):
 
     rating += 0.00001
     rating =  (int(rating*100))/100
-    print(f"{rating:2.50f}")
+    # print(f"{rating:2.50f}")
     return rating
 
 

@@ -24,6 +24,10 @@ def ongeki_rating_all(request):
     # Ajax処理
     if request.method=="POST":
 
+        # メタ情報を取得
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        ip = x_forwarded_for.split(',')[0] if x_forwarded_for else request.META.get('REMOTE_ADDR')
+
         # POSTから検索queryを取得
         post = request.POST
 
@@ -59,6 +63,8 @@ def ongeki_rating_all(request):
         result_reachable = int(( sum(music_rate_list)*3/120 + music_rate_max/4 )*100)/100
         result_range = int((music_rate_list[0]-music_rate_list[-1])*100)/100
 
+        # 情報収集
+        print(f"[{ip}][ongeki_rating] {osl_id} / {player_data['name']} / {result_best}")
 
         # プレイヤー情報を描画
         c = {
