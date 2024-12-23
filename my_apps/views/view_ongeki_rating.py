@@ -36,7 +36,7 @@ def ongeki_rating_all(request):
 
 
         # OngekiScoreLogにrequest送る
-        player_data,records_data_list = get_ongeki_score_log_player_data(osl_id)
+        player_data,records_data_list,_ = get_ongeki_score_log_player_data(osl_id)
         response = {"player_data":player_data,"records":records_data_list}
 
 
