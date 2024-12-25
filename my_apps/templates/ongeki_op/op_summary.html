@@ -1,38 +1,46 @@
 <div class="row mb-3 justify-content-center align-items-center">
-
-    <div class="col-auto">
-        <h5 class="mt-2 mb-2 text-center">O.N.G.E.K.I. POWER</h5>
-        <div class="possession-color">
-            <h2 class="mb-2 text-center {{pc_class}}" style="width: 16rem;">
-                <span id="result-hi">{{op_p_int}}</span><span id="result-lo">.{{op_p_dec}}%</span>
-            </h2>
-        </div>
-        {% if op_rank_bool == True %}
-        <h5 class="mb-2 text-center">【 {{op_rank}} 】</h5>
-        {% endif %}
-        {% if op_diff != 0 %}
-        <p class="mb-2 text-center text-success">更新差分: +{{op_diff}}%</p>
-        {% endif %}
-        <p class="mt-3 mb-1 text-center">{{player_name}} [{{rating}}/{{max_rating}}]</p>
-        <p class="mb-1 text-center">{{op}} / {{op_max}}</p>
-        <p class="mb-3 text-center">
-            {% if is_developer == True %}
-            <a target="_blank" href="https://github.com/project-primera" class="badge badge-dev">ProjectPrimera
-                Developer</a>
-            {% endif %}
-            {% if oslid == 5216 %}
-            <span class="badge badge-dev">"O.N.G.E.K.I. POWER" Developer</span>
-            {% endif %}
-            {% if is_premium == True %}
-            <span class="badge badge-premium">OngekiNet Premium</span>
-            {% endif %}
-        </p>
-        <p class="mb-3 text-center">
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="{{tweet_text}}"
-                data-hashtags="ONGEKI_POWER" data-lang="ja" data-show-count="false">Tweet</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </p>
-
+  <div class="col-auto">
+    <h5 class="mt-2 mb-2 text-center">O.N.G.E.K.I. POWER</h5>
+    <div class="possession-color">
+      <h2 class="mb-2 text-center {{ pc_class }}" style="width: 16rem;"><span id="result-hi">{{ op_p_int }}</span><span id="result-lo">.{{ op_p_dec }}%</span></h2>
     </div>
-
+    {% if op_rank_bool == True %}
+      <h5 class="mb-2 text-center">【 {{ op_rank }} 】</h5>
+    {% endif %}
+    {% if op_diff != 0 %}
+      <p class="mb-2 text-center text-success">更新差分: +{{ op_diff }}%</p>
+    {% endif %}
+    <p class="mt-3 mb-1 text-center">{{ player_name }} [{{ rating }}/{{ max_rating }}]</p>
+    <p class="mb-1 text-center">{{ op }} / {{ op_max }}</p>
+    <p class="mb-3 text-center">
+      {% if is_developer == True %}
+        <a target="_blank" href="https://github.com/project-primera" class="badge badge-dev">ProjectPrimera Developer</a>
+      {% endif %}
+      {% if oslid == 5216 %}
+        <span class="badge badge-dev">"O.N.G.E.K.I. POWER" Developer</span>
+      {% endif %}
+      {% if is_premium == True %}
+        <span class="badge badge-premium">OngekiNet Premium</span>
+      {% endif %}
+    </p>
+    <p class="mb-3 text-center">
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="{{ tweet_text }}" data-hashtags="ONGEKI_POWER" data-lang="ja" data-show-count="false">Tweet</a>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </p>
+  </div>
+</div>
+{{op_card_all}}
+<hr class="mt-4 mb-4" />
+<div class="row justify-content-center align-items-center">
+  <div class="col-auto">
+    <div class="form-group">
+      <label for="classification">分類</label>
+      <select class="form-control" id="classification">
+        <option value="category">ジャンル順</option>
+        <option value="version">バージョン順</option>
+        <option value="level">レベル順</option>
+        <option value="const">定数順</option>
+      </select>
+    </div>
+  </div>
 </div>

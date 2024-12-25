@@ -1,62 +1,62 @@
-<div class="row mb-3">
-    <div class="col-12">
-        <div class="card mb-0">
-            <div class="card-body">
-                <div class="row justify-content-end align-items-center">
-                    <div class="col-auto h3">{{category_name}}</div>
-                    <div class="col"></div>
-                    <div class="col-auto h3">{{op_percent_str}}</div>
-                    <div class="col-auto h5">[ {{op}}/{{op_max}} ]</div>
-                </div>
-                <hr>
-                <div class="row mb-1">
-                    <div class="col-4">MAX: {{rank_max}}</div>
-                    <div class="col-4">SSS+: {{rank_sssp}}</div>
-                    <div class="col-4">SSS: {{rank_sss}}</div>
-                    <div class="col-4">SS: {{rank_ss}}</div>
-                    <div class="col-4">S: {{rank_s}}</div>
-                    <div class="col-4">Others: {{rank_others}}</div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col">
-                        <div class="overpower-graph-base">
-                            <div class="bg-white" style="width:{{rank_max_r}}%;"></div>
-                            <div class="bg-blue" style="width:{{rank_sssp_r}}%;"></div>
-                            <div class="bg-platinum" style="width:{{rank_sss_r}}%"></div>
-                            <div class="bg-gold" style="width:{{rank_ss_r}}%"></div>
-                            <div class="bg-silver" style="width:{{rank_s_r}}%"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-1">
-                    <div class="col-6">AB+: {{lump_abp}}</div>
-                    <div class="col-6">AB: {{lump_ab}}</div>
-                    <div class="col-6">FC: {{lump_fc}}</div>
-                    <div class="col-6">Others: {{lump_others}}</div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col">
-                        <div class="overpower-graph-base">
-                            <div class="bg-white" style="width:{{lump_abp_r}}%;"></div>
-                            <div class="bg-platinum" style="width:{{lump_ab_r}}%"></div>
-                            <div class="bg-gold" style="width:{{lump_fc_r}}%"></div>
-                        </div>
-                    </div>
-                </div>
-                {% if is_display_fb == True %}
-                <div class="row mb-1">
-                    <div class="col-6">FB: {{bell_fb}}</div>
-                    <div class="col-6">Others: {{bell_others}}</div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col">
-                        <div class="overpower-graph-base">
-                            <div class="bg-platinum" style="width:{{bell_fb_r}}%"></div>
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
-            </div>
+<div class="row mb-3 cat-{{ category_outer }}">
+  <div class="col-12">
+    <div class="card mb-0">
+      <div class="card-body">
+        <div class="row justify-content-end align-items-center">
+          <div class="col-auto h3">{{ category_inner }}</div>
+          <div class="col"></div>
+          <div class="col-auto h3">{{ op_percent_str }}</div>
+          <div class="col-auto h5">[ {{ op }}/{{ op_max }} ]</div>
         </div>
+        <hr />
+        <div class="row mb-1">
+          <div class="col-4">MAX: {{ rank_max }}</div>
+          <div class="col-4">SSS+: {{ rank_sssp }}</div>
+          <div class="col-4">SSS: {{ rank_sss }}</div>
+          <div class="col-4">SS: {{ rank_ss }}</div>
+          <div class="col-4">S: {{ rank_s }}</div>
+          <div class="col-4">Others: {{ rank_others }}</div>
+        </div>
+        <div class="row mb-2">
+          <div class="col">
+            <div class="overpower-graph-base">
+              <div class="bg-white" style="width:{{ rank_max_r }}%;"></div>
+              <div class="bg-blue" style="width:{{ rank_sssp_r }}%;"></div>
+              <div class="bg-platinum" style="width:{{ rank_sss_r }}%"></div>
+              <div class="bg-gold" style="width:{{ rank_ss_r }}%"></div>
+              <div class="bg-silver" style="width:{{ rank_s_r }}%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-1">
+          <div class="col-6">AB+: {{ lump_abp }}</div>
+          <div class="col-6">AB: {{ lump_ab }}</div>
+          <div class="col-6">FC: {{ lump_fc }}</div>
+          <div class="col-6">Others: {{ lump_others }}</div>
+        </div>
+        <div class="row mb-2">
+          <div class="col">
+            <div class="overpower-graph-base">
+              <div class="bg-white" style="width:{{ lump_abp_r }}%;"></div>
+              <div class="bg-platinum" style="width:{{ lump_ab_r }}%"></div>
+              <div class="bg-gold" style="width:{{ lump_fc_r }}%"></div>
+            </div>
+          </div>
+        </div>
+        {% if is_display_fb == True %}
+          <div class="row mb-1">
+            <div class="col-6">FB: {{ bell_fb }}</div>
+            <div class="col-6">Others: {{ bell_others }}</div>
+          </div>
+          <div class="row mb-2">
+            <div class="col">
+              <div class="overpower-graph-base">
+                <div class="bg-platinum" style="width:{{ bell_fb_r }}%"></div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
     </div>
+  </div>
 </div>

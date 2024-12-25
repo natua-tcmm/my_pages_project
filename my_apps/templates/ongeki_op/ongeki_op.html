@@ -63,22 +63,11 @@
 
                                         <div class="col-auto">
                                             <div class="form-group">
-                                                <label for="classification">分類</label>
-                                                <select class="form-control" id="classification">
-                                                    <option value="1">ジャンル順</option>
-                                                    <option value="2">バージョン順</option>
-                                                    <option value="0">レベル順</option>
-                                                    <option value="3">定数順</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="form-group">
                                                 <label for="display-format">表示形式</label>
                                                 <select class="form-control" id="display-format">
-                                                    <option value="0">通常</option>
-                                                    <option value="1">通常(FB割合非表示)</option>
-                                                    <!-- <option value="2" disabled>スコアランク割合のみ一覧表示</option> -->
+                                                    <option value="0">通常表示</option>
+                                                    <option value="1">通常表示(FB割合非表示)</option>
+                                                    <option value="2">簡易表示(グラフのみ表示)</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -86,7 +75,7 @@
                                     </div>
                                     <div class="row justify-content-center align-items-center">
                                         <div class="col-auto">
-                                            <p>設定変更後は再度実行してください。</p>
+                                            <p>表示形式変更後は再度実行してください。</p>
                                         </div>
                                     </div>
                                     <div class="row justify-content-center align-items-center">
@@ -105,7 +94,6 @@
 
 
                                     <!-- 個別 -->
-                                    <hr />
                                     <div id="op_card"></div>
 
                                 </div>
