@@ -9,6 +9,17 @@ window.addEventListener('DOMContentLoaded', function(){
 
 });
 
+$(document).on("change", "#classification", function() {
+    console.log("classification changed");
+    var selectedValue = $(this).val();
+    var displayclass = ".cat-" + selectedValue;
+    var classNameList = [".cat-level", ".cat-category", ".cat-version", ".cat-const"];
+    for (var i = 0; i < classNameList.length; i++) {
+        $(classNameList[i]).css("display", "none");
+    }
+    $(displayclass).css("display", "");
+});
+
 // 実行ボタンが押されたとき
 $("#calc-button").on("click",function(e){
 
@@ -17,7 +28,6 @@ $("#calc-button").on("click",function(e){
     if(!isNaN(osl_id)&&osl_id.length>0){
 
         osl_id = Number(osl_id);
-        var classification = $("#classification").val();
         var display_format = $("#display-format").val();
         // console.log(type)
 
@@ -27,7 +37,7 @@ $("#calc-button").on("click",function(e){
         var ls_op_before = localStorage.getItem("ongeki_op__op_before");
 
         // 送信
-        ajax_send(e, osl_id, classification, display_format, ls_op_before)
+        ajax_send(e, osl_id, display_format, ls_op_before)
         .done(function (response) {
 
             localStorage.setItem("ongeki_op__osl_id",osl_id);
@@ -45,6 +55,13 @@ $("#calc-button").on("click",function(e){
             $("#op_summary").prepend(response.op_summary_html);
             $("#op_card").prepend(response.op_card_html);
 
+            // カテゴリの表示
+            var classNameList = [".cat-level", ".cat-category", ".cat-version", ".cat-const"];
+            for (var i = 0; i < classNameList.length; i++) {
+                $(classNameList[i]).css("display", "none");
+            }
+            $(".cat-category").css("display", "");
+
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
             let date = new Date();
@@ -61,7 +78,7 @@ $("#calc-button").on("click",function(e){
 });
 
 
-var ajax_send = function (e, osl_id, classification, display_format, ls_op_before) {
+var ajax_send = function (e, osl_id, display_format, ls_op_before) {
 
     $("#loading-text").css("display", "");
 
@@ -78,7 +95,6 @@ var ajax_send = function (e, osl_id, classification, display_format, ls_op_befor
             "csrfmiddlewaretoken": csrfmiddlewaretoken,
             "osl_id": osl_id,
             "op_before": ls_op_before,
-            "classification":classification,
             "display_format":display_format,
             "request_time": new Date().getTime(),
         },
