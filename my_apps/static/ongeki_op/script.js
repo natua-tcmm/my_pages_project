@@ -29,7 +29,6 @@ $("#calc-button").on("click",function(e){
 
         osl_id = Number(osl_id);
         var display_format = $("#display-format").val();
-        // console.log(type)
 
         // localStrageにIDを保存
         localStorage.setItem("ongeki_op__osl_id",osl_id);
@@ -54,6 +53,11 @@ $("#calc-button").on("click",function(e){
             // 新しく表示する
             $("#op_summary").prepend(response.op_summary_html);
             $("#op_card").prepend(response.op_card_html);
+
+            // 簡易表示時プロパティ変更
+            if(display_format=="2"){
+                document.documentElement.style.setProperty("--graph-height","15px");
+            }
 
             // カテゴリの表示
             var classNameList = [".cat-level", ".cat-category", ".cat-version", ".cat-const"];

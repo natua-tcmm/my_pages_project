@@ -91,7 +91,7 @@ def ongeki_op(request):
             "is_developer":player_data["is_developer"],
             "is_premium":player_data["is_premium"],
             "tweet_text": tweet_text,
-            "op_card_all":rendar_op_card("ALL","ALL",op_aggregate["ALL"]["ALL"],is_display_fb=(display_format!=1))
+            "op_card_all":rendar_op_card("ALL","ALL",op_aggregate["ALL"]["ALL"],display_format)
         }
         op_summary_html = render_to_string("ongeki_op/op_summary.html",context=c)
 
@@ -102,7 +102,7 @@ def ongeki_op(request):
                 continue
             for category_inner in op_aggregate[category_outer].keys():
                 op_aggr_cat = op_aggregate[category_outer][category_inner]
-                op_card_all_html += rendar_op_card(category_inner,category_outer,op_aggr_cat,is_display_fb=(display_format!=1))
+                op_card_all_html += rendar_op_card(category_inner,category_outer,op_aggr_cat,display_format)
 
         # お返しする
         ajax_response = { "op_summary_html":op_summary_html, "op_card_html":op_card_all_html, "op_new":op_aggregate_all['op_percent'] }
@@ -423,7 +423,7 @@ def aggr_op(records):
     return op_tmp
 
 # カードのhtmlをレンダリング
-def rendar_op_card( category_inner:str, category_outer:str, op_aggr_cat:dict, is_display_fb:bool ) -> str:
+def rendar_op_card( category_inner:str, category_outer:str, op_aggr_cat:dict, display_format:int ) -> str:
 
     c = {
         "category_outer":category_outer,
@@ -459,10 +459,14 @@ def rendar_op_card( category_inner:str, category_outer:str, op_aggr_cat:dict, is
 
         "bell_fb_r":op_aggr_cat["bells"]["FB"]*100/op_aggr_cat["music_count"],
 
-        "is_display_fb":is_display_fb,
+        "is_display_fb":display_format!=1,
 
     }
 
-    op_card_html = render_to_string("ongeki_op/op_card.html",context=c)
+    # 簡易表示の分岐
+    if display_format == 2:
+        op_card_html = render_to_string("ongeki_op/op_card_smart.html",context=c)
+    else:
+        op_card_html = render_to_string("ongeki_op/op_card.html",context=c)
 
     return op_card_html

@@ -1,0 +1,36 @@
+<div class="row mb-2 cat-{{ category_outer }}">
+  <div class="col-12">
+    <div class="row">
+      <div class="col">{{ category_inner }}: {{ op_percent_str }}</div>
+    </div>
+    <div class="row mb-1">
+      <div class="col">
+        <div class="overpower-graph-base">
+          <div class="bg-white" style="width:{{ rank_max_r }}%;"></div>
+          <div class="bg-blue" style="width:{{ rank_sssp_r }}%;"></div>
+          <div class="bg-platinum" style="width:{{ rank_sss_r }}%"></div>
+          <div class="bg-gold" style="width:{{ rank_ss_r }}%"></div>
+          <div class="bg-silver" style="width:{{ rank_s_r }}%"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-1">
+      <div class="col">
+        <div class="overpower-graph-base">
+          <div class="bg-white" style="width:{{ lump_abp_r }}%;"></div>
+          <div class="bg-platinum" style="width:{{ lump_ab_r }}%"></div>
+          <div class="bg-gold" style="width:{{ lump_fc_r }}%"></div>
+        </div>
+      </div>
+    </div>
+    {% if is_display_fb == True %}
+      <div class="row mb-1">
+        <div class="col">
+          <div class="overpower-graph-base">
+            <div class="bg-platinum" style="width:{{ bell_fb_r }}%"></div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
