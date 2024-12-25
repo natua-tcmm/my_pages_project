@@ -39,11 +39,17 @@ $("#calc-button").on("click",function(e){
         ajax_send(e, osl_id, display_format, ls_op_before)
         .done(function (response) {
 
+            // 楽曲情報が見つからなかった場合の通知
+            if (response.invalid_music_list.length > 0) {
+                alert("以下の楽曲の情報が見つからなかったため、楽曲が存在しないものとして集計しています。\n楽曲情報が追加されるまでしばらくお待ち下さい。\n\n" + response.invalid_music_list.join("\n"));
+            }
+
+            // localStrageに情報を保存
             localStorage.setItem("ongeki_op__osl_id",osl_id);
             localStorage.setItem("ongeki_op__op_before",response.op_new)
 
+            // ローディング非表示
             $("#loading-text").css("display", "none");
-            // console.log(response);
 
             // op概要
             // 今表示されてるやつを消す
@@ -76,7 +82,7 @@ $("#calc-button").on("click",function(e){
 
     }
     else{
-        console.log("数値以外がにゅうりょくされています");
+        console.log("数値以外が入力されています。");
     }
 
 });

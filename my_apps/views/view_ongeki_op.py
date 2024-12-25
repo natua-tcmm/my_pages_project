@@ -1,23 +1,91 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.http import JsonResponse
+
 # from django.db.models import Q
 # from django.core.handlers.wsgi import WSGIRequest
 
 from ..models import *
 
-import requests,re,math,datetime,dateutil.parser
+import requests, re, math, datetime, dateutil.parser
 from collections import defaultdict
 from bs4 import BeautifulSoup
 from django.conf import settings
 
-CONST_LIST = [15.9, 15.8, 15.7, 15.6, 15.5, 15.4, 15.3, 15.2, 15.1, 15,
-    14.9, 14.8, 14.7, 14.6, 14.5, 14.4, 14.3, 14.2, 14.1, 14,
-    13.9, 13.8, 13.7, 13.6, 13.5, 13.4, 13.3, 13.2, 13.1, 13,
-    12.9, 12.8, 12.7, 12.6, 12.5, 12.4, 12.3, 12.2, 12.1, 12,
-    11.9, 11.8, 11.7, 11.6, 11.5, 11.4, 11.3, 11.2, 11.1, 11,
-    10.9, 10.8, 10.7, 10.6, 10.5, 10.4, 10.3, 10.2, 10.1, 10,
-    9.7, 9, 8.7, 8, 7.7, 7, 6, 5, 4, 3, 2, 1, 0
+CONST_LIST = [
+    15.9,
+    15.8,
+    15.7,
+    15.6,
+    15.5,
+    15.4,
+    15.3,
+    15.2,
+    15.1,
+    15,
+    14.9,
+    14.8,
+    14.7,
+    14.6,
+    14.5,
+    14.4,
+    14.3,
+    14.2,
+    14.1,
+    14,
+    13.9,
+    13.8,
+    13.7,
+    13.6,
+    13.5,
+    13.4,
+    13.3,
+    13.2,
+    13.1,
+    13,
+    12.9,
+    12.8,
+    12.7,
+    12.6,
+    12.5,
+    12.4,
+    12.3,
+    12.2,
+    12.1,
+    12,
+    11.9,
+    11.8,
+    11.7,
+    11.6,
+    11.5,
+    11.4,
+    11.3,
+    11.2,
+    11.1,
+    11,
+    10.9,
+    10.8,
+    10.7,
+    10.6,
+    10.5,
+    10.4,
+    10.3,
+    10.2,
+    10.1,
+    10,
+    9.7,
+    9,
+    8.7,
+    8,
+    7.7,
+    7,
+    6,
+    5,
+    4,
+    3,
+    2,
+    1,
+    0,
 ]
 
 # --------------------------------------------------
@@ -26,17 +94,18 @@ title_base = "| △Natua♪▽のツールとか保管所"
 
 # --------------------------------------------------
 
+
 # オンゲキOP
 def ongeki_op(request):
 
-    context = { "title":f"オンゲキ版OVERPOWER {title_base}" ,"is_beta":False, "is_app":True }
+    context = {"title": f"オンゲキ版OVERPOWER {title_base}", "is_beta": False, "is_app": True}
 
     # Ajax処理
-    if request.method=="POST":
+    if request.method == "POST":
 
         # メタ情報を取得
-        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-        ip = x_forwarded_for.split(',')[0] if x_forwarded_for else request.META.get('REMOTE_ADDR')
+        x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
+        ip = x_forwarded_for.split(",")[0] if x_forwarded_for else request.META.get("REMOTE_ADDR")
 
         # POSTから検索queryを取得
         post = request.POST
@@ -47,13 +116,12 @@ def ongeki_op(request):
         if op_before == "":
             op_before = 0
         else:
-            op_before = int(float(post.get("op_before"))*10000+0.5)/10000
+            op_before = int(float(post.get("op_before")) * 10000 + 0.5) / 10000
         display_format = int(post.get("display_format"))
 
         # OngekiScoreLogにrequest送る
-        # TODO : invalic_music_listの情報を送り届ける
-        player_data,records_data_list, _ = get_ongeki_score_log_player_data(osl_id)
-        response = {"player_data":player_data,"records":records_data_list}
+        player_data, records_data_list, invalid_music_list = get_ongeki_score_log_player_data(osl_id)
+        response = {"player_data": player_data, "records": records_data_list}
 
         # OPを計算
         op_aggregate = calc_op(response)
@@ -64,36 +132,36 @@ def ongeki_op(request):
 
         # 概要+ALLを描画
         op_rank = f'{op_aggregate_all["op_color"].capitalize()}{("-"+str(op_aggregate_all["op_rank"])) if op_aggregate_all["op_color"]!="rainbow" else ""}'
-        op_rank_bool = bool(op_aggregate_all["op_color"]!="")
-        op_diff = max( int((op_aggregate_all['op_percent']-op_before)*10000+0.5)/10000, 0)
+        op_rank_bool = bool(op_aggregate_all["op_color"] != "")
+        op_diff = max(int((op_aggregate_all["op_percent"] - op_before) * 10000 + 0.5) / 10000, 0)
 
         tweet_text = f'{player_data["name"]}さんのO.N.G.E.K.I. POWER\n{op_aggregate_all["op_percent_str"]}'
         if op_rank_bool:
-            tweet_text += f' 【{op_rank}】'
+            tweet_text += f" 【{op_rank}】"
         tweet_text += "\n"
-        if op_diff!=0:
-            tweet_text += f'前回からの更新差分: +{op_diff}%\n'
+        if op_diff != 0:
+            tweet_text += f"前回からの更新差分: +{op_diff}%\n"
         tweet_text += "\n"
 
         c = {
-            "oslid":int(osl_id),
-            "op_p_int":op_aggregate_all["op_percent_str"].split(".")[0],
-            "op_p_dec":op_aggregate_all["op_percent_str"].split(".")[1][:-1],
-            "op":f'{op_aggregate_all["op"]:.4f}',
-            "op_diff":op_diff,
-            "op_max":f'{op_aggregate_all["op_max"]:.4f}',
-            "op_rank_bool":op_rank_bool,
-            "op_rank":op_rank,
-            "player_name":player_data["name"],
-            "rating":player_data["rating"],
-            "max_rating":player_data["max_rating"],
-            "pc_class":f'pc-{op_aggregate_all["op_color"]}',
-            "is_developer":player_data["is_developer"],
-            "is_premium":player_data["is_premium"],
+            "oslid": int(osl_id),
+            "op_p_int": op_aggregate_all["op_percent_str"].split(".")[0],
+            "op_p_dec": op_aggregate_all["op_percent_str"].split(".")[1][:-1],
+            "op": f'{op_aggregate_all["op"]:.4f}',
+            "op_diff": op_diff,
+            "op_max": f'{op_aggregate_all["op_max"]:.4f}',
+            "op_rank_bool": op_rank_bool,
+            "op_rank": op_rank,
+            "player_name": player_data["name"],
+            "rating": player_data["rating"],
+            "max_rating": player_data["max_rating"],
+            "pc_class": f'pc-{op_aggregate_all["op_color"]}',
+            "is_developer": player_data["is_developer"],
+            "is_premium": player_data["is_premium"],
             "tweet_text": tweet_text,
-            "op_card_all":rendar_op_card("ALL","ALL",op_aggregate["ALL"]["ALL"],display_format)
+            "op_card_all": rendar_op_card("ALL", "ALL", op_aggregate["ALL"]["ALL"], display_format),
         }
-        op_summary_html = render_to_string("ongeki_op/op_summary.html",context=c)
+        op_summary_html = render_to_string("ongeki_op/op_summary.html", context=c)
 
         # カードを描画
         op_card_all_html = ""
@@ -102,40 +170,47 @@ def ongeki_op(request):
                 continue
             for category_inner in op_aggregate[category_outer].keys():
                 op_aggr_cat = op_aggregate[category_outer][category_inner]
-                op_card_all_html += rendar_op_card(category_inner,category_outer,op_aggr_cat,display_format)
+                op_card_all_html += rendar_op_card(category_inner, category_outer, op_aggr_cat, display_format)
 
         # お返しする
-        ajax_response = { "op_summary_html":op_summary_html, "op_card_html":op_card_all_html, "op_new":op_aggregate_all['op_percent'] }
+        ajax_response = {
+            "op_summary_html": op_summary_html,
+            "op_card_html": op_card_all_html,
+            "op_new": op_aggregate_all["op_percent"],
+            "invalid_music_list": invalid_music_list,
+        }
         return JsonResponse(ajax_response)
 
-    return render(request, 'ongeki_op/ongeki_op.html',context=context)
+    return render(request, "ongeki_op/ongeki_op.html", context=context)
 
 
 # --------------------------------------------------
 
+
 # 単曲レート計算
-def calc_music_rate( score_rank:str, t_score:int, const:float )->float:
+def calc_music_rate(score_rank: str, t_score: int, const: float) -> float:
 
     music_rate = 0
 
     if score_rank == "SSS+" or score_rank == "AB+":
         music_rate = const + 2
     elif score_rank == "SSS":
-        music_rate = const + 1.5 + math.floor((t_score-1_000_000)/150)*0.01
+        music_rate = const + 1.5 + math.floor((t_score - 1_000_000) / 150) * 0.01
     elif score_rank == "SS":
-        music_rate = const + 1 + math.floor((t_score-990_000)/200)*0.01
+        music_rate = const + 1 + math.floor((t_score - 990_000) / 200) * 0.01
     elif score_rank == "S":
-        music_rate = const + 0 + math.floor((t_score-970_000)/200)*0.01
+        music_rate = const + 0 + math.floor((t_score - 970_000) / 200) * 0.01
     elif score_rank == "AAA" or score_rank == "AA":
-        music_rate = const - 4 + math.floor((t_score-900_000)/175)*0.01
+        music_rate = const - 4 + math.floor((t_score - 900_000) / 175) * 0.01
 
-    music_rate = int(music_rate*100+0.5)/100
+    music_rate = int(music_rate * 100 + 0.5) / 100
 
     return music_rate
 
+
 # オンゲキのバージョンを求める
-def date2ongekiversion(t:str) -> str:
-    JST = datetime.timezone(datetime.timedelta(hours=+9), 'JST')
+def date2ongekiversion(t: str) -> str:
+    JST = datetime.timezone(datetime.timedelta(hours=+9), "JST")
     d = dateutil.parser.parse(t).astimezone(JST).date()
     # d = datetime.datetime.fromisoformat(t).astimezone(datetime.timezone(datetime.timedelta(hours=9))).date()
 
@@ -153,23 +228,22 @@ def date2ongekiversion(t:str) -> str:
     ]
 
     ongeki_versions_date = [
-        datetime.date(2018,7,26),
-        datetime.date(2019,2,7),
-        datetime.date(2019,8,22),
-        datetime.date(2020,2,20),
-        datetime.date(2020,9,30),
-        datetime.date(2021,3,31),
-        datetime.date(2021,10,21),
-        datetime.date(2022,3,3),
-        datetime.date(2022,8,4),
-        datetime.date(2024,3,7),
-        datetime.date(9999,12,31),
+        datetime.date(2018, 7, 26),
+        datetime.date(2019, 2, 7),
+        datetime.date(2019, 8, 22),
+        datetime.date(2020, 2, 20),
+        datetime.date(2020, 9, 30),
+        datetime.date(2021, 3, 31),
+        datetime.date(2021, 10, 21),
+        datetime.date(2022, 3, 3),
+        datetime.date(2022, 8, 4),
+        datetime.date(2024, 3, 7),
+        datetime.date(9999, 12, 31),
     ]
 
     for i in range(len(ongeki_versions)):
-        if ongeki_versions_date[i] <= d < ongeki_versions_date[i+1]:
+        if ongeki_versions_date[i] <= d < ongeki_versions_date[i + 1]:
             return ongeki_versions[i]
-
 
 
 def get_ongeki_score_log_player_data(user_id: str) -> tuple:
@@ -289,8 +363,6 @@ def get_ongeki_score_log_player_data(user_id: str) -> tuple:
     return player_data, records_data_list, invalid_music_list
 
 
-
-
 # OP計算
 def calc_op(response):
 
@@ -330,7 +402,7 @@ def calc_op(response):
 
     # OP集計
     op_aggregate = {}
-    op_aggregate["ALL"] = { "ALL": aggr_op(records_master)}
+    op_aggregate["ALL"] = {"ALL": aggr_op(records_master)}
     for n, key in enumerate(keys):
         records_master_divided = defaultdict(list)
         for r in records_master:
@@ -422,51 +494,63 @@ def aggr_op(records):
 
     return op_tmp
 
+
 # カードのhtmlをレンダリング
-def rendar_op_card( category_inner:str, category_outer:str, op_aggr_cat:dict, display_format:int ) -> str:
+def rendar_op_card(category_inner: str, category_outer: str, op_aggr_cat: dict, display_format: int) -> str:
 
     c = {
-        "category_outer":category_outer,
-        "category_inner":category_inner,
-        "op_percent_str":op_aggr_cat["op_percent_str"],
-        "op":f'{op_aggr_cat["op"]:.2f}',
-        "op_max":f'{op_aggr_cat["op_max"]:.2f}',
-
-        "rank_max":op_aggr_cat["ranks"]["MAX"],
-        "rank_sssp":op_aggr_cat["ranks"]["SSS+"],
-        "rank_sss":op_aggr_cat["ranks"]["SSS"],
-        "rank_ss":op_aggr_cat["ranks"]["SS"],
-        "rank_s":op_aggr_cat["ranks"]["S"],
-        "rank_others":op_aggr_cat["ranks"]["others"],
-
-        "rank_max_r":op_aggr_cat["ranks"]["MAX"]*100/op_aggr_cat["music_count"],
-        "rank_sssp_r":(op_aggr_cat["ranks"]["SSS+"]+op_aggr_cat["ranks"]["MAX"])*100/op_aggr_cat["music_count"],
-        "rank_sss_r":(op_aggr_cat["ranks"]["SSS"]+op_aggr_cat["ranks"]["SSS+"]+op_aggr_cat["ranks"]["MAX"])*100/op_aggr_cat["music_count"],
-        "rank_ss_r":(op_aggr_cat["ranks"]["SS"]+op_aggr_cat["ranks"]["SSS"]+op_aggr_cat["ranks"]["SSS+"]+op_aggr_cat["ranks"]["MAX"])*100/op_aggr_cat["music_count"],
-        "rank_s_r":(op_aggr_cat["ranks"]["S"]+op_aggr_cat["ranks"]["SS"]+op_aggr_cat["ranks"]["SSS"]+op_aggr_cat["ranks"]["SSS+"]+op_aggr_cat["ranks"]["MAX"])*100/op_aggr_cat["music_count"],
-
-        "lump_abp":op_aggr_cat["lumps"]["AB+"],
-        "lump_ab":op_aggr_cat["lumps"]["AB"],
-        "lump_fc":op_aggr_cat["lumps"]["FC"],
-        "lump_others":op_aggr_cat["lumps"]["others"],
-
-        "lump_abp_r":op_aggr_cat["lumps"]["AB+"]*100/op_aggr_cat["music_count"],
-        "lump_ab_r":(op_aggr_cat["lumps"]["AB"]+op_aggr_cat["lumps"]["AB+"])*100/op_aggr_cat["music_count"],
-        "lump_fc_r":(op_aggr_cat["lumps"]["FC"]+op_aggr_cat["lumps"]["AB"]+op_aggr_cat["lumps"]["AB+"])*100/op_aggr_cat["music_count"],
-
-        "bell_fb":op_aggr_cat["bells"]["FB"],
-        "bell_others":op_aggr_cat["bells"]["others"],
-
-        "bell_fb_r":op_aggr_cat["bells"]["FB"]*100/op_aggr_cat["music_count"],
-
-        "is_display_fb":display_format!=1,
-
+        "category_outer": category_outer,
+        "category_inner": category_inner,
+        "op_percent_str": op_aggr_cat["op_percent_str"],
+        "op": f'{op_aggr_cat["op"]:.2f}',
+        "op_max": f'{op_aggr_cat["op_max"]:.2f}',
+        "rank_max": op_aggr_cat["ranks"]["MAX"],
+        "rank_sssp": op_aggr_cat["ranks"]["SSS+"],
+        "rank_sss": op_aggr_cat["ranks"]["SSS"],
+        "rank_ss": op_aggr_cat["ranks"]["SS"],
+        "rank_s": op_aggr_cat["ranks"]["S"],
+        "rank_others": op_aggr_cat["ranks"]["others"],
+        "rank_max_r": op_aggr_cat["ranks"]["MAX"] * 100 / op_aggr_cat["music_count"],
+        "rank_sssp_r": (op_aggr_cat["ranks"]["SSS+"] + op_aggr_cat["ranks"]["MAX"]) * 100 / op_aggr_cat["music_count"],
+        "rank_sss_r": (op_aggr_cat["ranks"]["SSS"] + op_aggr_cat["ranks"]["SSS+"] + op_aggr_cat["ranks"]["MAX"])
+        * 100
+        / op_aggr_cat["music_count"],
+        "rank_ss_r": (
+            op_aggr_cat["ranks"]["SS"]
+            + op_aggr_cat["ranks"]["SSS"]
+            + op_aggr_cat["ranks"]["SSS+"]
+            + op_aggr_cat["ranks"]["MAX"]
+        )
+        * 100
+        / op_aggr_cat["music_count"],
+        "rank_s_r": (
+            op_aggr_cat["ranks"]["S"]
+            + op_aggr_cat["ranks"]["SS"]
+            + op_aggr_cat["ranks"]["SSS"]
+            + op_aggr_cat["ranks"]["SSS+"]
+            + op_aggr_cat["ranks"]["MAX"]
+        )
+        * 100
+        / op_aggr_cat["music_count"],
+        "lump_abp": op_aggr_cat["lumps"]["AB+"],
+        "lump_ab": op_aggr_cat["lumps"]["AB"],
+        "lump_fc": op_aggr_cat["lumps"]["FC"],
+        "lump_others": op_aggr_cat["lumps"]["others"],
+        "lump_abp_r": op_aggr_cat["lumps"]["AB+"] * 100 / op_aggr_cat["music_count"],
+        "lump_ab_r": (op_aggr_cat["lumps"]["AB"] + op_aggr_cat["lumps"]["AB+"]) * 100 / op_aggr_cat["music_count"],
+        "lump_fc_r": (op_aggr_cat["lumps"]["FC"] + op_aggr_cat["lumps"]["AB"] + op_aggr_cat["lumps"]["AB+"])
+        * 100
+        / op_aggr_cat["music_count"],
+        "bell_fb": op_aggr_cat["bells"]["FB"],
+        "bell_others": op_aggr_cat["bells"]["others"],
+        "bell_fb_r": op_aggr_cat["bells"]["FB"] * 100 / op_aggr_cat["music_count"],
+        "is_display_fb": display_format != 1,
     }
 
     # 簡易表示の分岐
     if display_format == 2:
-        op_card_html = render_to_string("ongeki_op/op_card_smart.html",context=c)
+        op_card_html = render_to_string("ongeki_op/op_card_smart.html", context=c)
     else:
-        op_card_html = render_to_string("ongeki_op/op_card.html",context=c)
+        op_card_html = render_to_string("ongeki_op/op_card.html", context=c)
 
     return op_card_html
