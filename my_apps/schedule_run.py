@@ -12,6 +12,9 @@ from my_apps.models import *
 import datetime, requests, json, re
 from bs4 import BeautifulSoup
 
+from my_apps.my_script import handle_songdata_c_refactor
+from my_apps.my_script import handle_songdata_o_refactor
+
 def periodic_execution():
     # 定数情報のアップデート
     update_log_c = SongDataCManager.update_song_data()
@@ -23,6 +26,15 @@ def periodic_execution():
 
     # オンゲキジャンル名を取得して既定の場所に出力
     get_ongeki_genre()
+
+    # [テスト運用] 新しいデータ収集ツール
+    print("-"*50)
+    print("新しいデータ収集ツールを実行します...")
+    print("[CHUNITHM]")
+    handle_songdata_c_refactor.main()
+    print("[オンゲキ]")
+    handle_songdata_o_refactor.main()
+    print("-"*50)
 
     # 現在時刻をフォーマットを整えて既定の場所に出力
     t_delta = datetime.timedelta(hours=9)

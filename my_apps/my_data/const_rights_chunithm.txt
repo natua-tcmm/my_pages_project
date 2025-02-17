@@ -1,6 +1,5 @@
 ©'12,'16 SANRIO(H)　SP
 ©1998-2021 PRODUCE published by D4Enterprise Co.,Ltd.<br>「パカパカパッション」はD4エンタープライズの登録商標です。
-©1984 by DAIICHI MUSIC PUBLISHER CO.,LTD. <br>吉幾三「俺ら東京さ行ぐだ」<br>徳間ジャパンコミュニケーションズ
 ©1st PLACE Co., Ltd. / IA PROJECT
 ©2000永井豪・石川賢／ダイナミック企画・早乙女研究所
 ©2007 BANDAI NAMCO Arts Inc.<br>©美水かがみ/らっきー☆ぱらだいす
@@ -9,6 +8,7 @@
 © 2009,2011,2013,2014,2019 D.N.A. Softwares
 ©2009-2015 MAGES.／5pb.／Nitroplus
 ©2010  by  NICHION,INC.&  PONY CANYON MUSIC PUBLISHING INC.<br>©かきふらい・芳文社／桜高軽音部<br>Licensed by PONY CANYON Inc.
+©2011 daniwellP
 ©2011 mebae/ Kaikai Kiki Co., Ltd. All Rights Reserved. <br>©FANTASISTAUTAMARO ALL RIGHTS RESERVED.
 © 2012 DWANGO Co.,Ltd.
 ©2013 海冬レイジ・株式会社KADOKAWA メディアファクトリー刊／機巧少女は傷つかない製作委員会
@@ -54,8 +54,12 @@
 ©2022 KAMITSUBAKI STUDIO
 ©2022 THINKR inc.
 ©2022 Warner Bros. Entertainment Inc. All rights reserved.
-©2023 EMP Inc.<br>©AHS Co. Ltd.
+©2023 by TOY'S FACTORY
+©2023 EMP Inc.<br>©AHS Co. Ltd.<br>©2023 Yukopi
 ©2023 Rayark Inc. CYTUS II®
+© 2023 wotaku<br>©2019 by XING MUSIC ENTERTAINMENT,INC.
+℗&©2024 ANYCOLOR, Inc.
+©32ki_May
 ©âge
 ©AI, Inc.
 ©Akatsuki Inc.
@@ -67,10 +71,14 @@ Art by Shirow Miwa © CFM<br>©supercell / INCS toenter Co., ltd. / Sony Music L
 ©ATLUS
 ©Bandai Namco Entertainment Inc. / PROJECT U149
 ©BanG Dream! Project
+© Bushiroad Music Publishing Inc.
 ©BNP/BANDAI, DENTSU, TV TOKYO
+© Capchii
+©CAPCOM
 ©CAPCOM CO., LTD. ALL RIGHTS RESERVED.
 ©COLOPL, Inc.
-©Copyright 2021 SSS LLC.<br>©2021 VOCALOMAKETS Powered by Bumpy Factory Corporation.
+©Copyright 2021 SSS<br>©2021 VOCALOMAKETS Powered by Bumpy Factory Corporation.
+©cosMo@Bousou-P
 © Crypton Future Media, INC. www.piapro.net
 © Cygames, Inc.
 © DECO*27<br>© OTOIRO
@@ -93,15 +101,15 @@ Licensed by EMI Records, A UNIVERSAL MUSIC COMPANY
 Licensed by FlyingDog, Inc.
 Licensed by KING RECORD Co.,Ltd.
 Licensed by MusicRay’n Inc.
+Licensed by Polydor Records, A UNIVERSAL MUSIC COMPANY<br>©2023 by NIPPON TELEVISION MUSIC CORPORATION & RAINBOW ENTERTAINMENT CO., LTD. & UNIVERSAL MUSIC PUBLISHING LLC
 Licensed by NBCUniversal Entertainment Japan, LLC.
 ©Toby Fox 2015-2023. All rights reserved.<br>Licensed by Royal Sciences LLC
-Licensed by Sony Music Entertainment (Japan) Inc.<br>©板垣巴留(秋田書店)/BEASTARS 製作委員会/Sony Music Entertainment (Japan) Inc./すばこ舎
 Licensed by Sony Music Labels Inc.
 Licensed by Sony Music Entertainment(Japan)Inc.
 Licensed by TOY'S FACTORY INC.
 Licensed by Virgin Music, A UNIVERSAL MUSIC COMPANY
 ©light／Dies irae ANIME PROJECT
-© lowiro 2023
+© lowiro 2024
 ©LRIG/Project Selector ©TOMY<br>©LRIG/Project Lostorage ©TOMY<br>©LRIG/Project WDA　© TOMY
 ©Magica Quartet／Aniplex・Madoka Movie Project
 ©Marvelous Inc. / Supported by HARDCORE TANO*C
@@ -136,9 +144,9 @@ Licensed by Virgin Music, A UNIVERSAL MUSIC COMPANY
 ©Sony Music Entertainment (Japan) Inc.
 ©Spider Lily／アニプレックス・ABCアニメーション・BS11
 © SQUARE PIXELS
-©SSS LLC.
+©SSS
 ©supercell / INCS toenter Co., ltd. / Sony Music Labels Inc.
-© TAITO CORPORATION 1978, 2022 ALL RIGHTS RESERVED.
+© TAITO CORPORATION
 TatshMusicCircle
 THE IDOLM@STER™& ©Bandai Namco Entertainment Inc.
 ©TOKYO LOGIC Ltd.
@@ -161,6 +169,7 @@ TVアニメ『Hi☆sCoool! セハガール』©SEGA/セハガガ学園理事会
 ©伊藤いづも・芳文社／まちカドまぞく製作委員会／℗ PONY CANYON Inc.
 ©犬塚惇平・主婦の友インフォス／「異世界食堂」製作委員会
 ©いよわ<br>©Mechanical Girl LLC.
+©卯花ロク<br>©檀上大空
 ©うたわれるもの偽りの仮面製作委員会
 ©大川ぶくぶ／竹書房・キングレコード<br>©大川ぶくぶ／竹書房・キングレコード　©AC部
 ©大森藤ノ・SBクリエイティブ/ダンまち2製作委員会
@@ -168,7 +177,6 @@ TVアニメ『Hi☆sCoool! セハガール』©SEGA/セハガガ学園理事会
 ©おりもとみまな（ヤングチャンピオン烈）／ばくおん!!製作委員会<br>(P)Lantis
 © 温泉むすめ／Enbound, Inc.
 ©蝸牛くも・SBクリエイティブ／ゴブリンスレイヤー製作委員会
-重音テト© 線/小山乃舞世/ツインドリル
 ©カヅホ・芳文社／キルミーベイベー製作委員会
 ©金城宗幸・ノ村優介・講談社／「ブルーロック」製作委員会
 ©鎌池和馬／冬川基／アスキー・メディアワークス／PROJECT-RAILGUN S
@@ -185,6 +193,7 @@ TVアニメ『Hi☆sCoool! セハガール』©SEGA/セハガガ学園理事会
 ©白米良・オーバーラップ/ありふれた製作委員会
 ©城平京・片瀬茶柴・講談社／虚構推理製作委員会
 ©白鳥士郎・SBクリエイティブ／りゅうおうのおしごと！製作委員会
+©周防パトラ
 ©鈴木央・講談社／「七つの大罪 憤怒の審判」製作委員会・テレビ東京
 セガ・ハード・ガールズ ©SEGA
 ©線/小山乃舞世/ツインドリル
@@ -197,10 +206,10 @@ TVアニメ『Hi☆sCoool! セハガール』©SEGA/セハガガ学園理事会
 電音部™＆ ©Bandai Namco Entertainment Inc.
 ©得能正太郎・芳文社／NEW GAME!製作委員会
 ©虎虎/京都アニメーション/中二病でも製作委員会
-中崎英也 by the courtesy of WARNER MUSIC JAPAN INC.<br>藤原美穂 by the courtesy of ALFA MUSIC RECORDS INC.
 © 長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活製作委員会
 ©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活2製作委員会
 ©なきそ
+©なみぐる
 ©なみぐる, 2022 All Rights Reserved.<br>©nekomo<br>VOICEVOX:ずんだもん
 ©西尾維新／講談社・アニプレックス・シャフト
 ©如意自在・芳文社／はるかなレシーブ製作委員会
@@ -211,16 +220,20 @@ TVアニメ『Hi☆sCoool! セハガール』©SEGA/セハガガ学園理事会
 ©春場ねぎ・講談社／映画「五等分の花嫁」製作委員会
 ©春場ねぎ・講談社／「五等分の花嫁∬」製作委員会
 ©伏見つかさ／アスキー・メディアワークス／OIP2
+©プロジェクトラブライブ！蓮ノ空女学院スクールアイドルクラブ
 ©殆ど死んでいる・KADOKAWA刊／異世界おじさん製作委員会
 ©堀越耕平／集英社・僕のヒーローアカデミア製作委員会
+©九井諒子・KADOKAWA刊／「ダンジョン飯」製作委員会
 ©丸山くがね・ＫＡＤＯＫＡＷＡ刊／オーバーロード製作委員会
 ©三月・KADOKAWA刊／ひなこのーと製作委員会
-©水野あつ<br>©2021 KAMITSUBAKI STUDIO<br>©2021 by XING MUSIC ENTERTAINMENT,INC.
+©水野あつ<br>©2021 by XING MUSIC ENTERTAINMENT,INC.
 ©椋木ななつ・一迅社／わたてん製作委員会
+©メドミア
 ©もちうつね
 ©山口悟・一迅社／はめふら製作委員会
-©山田鐘人・アベツカサ／小学館／「葬送のフリーレン」製作委員会
+©山田鐘人・アベツカサ／小学館／「葬送のフリーレン」製作委員会<br>©2023 by NIPPON TELEVISION MUSIC CORPORATION & Toho Music Corporation & Sony Music Publishing(Japan) Inc.
 ©幽閉サテライト
 ©四葉夕卜・小川亮／講談社
 ©ルーツ / Piyo / アース・スター エンターテイメント / 亀井戸高校テニス部
 ©和久井健・講談社／アニメ「東京リベンジャーズ」製作委員会
+©ンバヂ
