@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.template.loader import render_to_string
-from django.http import JsonResponse
+from django.http import JsonResponse, FileResponse, Http404
 from django.db.models import Q
 # from django.core.handlers.wsgi import WSGIRequest
 
@@ -199,3 +199,20 @@ def random_tools(request):
         return JsonResponse(response)
 
     return render(request, 'random_tools/random_tools.html',context=context)
+
+# --------------------------------------------------
+
+# データベース
+def songdata_chunithm(request):
+    file_path = os.path.join(settings.BASE_DIR, 'my_apps/my_data/songdata_c_dict.json')
+    if os.path.exists(file_path):
+        return FileResponse(open(file_path, 'rb'), content_type='application/json')
+    else:
+        raise Http404("JSONファイルが見つかりません")
+
+def songdata_ongeki(request):
+    file_path = os.path.join(settings.BASE_DIR, 'my_apps/my_data/songdata_o_dict.json')
+    if os.path.exists(file_path):
+        return FileResponse(open(file_path, 'rb'), content_type='application/json')
+    else:
+        raise Http404("JSONファイルが見つかりません")

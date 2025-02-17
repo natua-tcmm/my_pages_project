@@ -37,4 +37,8 @@ urlpatterns = [
     path("kadaikyoku", views.kadaikyoku, name="kadaikyoku_page"),
     path("random_tools", views.random_tools, name="random_tools_page"),
     path("app_template", views.app_template, name="app_template_page"),
+
+    # データベース
+    path("songdata_chunithm.json", views.songdata_chunithm, name="songdata_chunithm_json"),
+    path("songdata_ongeki.json", views.songdata_ongeki, name="songdata_ongeki_json"),
 ]
