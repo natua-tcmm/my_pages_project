@@ -423,6 +423,9 @@ class SongDataManager:
                         if matching_reiwa is None:
                             messages.append(f"[ULTIMA追加] reiwaf5内にデータがありません。song_name: {song.song_name}")
                             continue
+                        # まだreiwaf5に反映されていないならスキップ
+                        if "ULT" not in matching_reiwa["data"]:
+                            self.ult_const_nodata = False
                         if matching_reiwa["data"]["ULT"]["is_const_unknown"] or matching_reiwa["data"]["ULT"]["const"] == 0:
                             self.ult_const = matching_reiwa["data"]["ULT"]["level"]
                             self.ult_const_nodata = True
