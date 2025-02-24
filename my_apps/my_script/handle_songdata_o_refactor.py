@@ -553,7 +553,7 @@ class SongDataManager:
         """
         定数情報の更新・削除曲処理・ジャンル名の付与を行う。
         """
-        messages = ["【更新処理】"]
+        messages = ["【公式・定数データ更新処理】"]
         official_data = self._fetch_official_json()
         reiwa_data_list = self._fetch_reiwaf5_json()
 
@@ -584,7 +584,7 @@ class SongDataManager:
                     and string_level_to_float(matching_reiwa.get("expert", {}).get("level", "0")) >= 10
                 ):
                     messages.append(
-                        f"更新: {song.song_name} EXPERT {song.exp_const} -> {matching_reiwa.get('expert', {}).get('const')}"
+                        f"定数更新: {song.song_name} EXPERT {song.exp_const} -> {matching_reiwa.get('expert', {}).get('const')}"
                     )
                     song.exp_const = matching_reiwa.get("expert", {}).get("const")
                     song.exp_const_nodata = False
@@ -593,7 +593,7 @@ class SongDataManager:
                 # MASTER
                 if song.mas_const_nodata and not bool(matching_reiwa.get("master", {}).get("is_unknown")):
                     messages.append(
-                        f"更新: {song.song_name} MASTER {song.mas_const} -> {matching_reiwa.get('master', {}).get('const')}"
+                        f"定数更新: {song.song_name} MASTER {song.mas_const} -> {matching_reiwa.get('master', {}).get('const')}"
                     )
                     song.mas_const = matching_reiwa.get("master", {}).get("const")
                     song.mas_const_nodata = False
@@ -603,7 +603,7 @@ class SongDataManager:
             if song.has_lunatic:
                 if song.lun_const_nodata and not bool(matching_reiwa.get("lunatic", {}).get("is_unknown")):
                     messages.append(
-                        f"更新: {song.song_name} LUNATIC {song.lun_const} -> {matching_reiwa.get('lunatic', {}).get('const')}"
+                        f"定数更新: {song.song_name} LUNATIC {song.lun_const} -> {matching_reiwa.get('lunatic', {}).get('const')}"
                     )
                     song.lun_const = matching_reiwa.get("lunatic", {}).get("const")
                     song.lun_const_nodata = False
@@ -616,7 +616,7 @@ class SongDataManager:
                     song.song_subname = self.genre_dict[song.song_name]
                     song.song_subname_nodata = False
                     self.update_song_offi_ids.append(song.song_official_id)
-                    messages.append(f"更新: {song.song_name} ジャンル名付与「{song.song_subname}」")
+                    messages.append(f"ジャンル名付与: {song.song_name} -「{song.song_subname}」")
                 else:
                     song.song_subname_nodata = True
 
@@ -632,7 +632,7 @@ class SongDataManager:
                 if song.lun_const_nodata:
                     messages.append(f"- {song.song_name} [LUNATIC]")
 
-        messages.append("更新処理完了。")
+        messages.append("公式・定数データ更新処理完了。")
         LineNotification.add_message_by_list(messages)
 
     def link_fumen_ids(self) -> None:

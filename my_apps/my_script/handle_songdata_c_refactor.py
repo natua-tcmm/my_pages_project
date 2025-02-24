@@ -386,7 +386,7 @@ class SongDataManager:
         """
         定数情報の更新・ULTIMA追加処理・削除曲処理を行う。
         """
-        messages = ["【更新処理】"]
+        messages = ["【公式・定数データ更新処理】"]
         official_data = self._fetch_official_json()
         reiwa_data_list = self._fetch_reiwaf5_json()
 
@@ -458,7 +458,7 @@ class SongDataManager:
                 and not (matching_reiwa["data"]["EXP"]["is_const_unknown"] or matching_reiwa["data"]["EXP"]["const"] == 0)
                 and matching_reiwa["data"]["EXP"]["level"] >= 10
             ):
-                messages.append(f"更新: {song.song_name} EXPERT {song.exp_const} -> {matching_reiwa['data']['EXP']['const']}")
+                messages.append(f"定数更新: {song.song_name} EXPERT {song.exp_const} -> {matching_reiwa['data']['EXP']['const']}")
                 song.exp_const = matching_reiwa["data"]["EXP"]["const"]
                 song.exp_const_nodata = False
                 self.update_song_offi_ids.append(song.song_official_id)
@@ -466,7 +466,7 @@ class SongDataManager:
             if song.mas_const_nodata and not (
                 matching_reiwa["data"]["MAS"]["is_const_unknown"] or matching_reiwa["data"]["MAS"]["const"] == 0
             ):
-                messages.append(f"更新: {song.song_name} MASTER {song.mas_const} -> {matching_reiwa['data']['MAS']['const']}")
+                messages.append(f"定数更新: {song.song_name} MASTER {song.mas_const} -> {matching_reiwa['data']['MAS']['const']}")
                 song.mas_const = matching_reiwa["data"]["MAS"]["const"]
                 song.mas_const_nodata = False
                 self.update_song_offi_ids.append(song.song_official_id)
@@ -476,7 +476,7 @@ class SongDataManager:
                     matching_reiwa["data"]["ULT"]["is_const_unknown"] or matching_reiwa["data"]["ULT"]["const"] == 0
                 ):
                     messages.append(
-                        f"更新: {song.song_name} ULTIMA {song.ult_const} -> {matching_reiwa['data']['ULT']['const']}"
+                        f"定数更新: {song.song_name} ULTIMA {song.ult_const} -> {matching_reiwa['data']['ULT']['const']}"
                     )
                     song.ult_const = matching_reiwa["data"]["ULT"]["const"]
                     song.ult_const_nodata = False
@@ -490,7 +490,7 @@ class SongDataManager:
                     f"- {song.song_name} {'[EXPERT]'*song.exp_const_nodata}{'[MASTER]'*song.mas_const_nodata}{'[ULTIMA]'*( song.has_ultima and song.ult_const_nodata)}"
                 )
 
-        messages.append("更新処理完了。")
+        messages.append("公式・定数データ更新処理完了。")
         LineNotification.add_message_by_list(messages)
 
     def link_fumen_ids(self) -> None:
