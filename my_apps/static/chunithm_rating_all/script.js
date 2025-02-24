@@ -1,9 +1,9 @@
 window.addEventListener('DOMContentLoaded', function(){
 
-    // osl_idをlocalStrageとやりとり
-    var ls_osl_id = localStorage.getItem("ongeki_rating_all__osl_id");
-    if (ls_osl_id !== null) {
-        $("#osl-id").val(ls_osl_id);
+    // rec_idをlocalStrageとやりとり
+    var ls_rec_id = localStorage.getItem("chunithm_rating_all__rec_id");
+    if (ls_rec_id !== null) {
+        $("#rec-id").val(ls_rec_id);
     }
 
 
@@ -12,21 +12,20 @@ window.addEventListener('DOMContentLoaded', function(){
 // 実行ボタンが押されたとき
 $("#calc-button").on("click",function(e){
 
-    var osl_id = $("#osl-id").val();
+    var rec_id = $("#rec-id").val();
 
-    if(!isNaN(osl_id)&&osl_id.length>0){
+    if(rec_id.length>0){
 
-        osl_id = Number(osl_id);
-        // console.log(type)
+        var display_format = $("#display-format").val();
 
         // localStrageにIDを保存
-        localStorage.setItem("ongeki_rating_all__osl_id",osl_id);
+        localStorage.setItem("chunithm_rating_all__rec_id",rec_id);
 
         // 送信
-        ajax_send(e, osl_id)
+        ajax_send(e, rec_id, display_format)
         .done(function (response) {
 
-            localStorage.setItem("ongeki_rating_all__osl_id",osl_id);
+            localStorage.setItem("chunithm_rating_all__rec_id",rec_id);
 
             $("#loading-text").css("display", "none");
             // console.log(response);
@@ -50,13 +49,13 @@ $("#calc-button").on("click",function(e){
 
     }
     else{
-        console.log("数値以外がにゅうりょくされています");
+        console.log("にゅうりょくしてね");
     }
 
 });
 
 
-var ajax_send = function (e, osl_id) {
+var ajax_send = function (e, rec_id, display_format) {
 
     $("#loading-text").css("display", "");
 
@@ -71,7 +70,8 @@ var ajax_send = function (e, osl_id) {
         'type': 'POST',
         'data': {
             "csrfmiddlewaretoken": csrfmiddlewaretoken,
-            "osl_id": osl_id,
+            "rec_id": rec_id,
+            "display_format":display_format,
             "request_time": new Date().getTime(),
         },
         'dataType': 'json',

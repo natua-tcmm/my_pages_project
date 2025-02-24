@@ -66,7 +66,7 @@ def const_search(request:HttpRequest):
         elif type_game=="o":
             SDM = SongDataOManager
         else:
-            print(type_game)
+            # print(type_game)
             raise ValueError
 
         # 検索結果の処理

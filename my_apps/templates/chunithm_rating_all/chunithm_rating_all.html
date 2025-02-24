@@ -1,7 +1,7 @@
 {% extends '../base/base.html' %}
 {% load static %}
 {% block content %}
-  <link rel="stylesheet" href="{% static 'ongeki_rating_all/style.css' %}" />
+<link rel="stylesheet" href="{% static 'chunithm_rating_all/style.css' %}" />
   <!-- Content Wrapper. Contains page content -->
   <div class="container">
     <!-- Content Header (Page header) -->
@@ -9,7 +9,7 @@
       <div class="container-fluid pl-0">
         <div class="row mb-2">
           <div class="col">
-            <h1 class="m-0">オンゲキベスト枠計算(全曲対象)</h1>
+            <h1 class="m-0">CHUNITHMベスト枠計算(全曲対象)</h1>
           </div>
           <!-- /.col -->
         </div>
@@ -31,20 +31,20 @@
           <div class="col">
             <div class="card card-primary card-outline">
               <div class="card-header">
-                <h3 class="card-title">オンゲキベスト枠計算(全曲対象)</h3>
+                <h3 class="card-title">CHUNITHMベスト枠計算(全曲対象)</h3>
               </div>
 
               <div class="card-body">
                 <div class="row justify-content-center">
                   <div class="col-12 col-md-10">
-                    <!-- oslid入力窓 -->
+                    <!-- chunirecID入力窓 -->
                     <div class="row justify-content-center align-items-center mb-3">
                       <div class="col-auto">
                         <div class="input-group mb-1">
                           <div class="input-group-prepend">
-                            <span class="input-group-text">OngekiScoreLog ID</span>
+                            <span class="input-group-text">chunirec userID</span>
                           </div>
-                          <input type="text" class="form-control text-center" placeholder="xxxx" value="" id="osl-id" />
+                          <input type="text" class="form-control text-center" placeholder="xxxx" value="" id="rec-id" />
                           <div class="input-group-append">
                             <button class="btn btn-primary" type="button" id="calc-button">実行</button>
                           </div>
@@ -52,8 +52,22 @@
                       </div>
                     </div>
                     <div class="row justify-content-center align-items-center">
+
+                      <div class="col-auto">
+                          <div class="form-group">
+                              <label for="display-format">表示形式</label>
+                              <select class="form-control" id="display-format">
+                                  <option value="0">30枠のみ</option>
+                                  <option value="1">30枠+50枠</option>
+                              </select>
+                          </div>
+                      </div>
+
+                  </div>
+                    <div class="row justify-content-center align-items-center">
                       <div class="col-auto">
                         <p>新曲・旧曲関係なく、単曲レート上位30曲をベスト枠平均とします。</p>
+                        <p>新定数に対して「新14.6以下→-0.0、新14.7〜新14.9→-0.1、新15.0以上→-0.2」を加算した値を旧定数とし、それを用いた計算結果を旧基準としています。</p>
                       </div>
                     </div>
 
@@ -82,8 +96,8 @@
   </div>
   <script>
     var csrfmiddlewaretoken = '{{ csrf_token }}'
-    var send_url = '{% url "my_apps:ongeki_rating_all_page" %}'
+    var send_url = '{% url "my_apps:chunithm_rating_all_page" %}'
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="{% static 'ongeki_rating_all/script.js' %}"></script>
+  <script src="{% static 'chunithm_rating_all/script.js' %}"></script>
 {% endblock %}

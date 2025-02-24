@@ -1,0 +1,29 @@
+<table class="table table-striped table-hover table-sm">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Song Title</th>
+            <th scope="col">Diff</th>
+            <th scope="col">Score</th>
+            <th scope="col">Const</th>
+            <th scope="col">Rate</th>
+            <th scope="col">Const(Old)</th>
+            <th scope="col">Rate(Old)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in rating_all_best_songs_str %}
+        <tr>
+            <th scope="row" class="ratingtable-th">{{r.n}}</th>
+            <td>{{r.title}}</td>
+            <td class="ratingtable-diff">{{r.diff}}</td>
+            <td class="ratingtable-score">{{r.score}}</td>
+            <td class="ratingtable-num">{{r.const}}</td>
+            <td class="ratingtable-num">{{r.music_rate}}</td>
+            <td class="ratingtable-num">{{r.const_old}}</td>
+            <td class="ratingtable-num">{{r.music_rate_old}}</td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>

@@ -6,6 +6,7 @@ from .views import views
 from .views import view_ongeki_op
 from .views import view_ongeki_rating
 from .views import view_const_search
+from .views import view_chunithm_rating
 
 urlpatterns = [
     # システム
@@ -26,6 +27,7 @@ urlpatterns = [
     path("ongeki_op", view_ongeki_op.ongeki_op, name="ongeki_op_page"),
     path("ongeki_rating_all", view_ongeki_rating.ongeki_rating_all, name="ongeki_rating_all_page"),
     # path("ongeki_rating_act2", view_ongeki_rating.ongeki_rating_act2, name="ongeki_rating_act2_page"),
+    path("chunithm_rating_all", view_chunithm_rating.chunithm_rating_all, name="chunithm_rating_all_page"),
 
     # 資料集
     path("ongeki_genre", views.ongeki_genre, name="ongeki_genre_page"),
@@ -35,4 +37,8 @@ urlpatterns = [
     path("kadaikyoku", views.kadaikyoku, name="kadaikyoku_page"),
     path("random_tools", views.random_tools, name="random_tools_page"),
     path("app_template", views.app_template, name="app_template_page"),
+
+    # データベース
+    path("songdata_chunithm.json", views.songdata_chunithm, name="songdata_chunithm_json"),
+    path("songdata_ongeki.json", views.songdata_ongeki, name="songdata_ongeki_json"),
 ]
