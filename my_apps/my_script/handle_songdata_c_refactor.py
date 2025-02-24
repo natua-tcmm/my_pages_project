@@ -7,6 +7,7 @@ import datetime
 import os
 import time
 import logging
+
 # import tqdm.auto as tqdm
 from dataclasses import dataclass, asdict
 from typing import Optional, List, Dict, Any
@@ -23,13 +24,13 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 
 # --- 定数 ---
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-JSON_FILE_PATH = os.path.join(BASE_DIR,"my_apps/my_data/songdata_c_dict.json")
+JSON_FILE_PATH = os.path.join(BASE_DIR, "my_apps/my_data/songdata_c_dict.json")
 OFFICIAL_JSON_URL = "https://chunithm.sega.jp/storage/json/music.json"
 REIWAF5_JSON_URL = "https://reiwa.f5.si/chunirec_all.json"
 
 # 環境変数のロード
 load_dotenv(verbose=True)
-dotenv_path = os.path.join(BASE_DIR.parent, '.env')
+dotenv_path = os.path.join(BASE_DIR.parent, ".env")
 load_dotenv(dotenv_path)
 LINE_BOT_ACCESS_TOKEN = os.environ.get("LINE_BOT_ACCESS_TOKEN")
 LINE_USER_ID = os.environ.get("LINE_USER_ID")
@@ -331,7 +332,7 @@ class SongDataManager:
         公式データと既存データを比較し、新規楽曲を追加する。
         ※WE楽曲は除外する
         """
-        messages = ["【新曲登録処理】"]
+        messages = ["----- CHUNITHM -----", "【新曲登録処理】"]
         official_data = self._fetch_official_json()
         reiwa_data_list = self._fetch_reiwaf5_json()
 
@@ -481,6 +482,14 @@ class SongDataManager:
                     song.ult_const_nodata = False
                     self.update_song_offi_ids.append(song.song_official_id)
 
+        # 定数不明曲一覧
+        messages.append("-----\n定数不明曲一覧")
+        for song in self.songs:
+            if song.exp_const_nodata or song.mas_const_nodata or (song.has_ultima and song.ult_const_nodata):
+                messages.append(
+                    f"- {song.song_name} {'[EXPERT]'*song.exp_const_nodata}{'[MASTER]'*song.mas_const_nodata}{'[ULTIMA]'*( song.has_ultima and song.ult_const_nodata)}"
+                )
+
         messages.append("更新処理完了。")
         LineNotification.add_message_by_list(messages)
 
@@ -498,7 +507,7 @@ class SongDataManager:
 
         for fumen_id in fumen_ids_new:
 
-            # 新曲候補IDから保管所の登録曲名を取得Q
+            # 新曲候補IDから保管所の登録曲名を取得
             try:
                 url = f"https://www.sdvx.in/chunithm/{fumen_id[:2]}/js/{fumen_id}sort.js"
                 time.sleep(0.5)

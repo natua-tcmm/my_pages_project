@@ -7,6 +7,7 @@ import datetime
 import os
 import time
 import logging
+
 # import tqdm.auto as tqdm
 from dataclasses import dataclass, asdict
 from typing import Optional, List, Dict, Any
@@ -24,12 +25,12 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 
 # --- 定数 ---
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-JSON_FILE_PATH = os.path.join(BASE_DIR,"my_apps/my_data/songdata_o_dict.json")
-ONGEKI_GENRE_JSON_FILE_PATH = os.path.join(BASE_DIR,"my_apps/my_data/ongeki_genre_data.json")
+JSON_FILE_PATH = os.path.join(BASE_DIR, "my_apps/my_data/songdata_o_dict.json")
+ONGEKI_GENRE_JSON_FILE_PATH = os.path.join(BASE_DIR, "my_apps/my_data/ongeki_genre_data.json")
 
 # 環境変数のロード
 load_dotenv(verbose=True)
-dotenv_path = os.path.join(BASE_DIR.parent, '.env')
+dotenv_path = os.path.join(BASE_DIR.parent, ".env")
 load_dotenv(dotenv_path)
 LINE_BOT_ACCESS_TOKEN = os.environ.get("LINE_BOT_ACCESS_TOKEN")
 LINE_USER_ID = os.environ.get("LINE_USER_ID")
@@ -429,7 +430,7 @@ class SongDataManager:
         """
         公式データと既存データを比較し、新規楽曲を追加する。
         """
-        messages = ["【新曲登録処理 オンゲキ】"]
+        messages = ["----- オンゲキ -----", "【新曲登録処理】"]
         official_data = self._fetch_official_json()
         reiwa_data_list = self._fetch_reiwaf5_json()
 
@@ -615,8 +616,21 @@ class SongDataManager:
                     song.song_subname = self.genre_dict[song.song_name]
                     song.song_subname_nodata = False
                     self.update_song_offi_ids.append(song.song_official_id)
+                    messages.append(f"更新: {song.song_name} ジャンル名付与「{song.song_subname}」")
                 else:
                     song.song_subname_nodata = True
+
+        # 定数不明曲一覧
+        messages.append("-----\n定数不明曲一覧")
+        for song in self.songs:
+            if not song.only_lunatic:
+                if song.exp_const_nodata or song.mas_const_nodata or (song.has_lunatic and song.lun_const_nodata):
+                    messages.append(
+                        f"- {song.song_name} {'[EXPERT]'*song.exp_const_nodata}{'[MASTER]'*song.mas_const_nodata}{'[LUNATIC]'*( song.has_lunatic and song.lun_const_nodata)}"
+                    )
+            else:
+                if song.lun_const_nodata:
+                    messages.append(f"- {song.song_name} [LUNATIC]")
 
         messages.append("更新処理完了。")
         LineNotification.add_message_by_list(messages)
@@ -715,7 +729,6 @@ class SongDataManager:
         全曲について、ReMASTER判定も更新する。
         """
 
-
         messages: List[str] = ["【保管所データ更新】"]
         logging.info("譜面保管所データ更新処理開始")
 
@@ -725,18 +738,21 @@ class SongDataManager:
             if song.song_fumen_id is None:
                 continue
 
-            is_nodata = ( (not song.only_lunatic) and (
-                song.exp_notes_nodata
-                or song.exp_bell_nodata
-                or song.exp_notesdesigner_nodata
-                or song.mas_notes_nodata
-                or song.mas_bell_nodata
-                or song.mas_notesdesigner_nodata
-            )) or ( song.has_lunatic and (
-                song.lun_notes_nodata
-                or song.lun_bell_nodata
-                or song.lun_notesdesigner_nodata
-            ))  or song.song_bpm_nodata
+            is_nodata = (
+                (
+                    (not song.only_lunatic)
+                    and (
+                        song.exp_notes_nodata
+                        or song.exp_bell_nodata
+                        or song.exp_notesdesigner_nodata
+                        or song.mas_notes_nodata
+                        or song.mas_bell_nodata
+                        or song.mas_notesdesigner_nodata
+                    )
+                )
+                or (song.has_lunatic and (song.lun_notes_nodata or song.lun_bell_nodata or song.lun_notesdesigner_nodata))
+                or song.song_bpm_nodata
+            )
 
             # 新曲の場合は必ず更新対象、それ以外はnodataがあるものを対象とする
             if song.song_official_id in self.new_song_offi_ids:
