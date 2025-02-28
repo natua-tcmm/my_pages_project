@@ -51767,10 +51767,49 @@
             "ult_notesdesigner_nodata": true,
             "we_star": null,
             "we_kanji": null
+        },
+        {
+            "song_official_id": "2739",
+            "song_name": "Aether Crest: Celestial",
+            "song_reading": "AETHERCRESTCELESTIAL",
+            "song_artist": "void (Mournfinale) × 水野健治",
+            "song_genre": "ORIGINAL",
+            "song_bpm": 180,
+            "song_bpm_nodata": false,
+            "song_release": "2025-02-27",
+            "song_release_version": "VERSE",
+            "song_image_url": "2d6eb4e70a8a5937.jpg",
+            "song_fumen_id": "10055",
+            "is_worldsend": false,
+            "has_ultima": false,
+            "only_ultima": false,
+            "exp_const": 14,
+            "exp_const_nodata": true,
+            "exp_notes": 2466,
+            "exp_notes_nodata": false,
+            "exp_notesdesigner": "アミノハバキリ",
+            "exp_notesdesigner_nodata": false,
+            "mas_const": 15.5,
+            "mas_const_nodata": true,
+            "mas_notes": 3000,
+            "mas_notes_nodata": false,
+            "mas_notesdesigner": "Lemon -Arced for the ace-",
+            "mas_notesdesigner_nodata": false,
+            "ult_const": null,
+            "ult_const_nodata": true,
+            "ult_notes": null,
+            "ult_notes_nodata": true,
+            "ult_notesdesigner": null,
+            "ult_notesdesigner_nodata": true,
+            "we_star": null,
+            "we_kanji": null
         }
     ],
-    "new_song_offi_ids": [],
+    "new_song_offi_ids": [
+        "2739"
+    ],
     "update_song_offi_ids": [
+        "2739",
         "363",
         "941",
         "168",
@@ -51782,8 +51821,9 @@
         "75",
         "64",
         "2312",
-        "2689"
+        "2689",
+        "2739"
     ],
     "delete_song_offi_ids": [],
-    "update_at": "2025/02/25 01:47"
+    "update_at": "2025/03/01 02:46"
 }
