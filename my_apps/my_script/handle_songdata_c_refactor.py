@@ -12,19 +12,22 @@ import logging
 from dataclasses import dataclass, asdict
 from typing import Optional, List, Dict, Any
 
-from pathlib import Path
-from dotenv import load_dotenv
 import requests
 from bs4 import BeautifulSoup
 import dateutil.parser
 import linebot.v3.messaging as bot  # type: ignore
+
+from pathlib import Path
+from dotenv import load_dotenv
 
 # --- ログ設定 ---
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
 # --- 定数 ---
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-JSON_FILE_PATH = os.path.join(BASE_DIR, "my_apps/my_data/songdata_c_dict.json")
+DATA_DIR = os.path.join(BASE_DIR, "my_apps/my_data")
+JSON_FILE_PATH = os.path.join(DATA_DIR, "songdata_c_dict.json")
+JSON_FILE_FOR_PUBLIC_PATH = os.path.join(DATA_DIR, "songdata_chunithm_for_public.json")
 OFFICIAL_JSON_URL = "https://chunithm.sega.jp/storage/json/music.json"
 REIWAF5_JSON_URL = "https://reiwa.f5.si/chunirec_all.json"
 
@@ -199,8 +202,7 @@ class SongData:
 
     def apply_reiwaf5_data(self, reiwa_data: Dict[str, Any]) -> None:
         """
-        reiwaf5 のデータから定数情報などを適用する。
-        EXPERT / MASTER は常に設定し、ULTIMA は存在する場合のみ
+        reiwaf5のデータから定数情報などを適用する。
         """
 
         # リリース日
@@ -237,6 +239,9 @@ class SongData:
                 self.ult_const_nodata = False
 
     def to_dict(self) -> Dict[str, Any]:
+        """
+        JSON保存用にSongDataを辞書に変換する。
+        """
         return asdict(self)
 
 
@@ -251,6 +256,9 @@ class SongDataManager:
         self.delete_song_offi_ids: List[str] = []
 
     def load_data(self) -> None:
+        """
+        JSONファイルから既存の楽曲データをロードする。
+        """
         if not os.path.exists(self.data_file):
             self.songs = []
             return
@@ -260,6 +268,9 @@ class SongDataManager:
         logging.info("既存データロード完了: %d件", len(self.songs))
 
     def save_data(self) -> None:
+        """
+        楽曲データをJSONファイルに保存する。
+        """
         data = {
             "songs": [song.to_dict() for song in self.songs],
             "new_song_offi_ids": self.new_song_offi_ids,
@@ -272,7 +283,72 @@ class SongDataManager:
         decode_unicode_json_file(self.data_file)
         logging.info("データ保存完了")
 
+    def save_public_data(self) -> None:
+        """
+        公開用のJSONファイルを出力する。
+        """
+        sorted_songs = sorted(self.songs, key=lambda song: int(song.song_official_id))
+        public_data = {"songs": []}
+        for song in sorted_songs:
+            data = song.to_dict()
+            public_song = {
+                "meta": {
+                    "song_official_id": data.get("song_official_id"),
+                    "song_name": data.get("song_name"),
+                    "song_reading": data.get("song_reading"),
+                    "song_artist": data.get("song_artist"),
+                    "song_genre": data.get("song_genre"),
+                    "song_bpm": data.get("song_bpm"),
+                    "song_bpm_nodata": data.get("song_bpm_nodata"),
+                    "song_release": data.get("song_release"),
+                    "song_release_version": data.get("song_release_version"),
+                    "song_image_url": data.get("song_image_url"),
+                    "song_fumen_id": data.get("song_fumen_id"),
+                    "is_worldsend": data.get("is_worldsend"),
+                    "has_ultima": data.get("has_ultima"),
+                    "only_ultima": data.get("only_ultima"),
+                    "we_star": data.get("we_star"),
+                    "we_kanji": data.get("we_kanji"),
+                },
+                "expert": {
+                    "const": data.get("exp_const"),
+                    "const_nodata": data.get("exp_const_nodata"),
+                    "notes": data.get("exp_notes"),
+                    "notes_nodata": data.get("exp_notes_nodata"),
+                    "notesdesigner": data.get("exp_notesdesigner"),
+                    "notesdesigner_nodata": data.get("exp_notesdesigner_nodata"),
+                },
+                "master": {
+                    "const": data.get("mas_const"),
+                    "const_nodata": data.get("mas_const_nodata"),
+                    "notes": data.get("mas_notes"),
+                    "notes_nodata": data.get("mas_notes_nodata"),
+                    "notesdesigner": data.get("mas_notesdesigner"),
+                    "notesdesigner_nodata": data.get("mas_notesdesigner_nodata"),
+                },
+                "ultima": {
+                    "const": data.get("ult_const"),
+                    "const_nodata": data.get("ult_const_nodata"),
+                    "notes": data.get("ult_notes"),
+                    "notes_nodata": data.get("ult_notes_nodata"),
+                    "notesdesigner": data.get("ult_notesdesigner"),
+                    "notesdesigner_nodata": data.get("ult_notesdesigner_nodata"),
+                },
+            }
+            public_data["songs"].append(public_song)
+
+        # 更新日時の追加
+        public_data["update_at"] = datetime.datetime.now().strftime("%Y/%m/%d %H:%M")
+
+        # 指定ファイル名でJSON出力
+        with open(JSON_FILE_FOR_PUBLIC_PATH, "w", encoding="utf-8") as f:
+            json.dump(public_data, f, indent=4, ensure_ascii=False)
+
+
     def _fetch_official_json(self) -> List[Dict[str, Any]]:
+        """
+        公式サイトから楽曲JSONを取得する。
+        """
         try:
             resp = session.get(OFFICIAL_JSON_URL, timeout=10)
             resp.encoding = resp.apparent_encoding
@@ -284,6 +360,9 @@ class SongDataManager:
             return []
 
     def _fetch_reiwaf5_json(self) -> List[Dict[str, Any]]:
+        """
+        reiwaf5から楽曲JSONを取得する。
+        """
         try:
             resp = session.get(REIWAF5_JSON_URL, timeout=10)
             resp.encoding = resp.apparent_encoding
@@ -296,7 +375,7 @@ class SongDataManager:
 
     def _create_fumen_ids_all(self) -> List[str]:
         """
-        譜面保管所の全保管所IDを取得する
+        譜面保管所の全保管所IDを取得する。
         """
         fumen_ids_all = []
         urls = [
@@ -458,7 +537,9 @@ class SongDataManager:
                 and not (matching_reiwa["data"]["EXP"]["is_const_unknown"] or matching_reiwa["data"]["EXP"]["const"] == 0)
                 and matching_reiwa["data"]["EXP"]["level"] >= 10
             ):
-                messages.append(f"定数更新: {song.song_name} EXPERT {song.exp_const} -> {matching_reiwa['data']['EXP']['const']}")
+                messages.append(
+                    f"定数更新: {song.song_name} EXPERT {song.exp_const} -> {matching_reiwa['data']['EXP']['const']}"
+                )
                 song.exp_const = matching_reiwa["data"]["EXP"]["const"]
                 song.exp_const_nodata = False
                 self.update_song_offi_ids.append(song.song_official_id)
@@ -466,7 +547,9 @@ class SongDataManager:
             if song.mas_const_nodata and not (
                 matching_reiwa["data"]["MAS"]["is_const_unknown"] or matching_reiwa["data"]["MAS"]["const"] == 0
             ):
-                messages.append(f"定数更新: {song.song_name} MASTER {song.mas_const} -> {matching_reiwa['data']['MAS']['const']}")
+                messages.append(
+                    f"定数更新: {song.song_name} MASTER {song.mas_const} -> {matching_reiwa['data']['MAS']['const']}"
+                )
                 song.mas_const = matching_reiwa["data"]["MAS"]["const"]
                 song.mas_const_nodata = False
                 self.update_song_offi_ids.append(song.song_official_id)
@@ -724,6 +807,7 @@ def main() -> None:
     manager.update_fumen_data()
 
     manager.save_data()
+    manager.save_public_data()
     LineNotification.send_notification()
 
 

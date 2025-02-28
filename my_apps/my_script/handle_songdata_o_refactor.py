@@ -25,7 +25,11 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 
 # --- 定数 ---
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-JSON_FILE_PATH = os.path.join(BASE_DIR, "my_apps/my_data/songdata_o_dict.json")
+DATA_DIR = os.path.join(BASE_DIR, "my_apps/my_data")
+JSON_FILE_PATH = os.path.join(DATA_DIR, "songdata_o_dict.json")
+JSON_FILE_FOR_PUBLIC_PATH = os.path.join(DATA_DIR, "songdata_ongeki_for_public.json")
+OFFICIAL_JSON_URL = "https://ongeki.sega.jp/assets/json/music/music.json"
+REIWAF5_JSON_URL = "https://reiwa.f5.si/ongeki_const_all.json"
 ONGEKI_GENRE_JSON_FILE_PATH = os.path.join(BASE_DIR, "my_apps/my_data/ongeki_genre_data.json")
 
 # 環境変数のロード
@@ -34,9 +38,6 @@ dotenv_path = os.path.join(BASE_DIR.parent, ".env")
 load_dotenv(dotenv_path)
 LINE_BOT_ACCESS_TOKEN = os.environ.get("LINE_BOT_ACCESS_TOKEN")
 LINE_USER_ID = os.environ.get("LINE_USER_ID")
-
-OFFICIAL_JSON_URL = "https://ongeki.sega.jp/assets/json/music/music.json"
-REIWAF5_JSON_URL = "https://reiwa.f5.si/ongeki_const_all.json"
 
 # --- HTTPセッション ---
 session = requests.Session()
@@ -316,11 +317,6 @@ class SongDataManager:
             return
         with open(self.data_file, "r", encoding="utf-8") as f:
             data = json.load(f)
-        # self.new_song_offi_ids = data.get("new_song_offi_ids", [])
-        # self.new_lunatic_song_offi_ids = data.get("new_lunatic_song_offi_ids", [])
-        # self.update_song_offi_ids = data.get("update_song_offi_ids", [])
-        # self.delete_song_offi_ids = data.get("delete_song_offi_ids", [])
-        # self.update_at = data.get("update_at")
         self.songs = [SongData(**song) for song in data.get("songs", [])]
         logging.info("既存データロード完了: %d件", len(self.songs))
 
@@ -340,6 +336,81 @@ class SongDataManager:
             json.dump(data, f, indent=4, ensure_ascii=False)
         decode_unicode_json_file(self.data_file)
         logging.info("データ保存完了")
+
+    def save_public_data(self) -> None:
+        """
+        公開用のJSONファイルを出力する。
+        """
+        sorted_songs = sorted(self.songs, key=lambda song: int(song.song_official_id))
+        public_data = {"songs": []}
+        for song in sorted_songs:
+            data = song.to_dict()
+            public_song = {
+                "meta": {
+                    "song_official_id": data.get("song_official_id"),
+                    "song_official_id_lunatic": data.get("song_official_id_lunatic"),
+                    "song_name": data.get("song_name"),
+                    "song_reading": data.get("song_reading"),
+                    "song_subname": data.get("song_subname"),
+                    "song_subname_nodata": data.get("song_subname_nodata"),
+                    "song_artist": data.get("song_artist"),
+                    "song_genre": data.get("song_genre"),
+                    "song_bpm": data.get("song_bpm"),
+                    "song_bpm_nodata": data.get("song_bpm_nodata"),
+                    "song_release": data.get("song_release"),
+                    "song_release_version": data.get("song_release_version"),
+                    "song_release_lunatic": data.get("song_release_lunatic"),
+                    "song_release_lunatic_version": data.get("song_release_lunatic_version"),
+                    "song_image_url": data.get("song_image_url"),
+                    "song_fumen_id": data.get("song_fumen_id"),
+                    "character": data.get("character"),
+                    "character_lunatic": data.get("character_lunatic"),
+                    "is_bonus": data.get("is_bonus"),
+                    "has_lunatic": data.get("has_lunatic"),
+                    "only_lunatic": data.get("only_lunatic"),
+                    "is_remaster": data.get("is_remaster"),
+                    "is_remaster_nodata": data.get("is_remaster_nodata")
+                },
+                "expert": {
+                    "const": data.get("exp_const"),
+                    "const_nodata": data.get("exp_const_nodata"),
+                    "notes": data.get("exp_notes"),
+                    "notes_nodata": data.get("exp_notes_nodata"),
+                    "bell": data.get("exp_bell"),
+                    "bell_nodata": data.get("exp_bell_nodata"),
+                    "notesdesigner": data.get("exp_notesdesigner"),
+                    "notesdesigner_nodata": data.get("exp_notesdesigner_nodata")
+                },
+                "master": {
+                    "const": data.get("mas_const"),
+                    "const_nodata": data.get("mas_const_nodata"),
+                    "notes": data.get("mas_notes"),
+                    "notes_nodata": data.get("mas_notes_nodata"),
+                    "bell": data.get("mas_bell"),
+                    "bell_nodata": data.get("mas_bell_nodata"),
+                    "notesdesigner": data.get("mas_notesdesigner"),
+                    "notesdesigner_nodata": data.get("mas_notesdesigner_nodata")
+                },
+                "lunatic": {
+                    "const": data.get("lun_const"),
+                    "const_nodata": data.get("lun_const_nodata"),
+                    "notes": data.get("lun_notes"),
+                    "notes_nodata": data.get("lun_notes_nodata"),
+                    "bell": data.get("lun_bell"),
+                    "bell_nodata": data.get("lun_bell_nodata"),
+                    "notesdesigner": data.get("lun_notesdesigner"),
+                    "notesdesigner_nodata": data.get("lun_notesdesigner_nodata")
+                }
+            }
+            public_data["songs"].append(public_song)
+
+        # 更新日時の追加
+        public_data["update_at"] = datetime.datetime.now().strftime("%Y/%m/%d %H:%M")
+
+        # 指定ファイル名でJSON出力
+        with open(JSON_FILE_FOR_PUBLIC_PATH, "w", encoding="utf-8") as f:
+            json.dump(public_data, f, indent=4, ensure_ascii=False)
+
 
     def _fetch_official_json(self) -> List[Dict[str, Any]]:
         """
@@ -426,7 +497,6 @@ class SongDataManager:
                 logging.error("Error fetching URL %s: %s", url, e)
         return fumen_ids_all
 
-    # ----------------------------------
 
     def update_new_songs(self) -> None:
         """
@@ -952,6 +1022,7 @@ def main() -> None:
     manager.update_fumen_data()
 
     manager.save_data()
+    manager.save_public_data()
     LineNotification.send_notification()
 
 

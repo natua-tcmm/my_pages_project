@@ -32,8 +32,8 @@ def schedule_run():
     print("-" * 50)
     print("楽曲データをデータベースにインポートします")
     print("-" * 50)
-    SongDataCNManager.import_songdata_from_json()
-    SongDataONManager.import_songdata_from_json()
+    # SongDataCNManager.import_songdata_from_json()
+    # SongDataONManager.import_songdata_from_json()
 
     print("-" * 50)
 
