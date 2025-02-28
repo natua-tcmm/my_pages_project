@@ -72,109 +72,6 @@ class SongDataCN(models.Model):
     we_kanji = models.CharField(max_length=10, null=True, blank=True)
 
 
-# CHUNITHM 曲データのマネージャ
-class SongDataCNManager(models.Manager):
-
-    # jsonからインポートするやつ
-    @classmethod
-    def import_songdata_from_json(cls):
-        """
-        楽曲情報をjsonからインポートするメソッド
-        """
-        try:
-            with open(JSON_C_FILE_PATH, "r") as f:
-                songdata_c_dict = json.load(f)
-        except FileNotFoundError:
-            print(f"ファイルが見つかりません: {JSON_C_FILE_PATH}")
-            return None
-        except json.JSONDecodeError:
-            print(f"JSONの読み込みに失敗しました: {JSON_C_FILE_PATH}")
-            return None
-
-        print("[SongDataCNManager] データベースに送信します")
-        for a_song_data in songdata_c_dict["songs"]:
-            song_official_id = a_song_data["song_official_id"]
-            if (
-                song_official_id in songdata_c_dict["new_song_offi_ids"]
-                or song_official_id in songdata_c_dict["update_song_offi_ids"]
-            ):
-                o, created = SongDataCN.objects.update_or_create(song_official_id=song_official_id, defaults=a_song_data)
-                action = "作成" if created else "更新"
-                print(f"- {action}: {o.song_name}")
-            elif song_official_id in songdata_c_dict["delete_song_offi_ids"]:
-                print(f"- 削除: {a_song_data['song_name']}")
-                n, _ = SongDataCN.objects.filter(song_official_id=song_official_id).delete()
-                if n != 1:
-                    print(f"-- 削除に失敗しました: {a_song_data['song_name']}")
-
-        print("[SongDataCNManager] 送信完了")
-
-        # 更新日時を記録
-        with open(UPDATE_AT_C_FILE_PATH, "w") as f:
-            f.write(songdata_c_dict.get("update_at"))
-
-        return
-
-    @classmethod
-    def update_rights_data(cls):
-        """
-        著作権情報を取得するメソッド
-        """
-        rights_data = requests.get("https://chunithm.sega.jp/storage/json/rightsInfo.json")
-        rights_data.encoding = rights_data.apparent_encoding
-
-        with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_chunithm.txt"), "w") as f:
-            f.write("\n".join(rights_data.json()))
-
-    @classmethod
-    def search_song_by_query_list(cls, query_list, search_settings):
-        """
-        query_listから曲データを検索するメソッド
-        """
-        search_results = SongDataCN.objects.none()
-
-        # TODO このへん後で整備する
-
-        # 曲名
-        if search_settings["is_use_name"]:
-            for query in query_list:
-                search_results = search_results | SongDataCN.objects.filter(song_name__icontains=query)
-
-        # 読み方
-        if search_settings["is_use_reading"]:
-            # query_list[0]をカタカナとアルファベット大文字に変換して濁点を取る 他の文字はなし
-            query_reading = "".join(
-                [
-                    c
-                    for c in jaconv.hira2kata(unicodedata.normalize("NFKD", query_list[0]))
-                    .upper()
-                    .translate(str.maketrans("ァィゥェォャュョッヮヵヶ", "アイウエオヤユヨツワカケ"))
-                    if ("\u30a1" <= c <= "\u30fa" or "A" <= c <= "Z")
-                ]
-            )
-            print(query_reading)
-            search_results = search_results | SongDataCN.objects.filter(song_reading__icontains=query_reading)
-
-        # アーティスト名
-        if search_settings["is_use_artists"]:
-            for query in query_list:
-                search_results = search_results | SongDataCN.objects.filter(song_artist__icontains=query)
-
-        return list(search_results)
-
-    @classmethod
-    def get_new_songs(cls, date_before_2_weekly):
-        """
-        新曲を返すメソッド
-        """
-        song_new = SongDataCN.objects.filter(song_release__gt=date_before_2_weekly)
-        search_results_song_list = list(song_new)
-        return search_results_song_list
-
-
-# ----------------------------------
-
-
 # オンゲキ 曲データ
 class SongDataON(models.Model):
     # 基本情報
@@ -240,88 +137,71 @@ class SongDataON(models.Model):
     lun_notesdesigner = models.CharField(max_length=100, null=True, blank=True)
     lun_notesdesigner_nodata = models.BooleanField(default=True)
 
+# ----------------------------------
 
-# オンゲキ 曲データのマネージャ
-class SongDataONManager(models.Manager):
+class BaseSongDataManager(models.Manager):
+    # サブクラスで上書きする
+    songdata_model : models.Model = None
+    json_file_path = None
+    update_at_file_path = None
 
-    # jsonからインポートするやつ
     @classmethod
     def import_songdata_from_json(cls):
         """
-        楽曲情報をjsonからインポートするメソッド
+        JSONから楽曲情報を読み込み、update_or_create で DB を更新する共通処理
         """
         try:
-            with open(JSON_O_FILE_PATH, "r") as f:
-                songdata_o_dict = json.load(f)
+            with open(cls.json_file_path, "r") as f:
+                data = json.load(f)
         except FileNotFoundError:
-            print(f"ファイルが見つかりません: {JSON_O_FILE_PATH}")
+            print(f"ファイルが見つかりません: {cls.json_file_path}")
             return None
         except json.JSONDecodeError:
-            print(f"JSONの読み込みに失敗しました: {JSON_O_FILE_PATH}")
+            print(f"JSONの読み込みに失敗しました: {cls.json_file_path}")
             return None
 
-        print("[SongDataONManager] データベースに送信します")
-        for a_song_data in songdata_o_dict["songs"]:
-            song_official_id = a_song_data["song_official_id"]
-            if (
-                song_official_id in songdata_o_dict["new_song_offi_ids"]
-                or song_official_id in songdata_o_dict["update_song_offi_ids"]
-            ):
-                o, created = SongDataON.objects.update_or_create(song_official_id=song_official_id, defaults=a_song_data)
+        print(f"[{cls.__name__}] データベースに送信します")
+        for song in data["songs"]:
+            song_official_id = song["song_official_id"]
+            if (song_official_id in data["new_song_offi_ids"] or
+                song_official_id in data["update_song_offi_ids"]):
+                obj, created = cls.songdata_model.objects.update_or_create(
+                    song_official_id=song_official_id,
+                    defaults=song
+                )
                 action = "作成" if created else "更新"
-                print(f"- {action}: {o.song_name}")
-            elif song_official_id in songdata_o_dict["delete_song_offi_ids"]:
-                print(f"- 削除: {a_song_data['song_name']}")
-                n, _ = SongDataON.objects.filter(song_official_id=song_official_id).delete()
+                print(f"- {action}: {obj.song_name}")
+            elif song_official_id in data.get("delete_song_offi_ids", []):
+                print(f"- 削除: {song['song_name']}")
+                n, _ = cls.songdata_model.objects.filter(song_official_id=song_official_id).delete()
                 if n != 1:
-                    print(f"-- 削除に失敗しました: {a_song_data['song_name']}")
+                    print(f"-- 削除に失敗しました: {song['song_name']}")
+        print(f"[{cls.__name__}] 送信完了")
 
-        print("[SongDataONManager] 送信完了")
-
-        # 更新日時を記録
-        with open(UPDATE_AT_O_FILE_PATH, "w") as f:
-            f.write(songdata_o_dict.get("update_at"))
-
+        # 更新日時の記録
+        with open(cls.update_at_file_path, "w") as f:
+            f.write(data.get("update_at", ""))
         return
-
-    @classmethod
-    def update_rights_data(cls):
-        """
-        著作権情報を取得するメソッド
-        """
-        ongeki_rights_url = "https://ongeki.sega.jp/assets/json/music/music.json"
-
-        # リクエストを送信
-        response = requests.get(ongeki_rights_url)
-        response.encoding = response.apparent_encoding
-        ongeki_rights_json = response.json()
-
-        ongeki_rights = []
-
-        for e in ongeki_rights_json:
-            if e["copyright1"] != "-":
-                ongeki_rights.append(e["copyright1"])
-
-        with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_ongeki.txt"), "w") as f:
-            f.write("\n".join(list(set(ongeki_rights))))
 
     @classmethod
     def search_song_by_query_list(cls, query_list, search_settings):
         """
-        query_listから曲データを検索するメソッド
+        クエリリストと検索設定から楽曲データを検索する共通処理
         """
-        search_results = SongDataON.objects.none()
 
-        # TODO このへん後で整備する
+        # TODO あとで詳しくする
 
-        # 曲名
-        if search_settings["is_use_name"]:
+        qs = cls.songdata_model.objects.all()
+        search_results = qs.none()
+
+        # 曲名による検索
+        if search_settings.get("is_use_name"):
             for query in query_list:
-                search_results = search_results | SongDataON.objects.filter(song_name__icontains=query)
+                search_results |= qs.filter(song_name__icontains=query)
 
-        # 読み方
-        if search_settings["is_use_reading"]:
-            # query_list[0]をカタカナとアルファベット大文字に変換して濁点を取る 他の文字はなし
+        # 読み方による検索
+        if search_settings.get("is_use_reading"):
+            # query_list[0] をカタカナ＋大文字アルファベットに変換し、濁点除去
             query_reading = "".join(
                 [
                     c
@@ -332,20 +212,61 @@ class SongDataONManager(models.Manager):
                 ]
             )
             print(query_reading)
-            search_results = search_results | SongDataON.objects.filter(song_reading__icontains=query_reading)
+            search_results |= qs.filter(song_reading__icontains=query_reading)
 
-        # アーティスト名
-        if search_settings["is_use_artists"]:
+        # アーティスト名による検索
+        if search_settings.get("is_use_artists"):
             for query in query_list:
-                search_results = search_results | SongDataON.objects.filter(song_artist__icontains=query)
+                search_results |= qs.filter(song_artist__icontains=query)
 
         return list(search_results)
 
     @classmethod
     def get_new_songs(cls, date_before_2_weekly):
         """
-        新曲を返すメソッド
+        指定日以降に発売された楽曲を返す共通処理
         """
-        song_new = SongDataON.objects.filter(song_release__gt=date_before_2_weekly)
-        search_results_song_list = list(song_new)
-        return search_results_song_list
+        qs = cls.songdata_model.objects.all()
+        return list(qs.filter(song_release__gt=date_before_2_weekly))
+
+
+# CHUNITHM 用マネージャー
+class SongDataCNManager(BaseSongDataManager):
+    songdata_model = SongDataCN
+    json_file_path = JSON_C_FILE_PATH
+    update_at_file_path = UPDATE_AT_C_FILE_PATH
+
+    @classmethod
+    def update_rights_data(cls):
+        """
+        CHUNITHM の著作権情報を取得するメソッド
+        """
+        rights_data = requests.get("https://chunithm.sega.jp/storage/json/rightsInfo.json")
+        rights_data.encoding = rights_data.apparent_encoding
+        with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_chunithm.txt"), "w") as f:
+            f.write("\n".join(rights_data.json()))
+
+
+# ONGEKI 用マネージャー
+class SongDataONManager(BaseSongDataManager):
+    songdata_model = SongDataON
+    json_file_path = JSON_O_FILE_PATH
+    update_at_file_path = UPDATE_AT_O_FILE_PATH
+
+    @classmethod
+    def update_rights_data(cls):
+        """
+        ONGEKI の著作権情報を取得するメソッド
+        """
+        ongeki_rights_url = "https://ongeki.sega.jp/assets/json/music/music.json"
+        response = requests.get(ongeki_rights_url)
+        response.encoding = response.apparent_encoding
+        ongeki_rights_json = response.json()
+
+        ongeki_rights = []
+        for e in ongeki_rights_json:
+            if e["copyright1"] != "-":
+                ongeki_rights.append(e["copyright1"])
+
+        with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_ongeki.txt"), "w") as f:
+            f.write("\n".join(list(set(ongeki_rights))))
