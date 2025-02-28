@@ -115,9 +115,11 @@ def const_search(request:HttpRequest):
 
 # 更新日を取得
 def get_update_time():
-    with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_at_c.txt"),"r") as f:
-        update_time = f.readline()
-    return update_time
+    # TODO const_update_at_*からもってくる！
+    ...
+    # with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_at_c.txt"),"r") as f:
+    #     update_time = f.readline()
+    # return update_time
 
 # 著作権データの取得
 def get_rights_data():
