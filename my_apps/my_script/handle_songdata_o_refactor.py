@@ -52,17 +52,17 @@ def date_to_ongekiversion(date_str: str) -> str:
     JST = datetime.timezone(datetime.timedelta(hours=+9), "JST")
     d = dateutil.parser.parse(date_str).astimezone(JST).date()
     ongeki_versions = [
-        "無印",
-        "PLUS",
-        "SUMMER",
-        "SUMMER PLUS",
-        "R.E.D.",
-        "R.E.D. PLUS",
-        "bright",
-        "bright MEMORY Act.1",
-        "bright MEMORY Act.2",
-        "bright MEMORY Act.3",
-        "Re:Fresh",
+        "オンゲキ",
+        "オンゲキ PLUS",
+        "オンゲキ SUMMER",
+        "オンゲキ SUMMER PLUS",
+        "オンゲキ R.E.D.",
+        "オンゲキ R.E.D. PLUS",
+        "オンゲキ bright",
+        "オンゲキ bright MEMORY Act.1",
+        "オンゲキ bright MEMORY Act.2",
+        "オンゲキ bright MEMORY Act.3",
+        "オンゲキ Re:Fresh",
     ]
     ongeki_versions_date = [
         datetime.date(2018, 7, 26),
