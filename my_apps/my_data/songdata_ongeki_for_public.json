@@ -29707,14 +29707,14 @@
                 "subname_nodata": true,
                 "artist": "曲：Kijibato／歌：R.B.P. [九條 楓(CV：佳村 はるか)、逢坂 茜(CV：大空 直美)、珠洲島 有栖(CV：長縄 まりあ)]",
                 "genre": "オンゲキ",
-                "bpm": null,
-                "bpm_nodata": true,
+                "bpm": 240,
+                "bpm_nodata": false,
                 "release": "2025-02-27",
                 "release_version": "オンゲキ bright MEMORY Act.3",
                 "release_lunatic": null,
                 "release_lunatic_version": null,
                 "image_url": "81393b7be8c60e96.png",
-                "fumen_id": null,
+                "fumen_id": "04363",
                 "character": "逢坂 茜",
                 "character_lunatic": null,
                 "is_bonus": false,
@@ -29726,22 +29726,22 @@
             "expert": {
                 "const": 14,
                 "const_nodata": false,
-                "notes": null,
-                "notes_nodata": true,
-                "bell": null,
-                "bell_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notes": 1610,
+                "notes_nodata": false,
+                "bell": 386,
+                "bell_nodata": false,
+                "notesdesigner": "ロシェ@ペンギン",
+                "notesdesigner_nodata": false
             },
             "master": {
                 "const": 15.4,
                 "const_nodata": false,
-                "notes": null,
-                "notes_nodata": true,
-                "bell": null,
-                "bell_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notes": 2340,
+                "notes_nodata": false,
+                "bell": 378,
+                "bell_nodata": false,
+                "notesdesigner": "奏坂学園 音撃譜面部からの挑戦状",
+                "notesdesigner_nodata": false
             },
             "lunatic": {
                 "const": null,
@@ -50959,5 +50959,5 @@
             }
         }
     ],
-    "update_at": "2025/03/01 16:35"
+    "update_at": "2025/03/01 17:41"
 }
