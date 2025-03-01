@@ -32,7 +32,7 @@ class SongDataCN(models.Model):
 
     # 発売日情報（DateField として保持。データクラスでは文字列になっていますが、DB には日付として保存）
     song_release = models.DateField(null=True, blank=True)
-    song_release_version = models.CharField(max_length=20, null=True, blank=True)
+    song_release_version = models.CharField(max_length=40, null=True, blank=True)
 
     # イメージ・譜面ID（譜面IDは「文字列5ケタ」の想定なので max_length を 5 に変更）
     song_image_url = models.CharField(max_length=100)
@@ -88,9 +88,9 @@ class SongDataON(models.Model):
 
     # リリース情報
     song_release = models.DateField(null=True, blank=True)
-    song_release_version = models.CharField(max_length=20, null=True, blank=True)
+    song_release_version = models.CharField(max_length=40, null=True, blank=True)
     song_release_lunatic = models.DateField(null=True, blank=True)
-    song_release_lunatic_version = models.CharField(max_length=20, null=True, blank=True)
+    song_release_lunatic_version = models.CharField(max_length=40, null=True, blank=True)
 
     # イメージ・譜面情報
     song_image_url = models.CharField(max_length=100)
