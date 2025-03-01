@@ -143,7 +143,7 @@ class BaseSongDataManager(models.Manager):
     # サブクラスで上書きする
     songdata_model : models.Model = None
     json_file_path = None
-    update_at_file_path = None
+    update_at_file_path = None # データベースの更新日時を記録するファイルのパス
 
     @classmethod
     def import_songdata_from_json(cls):
@@ -182,6 +182,12 @@ class BaseSongDataManager(models.Manager):
         with open(cls.update_at_file_path, "w") as f:
             f.write(data.get("update_at", ""))
         return
+
+    @classmethod
+    def get_update_time(cls):
+        with open(cls.update_at_file_path, "r") as f:
+            update_time = f.readline()
+        return update_time
 
     @classmethod
     def search_song_by_query_list(cls, query_list, search_settings):

@@ -21,7 +21,7 @@ urlpatterns = [
     path("update_info", views.update_info, name="update_info_page"),
 
     # ツール
-    path("const_search", view_const_search.const_search, name="const_search_page"),
+    path("const_search", view_const_search.ConstSearchView.as_view(), name="const_search_page"),
     path("fullbell", views.fullbell, name="fullbell_page"),
     path("bpm_checker", views.bpm_checker, name="bpm_checker_page"),
     path("ongeki_op", view_ongeki_op.ongeki_op, name="ongeki_op_page"),

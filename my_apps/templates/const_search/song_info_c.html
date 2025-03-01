@@ -29,13 +29,13 @@
                     class="font-weight-bold">{{song.ult_const}}</span>{% else %}<span class="text-black-50 h6">No
                     Data</span>{% endif %}</h5>
         </div>
-        {% else %}
+        {% comment %} {% else %}
         <div class="col-auto justify-content-end align-items-center border-right-master constdisp_ultima"
             style="display: none;">
             <h5 class="mb-0">{% if song.mas_const_nodata is False %}<span
                     class="font-weight-bold">{{song.mas_const}}</span>{% else %}<span class="text-black-50 h6">No
                     Data</span>{% endif %}</h5>
-        </div>
+        </div> {% endcomment %}
         {% endif %}
 
     </div>
@@ -53,7 +53,7 @@
                 <p class="mb-1 mt-1">ジャンル: {{song.song_genre}}</p>
                 <p class="mb-1 mt-1">BPM: {% if song.song_bpm_nodata is False %}<span>{{song.song_bpm}}</span>{% else %}<span
                         class="text-black-50">No Data</span>{% endif %}</p>
-                <p class="mb-1 mt-1">収録日: {{song.song_release}}</p>
+                <p class="mb-1 mt-1">収録日: {{song.song_release}} ({{song.song_release_version}})</p>
 
             </div>
 
@@ -61,14 +61,14 @@
             <div class="col order-last">
 
                 <div class="row d-flex justify-content-end align-items-center border-right-expert pt-1 pb-1">
-                    {% if song.expert_notes_nodata is False %}<p class="mb-1 mt-1 pr-2 border-right">{{song.exp_notes}} Notes
+                    {% if song.exp_notes_nodata is False %}<p class="mb-1 mt-1 pr-2 border-right">{{song.exp_notes}} Notes
                     </p>{% endif %}
                     <h5 class="pl-2 mb-1 mt-1 mr-2">{% if song.exp_const_nodata is False %}<span
                             class="font-weight-bold">{{song.exp_const}}</span>{% else %}<span
                             class="text-black-50 h6">No Data</span>{% endif %}</h5>
                 </div>
                 <div class="row d-flex justify-content-end align-items-center border-right-master mt-1 mb-1">
-                    {% if song.master_notes_nodata is False %}<p class="mb-1 mt-1 pr-2 border-right">{{song.mas_notes}} Notes
+                    {% if song.mas_notes_nodata is False %}<p class="mb-1 mt-1 pr-2 border-right">{{song.mas_notes}} Notes
                     </p>{% endif %}
                     <h5 class="pl-2 mb-1 mt-1 mr-2">{% if song.mas_const_nodata is False %}<span
                             class="font-weight-bold">{{song.mas_const}}</span>{% else %}<span
@@ -76,7 +76,7 @@
                 </div>
                 {% if song.has_ultima is True %}
                 <div class="row d-flex justify-content-end align-items-center border-right-ultima pt-1 pb-1">
-                    {% if song.ultima_notes_nodata is False %}<p class="mb-1 mt-1 pr-2 border-right">{{song.ult_notes}} Notes
+                    {% if song.ult_notes_nodata is False %}<p class="mb-1 mt-1 pr-2 border-right">{{song.ult_notes}} Notes
                     </p>{% endif %}
                     <h5 class="pl-2 mb-1 mt-1 mr-2">{% if song.ult_const_nodata is False %}<span
                             class="font-weight-bold">{{song.ult_const}}</span>{% else %}<span
@@ -95,7 +95,7 @@
                 <div class="col-auto pr-0 pb-1">
                     <button id="actionbtn1_{{song.id}}" class="col-auto pl-4  btn btn-outline-secondary dropdown-toggle"
                         type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                        {% if not song.fumen_id %} disabled {% endif %}>
+                        {% if not song.song_fumen_id %} disabled {% endif %}>
                         譜面画像<span style="font-size:.7rem">(外部ページ)</span>
                     </button>
                     <div class="dropdown-menu">
@@ -112,20 +112,19 @@
                         {% if song.has_ultima is True %}
                         <button id="fumenbtn-u_{{song.id}}"
                             class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
-                            {% if song.fumen_id == 0 or song.ultima_const == 0 %} disabled {% endif %}>
+                            {% if song.fumen_id == 0 %} disabled {% endif %}>
                             <span class="color-ultima mr-1">■</span>ULTIMA<i class="ml-2 fas fa-external-link-alt"></i>
                         </button>
                         {% endif %}
                         <script>
-                            // var fumen_id_{{ song.id }} = Number("{{song.fumen_id}}");
                             document.getElementById("fumenbtn-e_{{song.id}}").onclick = function () {
-                                window.open("https://www.sdvx.in/chunithm/" + (Number("{{song.fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.fumen_id}}").toFixed().padStart(5, "0") + "exp.htm");
+                                window.open("https://www.sdvx.in/chunithm/" + (Number("{{song.song_fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.song_fumen_id}}").toFixed().padStart(5, "0") + "exp.htm");
                             }
                             document.getElementById("fumenbtn-m_{{song.id}}").onclick = function () {
-                                window.open("https://www.sdvx.in/chunithm/" + (Number("{{song.fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.fumen_id}}").toFixed().padStart(5, "0") + "mst.htm");
+                                window.open("https://www.sdvx.in/chunithm/" + (Number("{{song.song_fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.song_fumen_id}}").toFixed().padStart(5, "0") + "mst.htm");
                             }
                             document.getElementById("fumenbtn-u_{{song.id}}").onclick = function () {
-                                window.open("https://www.sdvx.in/chunithm/ult/" + Number("{{song.fumen_id}}").toFixed().padStart(5, "0") + "ult.htm");
+                                window.open("https://www.sdvx.in/chunithm/ult/" + Number("{{song.song_fumen_id}}").toFixed().padStart(5, "0") + "ult.htm");
                             }
 
                         </script>

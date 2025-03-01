@@ -129,10 +129,6 @@ var search_songs = function (e, type) {
             response_count++;
             update_search_status();
 
-            // update時
-            if (response.update_log.length > 2)
-                console.log(response.update_log);
-
             // より新しい検索ならば
             if(before_request_time < response.request_time){
 

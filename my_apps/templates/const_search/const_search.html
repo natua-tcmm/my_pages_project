@@ -9,7 +9,7 @@
         <div class="container-fluid pl-0">
             <div class="row mb-2">
                 <div class="col">
-                    <h1 class="m-0">クイック定数検索</h1>
+                    <h1 class="m-0">クイック定数検索+</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -31,7 +31,7 @@
                     <div class="card card-primary card-outline">
 
                         <div class="card-header">
-                            <h3 class="card-title"><span class="mr-3">クイック定数検索[β版]</span>
+                            <h3 class="card-title"><span class="mr-3">クイック定数検索+</span>
 
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                     <label class="btn btn-sm btn-outline-primary active">
@@ -40,6 +40,15 @@
                                     </label>
                                     <label class="btn btn-sm btn-outline-primary">
                                         <input type="radio" name="options" id="type-o" autocomplete="off"> オンゲキ版
+                                    </label>
+                                </div>
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-sm btn-outline-primary active">
+                                        <input type="radio" name="options" id="disp-light" autocomplete="off" checked="">
+                                        簡易表示
+                                    </label>
+                                    <label class="btn btn-sm btn-outline-primary">
+                                        <input type="radio" name="options" id="disp-full" autocomplete="off"> 詳細表示
                                     </label>
                                 </div>
                             </h3>
@@ -139,7 +148,7 @@
                         </div>
 
                         <div class="card-footer">
-                            <p class="mb-0 float-right fs-6 text-black-50">情報更新: {{const_update_time}}</p>
+                            <p class="mb-0 float-right fs-6 text-black-50">{{const_update_time}}</p>
                         </div>
 
                     </div>
