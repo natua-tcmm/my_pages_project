@@ -20,6 +20,22 @@
     border-right: 4px solid #b0b0b0;
 }
 
+.border-left-expert {
+    border-left: 4px solid #cc3232;
+}
+
+.border-left-master {
+    border-left: 4px solid #9932cc;
+}
+
+.border-left-ultima {
+    border-left: 4px solid #160505;
+}
+
+.border-left-lunatic {
+    border-left: 4px solid #b0b0b0;
+}
+
 .color-expert {
     color: #cc3232;
 }

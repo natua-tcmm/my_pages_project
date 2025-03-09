@@ -10,6 +10,7 @@
         </div>
 
         <!-- 定数 -->
+        {% if song.only_ultima is False %}
         <div class="col-auto justify-content-end align-items-center border-right-expert constdisp_expert"
             style="display: none;">
             <h5 class="mb-0">{% if song.exp_const_nodata is False %}<span
@@ -22,6 +23,7 @@
                     class="font-weight-bold">{{song.mas_const}}</span>{% else %}<span class="text-black-50 h6">No
                     Data</span>{% endif %}</h5>
         </div>
+        {% endif %}
         {% if song.has_ultima is True %}
         <div class="col-auto justify-content-end align-items-center border-right-ultima constdisp_ultima"
             style="display: none;">
@@ -29,13 +31,13 @@
                     class="font-weight-bold">{{song.ult_const}}</span>{% else %}<span class="text-black-50 h6">No
                     Data</span>{% endif %}</h5>
         </div>
-        {% comment %} {% else %}
+        {% else %}
         <div class="col-auto justify-content-end align-items-center border-right-master constdisp_ultima"
             style="display: none;">
             <h5 class="mb-0">{% if song.mas_const_nodata is False %}<span
                     class="font-weight-bold">{{song.mas_const}}</span>{% else %}<span class="text-black-50 h6">No
                     Data</span>{% endif %}</h5>
-        </div> {% endcomment %}
+        </div>
         {% endif %}
 
     </div>
@@ -45,30 +47,175 @@
 
     <div class="container">
 
-        <div class="row">
-
-            <!-- 情報表示 -->
-            <div class="col order-first">
-
-                <p class="mb-1 mt-1">ジャンル: {{song.song_genre}}</p>
-                <p class="mb-1 mt-1">BPM: {% if song.song_bpm_nodata is False %}<span>{{song.song_bpm}}</span>{% else %}<span
-                        class="text-black-50">No Data</span>{% endif %}</p>
-                <p class="mb-1 mt-1">収録日: {{song.song_release}} ({{song.song_release_version}})</p>
-
+        <!-- expert -->
+        {% if song.only_ultima is False %}
+        <div class="row mt-2 mb-2">
+            <div class="col border-left-expert">
+                <!-- const notes -->
+                <div class="row d-flex justify-content-start align-items-center pt-1">
+                    <h5 class="pr-2 mb-0 mt-0 ml-2">{% if song.exp_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.exp_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No Data</span>{% endif %}</h5>
+                    <p class="mb-0 mt-0 pl-2 border-left">
+                        {% if song.exp_notes_nodata is False %}<span>{{song.exp_notes}} Notes </span>{% else %} <span
+                            class="text-black-50">No Data</span> {% endif %}</p>
+                </div>
+                <!-- notesdesigner -->
+                <div class="row d-flex justify-content-start align-items-center pt-1 pb-1">
+                    <p class="mb-0 mt-0 ml-2">
+                        {% if song.exp_notesdesigner_nodata is False %}<span class="text-black-50">ND:
+                            {{song.exp_notesdesigner}}</span>
+                        {% else %} <span class="text-black-50">ND: No Data</span> {% endif %}</p>
+                </div>
             </div>
+            <!-- 譜面画像ボタン -->
+            <div class="col-auto justify-content-end align-self-center pr-0">
+                <button id="fumenbtn-e_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
+                    {% if song.fumen_id == 0 %} disabled {% endif %}>譜面画像 <i
+                        class="ml-2 fas fa-external-link-alt"></i></button>
+                </button>
+            </div>
+        </div>
 
-            <!-- 各定数表示 -->
-            <div class="col order-last">
+        <!-- master -->
+        <div class="row mb-2">
+            <div class="col border-left-master">
+                <!-- const notes -->
+                <div class="row d-flex justify-content-start align-items-center pt-1">
+                    <h5 class="pr-2 mb-0 mt-0 ml-2">{% if song.mas_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.mas_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No Data</span>{% endif %}</h5>
+                    <p class="mb-0 mt-0 pl-2 border-left">
+                        {% if song.mas_notes_nodata is False %}<span>{{song.mas_notes}} Notes </span>{% else %} <span
+                            class="text-black-50">No Data</span> {% endif %}</p>
+                </div>
+                <!-- notesdesigner -->
+                <div class="row d-flex justify-content-start align-items-center pt-1 pb-1">
+                    <p class="mb-0 mt-0 ml-2">
+                        {% if song.mas_notesdesigner_nodata is False %}<span class="text-black-50">ND:
+                            {{song.mas_notesdesigner}}</span>
+                        {% else %} <span class="text-black-50">ND: No Data</span> {% endif %}</p>
+                </div>
+            </div>
+            <!-- 譜面画像ボタン -->
+            <div class="col-auto justify-content-end align-self-center pr-0">
+                <button id="fumenbtn-m_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
+                    {% if song.fumen_id == 0 %} disabled {% endif %}>譜面画像 <i
+                        class="ml-2 fas fa-external-link-alt"></i></button>
+                </button>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- ultima -->
+        {% if song.has_ultima %}
+        <div class="row mb-2">
+            <div class="col border-left-ultima">
+                <!-- const notes -->
+                <div class="row d-flex justify-content-start align-items-center pt-1">
+                    <h5 class="pr-2 mb-0 mt-0 ml-2">{% if song.ult_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.ult_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No Data</span>{% endif %}</h5>
+                    <p class="mb-0 mt-0 pl-2 border-left">
+                        {% if song.ult_notes_nodata is False %}<span>{{song.ult_notes}} Notes </span>{% else %} <span
+                            class="text-black-50">No Data</span> {% endif %}</p>
+                </div>
+                <!-- notesdesigner -->
+                <div class="row d-flex justify-content-start align-items-center pt-1 pb-1">
+                    <p class="mb-0 mt-0 ml-2">
+                        {% if song.ult_notesdesigner_nodata is False %}<span class="text-black-50">ND:
+                            {{song.ult_notesdesigner}}</span>
+                        {% else %} <span class="text-black-50">ND: No Data</span> {% endif %}</p>
+                </div>
+            </div>
+            <!-- 譜面画像ボタン -->
+            <div class="col-auto justify-content-end align-self-center pr-0">
+                <button id="fumenbtn-u_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
+                    {% if song.fumen_id == 0 %} disabled {% endif %}>譜面画像 <i
+                        class="ml-2 fas fa-external-link-alt"></i></button>
+                </button>
+            </div>
+        </div>
+        {% endif %}
+
+        <hr class="mt-4 mb-4" />
+
+        <!-- 情報表示 -->
+        <div class="row mb-2">
+            <span class="badge badge-pill badge-info mr-1">{{song.song_genre}}</span>
+            <span class="badge badge-pill badge-secondary mr-1">{{song.song_release_version}}</span>
+        </div>
+        <div class="row mb-2">
+            楽曲名順「〇〇」n番目
+        </div>
+        <div class="row mb-2">
+            <div class="col-12 pl-0">
+                <p class="mb-0">BPM:
+                    {% if song.song_bpm_nodata is False %}<span>{{song.song_bpm}}</span>{% else %}<span
+                        class="text-black-50">No
+                        Data</span>{% endif %}</p>
+            </div>
+            <div class="col-12 pl-0">
+                <p class="mb-0">収録日: {{song.song_release}} ({{song.song_release_version}})</p>
+            </div>
+        </div>
+
+        <!-- ボタン -->
+        <div class="row justify-content-end align-items-center">
+            <div class="col-auto pr-0 pb-1">
+                <button id="actionbtn2_{{song.id}}" class="col-auto pl-4 btn btn-outline-secondary dropdown-toggle"
+                    type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    各種ツール・リンク
+                </button>
+                <div class="dropdown-menu">
+                    <button onclick="navigator.clipboard.writeText('{{song.song_name}}')" id="song_name_copy"
+                        class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button">
+                        曲名をコピー<i class="pl-2 far fa-copy"></i>
+                    </button>
+                    <button onclick="navigator.clipboard.writeText('{{song.song_name}} / {{song.song_artist}}')"
+                        id="song_name_copy" class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item"
+                        type="button">
+                        曲名＆アーティスト名をコピー<i class="pl-2 far fa-copy"></i>
+                    </button>
+                    <div class="dropdown-divider"></div>
+                    <button id="bpm_link_{{song.id}}"
+                        class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button"
+                        {% if song.song_bpm_nodata is True %} disabled {% endif %}>
+                        BPMチェック
+                    </button>
+                    <button onclick='window.open("https://wikiwiki.jp/chunithmwiki/{{song.song_name}}")'
+                        class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button">
+                        攻略wiki <span style="font-size:.7rem">(外部ページ)</span>
+                        <i class="ml-2 fas fa-external-link-alt"></i>
+                    </button>
+                    <button onclick='window.open("https://db.chunirec.net/search?q={{song.song_name}}")'
+                        class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button">
+                        統計情報 <span style="font-size:.7rem">(外部ページ)</span>
+                        <i class="ml-2 fas fa-external-link-alt"></i>
+                    </button>
+                </div>
+                <script>
+                    document.getElementById("bpm_link_{{song.id}}").onclick = function () {
+                        window.location.href = "{% url 'my_apps:bpm_checker_page' %}?bpm={{song.song_bpm}}";
+                    };
+                </script>
+            </div>
+        </div>
+
+        <!-- 各定数表示 -->
+        <!-- <div class="col order-last">
 
                 <div class="row d-flex justify-content-end align-items-center border-right-expert pt-1 pb-1">
-                    {% if song.exp_notes_nodata is False %}<p class="mb-1 mt-1 pr-2 border-right">{{song.exp_notes}} Notes
+                    {% if song.exp_notes_nodata is False %}<p class="mb-1 mt-1 pr-2 border-right">{{song.exp_notes}}
+                        Notes
                     </p>{% endif %}
                     <h5 class="pl-2 mb-1 mt-1 mr-2">{% if song.exp_const_nodata is False %}<span
                             class="font-weight-bold">{{song.exp_const}}</span>{% else %}<span
                             class="text-black-50 h6">No Data</span>{% endif %}</h5>
                 </div>
                 <div class="row d-flex justify-content-end align-items-center border-right-master mt-1 mb-1">
-                    {% if song.mas_notes_nodata is False %}<p class="mb-1 mt-1 pr-2 border-right">{{song.mas_notes}} Notes
+                    {% if song.mas_notes_nodata is False %}<p class="mb-1 mt-1 pr-2 border-right">{{song.mas_notes}}
+                        Notes
                     </p>{% endif %}
                     <h5 class="pl-2 mb-1 mt-1 mr-2">{% if song.mas_const_nodata is False %}<span
                             class="font-weight-bold">{{song.mas_const}}</span>{% else %}<span
@@ -76,20 +223,21 @@
                 </div>
                 {% if song.has_ultima is True %}
                 <div class="row d-flex justify-content-end align-items-center border-right-ultima pt-1 pb-1">
-                    {% if song.ult_notes_nodata is False %}<p class="mb-1 mt-1 pr-2 border-right">{{song.ult_notes}} Notes
+                    {% if song.ult_notes_nodata is False %}<p class="mb-1 mt-1 pr-2 border-right">{{song.ult_notes}}
+                        Notes
                     </p>{% endif %}
                     <h5 class="pl-2 mb-1 mt-1 mr-2">{% if song.ult_const_nodata is False %}<span
                             class="font-weight-bold">{{song.ult_const}}</span>{% else %}<span
                             class="text-black-50 h6">No Data</span>{% endif %}</h5>
                 </div>
                 {% endif %}
-            </div>
+            </div> -->
 
-        </div>
+    </div>
 
 
-        <!-- ツールボタン -->
-        <div class="container mt-2">
+    <!-- ツールボタン -->
+    <!-- <div class="container mt-2">
             <div class="row justify-content-end align-items-center">
 
                 <div class="col-auto pr-0 pb-1">
@@ -116,18 +264,6 @@
                             <span class="color-ultima mr-1">■</span>ULTIMA<i class="ml-2 fas fa-external-link-alt"></i>
                         </button>
                         {% endif %}
-                        <script>
-                            document.getElementById("fumenbtn-e_{{song.id}}").onclick = function () {
-                                window.open("https://www.sdvx.in/chunithm/" + (Number("{{song.song_fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.song_fumen_id}}").toFixed().padStart(5, "0") + "exp.htm");
-                            }
-                            document.getElementById("fumenbtn-m_{{song.id}}").onclick = function () {
-                                window.open("https://www.sdvx.in/chunithm/" + (Number("{{song.song_fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.song_fumen_id}}").toFixed().padStart(5, "0") + "mst.htm");
-                            }
-                            document.getElementById("fumenbtn-u_{{song.id}}").onclick = function () {
-                                window.open("https://www.sdvx.in/chunithm/ult/" + Number("{{song.song_fumen_id}}").toFixed().padStart(5, "0") + "ult.htm");
-                            }
-
-                        </script>
                     </div>
                 </div>
                 <div class="col-auto pr-0 pb-1">
@@ -170,10 +306,22 @@
                 </div>
 
             </div>
-        </div>
+        </div> -->
 
 
     </div>
 
+    <script>
+        document.getElementById("fumenbtn-e_{{song.id}}").onclick = function () {
+            window.open("https://www.sdvx.in/chunithm/" + (Number("{{song.song_fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.song_fumen_id}}").toFixed().padStart(5, "0") + "exp.htm");
+        }
+        document.getElementById("fumenbtn-m_{{song.id}}").onclick = function () {
+            window.open("https://www.sdvx.in/chunithm/" + (Number("{{song.song_fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.song_fumen_id}}").toFixed().padStart(5, "0") + "mst.htm");
+        }
+        document.getElementById("fumenbtn-u_{{song.id}}").onclick = function () {
+            window.open("https://www.sdvx.in/chunithm/ult/" + Number("{{song.song_fumen_id}}").toFixed().padStart(5, "0") + "ult.htm");
+        }
+
+    </script>
 
 </a>
