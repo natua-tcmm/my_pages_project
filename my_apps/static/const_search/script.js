@@ -2,7 +2,7 @@
 window.onload = function () {
     window.setTimeout(function(e){
         $("#query").select();
-        search_songs(e, "c");
+        search_songs(e, "c", "s");
     },10);
 };
 
@@ -44,8 +44,33 @@ $("#clear-button").on("click", function (e) {
     $("#query").select();
 
     // 空表示を取得
-    search_songs(e, type);
+    search_songs(e, type, disp);
 });
+
+// 表示方式選択
+var disp = "s"
+$("#disp-full").on("click", function (e) {
+    if ($("#disp-full").prop("checked")) {
+        disp = "f";
+    }
+    else {
+        disp = "s";
+    }
+    search_songs(e, type, disp);
+    setTimeout(() => { $("#query").select(); }, 5);
+}
+);
+$("#disp-simple").on("click", function (e) {
+    if ($("#disp-simple").prop("checked")) {
+        disp = "s";
+    }
+    else {
+        disp = "f";
+    }
+    search_songs(e, type, disp);
+    setTimeout(() => { $("#query").select(); }, 5);
+}
+);
 
 // 機種選択
 var type = "c"
@@ -56,7 +81,7 @@ $("#type-c").on("click", function (e) {
     else {
         type = "o";
     }
-    search_songs(e, type);
+    search_songs(e, type, disp);
     setTimeout(() => { $("#query").select(); }, 5);
 });
 $("#type-o").on("click", function (e) {
@@ -66,7 +91,7 @@ $("#type-o").on("click", function (e) {
     else {
         type = "c";
     }
-    search_songs(e, type);
+    search_songs(e, type, disp);
     setTimeout(() => { $("#query").select(); }, 5);
 });
 
@@ -87,12 +112,12 @@ $('#ajax-search').on('submit input', function (e) {
     // console.log($("#is_use_name").prop('checked'));
 
     // 検索
-    search_songs(e, type);
+    search_songs(e, type, disp);
 });
 
 // 楽曲検索
 var before_request_time = 0
-var search_songs = function (e, type) {
+var search_songs = function (e, type, disp) {
 
     // 検索ステータスを更新
     request_count++;
@@ -116,6 +141,7 @@ var search_songs = function (e, type) {
             "is_use_reading": $("#is_use_reading").prop('checked'),
             "is_use_artists": $("#is_use_artists").prop('checked'),
             "type": type,
+            "display_type": disp,
             "request_time": new Date().getTime(),
         },
         'dataType': 'json',

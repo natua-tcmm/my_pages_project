@@ -20,6 +20,7 @@ class ConstSearchView(View):
 
     songdata_manager = SongDataCNManager
     type_game = "c"
+    display_type = "s"
     search_settings = {
         "is_use_name": True,
         "is_use_reading": True,
@@ -46,6 +47,7 @@ class ConstSearchView(View):
         for key in self.search_settings.keys():
             self.search_settings[key] = (post.get(key) == "true")
         self.type_game = post.get("type")
+        self.display_type = post.get("display_type")
         request_time = post.get("request_time")
 
         # レスポンス初期化
@@ -81,7 +83,7 @@ class ConstSearchView(View):
 
             # 検索結果のレンダリング
             search_results_html = [
-                render_to_string(f"const_search/song_info_{self.type_game}.html", context={"song": song})
+                render_to_string(f"const_search/song_info_{self.type_game}_{self.display_type}.html", context={"song": song})
                 for song in search_results_song_list[:30]
             ]
             search_results_html.append(
@@ -96,7 +98,7 @@ class ConstSearchView(View):
             search_hit_count = len(search_results_song_list)
 
             # 検索結果のレンダリング
-            search_results_html = self._render_search_result(search_results_song_list, self.type_game)
+            search_results_html = self._render_search_result(search_results_song_list, self.type_game, self.display_type)
 
         # --------------------------------------------------
         # レスポンスの生成
@@ -144,10 +146,10 @@ class ConstSearchView(View):
         return query_list
 
     # 結果のレンダリング
-    def _render_search_result(self,search_results_song_list, type_game):
+    def _render_search_result(self,search_results_song_list, type_game, display_type):
         search_hit_count = len(search_results_song_list)
         search_results_html = [
-            render_to_string(f"const_search/song_info_{type_game}.html", context={"song": song})
+            render_to_string(f"const_search/song_info_{type_game}_{display_type}.html", context={"song": song})
             for song in search_results_song_list[:30]
         ]
 
