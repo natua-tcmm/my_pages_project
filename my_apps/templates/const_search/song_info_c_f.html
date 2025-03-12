@@ -5,7 +5,7 @@
     <div class="row">
         <!-- 曲名とアーティスト名 -->
         <div class="col">
-            <h5 class="mb-1">{{song.song_name}}</h5>
+            <h5 class="mb-1" id="song-name_{{song.id}}">{{song.song_name}}</h5>
             <span class="text-secondary">{{song.song_artist}}</span>
         </div>
 
@@ -169,7 +169,7 @@
                 </button>
             </div>
             <div class="col-auto pr-0 pb-1">
-                <button id="actionbtn2_{{song.id}}" class="col-auto pl-4 btn btn-outline-secondary dropdown-toggle"
+                <button id="actionbtn2_{{song.id}}" class="col-auto btn btn-outline-secondary dropdown-toggle"
                     type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     その他
                 </button>
@@ -207,6 +207,21 @@
     </div>
 
     <script>
+        // 曲名コピー
+        $("#c_{{song.id}}").on("show.bs.collapse", function () {
+
+            console.log("曲名をコピーしました。");
+            navigator.clipboard.writeText("{{song.song_name}}");
+
+            var song_name = $("#song-name_{{song.id}}").text();
+            $("#song-name_{{song.id}}").text("【曲名をコピーしました】");
+            setTimeout(function () {
+                $("#song-name_{{song.id}}").text(song_name);
+            }, 500);
+
+        });
+
+        // 譜面画像ボタン
         document.getElementById("fumenbtn-e_{{song.id}}").onclick = function () {
             window.open("https://www.sdvx.in/chunithm/" + (Number("{{song.song_fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.song_fumen_id}}").toFixed().padStart(5, "0") + "exp.htm");
         }
