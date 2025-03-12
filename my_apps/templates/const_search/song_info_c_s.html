@@ -63,14 +63,14 @@
                 <div class="col-auto justify-content-end align-self-center pr-0 constdisp_expert"
                     style="display: none;">
                     <button id="fumenbtn-e_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
-                        {% if song.fumen_id == 0 %} disabled {% endif %}>
+                        {% if song.song_fumen_id  %}{% else %} disabled {% endif %}>
                         譜面画像 <i class="ml-2 fas fa-external-link-alt"></i></button>
                     </button>
                 </div>
                 <div class="col-auto justify-content-end align-self-center pr-0 constdisp_master"
                     style="display: flex;">
                     <button id="fumenbtn-m_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
-                        {% if song.fumen_id == 0 %} disabled {% endif %}>
+                        {% if song.song_fumen_id  %}{% else %} disabled {% endif %}>
                         譜面画像 <i class="ml-2 fas fa-external-link-alt"></i></button>
                     </button>
                 </div>
@@ -79,14 +79,14 @@
                 <div class="col-auto justify-content-end align-self-center pr-0 constdisp_ultima"
                     style="display: none;">
                     <button id="fumenbtn-u_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
-                        {% if song.fumen_id == 0 %} disabled {% endif %}>
+                        {% if song.song_fumen_id  %}{% else %} disabled {% endif %}>
                         譜面画像 <i class="ml-2 fas fa-external-link-alt"></i></button>
                     </button>
                 </div>
                 {% else %}
                 <div class="col-auto justify-content-end align-self-center pr-0 constdisp_ultima" style="display: none;">
                     <button id="fumenbtn-m_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
-                        {% if song.fumen_id == 0 %} disabled {% endif %}>
+                        {% if song.song_fumen_id  %}{% else %} disabled {% endif %}>
                         譜面画像 <i class="ml-2 fas fa-external-link-alt"></i></button>
                     </button>
                 </div>

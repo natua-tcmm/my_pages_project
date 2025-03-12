@@ -71,7 +71,7 @@
             <!-- 譜面画像ボタン -->
             <div class="col-auto justify-content-end align-self-center pr-0">
                 <button id="fumenbtn-e_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
-                    {% if song.fumen_id == 0 %} disabled {% endif %}>譜面画像 <i
+                    {% if song.song_fumen_id  %}{% else %} disabled {% endif %}>譜面画像 <i
                         class="ml-2 fas fa-external-link-alt"></i></button>
                 </button>
             </div>
@@ -100,7 +100,7 @@
             <!-- 譜面画像ボタン -->
             <div class="col-auto justify-content-end align-self-center pr-0">
                 <button id="fumenbtn-m_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
-                    {% if song.fumen_id == 0 %} disabled {% endif %}>譜面画像 <i
+                    {% if song.song_fumen_id  %}{% else %} disabled {% endif %}>譜面画像 <i
                         class="ml-2 fas fa-external-link-alt"></i></button>
                 </button>
             </div>
@@ -131,7 +131,7 @@
             <!-- 譜面画像ボタン -->
             <div class="col-auto justify-content-end align-self-center pr-0">
                 <button id="fumenbtn-u_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
-                    {% if song.fumen_id == 0 %} disabled {% endif %}>譜面画像 <i
+                    {% if song.song_fumen_id  %}{% else %} disabled {% endif %}>譜面画像 <i
                         class="ml-2 fas fa-external-link-alt"></i></button>
                 </button>
             </div>
