@@ -225,6 +225,9 @@ class BaseSongDataManager(models.Manager):
             for query in query_list:
                 search_results |= qs.filter(song_artist__icontains=query)
 
+
+        # TODO 検索絞り込み、内部処理の追加
+
         return list(search_results)
 
     @classmethod

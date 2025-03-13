@@ -25,7 +25,7 @@ class ConstSearchView(View):
         "is_use_name": True,
         "is_use_reading": True,
         "is_use_artists": False,
-        # TODO search_settingsの設定を追加・調整
+        "is_use_nd": False,
     }
 
     def get(self, request, *args, **kwargs):
@@ -106,7 +106,8 @@ class ConstSearchView(View):
         response |= {
             "search_response": search_results_html[::-1],
             "search_hit_count": search_hit_count,
-            "search_query_list": sorted(query_list).__str__(),
+            # "search_query_list": sorted(query_list).__str__(),
+            "query_input": query,
             "type": self.type_game,
         }
         return JsonResponse(response)

@@ -47,53 +47,27 @@ $("#clear-button").on("click", function (e) {
     search_songs(e, type, disp);
 });
 
-// 表示方式選択
-var disp = "s"
-$("#disp-full").on("click", function (e) {
-    if ($("#disp-full").prop("checked")) {
-        disp = "f";
-    }
-    else {
-        disp = "s";
-    }
-    search_songs(e, type, disp);
-    setTimeout(() => { $("#query").select(); }, 5);
-}
-);
-$("#disp-simple").on("click", function (e) {
-    if ($("#disp-simple").prop("checked")) {
-        disp = "s";
-    }
-    else {
-        disp = "f";
-    }
-    search_songs(e, type, disp);
-    setTimeout(() => { $("#query").select(); }, 5);
-}
-);
+var disp = "s", type = "c";
 
-// 機種選択
-var type = "c"
-$("#type-c").on("click", function (e) {
-    if ($("#type-c").prop("checked")) {
-        type = "c";
-    }
-    else {
-        type = "o";
-    }
+// 表示方式の変更（idが"disp-"で始まるラジオボタン）
+$("input[id^='disp-']").on("change", function (e) {
+    // クリックされたラジオのidで判定
+    disp = $(this).attr("id") === "disp-full" ? "f" : "s";
     search_songs(e, type, disp);
     setTimeout(() => { $("#query").select(); }, 5);
 });
-$("#type-o").on("click", function (e) {
-    if ($("#type-o").prop("checked")) {
-        type = "o";
-    }
-    else {
-        type = "c";
-    }
+
+// 機種の変更（idが"type-"で始まるラジオボタン）
+$("input[id^='type-']").on("change", function (e) {
+    type = $(this).attr("id") === "type-o" ? "o" : "c";
+
+    // "/ジャンル名"文字列の表示
+    $("#subname_text").css("display", type === "o" ? "" : "none");
+
     search_songs(e, type, disp);
     setTimeout(() => { $("#query").select(); }, 5);
 });
+
 
 // --------------------------------
 
@@ -138,8 +112,10 @@ var search_songs = function (e, type, disp) {
             "csrfmiddlewaretoken": csrfmiddlewaretoken,
             'query': $('#query').val(),
             "is_use_name": $("#is_use_name").prop('checked'),
-            "is_use_reading": $("#is_use_reading").prop('checked'),
+            // "is_use_reading": $("#is_use_reading").prop('checked'),
+            "is_use_reading": $("#is_use_name").prop('checked'),
             "is_use_artists": $("#is_use_artists").prop('checked'),
+            "is_use_nd": $("#is_use_nd").prop('checked'),
             "type": type,
             "display_type": disp,
             "request_time": new Date().getTime(),
@@ -149,14 +125,11 @@ var search_songs = function (e, type, disp) {
         //成功時
         .done(function (response) {
 
-            // console.log( before_request_time +" < "+response.request_timeaa );
+            console.log( $('#query').val() , response.query);
 
-            // 検索ステータスを更新
-            response_count++;
-            update_search_status();
-
-            // より新しい検索ならば
-            if(before_request_time < response.request_time){
+            // 検索表示を更新する条件
+            // より新しい検索かつ、queryが同一
+            if(before_request_time < response.request_time && $('#query').val() == response.query){
 
                 // 前回検索時間を更新
                 before_request_time = response.request_time
@@ -169,17 +142,19 @@ var search_songs = function (e, type, disp) {
                     $("#post-songs").prepend(response.search_response[i]);
 
                 $("#search_hit_text").html("検索結果 : " + response.search_hit_count + " 件");
-                $("#search-query-list-display").html(response.search_query_list);
+                // $("#search-query-list-display").html(response.search_query_list);
 
+                $("#loading_text").css("display", "none");
             }
             // 無効にされる検索結果ならば
             else{
                 // 検索ステータスを更新
                 invalid_response_count++;
-                update_search_status();
             }
 
-            $("#loading_text").css("display", "none");
+            // 検索ステータスを更新
+            response_count++;
+            update_search_status();
 
         })
         //失敗時
