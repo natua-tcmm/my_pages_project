@@ -2,6 +2,24 @@
     font-size: .8rem
 }
 
+/* スライダーの色変更 */
+.irs-bar {
+  background-color: #007bff !important;
+  border-color: #007bff !important;
+}
+
+.irs-from, .irs-to, .irs-single {
+    background-color: #007bff !important;
+}
+
+.irs--flat .irs-from:before, .irs--flat .irs-to:before, .irs--flat .irs-single:before {
+    border-top-color: #007bff !important;
+}
+
+.irs--flat .irs-handle>i:first-child {
+    background-color: #007bff !important;
+}
+
 /* -------------- */
 
 .border-right-expert {
