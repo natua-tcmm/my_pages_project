@@ -530,11 +530,10 @@ class SongDataManager:
             for reiwa in reiwa_data_list:
                 if target_name in reiwa.get("title", ""):
                     matching_reiwa = reiwa
+                    song.apply_reiwaf5_data(matching_reiwa)
                     break
             if matching_reiwa is None:
                 messages.append(f"[新曲登録] reiwaf5内にデータがありません。song_name: {song.song_name}")
-                continue
-            song.apply_reiwaf5_data(matching_reiwa)
 
             # ジャンル名の付与
             if song.song_name in self.genre_dict:
@@ -595,17 +594,17 @@ class SongDataManager:
 
             # 新規楽曲 = only_lunaticならば...
             song = SongData.from_official_data(s, is_only_lunatic=True)
+            song.has_lunatic = True
+            song.only_lunatic = True
+
             matching_reiwa = None
             for reiwa in reiwa_data_list:
                 if song.song_name and song.song_name in reiwa.get("title", ""):
                     matching_reiwa = reiwa
+                    song.apply_reiwaf5_data(matching_reiwa, is_lunatic=True, is_only_lunatic=True)
                     break
             if matching_reiwa is None:
                 messages.append(f"[新曲登録(LUNATIC)] reiwaf5内にデータがありません。song_name: {song.song_name}")
-                continue
-            song.apply_reiwaf5_data(matching_reiwa, is_lunatic=True, is_only_lunatic=True)
-            song.has_lunatic = True
-            song.only_lunatic = True
 
             # 譜面データは初期状態では未取得としてマーク
             song.song_bpm_nodata = True

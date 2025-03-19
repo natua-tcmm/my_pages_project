@@ -9870,7 +9870,7 @@
                 "image_url": "40cc7a6a264f88c1.jpg",
                 "fumen_id": "02036",
                 "is_worldsend": false,
-                "has_ultima": false,
+                "has_ultima": true,
                 "only_ultima": false,
                 "we_star": null,
                 "we_kanji": null
@@ -9894,10 +9894,10 @@
             "ultima": {
                 "const": null,
                 "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notes": 2475,
+                "notes_nodata": false,
+                "notesdesigner": "MinimiLight -Despair-",
+                "notesdesigner_nodata": false
             }
         },
         {
@@ -62764,8 +62764,8 @@
                 "we_kanji": null
             },
             "expert": {
-                "const": 14,
-                "const_nodata": true,
+                "const": 14.4,
+                "const_nodata": false,
                 "notes": 2466,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -62773,10 +62773,450 @@
             },
             "master": {
                 "const": 15.5,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 3000,
                 "notes_nodata": false,
                 "notesdesigner": "Lemon -Arced for the ace-",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2744",
+                "name": "Crush the Dystopia",
+                "reading": "CRUSHTHEDYSTOPIA",
+                "artist": "MintJam vs Masahiro \"Godspeed\" Aoki",
+                "genre": "ORIGINAL",
+                "bpm": 205,
+                "bpm_nodata": false,
+                "release": "2025-03-06",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "df3d1d052c80377e.jpg",
+                "fumen_id": "10056",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "expert": {
+                "const": 13,
+                "const_nodata": true,
+                "notes": 1788,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 15.4,
+                "const_nodata": false,
+                "notes": 2832,
+                "notes_nodata": false,
+                "notesdesigner": "Mistilteinn -For KOP6th-",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2745",
+                "name": "人マニア",
+                "reading": "ヒトマニア",
+                "artist": "原口沙輔 feat.重音テト",
+                "genre": "niconico",
+                "bpm": null,
+                "bpm_nodata": true,
+                "release": null,
+                "release_version": null,
+                "image_url": "be2743ac0c8a837f.jpg",
+                "fumen_id": null,
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "expert": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            },
+            "master": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2746",
+                "name": "オーバーライド",
+                "reading": "オウハウライト",
+                "artist": "吉田夜世",
+                "genre": "niconico",
+                "bpm": null,
+                "bpm_nodata": true,
+                "release": null,
+                "release_version": null,
+                "image_url": "2398cab8269957d2.jpg",
+                "fumen_id": null,
+                "is_worldsend": false,
+                "has_ultima": true,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "expert": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            },
+            "master": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2747",
+                "name": "ライアーダンサー",
+                "reading": "ライアウタンサウ",
+                "artist": "マサラダ",
+                "genre": "niconico",
+                "bpm": null,
+                "bpm_nodata": true,
+                "release": null,
+                "release_version": null,
+                "image_url": "0d5e33c2d86bcee2.jpg",
+                "fumen_id": null,
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "expert": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            },
+            "master": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2748",
+                "name": "黒塗り世界宛て書簡",
+                "reading": "クロヌリセカイアテシヨカン",
+                "artist": "フロクロ",
+                "genre": "niconico",
+                "bpm": null,
+                "bpm_nodata": true,
+                "release": null,
+                "release_version": null,
+                "image_url": "a41b7313d71f3947.jpg",
+                "fumen_id": null,
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "expert": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            },
+            "master": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2750",
+                "name": "INFiNiTE ENERZY -Overdoze-",
+                "reading": "INFINITEENERZYOVERDOZE",
+                "artist": "Reku Mochizuki",
+                "genre": "VARIETY",
+                "bpm": 180,
+                "bpm_nodata": false,
+                "release": "2025-03-06",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "7893c1e622f7fc68.jpg",
+                "fumen_id": "10061",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "expert": {
+                "const": 13,
+                "const_nodata": true,
+                "notes": 1105,
+                "notes_nodata": false,
+                "notesdesigner": "サファ太",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14,
+                "const_nodata": true,
+                "notes": 1636,
+                "notes_nodata": false,
+                "notesdesigner": "INFiNiTE BLADE -Overforge-",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2753",
+                "name": "ONLY YOUR STARS!（Trickstar Ver.）",
+                "reading": "ONLYYOURSTARSTRICKSTARVER",
+                "artist": "歌：Trickstar 作詞：松井洋平　作曲/編曲：中土智博（APDREAM）",
+                "genre": "POPS & ANIME",
+                "bpm": 186,
+                "bpm_nodata": false,
+                "release": "2025-03-06",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "7492410b6f7c1b4c.jpg",
+                "fumen_id": "10057",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "expert": {
+                "const": 9.5,
+                "const_nodata": false,
+                "notes": 1181,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13,
+                "const_nodata": true,
+                "notes": 1618,
+                "notes_nodata": false,
+                "notesdesigner": "みそかつ侍＠祝もうすぐ10周年！",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2754",
+                "name": "BRAND NEW STARS!! (ALKALOID ver.)",
+                "reading": "BRANDNEWSTARSALKALOIDVER",
+                "artist": "歌：ALKALOID 作詞：こだまさおり　作曲：桑原聖（Arte Refact）、編曲：脇眞富（Arte Refact）",
+                "genre": "POPS & ANIME",
+                "bpm": 235,
+                "bpm_nodata": false,
+                "release": "2025-03-06",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "40064dc099b0a23c.jpg",
+                "fumen_id": "10058",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "expert": {
+                "const": 10,
+                "const_nodata": true,
+                "notes": 1285,
+                "notes_nodata": false,
+                "notesdesigner": "ミニミライト",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.5,
+                "const_nodata": true,
+                "notes": 1701,
+                "notes_nodata": false,
+                "notesdesigner": "ウムウム侍",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2755",
+                "name": "One with One (Eden ver.)",
+                "reading": "ONEWITHONEEDENVER",
+                "artist": "歌：Eden 作詞：こだま さおり　作曲 / 編曲：佐藤 厚仁（Dream Monster）",
+                "genre": "POPS & ANIME",
+                "bpm": 148,
+                "bpm_nodata": false,
+                "release": "2025-03-06",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "82ad3e34bae709e9.jpg",
+                "fumen_id": "10059",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "expert": {
+                "const": 9,
+                "const_nodata": false,
+                "notes": 1228,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.5,
+                "const_nodata": true,
+                "notes": 2023,
+                "notes_nodata": false,
+                "notesdesigner": "みそかつ侍と以♡伝♡＠ハイエナ推し",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2756",
+                "name": "Surprising Thanks!! (Crazy:B ver.)",
+                "reading": "SURPRISINGTHANKSCRAZYBVER",
+                "artist": "歌：Crazy:B 作詞：松井洋平　作曲 / 編曲：伊藤和馬 (Arte Refact)",
+                "genre": "POPS & ANIME",
+                "bpm": 135,
+                "bpm_nodata": false,
+                "release": "2025-03-06",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "804022b2ccd03bda.jpg",
+                "fumen_id": "10060",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "expert": {
+                "const": 9,
+                "const_nodata": false,
+                "notes": 777,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13,
+                "const_nodata": true,
+                "notes": 1777,
+                "notes_nodata": false,
+                "notesdesigner": "MiSOKATSUもそう思います",
                 "notesdesigner_nodata": false
             },
             "ultima": {
@@ -63317,5 +63757,5 @@
             }
         }
     ],
-    "update_at": "2025/03/01 17:40"
+    "update_at": "2025/03/20 03:03"
 }

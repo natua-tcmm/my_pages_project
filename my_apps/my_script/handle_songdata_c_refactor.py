@@ -439,11 +439,10 @@ class SongDataManager:
                     for reiwa in reiwa_data_list:
                         if song.song_name in reiwa.get("meta", {}).get("title", ""):
                             matching_reiwa = reiwa
+                            song.apply_reiwaf5_data(matching_reiwa)
                             break
                     if matching_reiwa is None:
                         messages.append(f"[新曲登録] reiwaf5内にデータがありません。song_name: {song.song_name}")
-                        continue
-                    song.apply_reiwaf5_data(matching_reiwa)
 
                     # 譜面保管所からの情報はNoDataとする
                     song.song_bpm_nodata = True
@@ -499,19 +498,21 @@ class SongDataManager:
                         for reiwa in reiwa_data_list:
                             if song.song_name in reiwa.get("meta", {}).get("title", ""):
                                 matching_reiwa = reiwa
+
+                                # まだreiwaf5に反映されていないならスキップ
+                                if "ULT" not in matching_reiwa["data"]:
+                                    self.ult_const_nodata = False
+                                if matching_reiwa["data"]["ULT"]["is_const_unknown"] or matching_reiwa["data"]["ULT"]["const"] == 0:
+                                    self.ult_const = matching_reiwa["data"]["ULT"]["level"]
+                                    self.ult_const_nodata = True
+                                else:
+                                    self.ult_const = matching_reiwa["data"]["ULT"]["const"]
+                                    self.ult_const_nodata = False
+
                                 break
+
                         if matching_reiwa is None:
                             messages.append(f"[ULTIMA追加] reiwaf5内にデータがありません。song_name: {song.song_name}")
-                            continue
-                        # まだreiwaf5に反映されていないならスキップ
-                        if "ULT" not in matching_reiwa["data"]:
-                            self.ult_const_nodata = False
-                        if matching_reiwa["data"]["ULT"]["is_const_unknown"] or matching_reiwa["data"]["ULT"]["const"] == 0:
-                            self.ult_const = matching_reiwa["data"]["ULT"]["level"]
-                            self.ult_const_nodata = True
-                        else:
-                            self.ult_const = matching_reiwa["data"]["ULT"]["const"]
-                            self.ult_const_nodata = False
 
                         # 譜面保管所からの情報はNoDataとする
                         song.ult_notesdesigner_nodata = True

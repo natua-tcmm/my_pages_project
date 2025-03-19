@@ -22346,6 +22346,120 @@
         },
         {
             "meta": {
+                "official_id": "506500",
+                "official_id_lunatic": null,
+                "name": "スローアライズ",
+                "reading": "スロアライス",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "Endorfin.",
+                "genre": "チュウマイ",
+                "bpm": 185,
+                "bpm_nodata": false,
+                "release": "2025-03-13",
+                "release_version": "オンゲキ bright MEMORY Act.3",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "73edcf885bbc8822.png",
+                "fumen_id": "04364",
+                "character": "星咲 あかり",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "expert": {
+                "const": 10.0,
+                "const_nodata": true,
+                "notes": 788,
+                "notes_nodata": false,
+                "bell": 98,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.8,
+                "const_nodata": false,
+                "notes": 1208,
+                "notes_nodata": false,
+                "bell": 204,
+                "bell_nodata": false,
+                "notesdesigner": "サファ太",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "577000",
+                "official_id_lunatic": null,
+                "name": "ROAD TO DREAM",
+                "reading": "ROADTODREAM",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "達見 恵 featured by 佐野宏晃",
+                "genre": "チュウマイ",
+                "bpm": 175,
+                "bpm_nodata": false,
+                "release": "2025-03-13",
+                "release_version": "オンゲキ bright MEMORY Act.3",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "825d1b092de58581.png",
+                "fumen_id": "04365",
+                "character": "星咲 あかり",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "expert": {
+                "const": 10.5,
+                "const_nodata": true,
+                "notes": 1035,
+                "notes_nodata": false,
+                "bell": 68,
+                "bell_nodata": false,
+                "notesdesigner": "rioN",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.7,
+                "const_nodata": false,
+                "notes": 1334,
+                "notes_nodata": false,
+                "bell": 129,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
                 "official_id": "577100",
                 "official_id_lunatic": null,
                 "name": "群青シグナル",
@@ -50959,5 +51073,5 @@
             }
         }
     ],
-    "update_at": "2025/03/01 17:41"
+    "update_at": "2025/03/20 03:04"
 }
