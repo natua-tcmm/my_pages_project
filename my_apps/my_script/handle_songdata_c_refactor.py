@@ -155,6 +155,8 @@ class SongData:
     song_release_version: str = None
     song_image_url: str = None
     song_fumen_id: Optional[str] = None  # 文字列5ケタ 01234みたいに
+    song_namefolder_name: str = None
+    song_namefolder_index: int = None
     is_worldsend: bool = False
     has_ultima: bool = False
     only_ultima: bool = False
@@ -343,7 +345,6 @@ class SongDataManager:
         # 指定ファイル名でJSON出力
         with open(JSON_FILE_FOR_PUBLIC_PATH, "w", encoding="utf-8") as f:
             json.dump(public_data, f, indent=4, ensure_ascii=False)
-
 
     def _fetch_official_json(self) -> List[Dict[str, Any]]:
         """
@@ -804,8 +805,58 @@ class SongDataManager:
         messages.append("保管所データ更新完了。")
         LineNotification.add_message_by_list(messages)
 
+    def update_namefolder_index(self) -> None:
+        """
+        楽曲名順フォルダ用のインデックスを更新する。
+        """
+
+        # フォルダに振り分ける
+        for song in self.songs:
+            c = song.song_reading[0]
+            if "A" <= c <= "G":
+                song.song_namefolder_name = "A-G"
+            elif "H" <= c <= "N":
+                song.song_namefolder_name = "H-N"
+            elif "O" <= c <= "U":
+                song.song_namefolder_name = "O-U"
+            elif "V" <= c <= "Z":
+                song.song_namefolder_name = "V-Z"
+            elif "ア" <= c <= "オ":
+                song.song_namefolder_name = "あ行"
+            elif "カ" <= c <= "コ":
+                song.song_namefolder_name = "か行"
+            elif "サ" <= c <= "ソ":
+                song.song_namefolder_name = "さ行"
+            elif "タ" <= c <= "ト":
+                song.song_namefolder_name = "た行"
+            elif "ナ" <= c <= "ノ":
+                song.song_namefolder_name = "な行"
+            elif "ハ" <= c <= "ホ":
+                song.song_namefolder_name = "は行"
+            elif "マ" <= c <= "モ":
+                song.song_namefolder_name = "ま行"
+            elif "ヤ" <= c <= "ヨ":
+                song.song_namefolder_name = "や行"
+            elif "ラ" <= c <= "ロ":
+                song.song_namefolder_name = "ら行"
+            elif "ワ" <= c <= "ン":
+                song.song_namefolder_name = "わ行"
+            else:
+                song.song_namefolder_name = "数字"
+
+        # インデックスを求める
+        foldered_songs = {}
+        for song in self.songs:
+            foldered_songs.setdefault(song.song_namefolder_name, []).append(song)
+
+        for folder_name, songs in foldered_songs.items():
+            sorted_songs = sorted(songs, key=lambda s: s.song_reading)
+            for index, song in enumerate(sorted_songs, start=1):
+                song.song_namefolder_index = index
 
 def main() -> None:
+
+    # 準備
     manager = SongDataManager()
     manager.load_data()
 
@@ -821,6 +872,10 @@ def main() -> None:
     # 譜面データの更新
     manager.update_fumen_data()
 
+    # 楽曲名順フォルダ用のインデックス更新
+    manager.update_namefolder_index()
+
+    # データ保存
     manager.save_data()
     manager.save_public_data()
     LineNotification.send_notification()
