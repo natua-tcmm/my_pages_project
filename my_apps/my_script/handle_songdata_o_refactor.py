@@ -170,6 +170,10 @@ class SongData:
     only_lunatic: bool = False
     is_remaster: Optional[bool] = None
     is_remaster_nodata: bool = True
+    bas_const: Optional[float] = None
+    bas_const_nodata: bool = True
+    adv_const: Optional[float] = None
+    adv_const_nodata: bool = True
     exp_const: Optional[float] = None
     exp_const_nodata: bool = True
     exp_notes: Optional[int] = None
@@ -243,6 +247,8 @@ class SongData:
                 self.lun_const_nodata = False
 
             if is_only_lunatic:
+                self.bas_const_nodata = True
+                self.adv_const_nodata = True
                 self.exp_const_nodata = True
                 self.exp_notes_nodata = True
                 self.exp_bell_nodata = True
@@ -253,11 +259,28 @@ class SongData:
                 self.mas_notesdesigner_nodata = True
 
         else:
-            # EXPERT / MASTER
+            # BASIC /ADVANCED / EXPERT / MASTER
+            basic_info = reiwa_data.get("basic", {})
+            advanced_info = reiwa_data.get("advanced", {})
             expert_info = reiwa_data.get("expert", {})
             master_info = reiwa_data.get("master", {})
+            level_advanced = string_level_to_float(advanced_info.get("level"))
             level_expert = string_level_to_float(expert_info.get("level"))
+
+            self.bas_const = basic_info.get("const")
+            self.bas_const_nodata = False
+
             # レベル10未満はレベルと定数が一致する
+            if level_advanced < 10:
+                self.adv_const = level_advanced
+                self.adv_const_nodata = False
+            elif bool(advanced_info.get("is_unknown")):
+                self.adv_const = string_level_to_float(advanced_info.get("level"))
+                self.adv_const_nodata = True
+            else:
+                self.adv_const = advanced_info.get("const")
+                self.adv_const_nodata = False
+
             if level_expert < 10:
                 self.exp_const = level_expert
                 self.exp_const_nodata = False
@@ -370,6 +393,14 @@ class SongDataManager:
                     "only_lunatic": data.get("only_lunatic"),
                     "is_remaster": data.get("is_remaster"),
                     "is_remaster_nodata": data.get("is_remaster_nodata"),
+                },
+                "basic": {
+                    "const": data.get("bas_const"),
+                    "const_nodata": data.get("bas_const_nodata"),
+                },
+                "advanced": {
+                    "const": data.get("adv_const"),
+                    "const_nodata": data.get("adv_const_nodata"),
                 },
                 "expert": {
                     "const": data.get("exp_const"),
@@ -644,8 +675,23 @@ class SongDataManager:
                     break
             if not matching_reiwa:
                 continue
-            # EXPRT / MASTERを持つ曲 = not only_lunatic
+            # BASIC-MASTERを持つ曲 = not only_lunatic
             if not song.only_lunatic:
+
+                # BASIC
+                # ...
+
+                # ADVANCED
+                if song.adv_const_nodata and not bool(matching_reiwa.get("advanced", {}).get("is_unknown")) and string_level_to_float(
+                    matching_reiwa.get("advanced", {}).get("level", "0")
+                ) >= 10:
+                    messages.append(
+                        f"定数更新: {song.song_name} ADVANCED {song.adv_const} -> {matching_reiwa.get('advanced', {}).get('const')}"
+                    )
+                    song.adv_const = matching_reiwa.get("advanced", {}).get("const")
+                    song.adv_const_nodata = False
+                    self.update_song_offi_ids.append(song.song_official_id)
+
                 # EXPERT
                 if (
                     song.exp_const_nodata
@@ -693,7 +739,7 @@ class SongDataManager:
         messages.append("-----\n定数不明曲一覧")
         for song in self.songs:
             if not song.only_lunatic:
-                if song.exp_const_nodata or song.mas_const_nodata or (song.has_lunatic and song.lun_const_nodata):
+                if song.adv_const_nodata or song.exp_const_nodata or song.mas_const_nodata or (song.has_lunatic and song.lun_const_nodata):
                     messages.append(
                         f"- {song.song_name} {'[EXPERT]'*song.exp_const_nodata}{'[MASTER]'*song.mas_const_nodata}{'[LUNATIC]'*( song.has_lunatic and song.lun_const_nodata)}"
                     )

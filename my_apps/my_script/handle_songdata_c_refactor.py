@@ -160,6 +160,10 @@ class SongData:
     is_worldsend: bool = False
     has_ultima: bool = False
     only_ultima: bool = False
+    bas_const: Optional[float] = None
+    bas_const_nodata: bool = True
+    adv_const: Optional[float] = None
+    adv_const_nodata: bool = True
     exp_const: Optional[float] = None
     exp_const_nodata: bool = True
     exp_notes: Optional[int] = None
@@ -210,6 +214,22 @@ class SongData:
         # リリース日
         self.song_release = reiwa_data["meta"]["release"]
         self.song_release_version = date_to_chunithmversion(self.song_release)
+
+        # BASIC
+        self.bas_const = reiwa_data["data"]["BAS"]["const"]
+        self.bas_const_nodata = False
+
+        # ADVANCED
+        # レベルが10未満ならレベルと定数が一致
+        if reiwa_data["data"]["ADV"]["level"] < 10:
+            self.adv_const = reiwa_data["data"]["ADV"]["level"]
+            self.adv_const_nodata = False
+        elif reiwa_data["data"]["ADV"]["is_const_unknown"] or reiwa_data["data"]["ADV"]["const"] == 0:
+            self.adv_const = reiwa_data["data"]["ADV"]["level"]
+            self.adv_const_nodata = True
+        else:
+            self.adv_const = reiwa_data["data"]["ADV"]["const"]
+            self.adv_const_nodata = False
 
         # EXPERT
         # レベルが10未満ならレベルと定数が一致
@@ -311,6 +331,14 @@ class SongDataManager:
                     "only_ultima": data.get("only_ultima"),
                     "we_star": data.get("we_star"),
                     "we_kanji": data.get("we_kanji"),
+                },
+                "basic": {
+                    "const": data.get("bas_const"),
+                    "const_nodata": data.get("bas_const_nodata"),
+                },
+                "advanced": {
+                    "const": data.get("adv_const"),
+                    "const_nodata": data.get("adv_const_nodata"),
                 },
                 "expert": {
                     "const": data.get("exp_const"),
@@ -533,6 +561,21 @@ class SongDataManager:
             if not matching_reiwa:
                 continue
 
+            # BASIC
+            # あと10年くらいはやらなくてもいいと思う
+
+            # ADVANCED
+            if (
+                song.adv_const_nodata
+                and not (matching_reiwa["data"]["ADV"]["is_const_unknown"] or matching_reiwa["data"]["ADV"]["const"] == 0)
+                and matching_reiwa["data"]["ADV"]["level"] >= 10
+            ):
+                messages.append(
+                    f"定数更新: {song.song_name} ADVANCED {song.adv_const} -> {matching_reiwa['data']['ADV']['const']}"
+                )
+                song.adv_const = matching_reiwa["data"]["ADV"]["const"]
+                song.adv_const_nodata = False
+                self.update_song_offi_ids.append(song.song_official_id)
             # EXPERT
             if (
                 song.exp_const_nodata
@@ -570,7 +613,7 @@ class SongDataManager:
         # 定数不明曲一覧
         messages.append("-----\n定数不明曲一覧")
         for song in self.songs:
-            if song.exp_const_nodata or song.mas_const_nodata or (song.has_ultima and song.ult_const_nodata):
+            if song.adv_const_nodata or song.exp_const_nodata or song.mas_const_nodata or (song.has_ultima and song.ult_const_nodata):
                 messages.append(
                     f"- {song.song_name} {'[EXPERT]'*song.exp_const_nodata}{'[MASTER]'*song.mas_const_nodata}{'[ULTIMA]'*( song.has_ultima and song.ult_const_nodata)}"
                 )
