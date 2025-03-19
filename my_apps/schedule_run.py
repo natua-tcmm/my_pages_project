@@ -25,7 +25,7 @@ def schedule_run():
     print("-" * 50)
     print("楽曲データの更新を開始します")
     print("-" * 50)
-    handle_songdata_c_refactor.main()
+    # handle_songdata_c_refactor.main()
     handle_songdata_o_refactor.main()
 
     # jsonファイルからデータベースにインポート・アップデート日時を更新

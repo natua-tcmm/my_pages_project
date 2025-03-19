@@ -57917,6 +57917,71 @@
         },
         {
             "meta": {
+                "official_id": "948700",
+                "official_id_lunatic": "948700",
+                "name": "Perfect Shining!!",
+                "reading": "PERFECTSHINING",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "曲：宮崎誠／歌：星咲 あかり(CV：赤尾 ひかる)",
+                "genre": "オンゲキ",
+                "bpm": 182,
+                "bpm_nodata": false,
+                "release": "2022-08-04",
+                "release_version": "オンゲキ bright MEMORY Act.2",
+                "release_lunatic": "2022-08-04",
+                "release_lunatic_version": "オンゲキ bright MEMORY Act.2",
+                "image_url": "bacbd6ad4f2f6df4.png",
+                "fumen_id": null,
+                "character": "星咲 あかり",
+                "character_lunatic": "星咲 あかり",
+                "is_bonus": false,
+                "has_lunatic": true,
+                "only_lunatic": true,
+                "is_remaster": false,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": null,
+                "const_nodata": true
+            },
+            "advanced": {
+                "const": null,
+                "const_nodata": true
+            },
+            "expert": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            },
+            "master": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            },
+            "lunatic": {
+                "const": 0,
+                "const_nodata": false,
+                "notes": 1073,
+                "notes_nodata": false,
+                "bell": 235,
+                "bell_nodata": false,
+                "notesdesigner": "【ロケテスト】Revo@LC",
+                "notesdesigner_nodata": false
+            }
+        },
+        {
+            "meta": {
                 "official_id": "949300",
                 "official_id_lunatic": "949300",
                 "name": "Red and Blue and Green",
@@ -58241,5 +58306,5 @@
             }
         }
     ],
-    "update_at": "2025/03/20 03:26"
+    "update_at": "2025/03/20 03:41"
 }

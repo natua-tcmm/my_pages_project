@@ -661,6 +661,9 @@ class SongDataManager:
         current_official_ids = {s.get("id") for s in official_data}
         songs_to_remove = [song for song in self.songs if song.song_official_id not in current_official_ids]
         for song in songs_to_remove:
+            # Perfect Shining!![LUN0]は削除しない
+            if song.song_official_id == "948700":
+                continue
             messages.append(f"削除曲: {song.song_name}")
             self.songs.remove(song)
             self.delete_song_offi_ids.append(song.song_official_id)
@@ -793,6 +796,9 @@ class SongDataManager:
 
             # 既存楽曲データと突合してリンク
             for song in self.songs:
+                # Perfect Shining!![LUN0]は除外
+                if song.song_official_id == "948700":
+                    continue
                 if song.song_name == song_name_fumen:
                     if song.song_fumen_id is None:
                         song.song_fumen_id = fumen_id
@@ -831,6 +837,9 @@ class SongDataManager:
         # 未リンクの曲一覧を出力
         messages.append("-----\n未リンク曲一覧")
         for song in self.songs:
+            # Perfect Shining!![LUN0]は除外
+            if song.song_official_id == "948700":
+                continue
             if song.song_fumen_id is None:
                 messages.append(f"- {song.song_name}")
 
