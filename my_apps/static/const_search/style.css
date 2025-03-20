@@ -38,6 +38,14 @@
     border-right: 4px solid #b0b0b0;
 }
 
+.border-left-basic {
+    border-left: 4px solid #49cc32;
+}
+
+.border-left-advanced {
+    border-left: 4px solid #ff8020;
+}
+
 .border-left-expert {
     border-left: 4px solid #cc3232;
 }

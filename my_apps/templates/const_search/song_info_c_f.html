@@ -47,8 +47,30 @@
 
     <div class="container">
 
-        <!-- expert -->
         {% if song.only_ultima is False %}
+        <!-- basic -->
+        <div class="row mt-2 mb-2">
+            <div class="col border-left-basic">
+                <!-- const notes -->
+                <div class="row d-flex justify-content-start align-items-center py-1">
+                    <h5 class="pr-2 my-0 ml-2">{% if song.bas_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.bas_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No Data</span>{% endif %}</h5>
+                </div>
+            </div>
+        </div>
+        <!-- advanced -->
+        <div class="row mt-2 mb-2">
+            <div class="col border-left-advanced">
+                <!-- const notes -->
+                <div class="row d-flex justify-content-start align-items-center py-1">
+                    <h5 class="pr-2 my-0 ml-2">{% if song.adv_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.adv_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No Data</span>{% endif %}</h5>
+                </div>
+            </div>
+        </div>
+        <!-- expert -->
         <div class="row mt-2 mb-2">
             <div class="col border-left-expert">
                 <!-- const notes -->
@@ -146,7 +168,7 @@
             <span class="badge badge-pill badge-secondary mr-1">{{song.song_release_version}}</span>
         </div>
         <div class="row mb-2">
-            楽曲名順「〇〇」フォルダ / 左から n 番目
+            楽曲名フォルダ「{{song.song_namefolder_name}}」 {{song.song_namefolder_index}} 曲目
         </div>
         <div class="row mb-3">
             <div class="col-12 pl-0">
