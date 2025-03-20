@@ -32,7 +32,7 @@ class SongDataCN(models.Model):
 
     # 発売日情報（DateField として保持。データクラスでは文字列になっていますが、DB には日付として保存）
     song_release = models.DateField(null=True, blank=True)
-    song_release_version = models.CharField(max_length=40, null=True, blank=True)
+    song_release_version = models.CharField(max_length=100, null=True, blank=True)
 
     # イメージ・譜面ID（譜面IDは「文字列5ケタ」の想定なので max_length を 5 に変更）
     song_image_url = models.CharField(max_length=100)
@@ -42,6 +42,18 @@ class SongDataCN(models.Model):
     is_worldsend = models.BooleanField(default=False)
     has_ultima = models.BooleanField(default=False)
     only_ultima = models.BooleanField(default=False)
+
+    # フォルダ位置情報
+    song_namefolder_name = models.CharField(max_length=20, null=True, blank=True)
+    song_namefolder_index = models.IntegerField(null=True, blank=True)
+
+    # BASIC
+    bas_const = models.DecimalField(max_digits=4, decimal_places=1, null=True, blank=True)
+    bas_const_nodata = models.BooleanField(default=True)
+
+    # ADVANCED
+    adv_const = models.DecimalField(max_digits=4, decimal_places=1, null=True, blank=True)
+    adv_const_nodata = models.BooleanField(default=True)
 
     # EXPERT
     exp_const = models.DecimalField(max_digits=4, decimal_places=1, null=True, blank=True)
@@ -88,9 +100,9 @@ class SongDataON(models.Model):
 
     # リリース情報
     song_release = models.DateField(null=True, blank=True)
-    song_release_version = models.CharField(max_length=40, null=True, blank=True)
+    song_release_version = models.CharField(max_length=100, null=True, blank=True)
     song_release_lunatic = models.DateField(null=True, blank=True)
-    song_release_lunatic_version = models.CharField(max_length=40, null=True, blank=True)
+    song_release_lunatic_version = models.CharField(max_length=100, null=True, blank=True)
 
     # イメージ・譜面情報
     song_image_url = models.CharField(max_length=100)
@@ -107,7 +119,19 @@ class SongDataON(models.Model):
     is_remaster = models.BooleanField(null=True, blank=True)
     is_remaster_nodata = models.BooleanField(default=True)
 
-    # EX難易度
+    # # フォルダ位置情報
+    # song_namefolder_name = models.CharField(max_length=20, null=True, blank=True)
+    # song_namefolder_index = models.IntegerField(null=True, blank=True)
+
+    # BASIC
+    bas_const = models.DecimalField(max_digits=4, decimal_places=1, null=True, blank=True)
+    bas_const_nodata = models.BooleanField(default=True)
+
+    # ADVANCED
+    adv_const = models.DecimalField(max_digits=4, decimal_places=1, null=True, blank=True)
+    adv_const_nodata = models.BooleanField(default=True)
+
+    # EXPERT
     exp_const = models.DecimalField(max_digits=4, decimal_places=1, null=True, blank=True)
     exp_const_nodata = models.BooleanField(default=True)
     exp_notes = models.IntegerField(null=True, blank=True)
@@ -117,7 +141,7 @@ class SongDataON(models.Model):
     exp_notesdesigner = models.CharField(max_length=100, null=True, blank=True)
     exp_notesdesigner_nodata = models.BooleanField(default=True)
 
-    # MAS難易度
+    # MASTER
     mas_const = models.DecimalField(max_digits=4, decimal_places=1, null=True, blank=True)
     mas_const_nodata = models.BooleanField(default=True)
     mas_notes = models.IntegerField(null=True, blank=True)
@@ -127,7 +151,7 @@ class SongDataON(models.Model):
     mas_notesdesigner = models.CharField(max_length=100, null=True, blank=True)
     mas_notesdesigner_nodata = models.BooleanField(default=True)
 
-    # LUNATIC難易度
+    # LUNATIC
     lun_const = models.DecimalField(max_digits=4, decimal_places=1, null=True, blank=True)
     lun_const_nodata = models.BooleanField(default=True)
     lun_notes = models.IntegerField(null=True, blank=True)
@@ -163,8 +187,9 @@ class BaseSongDataManager(models.Manager):
         print(f"[{cls.__name__}] データベースに送信します")
         for song in data["songs"]:
             song_official_id = song["song_official_id"]
-            if (song_official_id in data["new_song_offi_ids"] or
-                song_official_id in data["update_song_offi_ids"]):
+            # if (song_official_id in data["new_song_offi_ids"] or
+            #     song_official_id in data["update_song_offi_ids"]):
+            if True:
                 obj, created = cls.songdata_model.objects.update_or_create(
                     song_official_id=song_official_id,
                     defaults=song
