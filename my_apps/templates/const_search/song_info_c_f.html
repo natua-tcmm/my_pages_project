@@ -4,41 +4,53 @@
 
     <div class="row">
         <!-- 曲名とアーティスト名 -->
-        <div class="col">
+        <div class="col align-self-center">
             <h5 class="mb-1" id="song-name_{{song.id}}">{{song.song_name}}</h5>
             <span class="text-secondary">{{song.song_artist}}</span>
         </div>
 
         <!-- 定数 -->
-        {% if song.only_ultima is False %}
-        <div class="col-auto justify-content-end align-items-center border-right-expert constdisp_expert"
-            style="display: none;">
-            <h5 class="mb-0">{% if song.exp_const_nodata is False %}<span
-                    class="font-weight-bold">{{song.exp_const}}</span>{% else %}<span class="text-black-50 h6">No
-                    Data</span>{% endif %}</h5>
+        <div class="col-auto justify-content-end align-items-center">
+            <div class="row mb-2">
+
+                {% if song.only_ultima is False %}
+                <div class="col justify-content-end align-items-center border-right-expert constdisp_expert"
+                    style="display: none;">
+                    <h5 class="mb-0">{% if song.exp_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.exp_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No
+                            Data</span>{% endif %}</h5>
+                </div>
+                <div class="col justify-content-end align-items-center border-right-master constdisp_master"
+                    style="display: flex;">
+                    <h5 class="mb-0">{% if song.mas_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.mas_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No
+                            Data</span>{% endif %}</h5>
+                </div>
+                {% endif %}
+                {% if song.has_ultima is True %}
+                <div class="col justify-content-end align-items-center border-right-ultima constdisp_ultima"
+                    style="display: none;">
+                    <h5 class="mb-0">{% if song.ult_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.ult_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No
+                            Data</span>{% endif %}</h5>
+                </div>
+                {% else %}
+                <div class="col justify-content-end align-items-center border-right-master constdisp_ultima"
+                    style="display: none;">
+                    <h5 class="mb-0">{% if song.mas_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.mas_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No
+                            Data</span>{% endif %}</h5>
+                </div>
+                {% endif %}
+            </div>
+            <div class="row justify-content-end align-items-center">
+                <p class="text-black-50 m-0 p-0">詳細</p><i id="i_{{song.id}}" class="text-black-50 ml-2 my-0 fas fa-angle-up right"></i>
+            </div>
         </div>
-        <div class="col-auto justify-content-end align-items-center border-right-master constdisp_master"
-            style="display: flex;">
-            <h5 class="mb-0">{% if song.mas_const_nodata is False %}<span
-                    class="font-weight-bold">{{song.mas_const}}</span>{% else %}<span class="text-black-50 h6">No
-                    Data</span>{% endif %}</h5>
-        </div>
-        {% endif %}
-        {% if song.has_ultima is True %}
-        <div class="col-auto justify-content-end align-items-center border-right-ultima constdisp_ultima"
-            style="display: none;">
-            <h5 class="mb-0">{% if song.ult_const_nodata is False %}<span
-                    class="font-weight-bold">{{song.ult_const}}</span>{% else %}<span class="text-black-50 h6">No
-                    Data</span>{% endif %}</h5>
-        </div>
-        {% else %}
-        <div class="col-auto justify-content-end align-items-center border-right-master constdisp_ultima"
-            style="display: none;">
-            <h5 class="mb-0">{% if song.mas_const_nodata is False %}<span
-                    class="font-weight-bold">{{song.mas_const}}</span>{% else %}<span class="text-black-50 h6">No
-                    Data</span>{% endif %}</h5>
-        </div>
-        {% endif %}
 
     </div>
 </a>
@@ -241,6 +253,16 @@
                 $("#song-name_{{song.id}}").text(song_name);
             }, 500);
 
+        });
+
+        // アイコンを回転させる
+        $("#c_{{song.id}}").on("show.bs.collapse", function () {
+            $("#i_{{song.id}}").removeClass("fa-angle-up");
+            $("#i_{{song.id}}").addClass("fa-angle-down");
+        });
+        $("#c_{{song.id}}").on("hide.bs.collapse", function () {
+            $("#i_{{song.id}}").removeClass("fa-angle-down");
+            $("#i_{{song.id}}").addClass("fa-angle-up");
         });
 
         // 譜面画像ボタン
