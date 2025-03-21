@@ -46,6 +46,7 @@ class ConstSearchView(View):
         query = post.get("query")
         for key in self.search_settings.keys():
             self.search_settings[key] = (post.get(key) == "true")
+        print(self.search_settings)
         self.type_game = post.get("type")
         self.display_type = post.get("display_type")
         request_time = post.get("request_time")

@@ -242,7 +242,7 @@ class BaseSongDataManager(models.Manager):
                     if ("\u30a1" <= c <= "\u30fa" or "A" <= c <= "Z")
                 ]
             )
-            print(query_reading)
+            # print(query_reading)
             search_results |= qs.filter(song_reading__icontains=query_reading)
 
         # アーティスト名による検索

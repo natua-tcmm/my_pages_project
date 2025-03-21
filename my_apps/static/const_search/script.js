@@ -54,33 +54,54 @@ $("#is_use_notes").on("change", function () {
 
 // 難易度切り替え
 var display_dif_index = 1;
-$("#change_dif").on("click", function () {
-    display_dif_index += 1;
+var change_dif = function () {
 
     if (display_dif_index % 3 == 0) {
         $(".constdisp_expert").css("display", "flex");
         $(".constdisp_master").css("display", "none");
         $(".constdisp_ultima").css("display", "none");
+        $(".constdisp_lunatic").css("display", "none");
         $(".constdisp_expert_inline").css("display", "inline");
         $(".constdisp_master_inline").css("display", "none");
         $(".constdisp_ultima_inline").css("display", "none");
+        $(".constdisp_lunatic_inline").css("display", "none");
     }
     else if (display_dif_index % 3 == 1) {
         $(".constdisp_expert").css("display", "none");
         $(".constdisp_master").css("display", "flex");
         $(".constdisp_ultima").css("display", "none");
+        $(".constdisp_lunatic").css("display", "none");
         $(".constdisp_expert_inline").css("display", "none");
         $(".constdisp_master_inline").css("display", "inline");
         $(".constdisp_ultima_inline").css("display", "none");
+        $(".constdisp_lunatic_inline").css("display", "none");
     }
     else if (display_dif_index % 3 == 2) {
         $(".constdisp_expert").css("display", "none");
         $(".constdisp_master").css("display", "none");
+        if(  type === "c" ){
+            $(".constdisp_ultima").css("display", "flex");
+            $(".constdisp_lunatic").css("display", "none");
+            $(".constdisp_ultima_inline").css("display", "inline");
+            $(".constdisp_lunatic_inline").css("display", "none");
+        }
+        else{
+            $(".constdisp_ultima").css("display", "none");
+            $(".constdisp_lunatic").css("display", "flex");
+            $(".constdisp_ultima_inline").css("display", "none");
+            $(".constdisp_lunatic_inline").css("display", "inline");
+        }
         $(".constdisp_ultima").css("display", "flex");
+        $(".constdisp_lunatic").css("display", "flex");
         $(".constdisp_expert_inline").css("display", "none");
         $(".constdisp_master_inline").css("display", "none");
-        $(".constdisp_ultima_inline").css("display", "inline");
     }
+}
+// 難易度切り替えボタンの処理
+$("#change_dif").on("click", function () {
+
+    display_dif_index += 1;
+    change_dif();
 
 });
 
@@ -115,6 +136,11 @@ $("input[id^='type-']").on("change", function (e) {
     // "/ジャンル名"文字列の表示
     $("#subname_text").css("display", type === "o" ? "" : "none");
 
+    // 難易度表示の変更
+    display_dif_index = 1;
+    change_dif();
+
+    // 検索
     search_songs(e, type, disp);
     setTimeout(() => { $("#query").select(); }, 5);
 });
