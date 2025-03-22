@@ -65,51 +65,57 @@
                                 <div class="col-12 col-md-10">
                                     <form id="ajax-search" action="{% url 'my_apps:const_search_page' %}" method="POST">
                                         {% csrf_token %}
+                                        <!-- 入力フォーム -->
                                         <div class="input-group input-group-lg mb-1">
                                             <input name="query" type="text" class="form-control" id="query"
                                                 placeholder="検索…" aria-label="search" aria-describedby="inputHelp"
                                                 autocomplete="off" />
-
                                             <div class="input-group-append">
                                                 <button id="clear-button" class="btn btn-outline-secondary"
                                                     type="button"><i class="fas fa-backspace"></i></button>
                                             </div>
                                         </div>
 
+                                        <!-- 主要チェックボックス群 -->
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="is_use_name"
-                                                value="option1" checked />
-                                            <label class="form-check-label" for="is_use_name">曲名<span id="subname_text"
-                                                    style="display: none;">/ジャンル名</span></label>
+                                                value="option1" checked>
+                                            <label class="form-check-label mb-0" for="is_use_name">
+                                                曲名<span id="subname_text" style="display: none;">/ジャンル名</span>
+                                            </label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="is_use_artists"
-                                                value="option2" />
-                                            <label class="form-check-label" for="is_use_artists">アーティスト名</label>
+                                                value="option2">
+                                            <label class="form-check-label mb-0" for="is_use_artists">アーティスト名</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="is_use_nd"
-                                                value="option3" />
-                                            <label class="form-check-label" for="is_use_nd">ND名</label>
+                                                value="option3">
+                                            <label class="form-check-label mb-0" for="is_use_nd">ND名</label>
                                         </div>
                                         <div class="form-check form-check-inline" id="is-disp-bonus-wrapper"
                                             style="display: none;">
                                             <input class="form-check-input" type="checkbox" id="is-disp-bonus"
-                                                value="option4" />
-                                            <label class="form-check-label" for="is-disp-bonus">ボーナストラックを表示</label>
+                                                value="option4">
+                                            <label class="form-check-label mb-0" for="is-disp-bonus">ボーナストラックを表示</label>
                                         </div>
 
+                                        <!-- 詳細オプション -->
                                         <div id="detail-option" style="display: none;">
-                                            <div id="is_use_lunatic_option-wrapper" style="display: none;">
 
-                                                <div class="form-group form-check mb-1">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="is_use_lunatic_option" />
-                                                    <label class="form-check-label"
-                                                        for="is_use_lunatic_option">LUNATIC譜面の扱い…</label>
+                                            <!-- LUNATIC譜面の扱い -->
+                                            <div id="is_use_lunatic_option-wrapper" style="display: none;">
+                                                <div class="form-check mb-1">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        id="is_use_lunatic_option">
+                                                    <label class="form-check-label mb-0" for="is_use_lunatic_option"
+                                                        style="margin-left: 0.3125rem; vertical-align: middle;">
+                                                        LUNATIC譜面の扱い…
+                                                    </label>
                                                 </div>
-                                                <div class="mt-2 mb-0 mx-auto" style="width: 85%;">
-                                                    <select class="custom-select" style="display: none;"
+                                                <div class="mx-auto" style="width: 85%;">
+                                                    <select class="mt-1 mb-2 custom-select" style="display: none;"
                                                         id="select-lunatic">
                                                         <option value="all" selected>全楽曲を表示</option>
                                                         <option value="has">LUNATIC譜面を持つ楽曲のみ</option>
@@ -124,32 +130,41 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group form-check mb-1">
-                                                <input type="checkbox" class="form-check-input" id="is_use_bpm" />
-                                                <label class="form-check-label" for="is_use_bpm">BPMの範囲を指定…</label>
+
+                                            <!-- BPMの範囲を指定… -->
+                                            <div class="form-check mb-1">
+                                                <input class="form-check-input" type="checkbox" id="is_use_bpm">
+                                                <label class="form-check-label mb-0" for="is_use_bpm"
+                                                    style="margin-left: 0.3125rem; vertical-align: middle;">BPMの範囲を指定…</label>
                                             </div>
                                             <div id="slider-wrapper-bpm" class="mt-3 mb-3 mx-auto" style="width: 85%;">
                                                 <input type="text" id="slider-bpm" name="slider-bpm" value=""
-                                                    style="display: none;" />
+                                                    style="display: none;">
                                                 <p class="mt-2 mb-0 text-black-50" style="font-size: 80%;">
-                                                    ※スライダー範囲外の楽曲は表示されません。</p>
+                                                    ※スライダー範囲外の楽曲は表示されません。
+                                                </p>
                                             </div>
 
-                                            <div class="form-group form-check mb-1">
-                                                <input type="checkbox" class="form-check-input" id="is_use_notes" />
-                                                <label class="form-check-label" for="is_use_notes">ノーツ数の範囲を指定…</label>
+                                            <!-- ノーツ数の範囲を指定… -->
+                                            <div class="form-check mb-1">
+                                                <input class="form-check-input" type="checkbox" id="is_use_notes">
+                                                <label class="form-check-label mb-0" for="is_use_notes"
+                                                    style="margin-left: 0.3125rem; vertical-align: middle;">ノーツ数の範囲を指定…</label>
                                             </div>
                                             <div id="slider-wrapper-notes" class="mt-3 mb-3 mx-auto"
                                                 style="width: 85%;">
                                                 <input type="text" id="slider-notes" name="slider-notes" value=""
-                                                    style="display: none;" />
+                                                    style="display: none;">
                                                 <p class="mt-2 mb-0 text-black-50" style="font-size: 80%;">
-                                                    ※スライダー範囲外の楽曲は表示されません。</p>
+                                                    ※スライダー範囲外の楽曲は表示されません。
+                                                </p>
                                             </div>
+
                                         </div>
                                     </form>
                                 </div>
                             </div>
+
 
                             <!-- 区切りhr -->
 
