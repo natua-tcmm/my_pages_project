@@ -119,10 +119,14 @@ var disp = "s", type = "c";
 // 表示方式の変更（idが"disp-"で始まるラジオボタン）
 $("input[id^='disp-']").on("change", function (e) {
 
+    // 表示方式の変更
     disp = $(this).attr("id") === "disp-full" ? "f" : "s";
 
+    // 詳細オプションの表示
     $("#detail-option").css("display", disp === "f" ? "" : "none");
 
+    // 検索
+    $(".song-group-item").remove();
     search_songs(e, type, disp);
     setTimeout(() => { $("#query").select(); }, 5);
 
@@ -141,6 +145,7 @@ $("input[id^='type-']").on("change", function (e) {
     change_dif();
 
     // 検索
+    $(".song-group-item").remove();
     search_songs(e, type, disp);
     setTimeout(() => { $("#query").select(); }, 5);
 });
