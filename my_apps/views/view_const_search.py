@@ -23,7 +23,6 @@ class ConstSearchView(View):
     display_type = "s"
     search_settings = {
         "is_use_name": True,
-        "is_use_reading": True,
         "is_use_artists": False,
         "is_use_nd": False,
     }
@@ -46,7 +45,6 @@ class ConstSearchView(View):
         query = post.get("query")
         for key in self.search_settings.keys():
             self.search_settings[key] = (post.get(key) == "true")
-        print(self.search_settings)
         self.type_game = post.get("type")
         self.display_type = post.get("display_type")
         request_time = post.get("request_time")
@@ -94,8 +92,7 @@ class ConstSearchView(View):
         # 検索ワードがある場合
         else:
             # 検索ワード処理
-            query_list = self._create_query_list(query)
-            search_results_song_list = self.songdata_manager.search_song_by_query_list(query_list, self.search_settings)
+            search_results_song_list = self.songdata_manager.search_song_by_query(query, self.search_settings)
             search_hit_count = len(search_results_song_list)
 
             # 検索結果のレンダリング
@@ -129,23 +126,7 @@ class ConstSearchView(View):
             rights_list += f.readlines()
         return rights_list
 
-    # query_listの生成
-    def _create_query_list(self,query):
-        query_list = [query]
 
-        # 末尾にアルファベットがあれば消す
-        if re.match(r".*^[\u3040-\u309F]+[a-zA-Z]{1}$", query):
-            query_list += [query[:-1]]
-        if re.match(r".*^[\u3040-\u309F]+[a-zA-Z]{2}$", query):
-            query_list += [query[:-2]]
-
-        # ひらがな・カタカナ変換
-        for q in query_list[:]:
-            query_list += [jaconv.kata2hira(q), jaconv.hira2kata(q)]
-
-        # 重複削除
-        query_list = list(set(query_list))
-        return query_list
 
     # 結果のレンダリング
     def _render_search_result(self,search_results_song_list, type_game, display_type):

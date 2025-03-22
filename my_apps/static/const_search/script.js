@@ -189,8 +189,6 @@ var search_songs = function (e, type, disp) {
             "csrfmiddlewaretoken": csrfmiddlewaretoken,
             'query': $('#query').val(),
             "is_use_name": $("#is_use_name").prop('checked'),
-            // "is_use_reading": $("#is_use_reading").prop('checked'),
-            "is_use_reading": $("#is_use_name").prop('checked'),
             "is_use_artists": $("#is_use_artists").prop('checked'),
             "is_use_nd": $("#is_use_nd").prop('checked'),
             "type": type,

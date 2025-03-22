@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-import requests, os, json, datetime, jaconv, unicodedata
+import requests, os, json, datetime, jaconv, unicodedata, re
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -187,9 +187,8 @@ class BaseSongDataManager(models.Manager):
         print(f"[{cls.__name__}] データベースに送信します")
         for song in data["songs"]:
             song_official_id = song["song_official_id"]
-            # if (song_official_id in data["new_song_offi_ids"] or
-            #     song_official_id in data["update_song_offi_ids"]):
-            if True:
+            if (song_official_id in data["new_song_offi_ids"] or
+                song_official_id in data["update_song_offi_ids"]):
                 obj, created = cls.songdata_model.objects.update_or_create(
                     song_official_id=song_official_id,
                     defaults=song
@@ -210,48 +209,91 @@ class BaseSongDataManager(models.Manager):
 
     @classmethod
     def get_update_time(cls):
+        """
+        更新日時を取得する共通処理
+        """
         with open(cls.update_at_file_path, "r") as f:
             update_time = f.readline()
         return update_time
 
     @classmethod
-    def search_song_by_query_list(cls, query_list, search_settings):
+    def _create_query_list(cls,query):
         """
-        クエリリストと検索設定から楽曲データを検索する共通処理
+        クエリから検索クエリリストを生成する共通処理
+        ・ひらがな・カタカナ変換
+        ・末尾のアルファベットを削除
+        """
+        query_list = [query]
+
+        # 末尾にアルファベットがあれば消す(日本語入力中を想定)
+        if re.match(r".*^[\u3040-\u309F]+[a-zA-Z]{1}$", query):
+            query_list += [query[:-1]]
+        if re.match(r".*^[\u3040-\u309F]+[a-zA-Z]{2}$", query):
+            query_list += [query[:-2]]
+
+        # ひらがな・カタカナ変換
+        for q in query_list[:]:
+            query_list += [jaconv.kata2hira(q), jaconv.hira2kata(q)]
+
+        # 重複削除
+        query_list = list(set(query_list))
+        return query_list
+
+    @classmethod
+    def search_song_by_query(cls, query_original:str, search_settings:dict):
+        """
+        検索クエリと検索設定から楽曲データを検索する共通処理
         """
 
-        # TODO あとで詳しくする
+        # 検索クエリリストの生成
+        query_list = cls._create_query_list(query_original)
 
         qs = cls.songdata_model.objects.all()
         search_results = qs.none()
 
-        # 曲名による検索
-        if search_settings.get("is_use_name"):
-            for query in query_list:
+        print(search_settings,query_list)
+
+        for query in query_list:
+
+            # 曲名による検索
+            if search_settings.get("is_use_name"):
+
+                # 曲名による検索
                 search_results |= qs.filter(song_name__icontains=query)
 
-        # 読み方による検索
-        if search_settings.get("is_use_reading"):
-            # query_list[0] をカタカナ＋大文字アルファベットに変換し、濁点除去
-            query_reading = "".join(
-                [
-                    c
-                    for c in jaconv.hira2kata(unicodedata.normalize("NFKD", query_list[0]))
-                    .upper()
-                    .translate(str.maketrans("ァィゥェォャュョッヮヵヶ", "アイウエオヤユヨツワカケ"))
-                    if ("\u30a1" <= c <= "\u30fa" or "A" <= c <= "Z")
-                ]
-            )
-            # print(query_reading)
-            search_results |= qs.filter(song_reading__icontains=query_reading)
+                # ジャンル名による検索(オンゲキのみ)
+                if cls.songdata_model == SongDataON:
+                    search_results |= qs.filter(song_subname__icontains=query)
 
-        # アーティスト名による検索
-        if search_settings.get("is_use_artists"):
-            for query in query_list:
+                # 読み方による検索
+                if query == query_original:
+                    # query_original をカタカナ＋大文字アルファベットに変換し、濁点除去
+                    query_reading = "".join(
+                        [
+                            c
+                            for c in jaconv.hira2kata(unicodedata.normalize("NFKD", query_original))
+                            .upper()
+                            .translate(str.maketrans("ァィゥェォャュョッヮヵヶ", "アイウエオヤユヨツワカケ"))
+                            if ("\u30a1" <= c <= "\u30fa" or "A" <= c <= "Z")
+                        ]
+                    )
+                    # 検索
+                    if len(query_reading)>0:
+                        # print(query_reading)
+                        search_results |= qs.filter(song_reading__icontains=query_reading)
+
+            # アーティスト名による検索
+            if search_settings.get("is_use_artists"):
                 search_results |= qs.filter(song_artist__icontains=query)
 
-
-        # TODO 検索絞り込み、内部処理の追加
+            # ノーツデザイナー名による検索
+            if search_settings.get("is_use_nd"):
+                search_results |= qs.filter(exp_notesdesigner__icontains=query)
+                search_results |= qs.filter(mas_notesdesigner__icontains=query)
+                if cls.songdata_model == SongDataCN:
+                    search_results |= qs.filter(ult_notesdesigner__icontains=query)
+                elif cls.songdata_model == SongDataON:
+                    search_results |= qs.filter(lun_notesdesigner__icontains=query)
 
         return list(search_results)
 
