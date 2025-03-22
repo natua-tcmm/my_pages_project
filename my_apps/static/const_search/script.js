@@ -331,7 +331,7 @@ var search_songs = debounce( function (e, type, disp) {
                 $("#loading_text").css("display", "none ");
             }
             else {
-                console.log("abort");
+                // console.log("abort");
                 invalid_response_count++;
             }
         },

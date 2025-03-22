@@ -252,8 +252,6 @@ class BaseSongDataManager(models.Manager):
         qs = cls.songdata_model.objects.all()
         search_results = qs.none()
 
-        print(search_settings,query_list)
-
         # queryによる検索
         for query in query_list:
 

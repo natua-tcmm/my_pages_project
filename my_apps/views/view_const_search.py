@@ -159,7 +159,7 @@ class ConstSearchView(View):
         if search_hit_count == 0:
             search_results_html.append(
                 render_to_string(
-                    "const_search/result_info.html", context={"info_text": "検索結果が0件だよ〜 ワードや設定を確認してみてね"}
+                    "const_search/result_info.html", context={"info_text": "検索結果が0件だよ〜 検索ワードや設定を確認してみてね"}
                 )
             )
         return search_results_html
