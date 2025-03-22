@@ -174,9 +174,26 @@ setTimeout(function () {
     });
 }, 1000);
 
-// 楽曲検索
-var before_request_time = 0
-var search_songs = function (e, type, disp) {
+// --------------------------------
+
+// debounce関数
+function debounce(func, delay) {
+    var timeout;
+    return function(...args) {
+        // 前のタイマーがあればクリア
+        if (timeout) {
+            clearTimeout(timeout);
+        }
+        // delayミリ秒後にfuncを実行
+        timeout = setTimeout(() => {
+            func.apply(this, args);
+        }, delay);
+    };
+}
+
+// 楽曲検索のリクエスト
+var currentRequest = null;
+var search_songs = debounce( function (e, type, disp) {
 
     // 検索ステータスを更新
     request_count++;
@@ -189,8 +206,13 @@ var search_songs = function (e, type, disp) {
         e.preventDefault();
     }
 
+    // もし既にリクエスト中ならキャンセルする
+    if (currentRequest) {
+        currentRequest.abort();
+    }
+
     // 送信する
-    $.ajax({
+    currentRequest =  $.ajax({
         'url': send_url,
         'type': 'POST',
         'data': {
@@ -212,46 +234,40 @@ var search_songs = function (e, type, disp) {
             "request_time": new Date().getTime(),
         },
         'dataType': 'json',
-    })
-        //成功時
-        .done(function (response) {
+        "success" : function(response) {
 
-            // console.log($('#query').val(), response.query);
+            // 今表示されてるやつを消す
+            $(".song-group-item").remove();
 
-            // 検索表示を更新する条件
-            // より新しい検索かつ、queryが同一
-            if (before_request_time < response.request_time && $('#query').val() == response.query) {
+            // 新しく表示する
+            for (var i = 0; i < response.search_response.length; i++)
+                $("#post-songs").prepend(response.search_response[i]);
 
-                // 前回検索時間を更新
-                before_request_time = response.request_time
+            $("#search_hit_text").html("検索結果 : " + response.search_hit_count + " 件");
+            // $("#search-query-list-display").html(response.search_query_list);
 
+            $("#loading_text").css("display", "none");
+
+        },
+        "error" : function(xhr, status, error) {
+            if (status !== "abort") {
                 // 今表示されてるやつを消す
                 $(".song-group-item").remove();
-
-                // 新しく表示する
-                for (var i = 0; i < response.search_response.length; i++)
-                    $("#post-songs").prepend(response.search_response[i]);
-
-                $("#search_hit_text").html("検索結果 : " + response.search_hit_count + " 件");
-                // $("#search-query-list-display").html(response.search_query_list);
-
-                $("#loading_text").css("display", "none");
+                $("#loading_text").css("display", "none ");
             }
-            // 無効にされる検索結果ならば
             else {
-                // 検索ステータスを更新
+                console.log("abort");
                 invalid_response_count++;
             }
+        },
+        "complete" : function() {
 
             // 検索ステータスを更新
             response_count++;
             update_search_status();
+            currentRequest = null;
+        }
 
-        })
-        //失敗時
-        .fail(function () {
-            // 今表示されてるやつを消す
-            $(".song-group-item").remove();
-        })
+    });
 
-}
+}, 200);
