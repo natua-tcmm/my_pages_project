@@ -310,7 +310,31 @@ class BaseSongDataManager(models.Manager):
                 (Q(lun_notes__range=(search_settings["notes_from"], search_settings["notes_to"])) if cls.songdata_model == SongDataON else Q())
             )
 
+        # ボーナストラック
+        if cls.songdata_model == SongDataON and (not search_settings.get("is_disp_bonus")):
+            search_results = search_results.filter(is_bonus=False)
 
+        # LUNATIC関連
+        if cls.songdata_model == SongDataON and search_settings.get("is_use_lunatic_option"):
+            match search_settings.get("lunatic_option"):
+                case "all":
+                    pass
+                case "has":
+                    search_results = search_results.filter(has_lunatic=True)
+                case "not-has":
+                    search_results = search_results.filter(has_lunatic=False)
+                case "only":
+                    search_results = search_results.filter(only_lunatic=True)
+                case "not-only":
+                    search_results = search_results.filter(only_lunatic=False)
+                case "has-not-only":
+                    search_results = search_results.filter(has_lunatic=True, only_lunatic=False)
+                case "remaster":
+                    search_results = search_results.filter(is_remaster=True)
+                case "not-remaster":
+                    search_results = search_results.filter(is_remaster__in=[False, None])
+                case _:
+                    raise ValueError("Lunatic option is invalid")
 
 
         return list(search_results)

@@ -52,6 +52,15 @@ $("#is_use_notes").on("change", function () {
     }
 });
 
+// LUNATICオプションの表示・非表示
+$("#is_use_lunatic_option").on("change", function () {
+    if ($(this).prop('checked')) {
+        $("#select-lunatic").css("display", "");
+    } else {
+        $("#select-lunatic").css("display", "none");
+    }
+});
+
 // 難易度切り替え
 var display_dif_index = 1;
 var change_dif = function () {
@@ -139,6 +148,12 @@ $("input[id^='type-']").on("change", function (e) {
 
     // "/ジャンル名"文字列の表示
     $("#subname_text").css("display", type === "o" ? "" : "none");
+
+    // ボーナストラック表示の変更
+    $("#is-disp-bonus-wrapper").css("display", type === "o" ? "" : "none");
+
+    // Lunaticオプション表示の変更
+    $("#is_use_lunatic_option-wrapper").css("display", type === "o" ? "" : "none");
 
     // 難易度表示の変更
     display_dif_index = 1;
@@ -285,6 +300,9 @@ var search_songs = debounce( function (e, type, disp) {
                 "is_use_notes": $("#is_use_notes").prop('checked'),
                 "notes_from": $("#slider-notes").data("ionRangeSlider").result.from,
                 "notes_to": $("#slider-notes").data("ionRangeSlider").result.to,
+                "is_disp_bonus": $("#is-disp-bonus").prop('checked'),
+                "is_use_lunatic_option": $("#is_use_lunatic_option").prop('checked'),
+                "lunatic_option": $("#select-lunatic").val(),
             },
             "type": type,
             "display_type": disp,

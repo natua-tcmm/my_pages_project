@@ -14,9 +14,10 @@ from django.conf import settings
 title_base = "| △Natua♪▽のツールとか保管所"
 # --------------------------------------------------
 
+
 class ConstSearchView(View):
 
-    template_name = 'const_search/const_search.html'
+    template_name = "const_search/const_search.html"
 
     songdata_manager = SongDataCNManager
     type_game = "c"
@@ -25,12 +26,15 @@ class ConstSearchView(View):
         "is_use_name": True,
         "is_use_artists": False,
         "is_use_nd": False,
-        "is_use_bpm":False,
+        "is_use_bpm": False,
         "bpm_from": None,
         "bpm_to": None,
-        "is_use_notes":False,
-        "notes_from":None,
-        "notes_to":None,
+        "is_use_notes": False,
+        "notes_from": None,
+        "notes_to": None,
+        "is_disp_bonus": False,
+        "is_use_lunatic_option": False,
+        "lunatic_option": None,
     }
 
     def get(self, request, *args, **kwargs):
@@ -50,10 +54,10 @@ class ConstSearchView(View):
         # 入力情報の取得
         query = post.get("query")
         for key in self.search_settings.keys():
-            if key in ["bpm_from", "bpm_to", "notes_from", "notes_to"]:
+            if key in ["bpm_from", "bpm_to", "notes_from", "notes_to", "lunatic_option"]:
                 self.search_settings[key] = post.get(f"search_settings[{key}]")
             else:
-                self.search_settings[key] = (post.get(f"search_settings[{key}]") == "true")
+                self.search_settings[key] = post.get(f"search_settings[{key}]") == "true"
         self.type_game = post.get("type")
         self.display_type = post.get("display_type")
         request_time = post.get("request_time")
@@ -64,8 +68,8 @@ class ConstSearchView(View):
         search_results_html = ""
 
         # IP情報の取得
-        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-        ip = x_forwarded_for.split(',')[0] if x_forwarded_for else request.META.get('REMOTE_ADDR')
+        x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
+        ip = x_forwarded_for.split(",")[0] if x_forwarded_for else request.META.get("REMOTE_ADDR")
         print(f"[{ip}][{self.type_game}] q:{query}")
 
         # 機種選択
@@ -94,7 +98,9 @@ class ConstSearchView(View):
                 for song in search_results_song_list[:30]
             ]
             search_results_html.append(
-                render_to_string("const_search/result_info.html", context={"info_text": "新曲を表示しています。検索ワードを入力してね！"})
+                render_to_string(
+                    "const_search/result_info.html", context={"info_text": "新曲を表示しています。検索ワードを入力してね！"}
+                )
             )
 
         # 検索ワードがある場合
@@ -118,7 +124,6 @@ class ConstSearchView(View):
         }
         return JsonResponse(response)
 
-
     # 更新日を取得
     def _get_update_time_str(self):
         return f"最終更新: {SongDataCNManager.get_update_time()} | {SongDataONManager.get_update_time()}"
@@ -134,10 +139,8 @@ class ConstSearchView(View):
             rights_list += f.readlines()
         return rights_list
 
-
-
     # 結果のレンダリング
-    def _render_search_result(self,search_results_song_list, type_game, display_type):
+    def _render_search_result(self, search_results_song_list, type_game, display_type):
         search_hit_count = len(search_results_song_list)
         search_results_html = [
             render_to_string(f"const_search/song_info_{type_game}_{display_type}.html", context={"song": song})
@@ -147,11 +150,16 @@ class ConstSearchView(View):
         # 多すぎたら注意メッセージ
         if search_hit_count > 30:
             search_results_html.append(
-                render_to_string("const_search/result_info.html", context={"info_text": "検索結果が多すぎだよ〜 もう少しワードを絞ってみてね"})
+                render_to_string(
+                    "const_search/result_info.html",
+                    context={"info_text": "検索結果が多すぎだよ〜 もう少しワードを絞ってみてね"},
+                )
             )
         # 0件ならその旨メッセージ
         if search_hit_count == 0:
             search_results_html.append(
-                render_to_string("const_search/result_info.html", context={"info_text": "検索結果が0件だよ〜 ワードや設定を確認してみてね"})
+                render_to_string(
+                    "const_search/result_info.html", context={"info_text": "検索結果が0件だよ〜 ワードや設定を確認してみてね"}
+                )
             )
         return search_results_html
