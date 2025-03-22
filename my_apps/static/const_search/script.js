@@ -148,6 +148,58 @@ $("input[id^='type-']").on("change", function (e) {
 
 // --------------------------------
 
+// 譜面画像ボタン
+// ページ全体に対して、クラス fumenbtn を持つボタンのクリックイベントをデリゲートで処理
+$(document).on('click', '.fumenbtn', function() {
+    var dif = $(this).data('dif');
+    var songFumenId = Number($(this).data('songfumenid'));
+    var type = $(this).data('type');
+    var url = '';
+
+    // CHUNITHMの場合
+    if( type === "c" ){
+        if (dif === 'e') {
+            // Expert用
+            url = 'https://www.sdvx.in/chunithm/' +
+                  (songFumenId / 1000).toFixed().padStart(2, '0') + '/' +
+                  songFumenId.toFixed().padStart(5, '0') + 'exp.htm';
+        } else if (dif === 'm' || dif === 'm_fallback') {
+            // Master用
+            url = 'https://www.sdvx.in/chunithm/' +
+                  (songFumenId / 1000).toFixed().padStart(2, '0') + '/' +
+                  songFumenId.toFixed().padStart(5, '0') + 'mst.htm';
+        } else if (dif === 'u') {
+            // Ultima用
+            url = 'https://www.sdvx.in/chunithm/ult/' +
+                  songFumenId.toFixed().padStart(5, '0') + 'ult.htm';
+        }
+    }
+    // オンゲキの場合
+    else if( type === "o" ){
+        if (dif === 'e') {
+            // Expert用
+            url = 'https://www.sdvx.in/ongeki/' +
+                  (songFumenId / 1000).toFixed().padStart(2, '0') + '/' +
+                  songFumenId.toFixed().padStart(5, '0') + 'exp.htm';
+        } else if (dif === 'm' || dif === 'm_fallback') {
+            // Master用
+            url = 'https://www.sdvx.in/ongeki/' +
+                  (songFumenId / 1000).toFixed().padStart(2, '0') + '/' +
+                  songFumenId.toFixed().padStart(5, '0') + 'mst.htm';
+        }
+        else if (dif === 'l' || dif === 'l_fallback') {
+            // Lunatic用
+            url = 'https://www.sdvx.in/ongeki/luna/' +
+                  songFumenId.toFixed().padStart(5, '0') + 'luna.htm';
+        }
+     }
+
+    window.open(url);
+});
+
+
+// --------------------------------
+
 // 検索ステータス
 var request_count = 0;
 var response_count = 0;

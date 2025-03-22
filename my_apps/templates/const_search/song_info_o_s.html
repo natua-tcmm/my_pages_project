@@ -80,51 +80,64 @@
             <div class="row">
                 <!-- 譜面画像ボタン -->
                 {% if song.only_lunatic is False %}
-                <div class="col-auto justify-content-end align-self-center pr-0 constdisp_expert"
-                    style="display: none;">
-                    <button id="fumenbtn-e_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
-                        {% if song.song_fumen_id  %}{% else %} disabled {% endif %}>
-                        譜面画像 <i class="ml-2 fas fa-external-link-alt"></i></button>
-                    </button>
-                </div>
-                <div class="col-auto justify-content-end align-self-center pr-0 constdisp_master"
-                    style="display: flex;">
-                    <button id="fumenbtn-m_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
-                        {% if song.song_fumen_id  %}{% else %} disabled {% endif %}>
-                        譜面画像 <i class="ml-2 fas fa-external-link-alt"></i></button>
-                    </button>
-                </div>
+                    <!-- Expert用ボタン -->
+                    <div class="col-auto justify-content-end align-self-center pr-0 constdisp_expert"
+                        style="display: none;">
+                        <button class="btn btn-outline-secondary m-0 fumenbtn"
+                            data-dif="e" data-type="o" data-songfumenid="{{ song.song_fumen_id }}"
+                            {% if not song.song_fumen_id %} disabled {% endif %}>
+                            譜面画像 <i class="ml-2 fas fa-external-link-alt"></i>
+                        </button>
+                    </div>
+                    <!-- Master用ボタン -->
+                    <div class="col-auto justify-content-end align-self-center pr-0 constdisp_master"
+                        style="display: flex;">
+                        <button class="btn btn-outline-secondary m-0 fumenbtn"
+                            data-dif="m" data-type="o" data-songfumenid="{{ song.song_fumen_id }}"
+                            {% if not song.song_fumen_id %} disabled {% endif %}>
+                            譜面画像 <i class="ml-2 fas fa-external-link-alt"></i>
+                        </button>
+                    </div>
                 {% else %}
-                <div class="col-auto justify-content-end align-self-center pr-0 constdisp_expert"
-                    style="display: none;">
-                    <button id="fumenbtn-l_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
-                        {% if song.song_fumen_id  %}{% else %} disabled {% endif %}>
-                        譜面画像 <i class="ml-2 fas fa-external-link-alt"></i></button>
-                    </button>
-                </div>
-                <div class="col-auto justify-content-end align-self-center pr-0 constdisp_master"
-                    style="display: flex;">
-                    <button id="fumenbtn-l_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
-                        {% if song.song_fumen_id  %}{% else %} disabled {% endif %}>
-                        譜面画像 <i class="ml-2 fas fa-external-link-alt"></i></button>
-                    </button>
-                </div>
+                    <!-- フォールバックとして Lunatic を Expert/Master 部分に表示 -->
+                    <div class="col-auto justify-content-end align-self-center pr-0 constdisp_expert"
+                        style="display: none;">
+                        <button class="btn btn-outline-secondary m-0 fumenbtn"
+                            data-dif="l_fallback" data-type="o" data-songfumenid="{{ song.song_fumen_id }}"
+                            {% if not song.song_fumen_id %} disabled {% endif %}>
+                            譜面画像 <i class="ml-2 fas fa-external-link-alt"></i>
+                        </button>
+                    </div>
+                    <div class="col-auto justify-content-end align-self-center pr-0 constdisp_master"
+                        style="display: flex;">
+                        <button class="btn btn-outline-secondary m-0 fumenbtn"
+                            data-dif="l_fallback" data-type="o" data-songfumenid="{{ song.song_fumen_id }}"
+                            {% if not song.song_fumen_id %} disabled {% endif %}>
+                            譜面画像 <i class="ml-2 fas fa-external-link-alt"></i>
+                        </button>
+                    </div>
                 {% endif %}
+
                 {% if song.has_lunatic is True %}
-                <div class="col-auto justify-content-end align-self-center pr-0 constdisp_lunatic"
-                    style="display: none;">
-                    <button id="fumenbtn-l_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
-                        {% if song.song_fumen_id  %}{% else %} disabled {% endif %}>
-                        譜面画像 <i class="ml-2 fas fa-external-link-alt"></i></button>
-                    </button>
-                </div>
+                    <!-- Lunatic用ボタン -->
+                    <div class="col-auto justify-content-end align-self-center pr-0 constdisp_lunatic"
+                        style="display: none;">
+                        <button class="btn btn-outline-secondary m-0 fumenbtn"
+                            data-dif="l" data-type="o" data-songfumenid="{{ song.song_fumen_id }}"
+                            {% if not song.song_fumen_id %} disabled {% endif %}>
+                            譜面画像 <i class="ml-2 fas fa-external-link-alt"></i>
+                        </button>
+                    </div>
                 {% else %}
-                <div class="col-auto justify-content-end align-self-center pr-0 constdisp_lunatic" style="display: none;">
-                    <button id="fumenbtn-m_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
-                        {% if song.song_fumen_id  %}{% else %} disabled {% endif %}>
-                        譜面画像 <i class="ml-2 fas fa-external-link-alt"></i></button>
-                    </button>
-                </div>
+                    <!-- フォールバックとして Master を表示 -->
+                    <div class="col-auto justify-content-end align-self-center pr-0 constdisp_lunatic"
+                        style="display: none;">
+                        <button class="btn btn-outline-secondary m-0 fumenbtn"
+                            data-dif="m_fallback" data-type="o" data-songfumenid="{{ song.song_fumen_id }}"
+                            {% if not song.song_fumen_id %} disabled {% endif %}>
+                            譜面画像 <i class="ml-2 fas fa-external-link-alt"></i>
+                        </button>
+                    </div>
                 {% endif %}
             </div>
         </div>

@@ -57802,7 +57802,7 @@
                 "release_lunatic": "2020-08-20",
                 "release_lunatic_version": "オンゲキ SUMMER PLUS",
                 "image_url": "0eb2e3089eacae90.png",
-                "fumen_id": "02157",
+                "fumen_id": "02158",
                 "character": "珠洲島 有栖",
                 "character_lunatic": "珠洲島 有栖",
                 "is_bonus": false,
@@ -57842,11 +57842,11 @@
             "lunatic": {
                 "const": 14.6,
                 "const_nodata": false,
-                "notes": 1484,
+                "notes": 2600,
                 "notes_nodata": false,
-                "bell": 2,
+                "bell": 303,
                 "bell_nodata": false,
-                "notesdesigner": "非通知設定",
+                "notesdesigner": "一ノ瀬 リズ respect for ロシェ＠ペンギン",
                 "notesdesigner_nodata": false
             }
         },
@@ -58257,7 +58257,7 @@
                 "release_lunatic": "2020-08-20",
                 "release_lunatic_version": "オンゲキ SUMMER PLUS",
                 "image_url": "8dd04f0a34e08420.png",
-                "fumen_id": "02158",
+                "fumen_id": "02157",
                 "character": "井之原 小星",
                 "character_lunatic": "井之原 小星",
                 "is_bonus": false,
@@ -58297,14 +58297,14 @@
             "lunatic": {
                 "const": 14.8,
                 "const_nodata": false,
-                "notes": 2600,
+                "notes": 1484,
                 "notes_nodata": false,
-                "bell": 303,
+                "bell": 2,
                 "bell_nodata": false,
-                "notesdesigner": "一ノ瀬 リズ respect for ロシェ＠ペンギン",
+                "notesdesigner": "非通知設定",
                 "notesdesigner_nodata": false
             }
         }
     ],
-    "update_at": "2025/03/20 03:56"
+    "update_at": "2025/03/22 22:59"
 }

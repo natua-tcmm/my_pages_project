@@ -58,51 +58,43 @@
             </div>
             <div class="row">
                 <!-- 譜面画像ボタン -->
-                {% if song.only_ultima is False %}
+                <!-- Expert用ボタン -->
                 <div class="col-auto justify-content-end align-self-center pr-0 constdisp_expert"
                     style="display: none;">
-                    <button id="fumenbtn-e_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
-                        {% if song.song_fumen_id  %}{% else %} disabled {% endif %}>
-                        譜面画像 <i class="ml-2 fas fa-external-link-alt"></i></button>
+                    <button class="btn btn-outline-secondary m-0 fumenbtn" data-dif="e" data-type="c" data-songfumenid="{{ song.song_fumen_id }}"
+                        {% if not song.song_fumen_id %} disabled {% endif %}>
+                        譜面画像 <i class="ml-2 fas fa-external-link-alt"></i>
                     </button>
                 </div>
+                <!-- Master用ボタン -->
                 <div class="col-auto justify-content-end align-self-center pr-0 constdisp_master"
                     style="display: flex;">
-                    <button id="fumenbtn-m_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
-                        {% if song.song_fumen_id  %}{% else %} disabled {% endif %}>
-                        譜面画像 <i class="ml-2 fas fa-external-link-alt"></i></button>
+                    <button class="btn btn-outline-secondary m-0 fumenbtn" data-dif="m" data-type="c" data-songfumenid="{{ song.song_fumen_id }}"
+                        {% if not song.song_fumen_id %} disabled {% endif %}>
+                        譜面画像 <i class="ml-2 fas fa-external-link-alt"></i>
                     </button>
                 </div>
-                {% endif %}
                 {% if song.has_ultima is True %}
+                <!-- Ultima用ボタン -->
                 <div class="col-auto justify-content-end align-self-center pr-0 constdisp_ultima"
                     style="display: none;">
-                    <button id="fumenbtn-u_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
-                        {% if song.song_fumen_id  %}{% else %} disabled {% endif %}>
-                        譜面画像 <i class="ml-2 fas fa-external-link-alt"></i></button>
+                    <button class="btn btn-outline-secondary m-0 fumenbtn" data-dif="u" data-type="c" data-songfumenid="{{ song.song_fumen_id }}"
+                        {% if not song.song_fumen_id %} disabled {% endif %}>
+                        譜面画像 <i class="ml-2 fas fa-external-link-alt"></i>
                     </button>
                 </div>
                 {% else %}
-                <div class="col-auto justify-content-end align-self-center pr-0 constdisp_ultima" style="display: none;">
-                    <button id="fumenbtn-m_{{song.id}}" type="button" class="btn btn-outline-secondary m-0"
-                        {% if song.song_fumen_id  %}{% else %} disabled {% endif %}>
-                        譜面画像 <i class="ml-2 fas fa-external-link-alt"></i></button>
+                <!-- フォールバックとしてMasterを表示するが、異なるデータ属性を付与 -->
+                <div class="col-auto justify-content-end align-self-center pr-0 constdisp_ultima"
+                    style="display: none;">
+                    <button class="btn btn-outline-secondary m-0 fumenbtn" data-dif="m_fallback" data-type="c"
+                        data-songfumenid="{{ song.song_fumen_id }}" {% if not song.song_fumen_id %} disabled {% endif %}>
+                        譜面画像 <i class="ml-2 fas fa-external-link-alt"></i>
                     </button>
                 </div>
                 {% endif %}
+
             </div>
         </div>
     </div>
-
-    <script>
-        document.getElementById('fumenbtn-e_{{song.id}}').onclick = function () {
-            window.open('https://www.sdvx.in/chunithm/' + (Number('{{song.song_fumen_id}}') / 1000).toFixed().padStart(2, '0') + '/' + Number('{{song.song_fumen_id}}').toFixed().padStart(5, '0') + 'exp.htm')
-        }
-        document.getElementById('fumenbtn-m_{{song.id}}').onclick = function () {
-            window.open('https://www.sdvx.in/chunithm/' + (Number('{{song.song_fumen_id}}') / 1000).toFixed().padStart(2, '0') + '/' + Number('{{song.song_fumen_id}}').toFixed().padStart(5, '0') + 'mst.htm')
-        }
-        document.getElementById('fumenbtn-u_{{song.id}}').onclick = function () {
-            window.open('https://www.sdvx.in/chunithm/ult/' + Number('{{song.song_fumen_id}}').toFixed().padStart(5, '0') + 'ult.htm')
-        }
-    </script>
 </div>

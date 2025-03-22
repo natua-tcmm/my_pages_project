@@ -11692,8 +11692,8 @@
                 "notesdesigner_nodata": false
             },
             "ultima": {
-                "const": null,
-                "const_nodata": true,
+                "const": 15.1,
+                "const_nodata": false,
                 "notes": 2475,
                 "notes_nodata": false,
                 "notesdesigner": "MinimiLight -Despair-",
@@ -74232,8 +74232,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 13,
-                "const_nodata": true,
+                "const": 13.3,
+                "const_nodata": false,
                 "notes": 1788,
                 "notes_nodata": false,
                 "notesdesigner": "みぞれヤナギ",
@@ -74263,12 +74263,12 @@
                 "reading": "ヒトマニア",
                 "artist": "原口沙輔 feat.重音テト",
                 "genre": "niconico",
-                "bpm": null,
-                "bpm_nodata": true,
+                "bpm": 150,
+                "bpm_nodata": false,
                 "release": null,
                 "release_version": null,
                 "image_url": "be2743ac0c8a837f.jpg",
-                "fumen_id": null,
+                "fumen_id": "10062",
                 "is_worldsend": false,
                 "has_ultima": false,
                 "only_ultima": false,
@@ -74284,20 +74284,20 @@
                 "const_nodata": true
             },
             "expert": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "const": 10.2,
+                "const_nodata": false,
+                "notes": 1099,
+                "notes_nodata": false,
+                "notesdesigner": "そらいろカリン",
+                "notesdesigner_nodata": false
             },
             "master": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "const": 14.2,
+                "const_nodata": false,
+                "notes": 1723,
+                "notes_nodata": false,
+                "notesdesigner": "MANIAC LEMON",
+                "notesdesigner_nodata": false
             },
             "ultima": {
                 "const": null,
@@ -74315,12 +74315,12 @@
                 "reading": "オウハウライト",
                 "artist": "吉田夜世",
                 "genre": "niconico",
-                "bpm": null,
-                "bpm_nodata": true,
+                "bpm": 204,
+                "bpm_nodata": false,
                 "release": null,
                 "release_version": null,
                 "image_url": "2398cab8269957d2.jpg",
-                "fumen_id": null,
+                "fumen_id": "10063",
                 "is_worldsend": false,
                 "has_ultima": true,
                 "only_ultima": false,
@@ -74338,26 +74338,26 @@
             "expert": {
                 "const": null,
                 "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notes": 1229,
+                "notes_nodata": false,
+                "notesdesigner": "アミノハバキリ",
+                "notesdesigner_nodata": false
             },
             "master": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "const": 12.9,
+                "const_nodata": false,
+                "notes": 2029,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
             },
             "ultima": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "const": 14.6,
+                "const_nodata": false,
+                "notes": 2101,
+                "notes_nodata": false,
+                "notesdesigner": "*NullPointerException*",
+                "notesdesigner_nodata": false
             }
         },
         {
@@ -74367,12 +74367,12 @@
                 "reading": "ライアウタンサウ",
                 "artist": "マサラダ",
                 "genre": "niconico",
-                "bpm": null,
-                "bpm_nodata": true,
+                "bpm": 170,
+                "bpm_nodata": false,
                 "release": null,
                 "release_version": null,
                 "image_url": "0d5e33c2d86bcee2.jpg",
-                "fumen_id": null,
+                "fumen_id": "10064",
                 "is_worldsend": false,
                 "has_ultima": false,
                 "only_ultima": false,
@@ -74390,18 +74390,18 @@
             "expert": {
                 "const": null,
                 "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notes": 1326,
+                "notes_nodata": false,
+                "notesdesigner": "夕凪アロエ",
+                "notesdesigner_nodata": false
             },
             "master": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "const": 13.5,
+                "const_nodata": false,
+                "notes": 2075,
+                "notes_nodata": false,
+                "notesdesigner": "アミノハバキリ",
+                "notesdesigner_nodata": false
             },
             "ultima": {
                 "const": null,
@@ -74419,12 +74419,12 @@
                 "reading": "クロヌリセカイアテシヨカン",
                 "artist": "フロクロ",
                 "genre": "niconico",
-                "bpm": null,
-                "bpm_nodata": true,
+                "bpm": 185,
+                "bpm_nodata": false,
                 "release": null,
                 "release_version": null,
                 "image_url": "a41b7313d71f3947.jpg",
-                "fumen_id": null,
+                "fumen_id": "10065",
                 "is_worldsend": false,
                 "has_ultima": false,
                 "only_ultima": false,
@@ -74440,20 +74440,20 @@
                 "const_nodata": true
             },
             "expert": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "const": 10.5,
+                "const_nodata": false,
+                "notes": 892,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
             },
             "master": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "const": 13.6,
+                "const_nodata": false,
+                "notes": 1295,
+                "notes_nodata": false,
+                "notesdesigner": "ミニミライト",
+                "notesdesigner_nodata": false
             },
             "ultima": {
                 "const": null,
@@ -74492,16 +74492,16 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 13,
-                "const_nodata": true,
+                "const": 13.2,
+                "const_nodata": false,
                 "notes": 1105,
                 "notes_nodata": false,
                 "notesdesigner": "サファ太",
                 "notesdesigner_nodata": false
             },
             "master": {
-                "const": 14,
-                "const_nodata": true,
+                "const": 14.2,
+                "const_nodata": false,
                 "notes": 1636,
                 "notes_nodata": false,
                 "notesdesigner": "INFiNiTE BLADE -Overforge-",
@@ -74553,7 +74553,7 @@
             },
             "master": {
                 "const": 13,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1618,
                 "notes_nodata": false,
                 "notesdesigner": "みそかつ侍＠祝もうすぐ10周年！",
@@ -74596,16 +74596,16 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 10,
-                "const_nodata": true,
+                "const": 10.1,
+                "const_nodata": false,
                 "notes": 1285,
                 "notes_nodata": false,
                 "notesdesigner": "ミニミライト",
                 "notesdesigner_nodata": false
             },
             "master": {
-                "const": 12.5,
-                "const_nodata": true,
+                "const": 12.6,
+                "const_nodata": false,
                 "notes": 1701,
                 "notes_nodata": false,
                 "notesdesigner": "ウムウム侍",
@@ -74657,7 +74657,7 @@
             },
             "master": {
                 "const": 13.5,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 2023,
                 "notes_nodata": false,
                 "notesdesigner": "みそかつ侍と以♡伝♡＠ハイエナ推し",
@@ -74708,8 +74708,8 @@
                 "notesdesigner_nodata": false
             },
             "master": {
-                "const": 13,
-                "const_nodata": true,
+                "const": 13.2,
+                "const_nodata": false,
                 "notes": 1777,
                 "notes_nodata": false,
                 "notesdesigner": "MiSOKATSUもそう思います",
@@ -75349,5 +75349,5 @@
             }
         }
     ],
-    "update_at": "2025/03/20 03:53"
+    "update_at": "2025/03/22 22:59"
 }

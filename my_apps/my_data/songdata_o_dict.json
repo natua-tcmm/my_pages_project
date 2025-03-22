@@ -46497,7 +46497,7 @@
             "song_release_lunatic": "2020-08-20",
             "song_release_lunatic_version": "オンゲキ SUMMER PLUS",
             "song_image_url": "8dd04f0a34e08420.png",
-            "song_fumen_id": "02158",
+            "song_fumen_id": "02157",
             "character": "井之原 小星",
             "character_lunatic": "井之原 小星",
             "is_bonus": false,
@@ -46527,11 +46527,11 @@
             "mas_notesdesigner_nodata": true,
             "lun_const": 14.8,
             "lun_const_nodata": false,
-            "lun_notes": 2600,
+            "lun_notes": 1484,
             "lun_notes_nodata": false,
-            "lun_bell": 303,
+            "lun_bell": 2,
             "lun_bell_nodata": false,
-            "lun_notesdesigner": "一ノ瀬 リズ respect for ロシェ＠ペンギン",
+            "lun_notesdesigner": "非通知設定",
             "lun_notesdesigner_nodata": false
         },
         {
@@ -46550,7 +46550,7 @@
             "song_release_lunatic": "2020-08-20",
             "song_release_lunatic_version": "オンゲキ SUMMER PLUS",
             "song_image_url": "0eb2e3089eacae90.png",
-            "song_fumen_id": "02157",
+            "song_fumen_id": "02158",
             "character": "珠洲島 有栖",
             "character_lunatic": "珠洲島 有栖",
             "is_bonus": false,
@@ -46580,11 +46580,11 @@
             "mas_notesdesigner_nodata": true,
             "lun_const": 14.6,
             "lun_const_nodata": false,
-            "lun_notes": 1484,
+            "lun_notes": 2600,
             "lun_notes_nodata": false,
-            "lun_bell": 2,
+            "lun_bell": 303,
             "lun_bell_nodata": false,
-            "lun_notesdesigner": "非通知設定",
+            "lun_notesdesigner": "一ノ瀬 リズ respect for ロシェ＠ペンギン",
             "lun_notesdesigner_nodata": false
         },
         {
@@ -47544,7 +47544,10 @@
     ],
     "new_song_offi_ids": [],
     "new_lunatic_song_offi_ids": [],
-    "update_song_offi_ids": [],
+    "update_song_offi_ids": [
+        "948100",
+        "949700"
+    ],
     "delete_song_offi_ids": [],
-    "update_at": "2025/03/20 03:56"
+    "update_at": "2025/03/22 22:59"
 }
