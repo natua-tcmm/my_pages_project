@@ -25,6 +25,12 @@ class ConstSearchView(View):
         "is_use_name": True,
         "is_use_artists": False,
         "is_use_nd": False,
+        "is_use_bpm":False,
+        "bpm_from": None,
+        "bpm_to": None,
+        "is_use_notes":False,
+        "notes_from":None,
+        "notes_to":None,
     }
 
     def get(self, request, *args, **kwargs):
@@ -44,14 +50,16 @@ class ConstSearchView(View):
         # 入力情報の取得
         query = post.get("query")
         for key in self.search_settings.keys():
-            self.search_settings[key] = (post.get(key) == "true")
+            if key in ["bpm_from", "bpm_to", "notes_from", "notes_to"]:
+                self.search_settings[key] = post.get(f"search_settings[{key}]")
+            else:
+                self.search_settings[key] = (post.get(f"search_settings[{key}]") == "true")
         self.type_game = post.get("type")
         self.display_type = post.get("display_type")
         request_time = post.get("request_time")
 
         # レスポンス初期化
         response = {"query": query, "request_time": request_time}
-        query_list = []
         search_hit_count = 0
         search_results_html = ""
 
@@ -74,7 +82,7 @@ class ConstSearchView(View):
 
         # 検索ワードがない場合
         # 初期状態：新曲表示
-        if query == "":
+        if query == "" and self.display_type == "s":
             # 2週間以内の新曲を取得
             date_before_2_weekly = (datetime.date.today() - datetime.timedelta(days=15)).strftime("%Y-%m-%d")
             search_results_song_list = self.songdata_manager.get_new_songs(date_before_2_weekly)

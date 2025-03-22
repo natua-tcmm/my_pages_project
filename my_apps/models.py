@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Q
 from django.conf import settings
 import requests, os, json, datetime, jaconv, unicodedata, re
 from pathlib import Path
@@ -253,6 +254,7 @@ class BaseSongDataManager(models.Manager):
 
         print(search_settings,query_list)
 
+        # queryによる検索
         for query in query_list:
 
             # 曲名による検索
@@ -294,6 +296,22 @@ class BaseSongDataManager(models.Manager):
                     search_results |= qs.filter(ult_notesdesigner__icontains=query)
                 elif cls.songdata_model == SongDataON:
                     search_results |= qs.filter(lun_notesdesigner__icontains=query)
+
+        # 絞り込みオプション
+        # BPM
+        if search_settings.get("is_use_bpm"):
+                search_results = search_results.filter(song_bpm__range=(search_settings["bpm_from"], search_settings["bpm_to"]))
+        # ノーツ数
+        if search_settings.get("is_use_notes"):
+            search_results = search_results.filter(
+                Q(exp_notes__range=(search_settings["notes_from"], search_settings["notes_to"])) |
+                Q(mas_notes__range=(search_settings["notes_from"], search_settings["notes_to"])) |
+                (Q(ult_notes__range=(search_settings["notes_from"], search_settings["notes_to"])) if cls.songdata_model == SongDataCN else Q()) |
+                (Q(lun_notes__range=(search_settings["notes_from"], search_settings["notes_to"])) if cls.songdata_model == SongDataON else Q())
+            )
+
+
+
 
         return list(search_results)
 

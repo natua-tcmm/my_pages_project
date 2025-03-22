@@ -14,7 +14,7 @@ window.onload = function () {
         max: 300,
         from: 30,
         to: 500,
-        step : 10,
+        step: 10,
         prefix: "BPM",
         tooltip: "auto",
     });
@@ -24,10 +24,10 @@ window.onload = function () {
         max: 4000,
         from: 1000,
         to: 4000,
-        step : 100,
+        step: 100,
         postfix: "Notes",
         tooltip: "auto",
-        prettify: function(num) {
+        prettify: function (num) {
             return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "");
         }
     });
@@ -79,13 +79,13 @@ var change_dif = function () {
     else if (display_dif_index % 3 == 2) {
         $(".constdisp_expert").css("display", "none");
         $(".constdisp_master").css("display", "none");
-        if(  type === "c" ){
+        if (type === "c") {
             $(".constdisp_ultima").css("display", "flex");
             $(".constdisp_lunatic").css("display", "none");
             $(".constdisp_ultima_inline").css("display", "inline");
             $(".constdisp_lunatic_inline").css("display", "none");
         }
-        else{
+        else {
             $(".constdisp_ultima").css("display", "none");
             $(".constdisp_lunatic").css("display", "flex");
             $(".constdisp_ultima_inline").css("display", "none");
@@ -158,13 +158,21 @@ var update_search_status = function () {
     $("#search-status").html("↑" + request_count + "↓" + response_count + "(-" + invalid_response_count + ")");
 }
 
-// 検索ワードの送信
+// 検索ワードを変更した際に送信
 $('#ajax-search').on('submit input', function (e) {
-    // console.log($("#is_use_name").prop('checked'));
-
     // 検索
     search_songs(e, type, disp);
 });
+
+// スライダー値を変更した際に送信
+setTimeout(function () {
+    $("#slider-bpm").on("change", function (e) {
+        search_songs(e, type, disp);
+    });
+    $("#slider-notes").on("change", function (e) {
+        search_songs(e, type, disp);
+    });
+}, 1000);
 
 // 楽曲検索
 var before_request_time = 0
@@ -188,9 +196,17 @@ var search_songs = function (e, type, disp) {
         'data': {
             "csrfmiddlewaretoken": csrfmiddlewaretoken,
             'query': $('#query').val(),
-            "is_use_name": $("#is_use_name").prop('checked'),
-            "is_use_artists": $("#is_use_artists").prop('checked'),
-            "is_use_nd": $("#is_use_nd").prop('checked'),
+            "search_settings":{
+                "is_use_name": $("#is_use_name").prop('checked'),
+                "is_use_artists": $("#is_use_artists").prop('checked'),
+                "is_use_nd": $("#is_use_nd").prop('checked'),
+                "is_use_bpm": $("#is_use_bpm").prop('checked'),
+                "bpm_from": $("#slider-bpm").data("ionRangeSlider").result.from,
+                "bpm_to": $("#slider-bpm").data("ionRangeSlider").result.to,
+                "is_use_notes": $("#is_use_notes").prop('checked'),
+                "notes_from": $("#slider-notes").data("ionRangeSlider").result.from,
+                "notes_to": $("#slider-notes").data("ionRangeSlider").result.to,
+            },
             "type": type,
             "display_type": disp,
             "request_time": new Date().getTime(),
