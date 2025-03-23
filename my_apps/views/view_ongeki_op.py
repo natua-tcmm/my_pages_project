@@ -129,6 +129,9 @@ def ongeki_op(request):
 
         # 情報収集
         print(f"[{ip}][ongeki_op] {osl_id} / {player_data['name']} / {op_aggregate_all['op_percent_str']}")
+        ToolUsageManager.add_usage(
+            request, "ongeki_op", f"{osl_id} / {player_data['name']} / {op_aggregate_all['op_percent_str']}"
+        )
 
         # 概要+ALLを描画
         op_rank = f'{op_aggregate_all["op_color"].capitalize()}{("-"+str(op_aggregate_all["op_rank"])) if op_aggregate_all["op_color"]!="rainbow" else ""}'

@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import Q
 from django.conf import settings
+from django.utils import timezone
 import requests, os, json, datetime, jaconv, unicodedata, re
 from pathlib import Path
 
@@ -162,13 +163,16 @@ class SongDataON(models.Model):
     lun_notesdesigner = models.CharField(max_length=100, null=True, blank=True)
     lun_notesdesigner_nodata = models.BooleanField(default=True)
 
+
 # ----------------------------------
 
+
+# データベースのマネージャー
 class BaseSongDataManager(models.Manager):
     # サブクラスで上書きする
-    songdata_model : models.Model = None
+    songdata_model: models.Model = None
     json_file_path = None
-    update_at_file_path = None # データベースの更新日時を記録するファイルのパス
+    update_at_file_path = None  # データベースの更新日時を記録するファイルのパス
 
     @classmethod
     def import_songdata_from_json(cls):
@@ -188,12 +192,8 @@ class BaseSongDataManager(models.Manager):
         print(f"[{cls.__name__}] データベースに送信します")
         for song in data["songs"]:
             song_official_id = song["song_official_id"]
-            if (song_official_id in data["new_song_offi_ids"] or
-                song_official_id in data["update_song_offi_ids"]):
-                obj, created = cls.songdata_model.objects.update_or_create(
-                    song_official_id=song_official_id,
-                    defaults=song
-                )
+            if song_official_id in data["new_song_offi_ids"] or song_official_id in data["update_song_offi_ids"]:
+                obj, created = cls.songdata_model.objects.update_or_create(song_official_id=song_official_id, defaults=song)
                 action = "作成" if created else "更新"
                 print(f"- {action}: {obj.song_name}")
             elif song_official_id in data.get("delete_song_offi_ids", []):
@@ -218,7 +218,7 @@ class BaseSongDataManager(models.Manager):
         return update_time
 
     @classmethod
-    def _create_query_list(cls,query):
+    def _create_query_list(cls, query):
         """
         クエリから検索クエリリストを生成する共通処理
         ・ひらがな・カタカナ変換
@@ -241,7 +241,7 @@ class BaseSongDataManager(models.Manager):
         return query_list
 
     @classmethod
-    def search_song_by_query(cls, query_original:str, search_settings:dict):
+    def search_song_by_query(cls, query_original: str, search_settings: dict):
         """
         検索クエリと検索設定から楽曲データを検索する共通処理
         """
@@ -278,7 +278,7 @@ class BaseSongDataManager(models.Manager):
                         ]
                     )
                     # 検索
-                    if len(query_reading)>0:
+                    if len(query_reading) > 0:
                         # print(query_reading)
                         search_results |= qs.filter(song_reading__icontains=query_reading)
 
@@ -298,14 +298,22 @@ class BaseSongDataManager(models.Manager):
         # 絞り込みオプション
         # BPM
         if search_settings.get("is_use_bpm"):
-                search_results = search_results.filter(song_bpm__range=(search_settings["bpm_from"], search_settings["bpm_to"]))
+            search_results = search_results.filter(song_bpm__range=(search_settings["bpm_from"], search_settings["bpm_to"]))
         # ノーツ数
         if search_settings.get("is_use_notes"):
             search_results = search_results.filter(
-                Q(exp_notes__range=(search_settings["notes_from"], search_settings["notes_to"])) |
-                Q(mas_notes__range=(search_settings["notes_from"], search_settings["notes_to"])) |
-                (Q(ult_notes__range=(search_settings["notes_from"], search_settings["notes_to"])) if cls.songdata_model == SongDataCN else Q()) |
-                (Q(lun_notes__range=(search_settings["notes_from"], search_settings["notes_to"])) if cls.songdata_model == SongDataON else Q())
+                Q(exp_notes__range=(search_settings["notes_from"], search_settings["notes_to"]))
+                | Q(mas_notes__range=(search_settings["notes_from"], search_settings["notes_to"]))
+                | (
+                    Q(ult_notes__range=(search_settings["notes_from"], search_settings["notes_to"]))
+                    if cls.songdata_model == SongDataCN
+                    else Q()
+                )
+                | (
+                    Q(lun_notes__range=(search_settings["notes_from"], search_settings["notes_to"]))
+                    if cls.songdata_model == SongDataON
+                    else Q()
+                )
             )
 
         # ボーナストラック
@@ -333,7 +341,6 @@ class BaseSongDataManager(models.Manager):
                     search_results = search_results.filter(is_remaster__in=[False, None])
                 case _:
                     raise ValueError("Lunatic option is invalid")
-
 
         return list(search_results)
 
@@ -386,3 +393,65 @@ class SongDataONManager(BaseSongDataManager):
 
         with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_ongeki.txt"), "w") as f:
             f.write("\n".join(list(set(ongeki_rights))))
+
+
+# ----------------------------------
+
+# アクセス情報収集のためのモデル
+# ページ閲覧情報
+class PageViewManager(models.Manager):
+    @classmethod
+    def add_log(cls, request):
+        if request.method == "GET":
+            ip = cls.get_client_ip(request)
+            user_agent = request.META.get('HTTP_USER_AGENT', '')
+            return PageView.objects.create(
+                path=request.path,
+                method=request.method,
+                ip=ip,
+                user_agent=user_agent,
+                timestamp=timezone.now(),
+            )
+
+    @classmethod
+    def get_client_ip(cls, request):
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        if x_forwarded_for:
+            return x_forwarded_for.split(',')[0]
+        else:
+            return request.META.get('REMOTE_ADDR')
+
+class PageView(models.Model):
+    path = models.CharField(max_length=255)
+    method = models.CharField(max_length=10)
+    ip = models.GenericIPAddressField(null=True, blank=True)
+    user_agent = models.TextField(null=True, blank=True)
+    timestamp = models.DateTimeField()
+
+# ツール利用情報
+class ToolUsageManager(models.Manager):
+    @classmethod
+    def add_usage(cls, request, tool_name, info):
+        ip = cls.get_client_ip(request)
+        return ToolUsage.objects.create(
+            tool_name=tool_name,
+            info=info,
+            path=request.path,
+            ip=ip,
+            timestamp=timezone.now(),
+        )
+
+    @classmethod
+    def get_client_ip(cls, request):
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        if x_forwarded_for:
+            return x_forwarded_for.split(',')[0]
+        else:
+            return request.META.get('REMOTE_ADDR')
+
+class ToolUsage(models.Model):
+    ip = models.GenericIPAddressField(null=True, blank=True)
+    timestamp = models.DateTimeField()
+    path = models.CharField(max_length=255)
+    tool_name = models.CharField(max_length=255)
+    info = models.CharField(max_length=255)

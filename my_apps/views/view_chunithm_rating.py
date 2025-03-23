@@ -37,8 +37,8 @@ def chunithm_rating_all(request):
     if request.method == "POST":
 
         # メタ情報を取得
-        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-        ip = x_forwarded_for.split(',')[0] if x_forwarded_for else request.META.get('REMOTE_ADDR')
+        x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
+        ip = x_forwarded_for.split(",")[0] if x_forwarded_for else request.META.get("REMOTE_ADDR")
 
         # POSTから検索queryを取得
         post = request.POST
@@ -114,7 +114,9 @@ def chunithm_rating_all(request):
 
             # 情報収集
             print(f"[{ip}][chunithm_rating] {rec_id} / {player_data['player_name']} / {result_best_30}(30)")
-
+            ToolUsageManager.add_usage(
+                request, "chunithm_rating_all", f"{rec_id} / {player_data['player_name']} / {result_best_30}(30)"
+            )
 
         return JsonResponse(ajax_response)
 
@@ -178,7 +180,7 @@ def calculate_rating(score, const):
         rating = None
 
     rating += 0.00001
-    rating =  (int(rating*100))/100
+    rating = (int(rating * 100)) / 100
     # print(f"{rating:2.50f}")
     return rating
 

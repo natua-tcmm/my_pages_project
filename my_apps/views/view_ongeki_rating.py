@@ -65,6 +65,9 @@ def ongeki_rating_all(request):
 
         # 情報収集
         print(f"[{ip}][ongeki_rating] {osl_id} / {player_data['name']} / {result_best}")
+        ToolUsageManager.add_usage(
+            request, "ongeki_rating_all", f"{osl_id} / {player_data['name']} / {result_best}"
+        )
 
         # プレイヤー情報を描画
         c = {
