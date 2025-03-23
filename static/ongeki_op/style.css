@@ -1,0 +1,90 @@
+:root{
+    --graph-height: 22px;
+}
+
+#osl-id {
+    width: 5rem;
+}
+
+#result-hi {
+    font-size: 2.92rem;
+    margin-right: .05rem;
+}
+
+#result-lo {
+    font-size: 2rem;
+}
+
+.overpower-graph-base {
+    position: relative;
+    width: 100%;
+    height: var(--graph-height);
+    background: #6e6e6e;
+    outline: #dddddd 1px solid
+}
+
+.overpower-graph-base .bg-blue,.overpower-graph-base .bg-gold,.overpower-graph-base .bg-platinum,.overpower-graph-base .bg-silver,.overpower-graph-base .bg-white {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.overpower-graph-base .bg-white {
+    z-index: 14;
+    background: #ff979f!important
+}
+
+.overpower-graph-base .bg-blue {
+    z-index: 12;
+    background: #d3ff97!important
+}
+
+.overpower-graph-base .bg-platinum {
+    z-index: 10;
+    background: #fff797!important
+}
+
+.overpower-graph-base .bg-gold {
+    z-index: 8;
+    background: #ffc397!important
+}
+
+.overpower-graph-base .bg-silver {
+    z-index: 6;
+    background: #97edff!important
+}
+
+.possession-color{
+    display: flex;
+    justify-content: center;
+}
+
+.possession-color .pc-rainbow {
+   background: linear-gradient(to bottom, #fbfe9a 33%, #99ffff 34%, #99ffff 50%, #99ffff 66%, #ffb3e8 67%);
+}
+.possession-color .pc-platinum {
+   background: #fff797;
+}
+.possession-color .pc-gold {
+   background: #ffdd97
+}
+.possession-color .pc-silver {
+   background: #97edff
+}
+.possession-color .pc-bronze {
+   background: #ffc397
+}
+
+.badge-premium{
+    color: #fff;
+    background-color: #ff97ed;
+}
+.badge-dev{
+    color: #fff;
+    background-color: #979fff;
+}
+
+th,td{
+    text-align: center;
+}

@@ -2,6 +2,24 @@
     font-size: .8rem
 }
 
+/* スライダーの色変更 */
+.irs-bar {
+  background-color: #007bff !important;
+  border-color: #007bff !important;
+}
+
+.irs-from, .irs-to, .irs-single {
+    background-color: #007bff !important;
+}
+
+.irs--flat .irs-from:before, .irs--flat .irs-to:before, .irs--flat .irs-single:before {
+    border-top-color: #007bff !important;
+}
+
+.irs--flat .irs-handle>i:first-child {
+    background-color: #007bff !important;
+}
+
 /* -------------- */
 
 .border-right-expert {
@@ -18,6 +36,30 @@
 
 .border-right-lunatic {
     border-right: 4px solid #b0b0b0;
+}
+
+.border-left-basic {
+    border-left: 4px solid #49cc32;
+}
+
+.border-left-advanced {
+    border-left: 4px solid #ff8020;
+}
+
+.border-left-expert {
+    border-left: 4px solid #cc3232;
+}
+
+.border-left-master {
+    border-left: 4px solid #9932cc;
+}
+
+.border-left-ultima {
+    border-left: 4px solid #160505;
+}
+
+.border-left-lunatic {
+    border-left: 4px solid #b0b0b0;
 }
 
 .color-expert {
