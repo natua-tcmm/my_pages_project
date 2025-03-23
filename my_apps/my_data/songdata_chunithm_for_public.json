@@ -549,7 +549,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": null,
                 "notes_nodata": true,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -1901,7 +1901,7 @@
             },
             "expert": {
                 "const": 10.4,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1235,
                 "notes_nodata": false,
                 "notesdesigner": "鈴木さん",
@@ -2369,7 +2369,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 916,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -2577,7 +2577,7 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1200,
                 "notes_nodata": false,
                 "notesdesigner": "はっぴー",
@@ -3201,7 +3201,7 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1215,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -4033,7 +4033,7 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1114,
                 "notes_nodata": false,
                 "notesdesigner": "某S氏",
@@ -4241,7 +4241,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1015,
                 "notes_nodata": false,
                 "notesdesigner": "ぴちネコ",
@@ -4397,7 +4397,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1076,
                 "notes_nodata": false,
                 "notesdesigner": "Techno Kitchen",
@@ -5541,7 +5541,7 @@
             },
             "expert": {
                 "const": 10.8,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1224,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -5801,7 +5801,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1400,
                 "notes_nodata": false,
                 "notesdesigner": "mai-Star",
@@ -6217,7 +6217,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1319,
                 "notes_nodata": false,
                 "notesdesigner": "rioN",
@@ -6269,7 +6269,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1331,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -7049,7 +7049,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1280,
                 "notes_nodata": false,
                 "notesdesigner": "Jack",
@@ -8037,7 +8037,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1081,
                 "notes_nodata": false,
                 "notesdesigner": "Techno Kitchen",
@@ -8245,7 +8245,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 970,
                 "notes_nodata": false,
                 "notesdesigner": "rioN",
@@ -8401,7 +8401,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1882,
                 "notes_nodata": false,
                 "notesdesigner": "はっぴー",
@@ -8505,7 +8505,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1647,
                 "notes_nodata": false,
                 "notesdesigner": "Revo@LC",
@@ -8713,7 +8713,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1331,
                 "notes_nodata": false,
                 "notesdesigner": "Moon Strix",
@@ -8817,7 +8817,7 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1298,
                 "notes_nodata": false,
                 "notesdesigner": "ぴちネコ",
@@ -8869,7 +8869,7 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1421,
                 "notes_nodata": false,
                 "notesdesigner": "はっぴー",
@@ -9129,7 +9129,7 @@
             },
             "expert": {
                 "const": 10.8,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1138,
                 "notes_nodata": false,
                 "notesdesigner": "Revo@LC",
@@ -9441,7 +9441,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1417,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -10221,7 +10221,7 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 935,
                 "notes_nodata": false,
                 "notesdesigner": "はっぴー",
@@ -10481,7 +10481,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1461,
                 "notes_nodata": false,
                 "notesdesigner": "Techno Kitchen",
@@ -10689,7 +10689,7 @@
             },
             "expert": {
                 "const": 10.8,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1089,
                 "notes_nodata": false,
                 "notesdesigner": "ぴちネコ",
@@ -10741,7 +10741,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1161,
                 "notes_nodata": false,
                 "notesdesigner": "Techno Kitchen",
@@ -11313,7 +11313,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1444,
                 "notes_nodata": false,
                 "notesdesigner": "Revo@LC",
@@ -11469,7 +11469,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1279,
                 "notes_nodata": false,
                 "notesdesigner": "如月 ゆかり",
@@ -11521,7 +11521,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1050,
                 "notes_nodata": false,
                 "notesdesigner": "ぴちネコ",
@@ -11781,7 +11781,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1476,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -11989,7 +11989,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 932,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -12769,7 +12769,7 @@
             },
             "expert": {
                 "const": 10.6,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1505,
                 "notes_nodata": false,
                 "notesdesigner": "„É≠„ā∑„āßÔľ†„Éö„É≥„āģ„É≥",
@@ -13913,7 +13913,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 962,
                 "notes_nodata": false,
                 "notesdesigner": "Moon Strix",
@@ -14017,7 +14017,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1356,
                 "notes_nodata": false,
                 "notesdesigner": "はっぴー",
@@ -14745,7 +14745,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1000,
                 "notes_nodata": false,
                 "notesdesigner": "Moon Strix",
@@ -15005,7 +15005,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1234,
                 "notes_nodata": false,
                 "notesdesigner": "ミストルティン",
@@ -15629,7 +15629,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1098,
                 "notes_nodata": false,
                 "notesdesigner": "はっぴー",
@@ -15733,7 +15733,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1706,
                 "notes_nodata": false,
                 "notesdesigner": "Revo@LC",
@@ -16253,7 +16253,7 @@
             },
             "expert": {
                 "const": 10.4,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1245,
                 "notes_nodata": false,
                 "notesdesigner": "Moon Strix",
@@ -16357,7 +16357,7 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1295,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -16981,7 +16981,7 @@
             },
             "expert": {
                 "const": 10.4,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1213,
                 "notes_nodata": false,
                 "notesdesigner": "rioN",
@@ -17033,7 +17033,7 @@
             },
             "expert": {
                 "const": 10.6,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1655,
                 "notes_nodata": false,
                 "notesdesigner": "小鳥遊さん",
@@ -17813,7 +17813,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1025,
                 "notes_nodata": false,
                 "notesdesigner": "Jack",
@@ -17969,7 +17969,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1111,
                 "notes_nodata": false,
                 "notesdesigner": "Jack",
@@ -18125,7 +18125,7 @@
             },
             "expert": {
                 "const": 10.4,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1363,
                 "notes_nodata": false,
                 "notesdesigner": "wonder*",
@@ -18229,7 +18229,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1251,
                 "notes_nodata": false,
                 "notesdesigner": "Moon Strix",
@@ -18749,7 +18749,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1235,
                 "notes_nodata": false,
                 "notesdesigner": "Redarrow",
@@ -19061,7 +19061,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1024,
                 "notes_nodata": false,
                 "notesdesigner": "ぴちネコ",
@@ -19373,7 +19373,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1216,
                 "notes_nodata": false,
                 "notesdesigner": "小鳥遊さん",
@@ -20517,7 +20517,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1056,
                 "notes_nodata": false,
                 "notesdesigner": "はっぴー",
@@ -20621,7 +20621,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1335,
                 "notes_nodata": false,
                 "notesdesigner": "Moon Strix",
@@ -21401,7 +21401,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1366,
                 "notes_nodata": false,
                 "notesdesigner": "はっぴー",
@@ -22181,7 +22181,7 @@
             },
             "expert": {
                 "const": 10.8,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 950,
                 "notes_nodata": false,
                 "notesdesigner": "すきやき奉行",
@@ -23741,7 +23741,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1453,
                 "notes_nodata": false,
                 "notesdesigner": "Emerald",
@@ -24001,7 +24001,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1036,
                 "notes_nodata": false,
                 "notesdesigner": "Emerald",
@@ -24573,7 +24573,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1220,
                 "notes_nodata": false,
                 "notesdesigner": "ミストルティン",
@@ -24729,7 +24729,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1342,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -25041,7 +25041,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1170,
                 "notes_nodata": false,
                 "notesdesigner": "Emerald",
@@ -25249,7 +25249,7 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1422,
                 "notes_nodata": false,
                 "notesdesigner": "ミストルティン",
@@ -25353,7 +25353,7 @@
             },
             "expert": {
                 "const": 10.6,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1350,
                 "notes_nodata": false,
                 "notesdesigner": "ミストルティン",
@@ -26185,7 +26185,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1556,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -27017,7 +27017,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1380,
                 "notes_nodata": false,
                 "notesdesigner": "すきやき奉行",
@@ -27173,7 +27173,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1087,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -27641,7 +27641,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 846,
                 "notes_nodata": false,
                 "notesdesigner": "すきやき奉行",
@@ -28525,7 +28525,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1400,
                 "notes_nodata": false,
                 "notesdesigner": "écologie",
@@ -28681,7 +28681,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1282,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -28993,7 +28993,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1508,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -29149,7 +29149,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1622,
                 "notes_nodata": false,
                 "notesdesigner": "wonder*",
@@ -29617,7 +29617,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1452,
                 "notes_nodata": false,
                 "notesdesigner": "ぴちネコ",
@@ -29981,7 +29981,7 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1242,
                 "notes_nodata": false,
                 "notesdesigner": "ぴちネコ",
@@ -30033,7 +30033,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1600,
                 "notes_nodata": false,
                 "notesdesigner": "ècologie",
@@ -30085,7 +30085,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1439,
                 "notes_nodata": false,
                 "notesdesigner": "すきやき奉行",
@@ -30657,7 +30657,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1244,
                 "notes_nodata": false,
                 "notesdesigner": "Moon Strix",
@@ -31229,7 +31229,7 @@
             },
             "expert": {
                 "const": 10.8,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1126,
                 "notes_nodata": false,
                 "notesdesigner": "ミストルティン",
@@ -31541,7 +31541,7 @@
             },
             "expert": {
                 "const": 10.4,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1358,
                 "notes_nodata": false,
                 "notesdesigner": "ècologie",
@@ -32217,7 +32217,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1165,
                 "notes_nodata": false,
                 "notesdesigner": "ロシアンブラック",
@@ -32581,7 +32581,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 939,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -33101,7 +33101,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1748,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -33205,7 +33205,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1331,
                 "notes_nodata": false,
                 "notesdesigner": "écologie",
@@ -33309,7 +33309,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1000,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -33465,7 +33465,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1581,
                 "notes_nodata": false,
                 "notesdesigner": "écologie",
@@ -33517,7 +33517,7 @@
             },
             "expert": {
                 "const": 10.6,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 894,
                 "notes_nodata": false,
                 "notesdesigner": "ロシアンブラック",
@@ -33933,7 +33933,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1874,
                 "notes_nodata": false,
                 "notesdesigner": "ロシアンブラック",
@@ -34089,7 +34089,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1174,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -34245,7 +34245,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1252,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -34349,7 +34349,7 @@
             },
             "expert": {
                 "const": 10.6,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1356,
                 "notes_nodata": false,
                 "notesdesigner": "Redarrow",
@@ -34453,7 +34453,7 @@
             },
             "expert": {
                 "const": 10.4,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1459,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -34609,7 +34609,7 @@
             },
             "expert": {
                 "const": 10.6,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1397,
                 "notes_nodata": false,
                 "notesdesigner": "écologie",
@@ -35077,7 +35077,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1220,
                 "notes_nodata": false,
                 "notesdesigner": "すきやき奉行",
@@ -35129,7 +35129,7 @@
             },
             "expert": {
                 "const": 10.4,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1225,
                 "notes_nodata": false,
                 "notesdesigner": "écologie",
@@ -35389,7 +35389,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 883,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -35545,7 +35545,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1252,
                 "notes_nodata": false,
                 "notesdesigner": "écologie",
@@ -35649,7 +35649,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1103,
                 "notes_nodata": false,
                 "notesdesigner": "A Lucidness",
@@ -35753,7 +35753,7 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1094,
                 "notes_nodata": false,
                 "notesdesigner": "ロシアンブラック",
@@ -35805,7 +35805,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1200,
                 "notes_nodata": false,
                 "notesdesigner": "Techno Kitchen",
@@ -36169,7 +36169,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1291,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -36273,7 +36273,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1247,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -36689,7 +36689,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1156,
                 "notes_nodata": false,
                 "notesdesigner": "Moon Strix",
@@ -36741,7 +36741,7 @@
             },
             "expert": {
                 "const": 10.8,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1290,
                 "notes_nodata": false,
                 "notesdesigner": "ものくろっく",
@@ -36793,7 +36793,7 @@
             },
             "expert": {
                 "const": 10.8,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1271,
                 "notes_nodata": false,
                 "notesdesigner": "Moon Strix",
@@ -37157,7 +37157,7 @@
             },
             "expert": {
                 "const": 10.4,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1194,
                 "notes_nodata": false,
                 "notesdesigner": "Moon Strix",
@@ -37573,7 +37573,7 @@
             },
             "expert": {
                 "const": 10.4,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1190,
                 "notes_nodata": false,
                 "notesdesigner": "Moon strix",
@@ -37677,7 +37677,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1346,
                 "notes_nodata": false,
                 "notesdesigner": "Redarrow",
@@ -38405,7 +38405,7 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1035,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -38561,7 +38561,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1183,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -38925,7 +38925,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 920,
                 "notes_nodata": false,
                 "notesdesigner": "Jack",
@@ -39549,7 +39549,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1201,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -39601,7 +39601,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1221,
                 "notes_nodata": false,
                 "notesdesigner": "Redarrown",
@@ -39653,7 +39653,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1465,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -40017,7 +40017,7 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1279,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -40121,7 +40121,7 @@
             },
             "expert": {
                 "const": 10.4,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1194,
                 "notes_nodata": false,
                 "notesdesigner": "Redarrow",
@@ -40225,7 +40225,7 @@
             },
             "expert": {
                 "const": 10.8,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1401,
                 "notes_nodata": false,
                 "notesdesigner": "Moon Strix",
@@ -40537,7 +40537,7 @@
             },
             "expert": {
                 "const": 10.4,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1171,
                 "notes_nodata": false,
                 "notesdesigner": "Redarrow",
@@ -40589,7 +40589,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1147,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -40797,7 +40797,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1220,
                 "notes_nodata": false,
                 "notesdesigner": "Redarrow",
@@ -40953,7 +40953,7 @@
             },
             "expert": {
                 "const": 10.4,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1132,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -41005,7 +41005,7 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1200,
                 "notes_nodata": false,
                 "notesdesigner": "écologie",
@@ -41577,7 +41577,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1431,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -42149,7 +42149,7 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 930,
                 "notes_nodata": false,
                 "notesdesigner": "小鳥遊さん",
@@ -42305,7 +42305,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1500,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -42409,7 +42409,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1144,
                 "notes_nodata": false,
                 "notesdesigner": "Redarrow",
@@ -42565,7 +42565,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1538,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -42773,7 +42773,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1477,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -43189,7 +43189,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1173,
                 "notes_nodata": false,
                 "notesdesigner": "Redarrow",
@@ -43241,7 +43241,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1532,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -43293,7 +43293,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1443,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -43813,7 +43813,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1728,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -44125,7 +44125,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1402,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -44177,7 +44177,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1264,
                 "notes_nodata": false,
                 "notesdesigner": "小鳥遊さん",
@@ -44281,7 +44281,7 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1610,
                 "notes_nodata": false,
                 "notesdesigner": "すきやき奉行",
@@ -45217,7 +45217,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1549,
                 "notes_nodata": false,
                 "notesdesigner": "ミストルティン",
@@ -45321,7 +45321,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1542,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -46101,7 +46101,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1169,
                 "notes_nodata": false,
                 "notesdesigner": "すきやき奉行",
@@ -46465,7 +46465,7 @@
             },
             "expert": {
                 "const": 10.4,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1491,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -46621,7 +46621,7 @@
             },
             "expert": {
                 "const": 10.8,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1185,
                 "notes_nodata": false,
                 "notesdesigner": "小鳥遊さん",
@@ -46725,7 +46725,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1279,
                 "notes_nodata": false,
                 "notesdesigner": "Redarrow",
@@ -46777,7 +46777,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 871,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -47505,7 +47505,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1176,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -47557,7 +47557,7 @@
             },
             "expert": {
                 "const": 10.8,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1711,
                 "notes_nodata": false,
                 "notesdesigner": "Techno Kitchen",
@@ -48129,7 +48129,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1563,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -48337,7 +48337,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1384,
                 "notes_nodata": false,
                 "notesdesigner": "гғҹгӮ№гғҲгғ«гғҶгӮЈгғі",
@@ -48493,7 +48493,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 741,
                 "notes_nodata": false,
                 "notesdesigner": "小鳥遊さん",
@@ -49065,7 +49065,7 @@
             },
             "expert": {
                 "const": 10.4,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1414,
                 "notes_nodata": false,
                 "notesdesigner": "すきやき奉行",
@@ -49689,7 +49689,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1386,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ@ペンギン",
@@ -49741,7 +49741,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1258,
                 "notes_nodata": false,
                 "notesdesigner": "Techno Kitchen",
@@ -49793,7 +49793,7 @@
             },
             "expert": {
                 "const": 10.4,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1371,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ@ペンギン",
@@ -50105,7 +50105,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1630,
                 "notes_nodata": false,
                 "notesdesigner": "ミストルティン",
@@ -50209,7 +50209,7 @@
             },
             "expert": {
                 "const": 10.4,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1862,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -50313,7 +50313,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1231,
                 "notes_nodata": false,
                 "notesdesigner": "Moon Strix",
@@ -51613,7 +51613,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1451,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -51665,7 +51665,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1721,
                 "notes_nodata": false,
                 "notesdesigner": "【Ex】Techno Kitchen",
@@ -52393,7 +52393,7 @@
             },
             "expert": {
                 "const": 10.6,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1487,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -53225,7 +53225,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1596,
                 "notes_nodata": false,
                 "notesdesigner": "Moon Strix",
@@ -53433,7 +53433,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1731,
                 "notes_nodata": false,
                 "notesdesigner": "そらいろカリン",
@@ -53537,7 +53537,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1242,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -53641,7 +53641,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1387,
                 "notes_nodata": false,
                 "notesdesigner": "そらいろカリン",
@@ -53797,7 +53797,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1367,
                 "notes_nodata": false,
                 "notesdesigner": "Moon StriX☆",
@@ -53901,7 +53901,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1421,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -54005,7 +54005,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1519,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -54369,7 +54369,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1685,
                 "notes_nodata": false,
                 "notesdesigner": "【Ex】そらいろカリン supported by Techno Kitchen",
@@ -55149,7 +55149,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1283,
                 "notes_nodata": false,
                 "notesdesigner": "【Ex】ミストルティン",
@@ -55253,7 +55253,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1489,
                 "notes_nodata": false,
                 "notesdesigner": "そらいろカリン",
@@ -55305,7 +55305,7 @@
             },
             "expert": {
                 "const": 10.4,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1355,
                 "notes_nodata": false,
                 "notesdesigner": "Redarrow",
@@ -56085,7 +56085,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1493,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -56969,7 +56969,7 @@
             },
             "expert": {
                 "const": 10.8,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1686,
                 "notes_nodata": false,
                 "notesdesigner": "ミストルティン",
@@ -57281,7 +57281,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1211,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -57489,7 +57489,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1046,
                 "notes_nodata": false,
                 "notesdesigner": "Techno Kitchen",
@@ -58061,7 +58061,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1563,
                 "notes_nodata": false,
                 "notesdesigner": "Redarrow",
@@ -58165,7 +58165,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1108,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -59205,7 +59205,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1157,
                 "notes_nodata": false,
                 "notesdesigner": "Redarrow",
@@ -61129,7 +61129,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1059,
                 "notes_nodata": false,
                 "notesdesigner": "ミストルティン",
@@ -61649,7 +61649,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1640,
                 "notes_nodata": false,
                 "notesdesigner": "ミニミライト",
@@ -61753,14 +61753,14 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 900,
                 "notes_nodata": false,
                 "notesdesigner": "ミニミライト",
                 "notesdesigner_nodata": false
             },
             "master": {
-                "const": 13.9,
+                "const": 14,
                 "const_nodata": false,
                 "notes": 1643,
                 "notes_nodata": false,
@@ -61961,7 +61961,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1121,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -62221,7 +62221,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1256,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -62533,7 +62533,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1408,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -63937,7 +63937,7 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1730,
                 "notes_nodata": false,
                 "notesdesigner": "そらいろカリン",
@@ -64145,7 +64145,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1541,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -64249,7 +64249,7 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1090,
                 "notes_nodata": false,
                 "notesdesigner": "みぞれヤナギ",
@@ -64613,7 +64613,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 796,
                 "notes_nodata": false,
                 "notesdesigner": "ミニミライト",
@@ -65029,7 +65029,7 @@
             },
             "expert": {
                 "const": 10.9,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1130,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -65964,7 +65964,7 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.6,
+                "const": 12,
                 "const_nodata": false,
                 "notes": 1481,
                 "notes_nodata": false,
@@ -66121,7 +66121,7 @@
             },
             "expert": {
                 "const": 10.8,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1224,
                 "notes_nodata": false,
                 "notesdesigner": "ミニミライト",
@@ -66277,7 +66277,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1122,
                 "notes_nodata": false,
                 "notesdesigner": "みぞれヤナギ",
@@ -66745,7 +66745,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1050,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -67004,7 +67004,7 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12,
+                "const": 11.9,
                 "const_nodata": false,
                 "notes": 1312,
                 "notes_nodata": false,
@@ -67265,7 +67265,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1282,
                 "notes_nodata": false,
                 "notesdesigner": "ミニミライト",
@@ -67473,14 +67473,14 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1158,
                 "notes_nodata": false,
                 "notesdesigner": "ミニミライト",
                 "notesdesigner_nodata": false
             },
             "master": {
-                "const": 13.4,
+                "const": 13.2,
                 "const_nodata": false,
                 "notes": 1611,
                 "notes_nodata": false,
@@ -67525,7 +67525,7 @@
             },
             "expert": {
                 "const": 10.4,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1018,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -67577,7 +67577,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1181,
                 "notes_nodata": false,
                 "notesdesigner": "みぞれヤナギ",
@@ -67733,7 +67733,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1071,
                 "notes_nodata": false,
                 "notesdesigner": "みぞれヤナギ",
@@ -67937,7 +67937,7 @@
             },
             "advanced": {
                 "const": 10.4,
-                "const_nodata": false
+                "const_nodata": true
             },
             "expert": {
                 "const": 14.4,
@@ -68408,7 +68408,7 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.3,
+                "const": 12.5,
                 "const_nodata": false,
                 "notes": 1508,
                 "notes_nodata": false,
@@ -68513,7 +68513,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1533,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -68720,7 +68720,7 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.1,
+                "const": 12.5,
                 "const_nodata": false,
                 "notes": 1431,
                 "notes_nodata": false,
@@ -68824,7 +68824,7 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.9,
+                "const": 11.3,
                 "const_nodata": false,
                 "notes": 1442,
                 "notes_nodata": false,
@@ -68929,7 +68929,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1326,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -69188,7 +69188,7 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.7,
+                "const": 12.5,
                 "const_nodata": false,
                 "notes": 1267,
                 "notes_nodata": false,
@@ -69709,7 +69709,7 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 962,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -69761,7 +69761,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1333,
                 "notes_nodata": false,
                 "notesdesigner": "ミニミライト",
@@ -69865,7 +69865,7 @@
             },
             "expert": {
                 "const": 10.8,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 860,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -69969,7 +69969,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1111,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン",
@@ -70073,7 +70073,7 @@
             },
             "expert": {
                 "const": 10.1,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1206,
                 "notes_nodata": false,
                 "notesdesigner": "ミストルティン",
@@ -70229,7 +70229,7 @@
             },
             "expert": {
                 "const": 10.6,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1650,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -70797,7 +70797,7 @@
             },
             "advanced": {
                 "const": 10.3,
-                "const_nodata": false
+                "const_nodata": true
             },
             "expert": {
                 "const": 14.3,
@@ -74265,8 +74265,8 @@
                 "genre": "niconico",
                 "bpm": 150,
                 "bpm_nodata": false,
-                "release": null,
-                "release_version": null,
+                "release": "2025-03-20",
+                "release_version": "CHUNITHM VERSE",
                 "image_url": "be2743ac0c8a837f.jpg",
                 "fumen_id": "10062",
                 "is_worldsend": false,
@@ -74317,8 +74317,8 @@
                 "genre": "niconico",
                 "bpm": 204,
                 "bpm_nodata": false,
-                "release": null,
-                "release_version": null,
+                "release": "2025-03-20",
+                "release_version": "CHUNITHM VERSE",
                 "image_url": "2398cab8269957d2.jpg",
                 "fumen_id": "10063",
                 "is_worldsend": false,
@@ -74369,8 +74369,8 @@
                 "genre": "niconico",
                 "bpm": 170,
                 "bpm_nodata": false,
-                "release": null,
-                "release_version": null,
+                "release": "2025-03-20",
+                "release_version": "CHUNITHM VERSE",
                 "image_url": "0d5e33c2d86bcee2.jpg",
                 "fumen_id": "10064",
                 "is_worldsend": false,
@@ -74421,8 +74421,8 @@
                 "genre": "niconico",
                 "bpm": 185,
                 "bpm_nodata": false,
-                "release": null,
-                "release_version": null,
+                "release": "2025-03-20",
+                "release_version": "CHUNITHM VERSE",
                 "image_url": "a41b7313d71f3947.jpg",
                 "fumen_id": "10065",
                 "is_worldsend": false,
@@ -75349,5 +75349,5 @@
             }
         }
     ],
-    "update_at": "2025/03/23 17:25"
+    "update_at": "2025/03/24 00:08"
 }

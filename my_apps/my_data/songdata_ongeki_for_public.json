@@ -40631,8 +40631,8 @@
                 "official_id_lunatic": null,
                 "name": "Prominence",
                 "reading": "PROMINENCE",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "ズッ友ROCK",
+                "subname_nodata": false,
                 "artist": "曲：下野 隼／歌：皇城 セツナ(CV：八巻 アンナ)、式宮 碧音(CV：髙橋 ミナミ)",
                 "genre": "オンゲキ",
                 "bpm": 220,
@@ -58306,5 +58306,5 @@
             }
         }
     ],
-    "update_at": "2025/03/23 17:26"
+    "update_at": "2025/03/24 00:21"
 }

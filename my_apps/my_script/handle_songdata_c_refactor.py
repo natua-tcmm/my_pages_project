@@ -547,7 +547,7 @@ class SongDataManager:
                         song.ult_notesdesigner_nodata = True
                         song.ult_notes_nodata = True
 
-        # 定数情報の更新（EXP/MAS/ULT）
+        # 日付と定数情報の更新（EXP/MAS/ULT）
         for song in self.songs:
             # worldsend 楽曲は除外
             if song.is_worldsend:
@@ -555,11 +555,18 @@ class SongDataManager:
             # reiwaf5 から定数情報を取得
             matching_reiwa = None
             for reiwa in reiwa_data_list:
-                if song.song_name in reiwa.get("meta", {}).get("title", ""):
+                if song.song_name == reiwa.get("meta").get("title"):
                     matching_reiwa = reiwa
                     break
             if not matching_reiwa:
                 continue
+
+            # 日付
+            if song.song_release != matching_reiwa["meta"]["release"]:
+                song.song_release = matching_reiwa["meta"]["release"]
+                song.song_release_version = date_to_chunithmversion(song.song_release)
+                messages.append(f"リリース日更新: {song.song_name} {song.song_release}")
+                self.update_song_offi_ids.append(song.song_official_id)
 
             # BASIC
             # あと10年くらいはやらなくてもいいと思う
