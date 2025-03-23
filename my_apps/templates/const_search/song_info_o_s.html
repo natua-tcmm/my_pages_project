@@ -3,7 +3,8 @@
     <div class="row">
         <!-- 曲名とアーティスト名 -->
         <div class="col align-self-center">
-            <h5 class="mb-1" id="song-name_{{song.id}}">{{ song.song_name }}</h5>
+            <h5 class="mb-1" id="song-name_{{song.id}}">{{song.song_name}}{% if song.song_subname_nodata is False %}<span class="text-secondary"
+                style="font-size: 70%"> [ {{song.song_subname}} ]</span>{% endif %}</h5>
             <span class="text-secondary">{{ song.song_artist }}</span>
         </div>
 
