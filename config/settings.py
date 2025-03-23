@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # 環境変数のロード
 load_dotenv(verbose=True)
-dotenv_path = os.path.join(BASE_DIR.parent, '.env')
+dotenv_path = os.path.join(BASE_DIR.parent, ".env")
 load_dotenv(dotenv_path)
 
 ###################################
@@ -33,6 +33,7 @@ load_dotenv(dotenv_path)
 # SECURITY WARNING: keep the secret key used in production secret!
 # シークレットキーの設定 こちらではランダム生成としている
 from django.core.management.utils import get_random_secret_key
+
 SECRET_KEY = get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -40,7 +41,7 @@ SECRET_KEY = get_random_secret_key()
 DEBUG = False
 
 # 配信できるホスト/ドメイン名
-ALLOWED_HOSTS = ['localhost', '.pythonanywhere.com', 'natua.pythonanywhere.com']
+ALLOWED_HOSTS = ["localhost", ".pythonanywhere.com", "natua.pythonanywhere.com"]
 
 # Cookieの設定 Trueだと安全
 CSRF_COOKIE_SECURE = True
@@ -53,49 +54,49 @@ SESSION_COOKIE_SECURE = True
 # 有効となるアプリケーション
 INSTALLED_APPS = [
     "my_apps.apps.MyAppsConfig",
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'import_export',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "import_export",
 ]
 
 # 有効となるミドルウェア
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'my_apps.middleware.AccessLogMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "my_apps.middleware.AccessLogMiddleware",
 ]
 
 # 最初に見に行くURLルーティングテーブルの場所
-ROOT_URLCONF = 'config.urls'
+ROOT_URLCONF = "config.urls"
 
 # テンプレートエンジン
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
 # WSGIの場所
-WSGI_APPLICATION = 'config.wsgi.application'
+WSGI_APPLICATION = "config.wsgi.application"
 
 
 ###################################
@@ -104,19 +105,18 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # データベースの場所
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'natua$myApps',
-        'USER': 'natua',
-        'PASSWORD': os.environ.get("MYSQL_PASSWORD"),
-        'HOST': 'natua.mysql.pythonanywhere-services.com',
-        'PORT': '3306',
-         'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "natua$myApps",
+        "USER": "natua",
+        "PASSWORD": os.environ.get("MYSQL_PASSWORD"),
+        "HOST": "natua.mysql.pythonanywhere-services.com",
+        "PORT": "3306",
+        "OPTIONS": {
+            "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
         },
     }
 }
-
 
 
 ###################################
@@ -126,16 +126,16 @@ DATABASES = {
 # 有効なパスワードバリデータたち
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -145,10 +145,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 # 言語コード
-LANGUAGE_CODE = 'ja'
+LANGUAGE_CODE = "ja"
 
 # タイムゾーン
-TIME_ZONE = 'Asia/Tokyo'
+TIME_ZONE = "Asia/Tokyo"
 
 # 翻訳・タイムゾーンを使用するかどうか
 USE_I18N = True
@@ -161,21 +161,23 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 # (appごとの)staticファイルの場所
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 
 # staticファイルの読み込み場所
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # STATICFILES_DIRS = [
 #     BASE_DIR / 'hoge',
 # ]
 
+# これしておけばキャッシュが効くらしい
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 
 ###################################
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 # Primary_key=Trueのフィールドを持たないモデルに使用するデフォルトのフィールドタイプ。
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 ###################################
