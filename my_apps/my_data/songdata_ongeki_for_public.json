@@ -18942,12 +18942,12 @@
                 "is_remaster_nodata": false
             },
             "basic": {
-                "const": 6,
+                "const": 6.0,
                 "const_nodata": false
             },
             "advanced": {
-                "const": 10,
-                "const_nodata": false
+                "const": 10.0,
+                "const_nodata": true
             },
             "expert": {
                 "const": 13.1,
@@ -18970,7 +18970,7 @@
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": 0,
+                "const": 0.0,
                 "const_nodata": false,
                 "notes": 2133,
                 "notes_nodata": false,
@@ -25572,7 +25572,7 @@
                 "is_remaster_nodata": true
             },
             "basic": {
-                "const": 4,
+                "const": 4.0,
                 "const_nodata": false
             },
             "advanced": {
@@ -25580,7 +25580,7 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 10.5,
+                "const": 10.7,
                 "const_nodata": true,
                 "notes": 1035,
                 "notes_nodata": false,
@@ -58306,5 +58306,5 @@
             }
         }
     ],
-    "update_at": "2025/03/24 00:21"
+    "update_at": "2025/03/24 00:40"
 }

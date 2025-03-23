@@ -29,7 +29,7 @@ DATA_DIR = os.path.join(BASE_DIR, "my_apps/my_data")
 JSON_FILE_PATH = os.path.join(DATA_DIR, "songdata_o_dict.json")
 JSON_FILE_FOR_PUBLIC_PATH = os.path.join(DATA_DIR, "songdata_ongeki_for_public.json")
 OFFICIAL_JSON_URL = "https://ongeki.sega.jp/assets/json/music/music.json"
-REIWAF5_JSON_URL = "https://reiwa.f5.si/ongeki_const_all.json"
+REIWAF5_JSON_URL = "https://reiwa.f5.si/ongeki_all.json"
 ONGEKI_GENRE_JSON_FILE_PATH = os.path.join(BASE_DIR, "my_apps/my_data/ongeki_genre_data.json")
 
 # 環境変数のロード
@@ -86,11 +86,12 @@ def date_to_ongekiversion(date_str: str) -> str:
 
 def string_level_to_float(level_str: str) -> float:
     """
-    レベル文字列（末尾に"+"がある場合は0.5を加算）を数値に変換する。
+    レベル文字列（末尾に"+"がある場合は0.7を加算）を数値に変換する。
     """
-    if level_str.endswith("+"):
-        return float(int(level_str[:-1])) + 0.5
-    return float(int(level_str))
+    return float(level_str)
+    # if level_str.endswith("+"):
+    #     return float(int(level_str[:-1])) + 0.7
+    # return float(int(level_str))
 
 
 def format_date(date_raw: str) -> str:
@@ -238,8 +239,8 @@ class SongData:
         """
         if is_lunatic:
             # LUNATIC
-            lun_info = reiwa_data.get("lunatic", {})
-            if bool(lun_info.get("is_unknown")) and lun_info.get("level") != "0":
+            lun_info = reiwa_data["data"].get("LUN", {})
+            if bool(lun_info.get("is_const_unknown")) and lun_info.get("level") != "0":
                 self.lun_const = string_level_to_float(lun_info.get("level"))
                 self.lun_const_nodata = True
             else:
@@ -260,10 +261,10 @@ class SongData:
 
         else:
             # BASIC /ADVANCED / EXPERT / MASTER
-            basic_info = reiwa_data.get("basic", {})
-            advanced_info = reiwa_data.get("advanced", {})
-            expert_info = reiwa_data.get("expert", {})
-            master_info = reiwa_data.get("master", {})
+            basic_info = reiwa_data["data"].get("BAS", {})
+            advanced_info = reiwa_data["data"].get("ADV", {})
+            expert_info = reiwa_data["data"].get("EXP", {})
+            master_info = reiwa_data["data"].get("MAS", {})
             level_advanced = string_level_to_float(advanced_info.get("level"))
             level_expert = string_level_to_float(expert_info.get("level"))
 
@@ -274,7 +275,7 @@ class SongData:
             if level_advanced < 10:
                 self.adv_const = level_advanced
                 self.adv_const_nodata = False
-            elif bool(advanced_info.get("is_unknown")):
+            elif bool(advanced_info.get("is_const_unknown")):
                 self.adv_const = string_level_to_float(advanced_info.get("level"))
                 self.adv_const_nodata = True
             else:
@@ -284,14 +285,14 @@ class SongData:
             if level_expert < 10:
                 self.exp_const = level_expert
                 self.exp_const_nodata = False
-            elif bool(expert_info.get("is_unknown")):
+            elif bool(expert_info.get("is_const_unknown")):
                 self.exp_const = string_level_to_float(expert_info.get("level"))
                 self.exp_const_nodata = True
             else:
                 self.exp_const = expert_info.get("const")
                 self.exp_const_nodata = False
 
-            if bool(master_info.get("is_unknown")):
+            if bool(master_info.get("is_const_unknown")):
                 self.mas_const = string_level_to_float(master_info.get("level"))
                 self.mas_const_nodata = True
             else:
@@ -559,7 +560,7 @@ class SongDataManager:
                 target_name = target_name[:-16]  # ボーナスの場合は末尾を除去
             matching_reiwa = None
             for reiwa in reiwa_data_list:
-                if target_name in reiwa.get("title", ""):
+                if target_name == reiwa["meta"]["title"] and ("MAS" in reiwa["data"]):
                     matching_reiwa = reiwa
                     song.apply_reiwaf5_data(matching_reiwa)
                     break
@@ -602,7 +603,7 @@ class SongDataManager:
                 # 検索
                 matching_reiwa = None
                 for reiwa in reiwa_data_list:
-                    if existing_song.song_name and existing_song.song_name in reiwa.get("title", ""):
+                    if existing_song.song_name and existing_song.song_name == reiwa["meta"]["title"] and ("LUN" in reiwa["data"]):
                         matching_reiwa = reiwa
                         break
                 # 適応
@@ -630,7 +631,7 @@ class SongDataManager:
 
             matching_reiwa = None
             for reiwa in reiwa_data_list:
-                if song.song_name and song.song_name in reiwa.get("title", ""):
+                if song.song_name and song.song_name == reiwa["meta"]["title"] and ("LUN" in reiwa["data"]):
                     matching_reiwa = reiwa
                     song.apply_reiwaf5_data(matching_reiwa, is_lunatic=True, is_only_lunatic=True)
                     break
@@ -673,59 +674,70 @@ class SongDataManager:
             # 検索
             matching_reiwa = None
             for reiwa in reiwa_data_list:
-                if song.song_name and song.song_name in reiwa.get("title", ""):
+                if song.song_name and song.song_name == reiwa["meta"]["title"] and ("MAS" in reiwa["data"]):
                     matching_reiwa = reiwa
                     break
             if not matching_reiwa:
-                continue
-            # BASIC-MASTERを持つ曲 = not only_lunatic
-            if not song.only_lunatic:
+                pass
+            else:
+                # BASIC-MASTERを持つ曲 = not only_lunatic
+                if not song.only_lunatic:
 
-                # BASIC
-                # ...
+                    # BASIC
+                    # ...
 
-                # ADVANCED
-                if song.adv_const_nodata and not bool(matching_reiwa.get("advanced", {}).get("is_unknown")) and string_level_to_float(
-                    matching_reiwa.get("advanced", {}).get("level", "0")
-                ) >= 10:
-                    messages.append(
-                        f"定数更新: {song.song_name} ADVANCED {song.adv_const} -> {matching_reiwa.get('advanced', {}).get('const')}"
-                    )
-                    song.adv_const = matching_reiwa.get("advanced", {}).get("const")
-                    song.adv_const_nodata = False
-                    self.update_song_offi_ids.append(song.song_official_id)
+                    # ADVANCED
+                    if song.adv_const_nodata and not bool(matching_reiwa["data"].get("ADV", {}).get("is_const_unknown")) and string_level_to_float(
+                        matching_reiwa["data"].get("ADV", {}).get("level", "0")
+                    ) >= 10:
+                        messages.append(
+                            f"定数更新: {song.song_name} ADVANCED {song.adv_const} -> {matching_reiwa['data'].get('ADV', {}).get('const')}"
+                        )
+                        song.adv_const = matching_reiwa["data"].get("ADV", {}).get("const")
+                        song.adv_const_nodata = False
+                        self.update_song_offi_ids.append(song.song_official_id)
 
-                # EXPERT
-                if (
-                    song.exp_const_nodata
-                    and not bool(matching_reiwa.get("expert", {}).get("is_unknown"))
-                    and string_level_to_float(matching_reiwa.get("expert", {}).get("level", "0")) >= 10
-                ):
-                    messages.append(
-                        f"定数更新: {song.song_name} EXPERT {song.exp_const} -> {matching_reiwa.get('expert', {}).get('const')}"
-                    )
-                    song.exp_const = matching_reiwa.get("expert", {}).get("const")
-                    song.exp_const_nodata = False
-                    self.update_song_offi_ids.append(song.song_official_id)
+                    # EXPERT
+                    if (
+                        song.exp_const_nodata
+                        and not bool(matching_reiwa["data"].get("EXP", {}).get("is_const_unknown"))
+                        and string_level_to_float(matching_reiwa["data"].get("EXP", {}).get("level", "0")) >= 10
+                    ):
+                        messages.append(
+                            f"定数更新: {song.song_name} EXPERT {song.exp_const} -> {matching_reiwa['data'].get('EXP', {}).get('const')}"
+                        )
+                        song.exp_const = matching_reiwa["data"].get("EXP", {}).get("const")
+                        song.exp_const_nodata = False
+                        self.update_song_offi_ids.append(song.song_official_id)
 
-                # MASTER
-                if song.mas_const_nodata and not bool(matching_reiwa.get("master", {}).get("is_unknown")):
-                    messages.append(
-                        f"定数更新: {song.song_name} MASTER {song.mas_const} -> {matching_reiwa.get('master', {}).get('const')}"
-                    )
-                    song.mas_const = matching_reiwa.get("master", {}).get("const")
-                    song.mas_const_nodata = False
-                    self.update_song_offi_ids.append(song.song_official_id)
+                    # MASTER
+                    if song.mas_const_nodata and not bool(matching_reiwa["data"].get("MAS", {}).get("is_const_unknown")):
+                        messages.append(
+                            f"定数更新: {song.song_name} MASTER {song.mas_const} -> {matching_reiwa['data'].get('MAS', {}).get('const')}"
+                        )
+                        song.mas_const = matching_reiwa["data"].get("MAS", {}).get("const")
+                        song.mas_const_nodata = False
+                        self.update_song_offi_ids.append(song.song_official_id)
 
-            # LUNATICをもつ曲
+
             if song.has_lunatic:
-                if song.lun_const_nodata and not bool(matching_reiwa.get("lunatic", {}).get("is_unknown")):
-                    messages.append(
-                        f"定数更新: {song.song_name} LUNATIC {song.lun_const} -> {matching_reiwa.get('lunatic', {}).get('const')}"
-                    )
-                    song.lun_const = matching_reiwa.get("lunatic", {}).get("const")
-                    song.lun_const_nodata = False
-                    self.update_song_offi_ids.append(song.song_official_id)
+                # 検索
+                matching_reiwa = None
+                for reiwa in reiwa_data_list:
+                    if song.song_name and song.song_name == reiwa["meta"]["title"] and ("LUN" in reiwa["data"]):
+                        matching_reiwa = reiwa
+                        break
+                if not matching_reiwa:
+                    pass
+                else:
+                    # LUNATICをもつ曲
+                    if song.lun_const_nodata and not bool(matching_reiwa["data"].get("LUN", {}).get("is_const_unknown")):
+                        messages.append(
+                            f"定数更新: {song.song_name} LUNATIC {song.lun_const} -> {matching_reiwa['data'].get('LUN', {}).get('const')}"
+                        )
+                        song.lun_const = matching_reiwa["data"].get("LUN", {}).get("const")
+                        song.lun_const_nodata = False
+                        self.update_song_offi_ids.append(song.song_official_id)
 
         # ジャンル名の付与
         for song in self.songs:
