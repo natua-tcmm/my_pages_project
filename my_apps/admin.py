@@ -1,32 +1,20 @@
 from django.contrib import admin
-from .models import SongDataC,SongDataO,GameDataB2023
+from .models import SongDataCN, SongDataON
 from import_export import resources
 from import_export.admin import ImportExportMixin
 
-# admin.site.register(SongDataC)
-# admin.site.register(SongDataO)
-# admin.site.register(GameDataB2023)
-
-class GameDataB2023Resource(resources.ModelResource):
+class SongDataCNResource(resources.ModelResource):
     class Meta:
-        model = GameDataB2023
+        model = SongDataCN
 
-@admin.register(GameDataB2023)
-class GameDataB2023Admin(ImportExportMixin, admin.ModelAdmin):
-    resource_class = GameDataB2023Resource
-
-class SongDataCResource(resources.ModelResource):
-    class Meta:
-        model = SongDataC
-
-@admin.register(SongDataC)
+@admin.register(SongDataCN)
 class SongDataCAdmin(ImportExportMixin, admin.ModelAdmin):
-    resource_class = SongDataCResource
+    resource_class = SongDataCNResource
 
-class SongDataOResource(resources.ModelResource):
+class SongDataONResource(resources.ModelResource):
     class Meta:
-        model = SongDataO
+        model = SongDataON
 
-@admin.register(SongDataO)
+@admin.register(SongDataON)
 class SongDataOAdmin(ImportExportMixin, admin.ModelAdmin):
-    resource_class = SongDataOResource
+    resource_class = SongDataONResource

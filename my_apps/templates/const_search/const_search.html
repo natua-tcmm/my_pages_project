@@ -1,7 +1,7 @@
 {% extends '../base/base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" href="{% static 'const_search/style.css' %}">
+<link rel="stylesheet" href="{% static 'const_search/style.css' %}" />
 <!-- Content Wrapper. Contains page content -->
 <div class="container">
     <!-- Content Header (Page header) -->
@@ -9,19 +9,21 @@
         <div class="container-fluid pl-0">
             <div class="row mb-2">
                 <div class="col">
-                    <h1 class="m-0">クイック定数検索</h1>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+                    <h1 class="m-0">クイック定数検索+</h1>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
 
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-
             {% if is_beta %}
-            {% include "../common/info_alert.html" %}
+            {% include '../common/info_alert.html' %}
             {% endif %}
 
             <!-- ここにいろいろ書く -->
@@ -29,115 +31,196 @@
             <div class="row">
                 <div class="col">
                     <div class="card card-primary card-outline">
-
                         <div class="card-header">
-                            <h3 class="card-title"><span class="mr-3">クイック定数検索[β版]</span>
-
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-sm btn-outline-primary active">
-                                        <input type="radio" name="options" id="type-c" autocomplete="off" checked="">
-                                        CHUNITHM版
-                                    </label>
-                                    <label class="btn btn-sm btn-outline-primary">
-                                        <input type="radio" name="options" id="type-o" autocomplete="off"> オンゲキ版
-                                    </label>
-                                </div>
-                            </h3>
+                            <h3 class="card-title"><span class="mr-3">クイック定数検索+</span></h3>
+                            <div class="card-tools">
+                                <p class="inputvalue-indicate text-secondary mb-0 mr-2">
+                                    status: <span id="search-status" class="text-black-50"></span>
+                                </p>
+                            </div>
                         </div>
 
-                        <div class="card-body">
+                        <div class="card-body pt-3">
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-10 mb-2">
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-sm btn-outline-primary active"><input type="radio"
+                                                name="options" id="type-c" autocomplete="off"
+                                                checked="" />CHUNITHM</label>
+                                        <label class="btn btn-sm btn-outline-primary"><input type="radio" name="options"
+                                                id="type-o" autocomplete="off" />オンゲキ</label>
+                                    </div>
+                                    <div class="btn-group btn-group-toggle ml-2" data-toggle="buttons">
+                                        <label class="btn btn-sm btn-outline-primary active"><input type="radio"
+                                                name="options" id="disp-simple" autocomplete="off"
+                                                checked="" />簡易表示</label>
+                                        <label class="btn btn-sm btn-outline-primary"><input type="radio" name="options"
+                                                id="disp-full" autocomplete="off" />詳細表示</label>
+                                    </div>
+                                </div>
+                            </div>
 
                             <!-- 検索窓 -->
                             <div class="row justify-content-center">
                                 <div class="col-12 col-md-10">
-
                                     <form id="ajax-search" action="{% url 'my_apps:const_search_page' %}" method="POST">
                                         {% csrf_token %}
-                                        <div class="input-group input-group-lg">
-
+                                        <!-- 入力フォーム -->
+                                        <div class="input-group input-group-lg mb-1">
                                             <input name="query" type="text" class="form-control" id="query"
                                                 placeholder="検索…" aria-label="search" aria-describedby="inputHelp"
-                                                autocomplete="off">
-
+                                                autocomplete="off" />
                                             <div class="input-group-append">
                                                 <button id="clear-button" class="btn btn-outline-secondary"
-                                                    type="button"><i class="fas fa-backspace"></i>
+                                                    type="button"><i class="fas fa-backspace"></i></button>
                                             </div>
-
                                         </div>
 
+                                        <!-- 主要チェックボックス群 -->
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="is_use_name"
                                                 value="option1" checked>
-                                            <label class="form-check-label" for="is_use_name">曲名(表記)</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" id="is_use_reading"
-                                                value="option2" disabled>
-                                            <label class="form-check-label" for="is_use_reading">曲名(読み)</label>
+                                            <label class="form-check-label mb-0" for="is_use_name">
+                                                曲名<span id="subname_text" style="display: none;">/ジャンル名</span>
+                                            </label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="is_use_artists"
+                                                value="option2">
+                                            <label class="form-check-label mb-0" for="is_use_artists">アーティスト名</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="is_use_nd"
                                                 value="option3">
-                                            <label class="form-check-label" for="is_use_artists">アーティスト名</label>
+                                            <label class="form-check-label mb-0" for="is_use_nd">ND名</label>
+                                        </div>
+                                        <div class="form-check form-check-inline" id="is-disp-bonus-wrapper"
+                                            style="display: none;">
+                                            <input class="form-check-input" type="checkbox" id="is-disp-bonus"
+                                                value="option4">
+                                            <label class="form-check-label mb-0" for="is-disp-bonus">ボーナストラックを表示</label>
                                         </div>
 
-                                    </form>
+                                        <!-- 詳細オプション -->
+                                        <div id="detail-option" style="display: none;">
 
+                                            <!-- LUNATIC譜面の扱い -->
+                                            <div id="is_use_lunatic_option-wrapper" style="display: none;">
+                                                <div class="form-check mb-1">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        id="is_use_lunatic_option">
+                                                    <label class="form-check-label mb-0" for="is_use_lunatic_option"
+                                                        style="margin-left: 0.3125rem; vertical-align: middle;">
+                                                        LUNATIC譜面の扱い…
+                                                    </label>
+                                                </div>
+                                                <div class="mx-auto" style="width: 85%;">
+                                                    <select class="mt-1 mb-2 custom-select" style="display: none;"
+                                                        id="select-lunatic">
+                                                        <option value="all" selected>全楽曲を表示</option>
+                                                        <option value="has">LUNATIC譜面を持つ楽曲のみ</option>
+                                                        <option value="not-has">LUNATIC譜面を持たない楽曲のみ</option>
+                                                        <option value="only">LUNATIC譜面限定の楽曲のみ</option>
+                                                        <option value="not-only">LUNATIC譜面限定でない楽曲のみ</option>
+                                                        <option value="has-not-only">LUNATIC譜面限定でないLUNATIC譜面を持つ楽曲のみ
+                                                        </option>
+                                                        <option value="remaster">Re:MASTER属性のLUNATIC譜面を持つ楽曲のみ</option>
+                                                        <option value="not-remaster">Re:MASTER属性ではないLUNATIC譜面を持つ楽曲のみ
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <!-- BPMの範囲を指定… -->
+                                            <div class="form-check mb-1">
+                                                <input class="form-check-input" type="checkbox" id="is_use_bpm">
+                                                <label class="form-check-label mb-0" for="is_use_bpm"
+                                                    style="margin-left: 0.3125rem; vertical-align: middle;">BPMの範囲を指定…</label>
+                                            </div>
+                                            <div id="slider-wrapper-bpm" class="mt-3 mb-3 mx-auto" style="width: 85%;">
+                                                <input type="text" id="slider-bpm" name="slider-bpm" value=""
+                                                    style="display: none;">
+                                                <p class="mt-2 mb-0 text-black-50" style="font-size: 80%;">
+                                                    ※スライダー範囲外の楽曲は表示されません。
+                                                </p>
+                                            </div>
+
+                                            <!-- ノーツ数の範囲を指定… -->
+                                            <div class="form-check mb-1">
+                                                <input class="form-check-input" type="checkbox" id="is_use_notes">
+                                                <label class="form-check-label mb-0" for="is_use_notes"
+                                                    style="margin-left: 0.3125rem; vertical-align: middle;">ノーツ数の範囲を指定…</label>
+                                            </div>
+                                            <div id="slider-wrapper-notes" class="mt-3 mb-3 mx-auto"
+                                                style="width: 85%;">
+                                                <input type="text" id="slider-notes" name="slider-notes" value=""
+                                                    style="display: none;">
+                                                <p class="mt-2 mb-0 text-black-50" style="font-size: 80%;">
+                                                    ※スライダー範囲外の楽曲は表示されません。
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
+
 
                             <!-- 区切りhr -->
-                            <div class="row justify-content-center">
-                                <div class="col-10">
-                                    <hr />
-                                </div>
-                            </div>
+
+                            <hr class="mt-3 mb-3" />
 
                             <!-- 検索情報 -->
                             <div class="row justify-content-center">
-                                <div class="col-1"></div>
-                                <div class="col-auto">
-                                    <p><span id="search_hit_text">検索結果 : {{song_data_len}} 件 </span>
-                                        <span id="search-status" class="text-black-50"></span>
+                                <div class="col-auto d-flex align-items-center">
+                                    <p class="mb-0">
+                                        <span id="search_hit_text">検索結果 : {{ song_data_len }} 件</span>
+
                                         <i id="loading_text" style="display: none;"
                                             class="ml-2 fas fa-spinner fa-pulse"></i>
                                     </p>
                                 </div>
                                 <div class="col">
-                                    <button id="change_dif" class="float-right btn btn-outline-primary" type="button"><i
-                                            class="mr-2 fas fa-sync-alt"></i>難易度</button>
+                                    <button id="change_dif" class="float-right btn btn-outline-primary" type="button">
+                                        <i class="mr-2 fas fa-sync-alt"></i>難易度
+                                        <span class="color-expert ml-1 constdisp_expert_inline"
+                                            style="display: none;">■</span>
+                                        <span class="color-master ml-1 constdisp_master_inline">■</span>
+                                        <span class="color-ultima ml-1 constdisp_ultima_inline"
+                                            style="display: none;">■</span>
+                                        <span class="color-lunatic ml-1 constdisp_lunatic_inline"
+                                            style="display: none;">■</span>
+                                    </button>
                                 </div>
-                                <div class="col-1"></div>
                             </div>
 
                             <!-- 検索結果 -->
                             <div class="row justify-content-center search-result">
                                 <div class="col-12 col-md-10">
                                     <div id="post-songs" class="list-group">
-
-                                        {% include "const_search/result_info.html" %}
-
+                                        {% include 'const_search/result_info.html' %}
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row justify-content-center mt-2">
+                            {% comment %} <div class="row justify-content-center mt-2">
                                 <div class="col-12 col-md-10">
                                     <details>
-                                        <summary><span class="text-black-50">検索クエリを表示</span></summary>
-                                        <p class="text-black-50"><span id="search-query-list-display">['']</span></p>
+                                        <summary>
+                                            <span class="text-black-50">検索クエリを表示</span>
+                                        </summary>
+                                        <p class="text-black-50">
+                                            <span id="search-query-list-display">['']</span>
+                                        </p>
                                     </details>
                                 </div>
-                            </div>
-
-
+                            </div> {% endcomment %}
                         </div>
 
                         <div class="card-footer">
-                            <p class="mb-0 float-right fs-6 text-black-50">情報更新: {{const_update_time}}</p>
+                            <p class="mb-0 float-right fs-6 text-black-50">{{ const_update_time }}</p>
+                            <p class="mb-0 float-right fs-6 text-black-50">※ゲームの解析データは一切使用していません。</p>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -146,35 +229,31 @@
             <div class="row">
                 <div class="col">
                     <div class="card card-outline card-info collapsed-card">
-
                         <div class="card-header">
                             <h3 class="card-title">著作権表示</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                        class="fas fa-plus"></i>
-                                </button>
+                                        class="fas fa-plus"></i></button>
                             </div>
                         </div>
 
                         <div class="card-body rights-info" style="display: none;">
                             {% for r in rights %}
-                            <p class="mb-0">{{r}}</p>
+                            <p class="mb-0">{{ r }}</p>
                             {% endfor %}
                         </div>
-
                     </div>
                 </div>
             </div>
-
-
-        </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
 </div>
 <script>
-    var csrfmiddlewaretoken = "{{ csrf_token }}"
+    var csrfmiddlewaretoken = '{{ csrf_token }}'
     var send_url = '{% url "my_apps:const_search_page" %}'
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="{% static 'const_search/script.js' %}"></script>
-{% endblock content %}
+{% endblock %}

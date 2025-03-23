@@ -15,6 +15,13 @@
     <meta property="og:locale" content="ja_JP">
     {% comment %} <meta property="og:image" content=" サムネイル画像の URL" /> {% endcomment %}
 
+    <!-- favicon の設定 -->
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <!-- apple-touch-icon の設定 -->
+    <link rel="apple-touch-icon" href="{% static 'apple-touch-icon.png' %}">
+
+    <!-- Ion.RangeSlider -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -84,6 +91,8 @@
     <script src="{% static 'AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <!-- AdminLTE App -->
     <script src="{% static 'AdminLTE-3.2.0/dist/js/adminlte.js' %}"></script>
+    <!-- Ion.RangeSlider -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
 
     <!-- ChartJS -->
     <!-- <script src="{% static 'AdminLTE-3.2.0/plugins/chart.js/Chart.min.js' %}"></script> -->

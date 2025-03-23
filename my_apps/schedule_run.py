@@ -1,53 +1,55 @@
 import os, sys
 from pathlib import Path
 
-sys.path.append(Path(__file__).resolve().parent.parent.__str__())
+BASE_DIR = Path(__file__).resolve().parent.parent
+sys.path.append(BASE_DIR.__str__())
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 from django import setup
+
 
 setup()
 
 from django.conf import settings
-
-# from datetime import datetime, date
-from apscheduler.schedulers.background import BackgroundScheduler
-from my_apps.models import *
 import datetime, requests, json, re
 from bs4 import BeautifulSoup
 
-from my_apps.my_script import handle_songdata_c_refactor
-from my_apps.my_script import handle_songdata_o_refactor
+from my_apps.models import SongDataCNManager, SongDataONManager
+from my_apps.my_script import handle_songdata_c_refactor, handle_songdata_o_refactor
 
 
-def periodic_execution():
-    # 定数情報のアップデート
-    update_log_c = SongDataCManager.update_song_data()
-    update_log_o = SongDataOManager.update_song_data()
 
+def schedule_run():
+
+    # -------------------------------------
+    # 楽曲データの更新
+    # -------------------------------------
+    # jsonファイルを更新する
+    print("-" * 50)
+    print("楽曲データの更新を開始します")
+    print("-" * 50)
+    handle_songdata_c_refactor.main()
+    handle_songdata_o_refactor.main()
+
+    # jsonファイルからデータベースにインポート・アップデート日時を更新
+    print("-" * 50)
+    print("楽曲データをデータベースにインポートします")
+    print("-" * 50)
+    SongDataCNManager.import_songdata_from_json()
+    SongDataONManager.import_songdata_from_json()
+
+    print("-" * 50)
+
+    # -------------------------------------
+    # その他
+    # -------------------------------------
     # 著作権情報のアップデート
-    SongDataCManager.update_rights_data()
-    SongDataOManager.update_rights_data()
+    SongDataCNManager.update_rights_data()
+    SongDataONManager.update_rights_data()
 
     # オンゲキジャンル名を取得して既定の場所に出力
     get_ongeki_genre()
 
-    # [テスト運用] 新しいデータ収集ツール
-    print("-" * 50)
-    print("新しいデータ収集ツールを実行します...")
-    print("[CHUNITHM]")
-    handle_songdata_c_refactor.main()
-    print("[オンゲキ]")
-    handle_songdata_o_refactor.main()
-    print("-" * 50)
-
-    # 現在時刻をフォーマットを整えて既定の場所に出力
-    t_delta = datetime.timedelta(hours=9)
-    jst = datetime.timezone(t_delta, "JST")
-    now = datetime.datetime.now(jst)
-    with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_time.txt"), "w") as f:
-        f.write(now.strftime("%Y年%m月%d日 %H:%M"))
-
-    return str(update_log_c + update_log_o)
+    return
 
 
 def get_ongeki_genre():
@@ -83,5 +85,4 @@ def get_ongeki_genre():
 
 
 if __name__ == "__main__":
-    periodic_execution()
-    # get_ongeki_genre()
+    schedule_run()

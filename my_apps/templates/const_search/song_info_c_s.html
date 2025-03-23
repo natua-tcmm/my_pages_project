@@ -1,0 +1,100 @@
+<div href="#c_{{ song.id }}" class="list-group-item list-group-item-action song-group-item" aria-expanded="false"
+    aria-controls="c_{{ song.id }}">
+    <div class="row">
+        <!-- 曲名とアーティスト名 -->
+        <div class="col align-self-center">
+            <h5 class="mb-1" id="song-name_{{song.id}}">{{ song.song_name }}</h5>
+            <span class="text-secondary">{{ song.song_artist }}</span>
+        </div>
+
+        <!-- 定数 -->
+        <div class="col-auto justify-content-end align-items-center">
+            <div class="row mb-2">
+                {% if song.only_ultima is False %}
+                <div class="col justify-content-end align-items-center border-right-expert constdisp_expert"
+                    style="display: none;">
+                    <h5 class="mb-0">
+                        {% if song.exp_const_nodata is False %}
+                        <span class="font-weight-bold">{{ song.exp_const }}</span>
+                        {% else %}
+                        <span class="text-black-50 h6">No Data</span>
+                        {% endif %}
+                    </h5>
+                </div>
+                <div class="col justify-content-end align-items-center border-right-master constdisp_master"
+                    style="display: flex;">
+                    <h5 class="mb-0">
+                        {% if song.mas_const_nodata is False %}
+                        <span class="font-weight-bold">{{ song.mas_const }}</span>
+                        {% else %}
+                        <span class="text-black-50 h6">No Data</span>
+                        {% endif %}
+                    </h5>
+                </div>
+                {% endif %}
+                {% if song.has_ultima is True %}
+                <div class="col justify-content-end align-items-center border-right-ultima constdisp_ultima"
+                    style="display: none;">
+                    <h5 class="mb-0">
+                        {% if song.ult_const_nodata is False %}
+                        <span class="font-weight-bold">{{ song.ult_const }}</span>
+                        {% else %}
+                        <span class="text-black-50 h6">No Data</span>
+                        {% endif %}
+                    </h5>
+                </div>
+                {% else %}
+                <div class="col justify-content-end align-items-center border-right-master constdisp_ultima"
+                    style="display: none;">
+                    <h5 class="mb-0">
+                        {% if song.mas_const_nodata is False %}
+                        <span class="font-weight-bold">{{ song.mas_const }}</span>
+                        {% else %}
+                        <span class="text-black-50 h6">No Data</span>
+                        {% endif %}
+                    </h5>
+                </div>
+                {% endif %}
+            </div>
+            <div class="row">
+                <!-- 譜面画像ボタン -->
+                <!-- Expert用ボタン -->
+                <div class="col-auto justify-content-end align-self-center pr-0 constdisp_expert"
+                    style="display: none;">
+                    <button class="btn btn-outline-secondary m-0 fumenbtn" data-dif="e" data-type="c" data-songfumenid="{{ song.song_fumen_id }}"
+                        {% if not song.song_fumen_id %} disabled {% endif %}>
+                        譜面画像 <i class="ml-2 fas fa-external-link-alt"></i>
+                    </button>
+                </div>
+                <!-- Master用ボタン -->
+                <div class="col-auto justify-content-end align-self-center pr-0 constdisp_master"
+                    style="display: flex;">
+                    <button class="btn btn-outline-secondary m-0 fumenbtn" data-dif="m" data-type="c" data-songfumenid="{{ song.song_fumen_id }}"
+                        {% if not song.song_fumen_id %} disabled {% endif %}>
+                        譜面画像 <i class="ml-2 fas fa-external-link-alt"></i>
+                    </button>
+                </div>
+                {% if song.has_ultima is True %}
+                <!-- Ultima用ボタン -->
+                <div class="col-auto justify-content-end align-self-center pr-0 constdisp_ultima"
+                    style="display: none;">
+                    <button class="btn btn-outline-secondary m-0 fumenbtn" data-dif="u" data-type="c" data-songfumenid="{{ song.song_fumen_id }}"
+                        {% if not song.song_fumen_id %} disabled {% endif %}>
+                        譜面画像 <i class="ml-2 fas fa-external-link-alt"></i>
+                    </button>
+                </div>
+                {% else %}
+                <!-- フォールバックとしてMasterを表示するが、異なるデータ属性を付与 -->
+                <div class="col-auto justify-content-end align-self-center pr-0 constdisp_ultima"
+                    style="display: none;">
+                    <button class="btn btn-outline-secondary m-0 fumenbtn" data-dif="m_fallback" data-type="c"
+                        data-songfumenid="{{ song.song_fumen_id }}" {% if not song.song_fumen_id %} disabled {% endif %}>
+                        譜面画像 <i class="ml-2 fas fa-external-link-alt"></i>
+                    </button>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>

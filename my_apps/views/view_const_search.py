@@ -1,161 +1,165 @@
-from django.shortcuts import render,redirect
+from django.views import View
+from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpRequest
 from django.db.models import Q
-# from django.core.handlers.wsgi import WSGIRequest
+from django.forms.models import model_to_dict
 
 from ..models import *
 
-import os,json,datetime,jaconv,re,unicodedata
+import os, json, datetime, jaconv, re, unicodedata
 from django.conf import settings
 
 # --------------------------------------------------
-
 title_base = "| △Natua♪▽のツールとか保管所"
-
 # --------------------------------------------------
 
-# 定数検索ページ
-def const_search(request):
 
+class ConstSearchView(View):
 
-    context = {
+    template_name = "const_search/const_search.html"
 
-        "title":f"クイック定数検索 {title_base}",
-        "is_beta":True,
-        "is_app":True,
-        "song_data_len":"-",
-
+    songdata_manager = SongDataCNManager
+    type_game = "c"
+    display_type = "s"
+    search_settings = {
+        "is_use_name": True,
+        "is_use_artists": False,
+        "is_use_nd": False,
+        "is_use_bpm": False,
+        "bpm_from": None,
+        "bpm_to": None,
+        "is_use_notes": False,
+        "notes_from": None,
+        "notes_to": None,
+        "is_disp_bonus": False,
+        "is_use_lunatic_option": False,
+        "lunatic_option": None,
     }
 
-    # 更新日を取得
-    with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_update_time.txt"),"r") as f:
-        context["const_update_time"] = f.readline()
+    def get(self, request, *args, **kwargs):
+        context = {
+            "title": f"クイック定数検索+ {title_base}",
+            "is_beta": False,
+            "is_app": True,
+            "song_data_len": "-",
+            "const_update_time": self._get_update_time_str(),
+            "rights": self._get_rights_data(),
+        }
+        return render(request, self.template_name, context=context)
 
-    # 著作権表示を取得
-    context["rights"] = []
-    context["rights"] += ["【CHUNITHM】"]
-    with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_chunithm.txt"),"r") as f:
-        context["rights"] += f.readlines()
-    context["rights"] += ["","【オンゲキ】"]
-    with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_ongeki.txt"),"r") as f:
-        context["rights"] += f.readlines()
-
-    # アクセス時にエージェント表示
-    if request.method=="GET":
-        print(request.META.get('HTTP_USER_AGENT', None))
-
-    # 検索情報が送られてきたら……
-    if request.method=="POST":
-
-        # POSTから検索queryを取得
+    def post(self, request, *args, **kwargs):
         post = request.POST
 
-        # メタ情報を取得
-        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-        ip = x_forwarded_for.split(',')[0] if x_forwarded_for else request.META.get('REMOTE_ADDR')
-
-        # 入力情報を取得
+        # 入力情報の取得
         query = post.get("query")
-        query_list = [query]
-        is_use_name = True if post.get("is_use_name")=="true" else False
-        is_use_reading = True if post.get("is_use_reading")=="true" else False
-        is_use_artists = True if post.get("is_use_artists")=="true" else False
-        type_game = post.get("type")
+        for key in self.search_settings.keys():
+            if key in ["bpm_from", "bpm_to", "notes_from", "notes_to", "lunatic_option"]:
+                self.search_settings[key] = post.get(f"search_settings[{key}]")
+            else:
+                self.search_settings[key] = post.get(f"search_settings[{key}]") == "true"
+        self.type_game = post.get("type")
+        self.display_type = post.get("display_type")
         request_time = post.get("request_time")
 
-        response = { "query":query, "request_time":request_time, "update_log":" " }
+        # レスポンス初期化
+        response = {"query": query, "request_time": request_time}
+        search_hit_count = 0
+        search_results_html = ""
 
-        print(f"[{ip}][const_search][{type_game}] q:{query}")
+        # IP情報の取得
+        x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
+        ip = x_forwarded_for.split(",")[0] if x_forwarded_for else request.META.get("REMOTE_ADDR")
+        print(f"[{ip}][{self.type_game}] q:{query}")
 
         # 機種選択
-        if type_game=="c":
-            SD = SongDataC
-            SDM = SongDataCManager
-        elif type_game=="o":
-            SD = SongDataO
-            SDM = SongDataOManager
+        if self.type_game == "c":
+            self.songdata_manager = SongDataCNManager
+        elif self.type_game == "o":
+            self.songdata_manager = SongDataONManager
         else:
-            # print(type_game)
             raise ValueError
 
-        # 検索結果の処理
-        # updateのとき
-        if query=="/update":
-            from my_apps.schedule_run import periodic_execution
-            update_log = periodic_execution()
-            response["update_log"] = update_log
+        # --------------------------------------------------
+        # 検索処理
+        # --------------------------------------------------
 
-        # 初期状態
-        elif query=="":
+        # 検索ワードがない場合
+        # 初期状態：新曲表示
+        if query == "" and self.display_type == "s":
+            # 2週間以内の新曲を取得
+            date_before_2_weekly = (datetime.date.today() - datetime.timedelta(days=15)).strftime("%Y-%m-%d")
+            search_results_song_list = self.songdata_manager.get_new_songs(date_before_2_weekly)
+            search_hit_count = f"[新曲] {len(search_results_song_list)}"
 
-            # 新曲を表示
-            date_before_2_weekly = (datetime.date.today()-datetime.timedelta(days=14)).strftime("%Y-%m-%d")
-            song_new = SD.objects.filter(song_release__gt=date_before_2_weekly)
-            song_search = [ e for e in song_new ]
+            # 検索結果のレンダリング
+            search_results_html = [
+                render_to_string(f"const_search/song_info_{self.type_game}_{self.display_type}.html", context={"song": song})
+                for song in search_results_song_list[:30]
+            ]
+            search_results_html.append(
+                render_to_string(
+                    "const_search/result_info.html", context={"info_text": "新曲を表示しています。検索ワードを入力してね！"}
+                )
+            )
 
-            search_hit_count = f"[新曲] {len(song_search)}"
-            song_response = [ render_to_string(f"const_search/song_info_{type_game}.html",context={"song":song}) for song in song_search[:30] ]
-            song_response.append(render_to_string("const_search/result_info.html",context={"info_text":"新曲を表示しています。検索ワードを入力してね！"}))
-
-        # 検索ワードの処理
+        # 検索ワードがある場合
         else:
+            # 検索ワード処理
+            search_results_song_list = self.songdata_manager.search_song_by_query(query, self.search_settings)
+            search_hit_count = len(search_results_song_list)
 
-            # 検索
+            # 検索結果のレンダリング
+            search_results_html = self._render_search_result(search_results_song_list, self.type_game, self.display_type)
 
-            # 曲名
-            # 末尾にアルファベットがあれば消す
-            if re.match(r".*^[\u3040-\u309F]+[a-zA-Z]{1}$",query) :
-                query_list += [query[:-1]]
-            if re.match(r".*^[\u3040-\u309F]+[a-zA-Z]{2}$",query) :
-                query_list += [query[:-2]]
-            # ひらがな・カタカナ変換
-            for q in query_list[:]:
-                query_list += [jaconv.kata2hira(q),jaconv.hira2kata(q)]
-
-            # 重複削除
-            query_list = list(set(query_list))
-
-            song_search_by_name = SD.objects.none()
-            for q in query_list:
-                song_search_by_name = song_search_by_name|SD.objects.filter(song_name__icontains=q)
-                # song_search_by_reading = SD.objects.filter(...)
-
-            # アーティスト名
-            song_search_by_artists = SD.objects.filter(song_auther__icontains=query)
-
-            # 必要に合わせて結合
-            song_search_tmp = SD.objects.none()
-            if is_use_name:
-                song_search_tmp = song_search_tmp|song_search_by_name
-            # if is_use_reading:
-            #     song_search_tmp = song_search_tmp|song_search_by_reading
-            if is_use_artists:
-                song_search_tmp = song_search_tmp|song_search_by_artists
-
-            # リストにして完成
-            song_search = [ e for e in song_search_tmp ]
-
-            # 整える
-            search_hit_count = len(song_search)
-            song_response = [ render_to_string(f"const_search/song_info_{type_game}.html",context={"song":song}) for song in song_search[:30] ]
-
-            # 多すぎたらこうすうる
-            if search_hit_count  > 30:
-                song_response.append(render_to_string("const_search/result_info.html",context={"info_text":"検索結果が多すぎだよ〜 もう少しワードを絞ってみてね"}))
-            # 少なすぎたらこうする
-            if search_hit_count  == 0:
-                song_response.append(render_to_string("const_search/result_info.html",context={"info_text":"検索結果が0件だよ〜 ワードや設定を確認してみてね"}))
-
-        # Jsonとして返す
+        # --------------------------------------------------
+        # レスポンスの生成
+        # --------------------------------------------------
         response |= {
-            "search_response":song_response[::-1],
-            "search_hit_count":search_hit_count,
-            "search_query_list":sorted(query_list).__str__(),
-            "type":type_game,
+            "search_response": search_results_html[::-1],
+            "search_hit_count": search_hit_count,
+            # "search_query_list": sorted(query_list).__str__(),
+            "query_input": query,
+            "type": self.type_game,
         }
-
         return JsonResponse(response)
 
-    # renderする
-    return render(request, 'const_search/const_search.html',context=context)
+    # 更新日を取得
+    def _get_update_time_str(self):
+        return f"最終更新: {SongDataCNManager.get_update_time()} | {SongDataONManager.get_update_time()}"
+
+    # 著作権データの取得
+    def _get_rights_data(self):
+        rights_list = []
+        rights_list += ["【CHUNITHM】"]
+        with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_chunithm.txt"), "r") as f:
+            rights_list += f.readlines()
+        rights_list += ["", "【オンゲキ】"]
+        with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_ongeki.txt"), "r") as f:
+            rights_list += f.readlines()
+        return rights_list
+
+    # 結果のレンダリング
+    def _render_search_result(self, search_results_song_list, type_game, display_type):
+        search_hit_count = len(search_results_song_list)
+        search_results_html = [
+            render_to_string(f"const_search/song_info_{type_game}_{display_type}.html", context={"song": song})
+            for song in search_results_song_list[:30]
+        ]
+
+        # 多すぎたら注意メッセージ
+        if search_hit_count > 30:
+            search_results_html.append(
+                render_to_string(
+                    "const_search/result_info.html",
+                    context={"info_text": "検索結果が多すぎだよ〜 もう少しワードを絞ってみてね"},
+                )
+            )
+        # 0件ならその旨メッセージ
+        if search_hit_count == 0:
+            search_results_html.append(
+                render_to_string(
+                    "const_search/result_info.html", context={"info_text": "検索結果が0件だよ〜 検索ワードや設定を確認してみてね"}
+                )
+            )
+        return search_results_html

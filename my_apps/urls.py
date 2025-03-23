@@ -21,12 +21,11 @@ urlpatterns = [
     path("update_info", views.update_info, name="update_info_page"),
 
     # ツール
-    path("const_search", view_const_search.const_search, name="const_search_page"),
+    path("const_search", view_const_search.ConstSearchView.as_view(), name="const_search_page"),
     path("fullbell", views.fullbell, name="fullbell_page"),
     path("bpm_checker", views.bpm_checker, name="bpm_checker_page"),
     path("ongeki_op", view_ongeki_op.ongeki_op, name="ongeki_op_page"),
     path("ongeki_rating_all", view_ongeki_rating.ongeki_rating_all, name="ongeki_rating_all_page"),
-    # path("ongeki_rating_act2", view_ongeki_rating.ongeki_rating_act2, name="ongeki_rating_act2_page"),
     path("chunithm_rating_all", view_chunithm_rating.chunithm_rating_all, name="chunithm_rating_all_page"),
 
     # 資料集
@@ -34,7 +33,6 @@ urlpatterns = [
     path("sega_nenpyo", views.sega_nenpyo, name="sega_nenpyo_page"),
 
     # その他
-    path("kadaikyoku", views.kadaikyoku, name="kadaikyoku_page"),
     path("random_tools", views.random_tools, name="random_tools_page"),
     path("app_template", views.app_template, name="app_template_page"),
 

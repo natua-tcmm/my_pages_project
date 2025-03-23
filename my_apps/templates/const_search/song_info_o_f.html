@@ -1,0 +1,311 @@
+<a data-toggle="collapse" href="#c_{{song.id}}" class="list-group-item list-group-item-action song-group-item"
+    aria-expanded="false" aria-controls="c_{{song.id}}">
+    <!-- メインのとこ -->
+
+    <div class="row">
+        <!-- 曲名とアーティスト名 -->
+        <div class="col align-self-center">
+            <h5 class="mb-1" id="song-name_{{song.id}}">
+                {{song.song_name}}{% if song.song_subname_nodata is False %}<span class="text-secondary"
+                    style="font-size: 70%"> [ {{song.song_subname}} ]</span>{% endif %}</h5>
+
+            <span class="text-secondary">{{song.song_artist}}</span>
+        </div>
+
+        <!-- 定数 -->
+        <div class="col-auto justify-content-end align-items-center">
+            <div class="row mb-2">
+
+                {% if song.only_lunatic is False %}
+                <div class="col justify-content-end align-items-center border-right-expert constdisp_expert"
+                    style="display: none;">
+                    <h5 class="mb-0">{% if song.exp_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.exp_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No
+                            Data</span>{% endif %}</h5>
+                </div>
+                <div class="col justify-content-end align-items-center border-right-master constdisp_master"
+                    style="display: flex;">
+                    <h5 class="mb-0">{% if song.mas_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.mas_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No
+                            Data</span>{% endif %}</h5>
+                </div>
+                {% else %}
+                <div class="col justify-content-end align-items-center border-right-lunatic constdisp_expert"
+                    style="display: none;">
+                    <h5 class="mb-0">{% if song.lun_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.lun_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No
+                            Data</span>{% endif %}</h5>
+                </div>
+                <div class="col justify-content-end align-items-center border-right-lunatic constdisp_master"
+                    style="display: flex;">
+                    <h5 class="mb-0">{% if song.lun_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.lun_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No
+                            Data</span>{% endif %}</h5>
+                </div>
+                {% endif %}
+                {% if song.has_lunatic is True %}
+                <div class="col justify-content-end align-items-center border-right-lunatic constdisp_lunatic"
+                    style="display: none;">
+                    <h5 class="mb-0">{% if song.lun_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.lun_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No
+                            Data</span>{% endif %}</h5>
+                </div>
+                {% else %}
+                <div class="col justify-content-end align-items-center border-right-master constdisp_lunatic"
+                    style="display: none;">
+                    <h5 class="mb-0">{% if song.mas_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.mas_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No
+                            Data</span>{% endif %}</h5>
+                </div>
+                {% endif %}
+            </div>
+            <div class="row justify-content-end align-items-center">
+                <p class="text-black-50 m-0 p-0">詳細</p><i id="i_{{song.id}}"
+                    class="text-black-50 ml-2 my-0 fas fa-angle-up right"></i>
+            </div>
+        </div>
+
+    </div>
+</a>
+<a id="c_{{song.id}}" class="collapse list-group-item list-group-item-action song-group-item song-description">
+    <!-- 折りたたみ内 -->
+
+    <div class="container">
+
+        {% if song.only_lunatic is False %}
+        <!-- basic -->
+        <div class="row mt-2 mb-2">
+            <div class="col border-left-basic">
+                <!-- const notes -->
+                <div class="row d-flex justify-content-start align-items-center py-1">
+                    <h5 class="pr-2 my-0 ml-2">{% if song.bas_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.bas_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No Data</span>{% endif %}</h5>
+                </div>
+            </div>
+        </div>
+        <!-- advanced -->
+        <div class="row mt-2 mb-2">
+            <div class="col border-left-advanced">
+                <!-- const notes -->
+                <div class="row d-flex justify-content-start align-items-center py-1">
+                    <h5 class="pr-2 my-0 ml-2">{% if song.adv_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.adv_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No Data</span>{% endif %}</h5>
+                </div>
+            </div>
+        </div>
+        <!-- expert -->
+        <div class="row mt-2 mb-2">
+            <div class="col border-left-expert">
+                <!-- const notes -->
+                <div class="row d-flex justify-content-start align-items-center pt-1">
+                    <h5 class="pr-2 mb-0 mt-0 ml-2">{% if song.exp_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.exp_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No Data</span>{% endif %}</h5>
+                    <p class="mb-0 mt-0 pl-2 border-left">
+                        {% if song.exp_notes_nodata is False %}<span>{{song.exp_notes}} Notes, </span>{% else %} <span
+                            class="text-black-50">No Data</span> {% endif %}</p>
+                    <p class="mb-0 mt-0 pl-1">
+                        {% if song.exp_bell_nodata is False %}<span>{{song.exp_bell}} Bells </span>{% else %} <span
+                            class="text-black-50">No Data</span> {% endif %}</p>
+                </div>
+                <!-- notesdesigner -->
+                <div class="row d-flex justify-content-start align-items-center pt-1 pb-1">
+                    <p class="mb-0 mt-0 ml-2">
+                        {% if song.exp_notesdesigner_nodata is False %}<span class="text-black-50">ND:
+                            {{song.exp_notesdesigner}}</span>
+                        {% else %} <span class="text-black-50">ND: No Data</span> {% endif %}</p>
+                </div>
+            </div>
+            <!-- 譜面画像ボタン -->
+            <div class="col-auto justify-content-end align-self-center pr-0">
+                <button class="btn btn-outline-secondary m-0 fumenbtn" data-dif="e" data-type="o"
+                    data-songfumenid="{{ song.song_fumen_id }}" {% if not song.song_fumen_id %} disabled {% endif %}>
+                    譜面画像 <i class="ml-2 fas fa-external-link-alt"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- master -->
+        <div class="row mb-2">
+            <div class="col border-left-master">
+                <!-- const notes -->
+                <div class="row d-flex justify-content-start align-items-center pt-1">
+                    <h5 class="pr-2 mb-0 mt-0 ml-2">{% if song.mas_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.mas_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No Data</span>{% endif %}</h5>
+                    <p class="mb-0 mt-0 pl-2 border-left">
+                        {% if song.mas_notes_nodata is False %}<span>{{song.mas_notes}} Notes, </span>{% else %} <span
+                            class="text-black-50">No Data</span> {% endif %}</p>
+                    <p class="mb-0 mt-0 pl-1">
+                        {% if song.mas_bell_nodata is False %}<span>{{song.mas_bell}} Bells </span>{% else %} <span
+                            class="text-black-50">No Data</span> {% endif %}</p>
+                </div>
+                <!-- notesdesigner -->
+                <div class="row d-flex justify-content-start align-items-center pt-1 pb-1">
+                    <p class="mb-0 mt-0 ml-2">
+                        {% if song.mas_notesdesigner_nodata is False %}<span class="text-black-50">ND:
+                            {{song.mas_notesdesigner}}</span>
+                        {% else %} <span class="text-black-50">ND: No Data</span> {% endif %}</p>
+                </div>
+            </div>
+            <!-- 譜面画像ボタン -->
+            <div class="col-auto justify-content-end align-self-center pr-0">
+                <button class="btn btn-outline-secondary m-0 fumenbtn" data-dif="m" data-type="o"
+                    data-songfumenid="{{ song.song_fumen_id }}" {% if not song.song_fumen_id %} disabled {% endif %}>
+                    譜面画像 <i class="ml-2 fas fa-external-link-alt"></i>
+                </button>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- lunatic -->
+        {% if song.has_lunatic %}
+        <div class="row mb-2">
+            <div class="col border-left-lunatic">
+                <!-- const notes -->
+                <div class="row d-flex justify-content-start align-items-center pt-1">
+                    <h5 class="pr-2 mb-0 mt-0 ml-2">{% if song.lun_const_nodata is False %}<span
+                            class="font-weight-bold">{{song.lun_const}}</span>{% else %}<span
+                            class="text-black-50 h6">No Data</span>{% endif %}</h5>
+                    <p class="mb-0 mt-0 pl-2 border-left">
+                        {% if song.lun_notes_nodata is False %}<span>{{song.lun_notes}} Notes, </span>{% else %} <span
+                            class="text-black-50">No Data</span> {% endif %}</p>
+                    <p class="mb-0 mt-0 pl-1">
+                        {% if song.lun_bell_nodata is False %}<span>{{song.lun_bell}} Bells </span>{% else %} <span
+                            class="text-black-50">No Data</span> {% endif %}</p>
+                </div>
+                <!-- notesdesigner -->
+                <div class="row d-flex justify-content-start align-items-center pt-1 pb-1">
+                    <p class="mb-0 mt-0 ml-2">
+                        {% if song.lun_notesdesigner_nodata is False %}<span class="text-black-50">ND:
+                            {{song.lun_notesdesigner}}</span>
+                        {% else %} <span class="text-black-50">ND: No Data</span> {% endif %}</p>
+                </div>
+            </div>
+            <!-- 譜面画像ボタン -->
+            <div class="col-auto justify-content-end align-self-center pr-0">
+                <button class="btn btn-outline-secondary m-0 fumenbtn" data-dif="l" data-type="o"
+                    data-songfumenid="{{ song.song_fumen_id }}" {% if not song.song_fumen_id %} disabled {% endif %}>
+                    譜面画像 <i class="ml-2 fas fa-external-link-alt"></i>
+                </button>
+            </div>
+        </div>
+        {% endif %}
+
+        <hr class="mt-4 mb-4" />
+
+        <!-- 情報表示 -->
+        <div class="row mb-2">
+            <span class="badge badge-pill badge-info mr-1">{{song.song_genre}}</span>
+            <span class="badge badge-pill badge-secondary mr-1">{{song.song_release_version}}</span>
+            {% if song.is_bonus %}<span class="badge badge-pill badge-warning mr-1">ボーナストラック</span>{% endif %}
+            {% if song.is_remaster %}<span class="badge badge-pill badge-primary mr-1">Re:MASTER</span>{% endif %}
+        </div>
+        {% comment %} <div class="row mb-2">
+            楽曲名フォルダ「{{song.song_namefolder_name}}」 {{song.song_namefolder_index}} 曲目
+        </div> {% endcomment %}
+        <div class="row mb-3">
+            <div class="col-12 pl-0">
+                <p class="mb-0">BPM:
+                    {% if song.song_bpm_nodata is False %}<span>{{song.song_bpm}}</span>{% else %}<span
+                        class="text-black-50">No
+                        Data</span>{% endif %}</p>
+            </div>
+            {% if song.only_lunatic is False %}
+            <div class="col-12 pl-0">
+                <p class="mb-0">収録日: {{song.song_release}} ({{song.song_release_version}})</p>
+            </div>
+            {% endif %}
+            {% if song.has_lunatic %}
+            <div class="col-12 pl-0">
+                <p class="mb-0">収録日(Lunatic): {{song.song_release_lunatic}} ({{song.song_release_lunatic_version}})</p>
+            </div>
+            {% endif %}
+            {% if song.only_lunatic is False %}
+            <div class="col-12 pl-0">
+                <p class="mb-0">対戦相手: {{song.character}}</p>
+            </div>
+            {% endif %}
+            {% if song.has_lunatic %}
+            <div class="col-12 pl-0">
+                <p class="mb-0">対戦相手(Lunatic): {{song.character_lunatic}}</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- ボタン -->
+        <div class="row justify-content-end align-items-center">
+            <div class="col-auto pr-0 pb-1">
+                <button id="bpm_link_{{song.id}}" class="btn btn-outline-secondary" type="button"
+                    {% if song.song_bpm_nodata is True %} disabled {% endif %}>
+                    BPMチェック
+                </button>
+            </div>
+            <div class="col-auto pr-0 pb-1">
+                <button id="actionbtn2_{{song.id}}" class="col-auto btn btn-outline-secondary dropdown-toggle"
+                    type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    その他
+                </button>
+                <div class="dropdown-menu">
+                    <button onclick="navigator.clipboard.writeText('{{song.song_name}}')" id="song_name_copy"
+                        class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button">
+                        曲名をコピー<i class="pl-2 far fa-copy"></i>
+                    </button>
+                    <button onclick="navigator.clipboard.writeText('{{song.song_name}} / {{song.song_artist}}')"
+                        id="song_name_copy" class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item"
+                        type="button">
+                        曲名＆アーティスト名をコピー<i class="pl-2 far fa-copy"></i>
+                    </button>
+                    <div class="dropdown-divider"></div>
+                    <button onclick='window.open("https://wikiwiki.jp/gameongeki/{{song.song_name}}")'
+                        class="col-sm-auto mr-1 pl-4 pr-4 btn btn-outline-secondary dropdown-item" type="button">
+                        攻略wiki <span style="font-size:.7rem">(外部ページ)</span>
+                        <i class="ml-2 fas fa-external-link-alt"></i>
+                    </button>
+                </div>
+                <script>
+                    document.getElementById("bpm_link_{{song.id}}").onclick = function () {
+                        window.location.href = "{% url 'my_apps:bpm_checker_page' %}?bpm={{song.song_bpm}}";
+                    };
+                </script>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        // 曲名コピー
+        $("#c_{{song.id}}").on("show.bs.collapse", function () {
+
+            console.log("曲名をコピーしました。");
+            navigator.clipboard.writeText("{{song.song_name}}");
+
+            var song_name = $("#song-name_{{song.id}}").html();
+            $("#song-name_{{song.id}}").text("【曲名をコピーしました】");
+            setTimeout(function () {
+                $("#song-name_{{song.id}}").html(song_name);
+            }, 500);
+
+        });
+
+        // アイコンを回転させる
+        $("#c_{{song.id}}").on("show.bs.collapse", function () {
+            $("#i_{{song.id}}").removeClass("fa-angle-up");
+            $("#i_{{song.id}}").addClass("fa-angle-down");
+        });
+        $("#c_{{song.id}}").on("hide.bs.collapse", function () {
+            $("#i_{{song.id}}").removeClass("fa-angle-down");
+            $("#i_{{song.id}}").addClass("fa-angle-up");
+        });
+    </script>
+
+</a>

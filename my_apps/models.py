@@ -1,8 +1,15 @@
 from django.db import models
+from django.db.models import Q
 from django.conf import settings
-import requests,os
+import requests, os, json, datetime, jaconv, unicodedata, re
+from pathlib import Path
 
-# Create your models here.
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = os.path.join(BASE_DIR, "my_apps/my_data")
+JSON_C_FILE_PATH = os.path.join(DATA_DIR, "songdata_c_dict.json")
+JSON_O_FILE_PATH = os.path.join(DATA_DIR, "songdata_o_dict.json")
+UPDATE_AT_C_FILE_PATH = os.path.join(DATA_DIR, "const_update_at_c.txt")
+UPDATE_AT_O_FILE_PATH = os.path.join(DATA_DIR, "const_update_at_o.txt")
 
 # DB構造を変化させたくなったら
 # ・モデルを変更する (models.py の中の)
@@ -12,359 +19,370 @@ import requests,os
 
 # ----------------------------------
 
+
 # CHUNITHM 曲データ
+class SongDataCN(models.Model):
+    # 基本情報
+    song_official_id = models.CharField(max_length=10, unique=True)
+    song_name = models.CharField(max_length=200)
+    song_reading = models.CharField(max_length=200)
+    song_artist = models.CharField(max_length=200)
+    song_genre = models.CharField(max_length=20)
+    song_bpm = models.IntegerField(null=True, blank=True)
+    song_bpm_nodata = models.BooleanField(default=True)
 
-class SongDataC(models.Model):
+    # 発売日情報（DateField として保持。データクラスでは文字列になっていますが、DB には日付として保存）
+    song_release = models.DateField(null=True, blank=True)
+    song_release_version = models.CharField(max_length=100, null=True, blank=True)
 
-    # 曲名など
-    song_name = models.CharField(max_length=100)
-    song_name_reading = models.CharField(max_length=100)
-    song_auther = models.CharField(max_length=100)
+    # イメージ・譜面ID（譜面IDは「文字列5ケタ」の想定なので max_length を 5 に変更）
+    song_image_url = models.CharField(max_length=100)
+    song_fumen_id = models.CharField(max_length=5, null=True, unique=True)
 
-    # カテゴリ
-    song_catname = models.CharField(max_length=20)
+    # フラグ
+    is_worldsend = models.BooleanField(default=False)
+    has_ultima = models.BooleanField(default=False)
+    only_ultima = models.BooleanField(default=False)
 
-    song_bpm = models.IntegerField()
-    song_release = models.DateField()
+    # フォルダ位置情報
+    song_namefolder_name = models.CharField(max_length=20, null=True, blank=True)
+    song_namefolder_index = models.IntegerField(null=True, blank=True)
 
-    # レベル
-    expert_const = models.DecimalField(max_digits=4,decimal_places=1)
-    expert_notes = models.IntegerField()
+    # BASIC
+    bas_const = models.DecimalField(max_digits=4, decimal_places=1, null=True, blank=True)
+    bas_const_nodata = models.BooleanField(default=True)
 
-    master_const = models.DecimalField(max_digits=4,decimal_places=1)
-    master_notes = models.IntegerField()
+    # ADVANCED
+    adv_const = models.DecimalField(max_digits=4, decimal_places=1, null=True, blank=True)
+    adv_const_nodata = models.BooleanField(default=True)
 
-    ultima_const = models.DecimalField(max_digits=4,decimal_places=1)
-    ultima_notes = models.IntegerField()
+    # EXPERT
+    exp_const = models.DecimalField(max_digits=4, decimal_places=1, null=True, blank=True)
+    exp_const_nodata = models.BooleanField(default=True)
+    exp_notes = models.IntegerField(null=True, blank=True)
+    exp_notes_nodata = models.BooleanField(default=True)
+    exp_notesdesigner = models.CharField(max_length=100, null=True, blank=True)
+    exp_notesdesigner_nodata = models.BooleanField(default=True)
 
-    # 譜面保管所ID
-    fumen_id = models.IntegerField()
+    # MASTER
+    mas_const = models.DecimalField(max_digits=4, decimal_places=1, null=True, blank=True)
+    mas_const_nodata = models.BooleanField(default=True)
+    mas_notes = models.IntegerField(null=True, blank=True)
+    mas_notes_nodata = models.BooleanField(default=True)
+    mas_notesdesigner = models.CharField(max_length=100, null=True, blank=True)
+    mas_notesdesigner_nodata = models.BooleanField(default=True)
 
-class SongDataCManager(models.Manager):
+    # ULTIMA
+    ult_const = models.DecimalField(max_digits=4, decimal_places=1, null=True, blank=True)
+    ult_const_nodata = models.BooleanField(default=True)
+    ult_notes = models.IntegerField(null=True, blank=True)
+    ult_notes_nodata = models.BooleanField(default=True)
+    ult_notesdesigner = models.CharField(max_length=100, null=True, blank=True)
+    ult_notesdesigner_nodata = models.BooleanField(default=True)
 
-    @classmethod
-    def update_song_data(cls):
-        """
-        定数情報を更新するメソッド
-        """
-        # 情報を取得する
-        new_song_data = cls.get_song_data()
-
-        # 更新する
-        result = ""
-
-        print("CHUNITHM 更新するよん")
-        result += "CHUNITHM 更新するよん\n"
-
-        for a_song_data in new_song_data:
-            o,c =SongDataC.objects.update_or_create(song_name=a_song_data["song_name"],defaults=a_song_data)
-            if c:
-                print(f"- 作成したよん→ {o.song_name}")
-                result += f"- 作成したよん→ {o.song_name}\n"
-
-        print("CHUNITHM 更新終わったよん")
-        result += "CHUNITHM 更新終わったよん\n"
-
-        return result
-
-    @classmethod
-    def get_song_data(cls):
-        """
-        定数情報を取得するメソッド
-        """
-        import requests,re
-        from bs4 import BeautifulSoup
-
-        chuni_const_url = "https://reiwa.f5.si/chunirec_all.json"
-        chuni_offi_url = "https://chunithm.sega.jp/storage/json/music.json"
-
-        # 定数情報を取得する
-        response= requests.get(chuni_const_url)
-        response.encoding = response.apparent_encoding
-        rec_json = response.json()
-
-        # 読み情報を取得する
-        response= requests.get(chuni_offi_url)
-        response.encoding = response.apparent_encoding
-        offi_json = response.json()
-
-        # 譜面保管所IDを取得する
-        ids_c = {}
-        target = ["pops","niconico","toho","variety","irodorimidori","gekimai","original","ultima"]
-
-        for t in target:
-            TARGET_URL = f"https://www.sdvx.in/chunithm/sort/{t}.htm"
-            html = requests.get(TARGET_URL)
-            soup = BeautifulSoup(html.content, "html.parser")
-            songs = soup.select("body > center > table > tr > td > td > td > tr > td > td> table > tr > td")
-            songs_str = str(songs)
-
-            pattern1 = re.compile(r'script src=\"/chunithm/.*/js/.*sort\.js\"></script><script>SORT.*\(\);</script><!--.*-->')
-            result1 = pattern1.findall(songs_str)
-            for r in result1:
-                ids_c[r[84:-3]]=int(r[28:33])
-
-            pattern2 = re.compile(r'script src=\"/chunithm/ult/js/.*ult\.js\"></script><script>SORT.*\(\);</script><!--.*-->')
-            result2 = pattern2.findall(songs_str)
-            for r in result2:
-                ids_c[r[85:-3]]=int(r[29:34])
-
-        # 整形する
-        new_songdata = []
-        for j in rec_json:
-
-            # WE除外
-            if j["meta"]["genre"]=="WORLD'S END":
-                continue
-
-            d = {}
-
-            # 情報入力(だいたい)
-            d["song_name"]=j["meta"]["title"]
-            d["song_name_reading"]=""
-            d["song_auther"]=j["meta"]["artist"]
-            d["song_catname"]=j["meta"]["genre"]
-
-            d["song_bpm"]=j["meta"]["bpm"]
-            # d["song_release"]=datetime.date(*[ int(e) for e in j["meta"]["release"].split("-")])
-            d["song_release"]=j["meta"]["release"]
+    # その他
+    we_star = models.CharField(max_length=10, null=True, blank=True)
+    we_kanji = models.CharField(max_length=10, null=True, blank=True)
 
 
-            d["expert_const"]=j["data"]["EXP"]["const"]
-            if j["data"]["EXP"]["is_const_unknown"]:
-                d["expert_const"]=0
-            d["expert_notes"]=j["data"]["EXP"]["maxcombo"]
+# オンゲキ 曲データ
+class SongDataON(models.Model):
+    # 基本情報
+    song_official_id = models.CharField(max_length=10)
+    song_official_id_lunatic = models.CharField(max_length=10, null=True, blank=True)
+    song_name = models.CharField(max_length=200)
+    song_reading = models.CharField(max_length=200)
+    song_subname = models.CharField(max_length=200, null=True, blank=True)
+    song_subname_nodata = models.BooleanField(default=True)
+    song_artist = models.CharField(max_length=500)
+    song_genre = models.CharField(max_length=20)
+    song_bpm = models.IntegerField(null=True, blank=True)
+    song_bpm_nodata = models.BooleanField(default=True)
 
-            d["master_const"]=j["data"]["MAS"]["const"]
-            if j["data"]["MAS"]["is_const_unknown"]:
-                d["master_const"]=0
-            d["master_notes"]=j["data"]["MAS"]["maxcombo"]
+    # リリース情報
+    song_release = models.DateField(null=True, blank=True)
+    song_release_version = models.CharField(max_length=100, null=True, blank=True)
+    song_release_lunatic = models.DateField(null=True, blank=True)
+    song_release_lunatic_version = models.CharField(max_length=100, null=True, blank=True)
 
-            try:
-                d["ultima_const"]=j["data"]["ULT"]["const"]
-                if j["data"]["ULT"]["is_const_unknown"]:
-                    d["ultima_const"]=0
-                d["ultima_notes"]=j["data"]["ULT"]["maxcombo"]
-            except:
-                d["ultima_const"]=0
-                d["ultima_notes"]=0
+    # イメージ・譜面情報
+    song_image_url = models.CharField(max_length=100)
+    song_fumen_id = models.CharField(max_length=5, null=True, blank=True)  # 文字列5ケタを想定
 
-            # reading
-            for e in offi_json:
-                if e["title"]==d["song_name"]:
-                    d["song_name_reading"]=e["reading"]
-                    break
+    # キャラクター情報
+    character = models.CharField(max_length=100)
+    character_lunatic = models.CharField(max_length=100, null=True, blank=True)
 
-            # 譜面id
-            try:
-                d["fumen_id"] = ids_c[d["song_name"]]
-            except:
-                print(f"-- リンク失敗 曲名:{d['song_name']}")
-                d["fumen_id"] = 0
+    # フラグ
+    is_bonus = models.BooleanField(default=False)
+    has_lunatic = models.BooleanField(default=False)
+    only_lunatic = models.BooleanField(default=False)
+    is_remaster = models.BooleanField(null=True, blank=True)
+    is_remaster_nodata = models.BooleanField(default=True)
 
-            # # 定数未確定情報
-            # tmp = 0
-            # for k in ["EXP","MAS","ULT"]:
-            #     try:
-            #         tmp += j["data"][k]["is_const_unknown"]
-            #     except:
-            #         pass
-            # if tmp>0:
-            #     d["is_const_unknown"]=True
-            # else:
-            #     d["is_const_unknown"]=False
+    # # フォルダ位置情報
+    # song_namefolder_name = models.CharField(max_length=20, null=True, blank=True)
+    # song_namefolder_index = models.IntegerField(null=True, blank=True)
 
+    # BASIC
+    bas_const = models.DecimalField(max_digits=4, decimal_places=1, null=True, blank=True)
+    bas_const_nodata = models.BooleanField(default=True)
 
-            # jsonに足す
-            new_songdata.append(d)
+    # ADVANCED
+    adv_const = models.DecimalField(max_digits=4, decimal_places=1, null=True, blank=True)
+    adv_const_nodata = models.BooleanField(default=True)
 
-        print("取得できたよん")
-        return new_songdata
+    # EXPERT
+    exp_const = models.DecimalField(max_digits=4, decimal_places=1, null=True, blank=True)
+    exp_const_nodata = models.BooleanField(default=True)
+    exp_notes = models.IntegerField(null=True, blank=True)
+    exp_notes_nodata = models.BooleanField(default=True)
+    exp_bell = models.IntegerField(null=True, blank=True)
+    exp_bell_nodata = models.BooleanField(default=True)
+    exp_notesdesigner = models.CharField(max_length=100, null=True, blank=True)
+    exp_notesdesigner_nodata = models.BooleanField(default=True)
 
-    @classmethod
-    def update_rights_data(cls):
-        """
-        著作権情報を取得するメソッド
-        """
-        rights_data= requests.get("https://chunithm.sega.jp/storage/json/rightsInfo.json")
-        rights_data.encoding = rights_data.apparent_encoding
+    # MASTER
+    mas_const = models.DecimalField(max_digits=4, decimal_places=1, null=True, blank=True)
+    mas_const_nodata = models.BooleanField(default=True)
+    mas_notes = models.IntegerField(null=True, blank=True)
+    mas_notes_nodata = models.BooleanField(default=True)
+    mas_bell = models.IntegerField(null=True, blank=True)
+    mas_bell_nodata = models.BooleanField(default=True)
+    mas_notesdesigner = models.CharField(max_length=100, null=True, blank=True)
+    mas_notesdesigner_nodata = models.BooleanField(default=True)
 
-        with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_chunithm.txt"),"w") as f:
-            f.write("\n".join(rights_data.json()))
+    # LUNATIC
+    lun_const = models.DecimalField(max_digits=4, decimal_places=1, null=True, blank=True)
+    lun_const_nodata = models.BooleanField(default=True)
+    lun_notes = models.IntegerField(null=True, blank=True)
+    lun_notes_nodata = models.BooleanField(default=True)
+    lun_bell = models.IntegerField(null=True, blank=True)
+    lun_bell_nodata = models.BooleanField(default=True)
+    lun_notesdesigner = models.CharField(max_length=100, null=True, blank=True)
+    lun_notesdesigner_nodata = models.BooleanField(default=True)
 
 # ----------------------------------
 
-# オンゲキ 曲データ
-class SongDataO(models.Model):
-
-    # 曲名など
-    song_name = models.CharField(max_length=100)
-    song_auther = models.CharField(max_length=100)
-
-    # カテゴリ
-    song_catname = models.CharField(max_length=20)
-    song_release = models.DateField()
-
-    # レベル
-    expert_const = models.DecimalField(max_digits=4,decimal_places=1)
-    expert_notes = models.IntegerField()
-
-    master_const = models.DecimalField(max_digits=4,decimal_places=1)
-    master_notes = models.IntegerField()
-
-    lunatic_const = models.DecimalField(max_digits=4,decimal_places=1)
-    lunatic_notes = models.IntegerField()
-
-    # 譜面保管所ID
-    fumen_id = models.IntegerField()
-
-class SongDataOManager(models.Manager):
+class BaseSongDataManager(models.Manager):
+    # サブクラスで上書きする
+    songdata_model : models.Model = None
+    json_file_path = None
+    update_at_file_path = None # データベースの更新日時を記録するファイルのパス
 
     @classmethod
-    def update_song_data(cls):
+    def import_songdata_from_json(cls):
         """
-        定数情報を更新するメソッド
+        JSONから楽曲情報を読み込み、update_or_create で DB を更新する共通処理
         """
-        # 情報を取得する
-        new_song_data = cls.get_song_data()
+        try:
+            with open(cls.json_file_path, "r") as f:
+                data = json.load(f)
+        except FileNotFoundError:
+            print(f"ファイルが見つかりません: {cls.json_file_path}")
+            return None
+        except json.JSONDecodeError:
+            print(f"JSONの読み込みに失敗しました: {cls.json_file_path}")
+            return None
 
-        # 更新する
-        result = ""
+        print(f"[{cls.__name__}] データベースに送信します")
+        for song in data["songs"]:
+            song_official_id = song["song_official_id"]
+            if (song_official_id in data["new_song_offi_ids"] or
+                song_official_id in data["update_song_offi_ids"]):
+                obj, created = cls.songdata_model.objects.update_or_create(
+                    song_official_id=song_official_id,
+                    defaults=song
+                )
+                action = "作成" if created else "更新"
+                print(f"- {action}: {obj.song_name}")
+            elif song_official_id in data.get("delete_song_offi_ids", []):
+                print(f"- 削除: {song['song_name']}")
+                n, _ = cls.songdata_model.objects.filter(song_official_id=song_official_id).delete()
+                if n != 1:
+                    print(f"-- 削除に失敗しました: {song['song_name']}")
+        print(f"[{cls.__name__}] 送信完了")
 
-        print("オンゲキ 更新するよん")
-        result += "オンゲキ 更新するよん\n"
-
-        for a_song_data in new_song_data:
-            o,c =SongDataO.objects.update_or_create(song_name=a_song_data["song_name"],defaults=a_song_data)
-            if c:
-                print(f"- 作成したよん→ {o.song_name}")
-                result += f"- 作成したよん→ {o.song_name}\n"
-
-        print("オンゲキ 更新終わったよん")
-        result += "オンゲキ 更新終わったよん\n"
-
-        return result
+        # 更新日時の記録
+        with open(cls.update_at_file_path, "w") as f:
+            f.write(data.get("update_at", ""))
+        return
 
     @classmethod
-    def get_song_data(cls):
+    def get_update_time(cls):
         """
-        定数情報を取得するメソッド
+        更新日時を取得する共通処理
         """
-        import requests,re
-        from bs4 import BeautifulSoup
+        with open(cls.update_at_file_path, "r") as f:
+            update_time = f.readline()
+        return update_time
 
-        ongeki_const_url = "https://reiwa.f5.si/ongeki_const_all.json"
+    @classmethod
+    def _create_query_list(cls,query):
+        """
+        クエリから検索クエリリストを生成する共通処理
+        ・ひらがな・カタカナ変換
+        ・末尾のアルファベットを削除
+        """
+        query_list = [query]
 
-        # 定数情報を取得する
-        response= requests.get(ongeki_const_url)
-        response.encoding = response.apparent_encoding
-        ongeki_json = response.json()
+        # 末尾にアルファベットがあれば消す(日本語入力中を想定)
+        if re.match(r".*^[\u3040-\u309F]+[a-zA-Z]{1}$", query):
+            query_list += [query[:-1]]
+        if re.match(r".*^[\u3040-\u309F]+[a-zA-Z]{2}$", query):
+            query_list += [query[:-2]]
 
-        # 譜面保管所IDを取得する
-        ids_o = {}
-        target = ["pops","niconico","toho","variety","chumai","ongeki","lunatic"]
+        # ひらがな・カタカナ変換
+        for q in query_list[:]:
+            query_list += [jaconv.kata2hira(q), jaconv.hira2kata(q)]
 
-        for t in target:
+        # 重複削除
+        query_list = list(set(query_list))
+        return query_list
 
-            TARGET_URL = f"https://www.sdvx.in/ongeki/sort/{t}.htm"
-            html = requests.get(TARGET_URL)
-            soup = BeautifulSoup(html.content, "html.parser")
-            songs = soup.select("body > center > table > tr > td > td > td > tr > td > td> table > tr > td")
-            songs_str = str(songs)
+    @classmethod
+    def search_song_by_query(cls, query_original:str, search_settings:dict):
+        """
+        検索クエリと検索設定から楽曲データを検索する共通処理
+        """
 
-            pattern1 = re.compile(r'script src=\"/ongeki/.*/js/.*sort\.js\"></script><script>SORT.*\(\);</script><!--.*-->')
-            result1 = pattern1.findall(songs_str)
-            for r in result1:
-                ids_o[r[82:-3]]=int(r[26:31])
+        # 検索クエリリストの生成
+        query_list = cls._create_query_list(query_original)
 
-            pattern2 = re.compile(r'script src=\"/ongeki/luna/js/.*luna\.js\"></script><script>SORT.*\(\);</script><!--.*-->')
-            result2 = pattern2.findall(songs_str)
-            for r in result2:
-                ids_o[r[85:-3]]=int(r[28:33])
+        qs = cls.songdata_model.objects.all()
+        search_results = qs.none()
 
-        # 整形する
-        new_songdata = []
-        for j in ongeki_json:
+        # queryによる検索
+        for query in query_list:
 
-            d = {}
+            # 曲名による検索
+            if search_settings.get("is_use_name"):
 
-            # 情報入力(だいたい)
-            d["song_name"]=j["title"]
-            d["song_auther"]=j["artist"]
-            d["song_catname"]=j["category"]
+                # 曲名による検索
+                search_results |= qs.filter(song_name__icontains=query)
 
-            # d["song_release"]=datetime.date(*[ int(e) for e in j["add_date"].split("-")])
-            d["song_release"]=j["add_date"].split("T")[0]
+                # ジャンル名による検索(オンゲキのみ)
+                if cls.songdata_model == SongDataON:
+                    search_results |= qs.filter(song_subname__icontains=query)
 
-            try:
-                d["expert_const"]=float(j["expert"]["const"])
-                if j["expert"]["is_unknown"]:
-                    d["expert_const"] = 0
-            except:
-                d["expert_const"] = 0
+                # 読み方による検索
+                if query == query_original:
+                    # query_original をカタカナ＋大文字アルファベットに変換し、濁点除去
+                    query_reading = "".join(
+                        [
+                            c
+                            for c in jaconv.hira2kata(unicodedata.normalize("NFKD", query_original))
+                            .upper()
+                            .translate(str.maketrans("ァィゥェォャュョッヮヵヶ", "アイウエオヤユヨツワカケ"))
+                            if ("\u30a1" <= c <= "\u30fa" or "A" <= c <= "Z")
+                        ]
+                    )
+                    # 検索
+                    if len(query_reading)>0:
+                        # print(query_reading)
+                        search_results |= qs.filter(song_reading__icontains=query_reading)
 
-            try:
-                d["master_const"]=float(j["master"]["const"])
-                if j["master"]["is_unknown"]:
-                    d["master_const"] = 0
-            except:
-                d["master_const"] = 0
+            # アーティスト名による検索
+            if search_settings.get("is_use_artists"):
+                search_results |= qs.filter(song_artist__icontains=query)
 
-            try:
-                d["lunatic_const"] = float(j["lunatic"]["const"])
-                if j["lunatic"]["is_unknown"]:
-                    d["lunatic_const"] = 0
-            except:
-                d["lunatic_const"] = 0
+            # ノーツデザイナー名による検索
+            if search_settings.get("is_use_nd"):
+                search_results |= qs.filter(exp_notesdesigner__icontains=query)
+                search_results |= qs.filter(mas_notesdesigner__icontains=query)
+                if cls.songdata_model == SongDataCN:
+                    search_results |= qs.filter(ult_notesdesigner__icontains=query)
+                elif cls.songdata_model == SongDataON:
+                    search_results |= qs.filter(lun_notesdesigner__icontains=query)
 
-            d["expert_notes"]=0
-            d["master_notes"]=0
-            d["lunatic_notes"]=0
-            # d["expert_notes"]=j["expert"]["maxcombo"]
-            # d["master_notes"]=j["master"]["maxcombo"]
-            # d["lunatic_notes"]=j["data"]["ULT"]["maxcombo"]
+        # 絞り込みオプション
+        # BPM
+        if search_settings.get("is_use_bpm"):
+                search_results = search_results.filter(song_bpm__range=(search_settings["bpm_from"], search_settings["bpm_to"]))
+        # ノーツ数
+        if search_settings.get("is_use_notes"):
+            search_results = search_results.filter(
+                Q(exp_notes__range=(search_settings["notes_from"], search_settings["notes_to"])) |
+                Q(mas_notes__range=(search_settings["notes_from"], search_settings["notes_to"])) |
+                (Q(ult_notes__range=(search_settings["notes_from"], search_settings["notes_to"])) if cls.songdata_model == SongDataCN else Q()) |
+                (Q(lun_notes__range=(search_settings["notes_from"], search_settings["notes_to"])) if cls.songdata_model == SongDataON else Q())
+            )
 
-            # 譜面id
-            try:
-                d["fumen_id"] = ids_o[d["song_name"]]
-            except:
-                print(f"-- リンク失敗 曲名:{d['song_name']}")
-                d["fumen_id"] = 0
+        # ボーナストラック
+        if cls.songdata_model == SongDataON and (not search_settings.get("is_disp_bonus")):
+            search_results = search_results.filter(is_bonus=False)
 
-            # jsonに足す
-            new_songdata.append(d)
+        # LUNATIC関連
+        if cls.songdata_model == SongDataON and search_settings.get("is_use_lunatic_option"):
+            match search_settings.get("lunatic_option"):
+                case "all":
+                    pass
+                case "has":
+                    search_results = search_results.filter(has_lunatic=True)
+                case "not-has":
+                    search_results = search_results.filter(has_lunatic=False)
+                case "only":
+                    search_results = search_results.filter(only_lunatic=True)
+                case "not-only":
+                    search_results = search_results.filter(only_lunatic=False)
+                case "has-not-only":
+                    search_results = search_results.filter(has_lunatic=True, only_lunatic=False)
+                case "remaster":
+                    search_results = search_results.filter(is_remaster=True)
+                case "not-remaster":
+                    search_results = search_results.filter(is_remaster__in=[False, None])
+                case _:
+                    raise ValueError("Lunatic option is invalid")
 
-        print("取得できたよん")
-        return new_songdata
+
+        return list(search_results)
+
+    @classmethod
+    def get_new_songs(cls, date_before_2_weekly):
+        """
+        指定日以降に発売された楽曲を返す共通処理
+        """
+        qs = cls.songdata_model.objects.all()
+        return list(qs.filter(song_release__gt=date_before_2_weekly))
+
+
+# CHUNITHM 用マネージャー
+class SongDataCNManager(BaseSongDataManager):
+    songdata_model = SongDataCN
+    json_file_path = JSON_C_FILE_PATH
+    update_at_file_path = UPDATE_AT_C_FILE_PATH
 
     @classmethod
     def update_rights_data(cls):
         """
-        著作権情報を取得するメソッド
+        CHUNITHM の著作権情報を取得するメソッド
+        """
+        rights_data = requests.get("https://chunithm.sega.jp/storage/json/rightsInfo.json")
+        rights_data.encoding = rights_data.apparent_encoding
+        with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_chunithm.txt"), "w") as f:
+            f.write("\n".join(rights_data.json()))
+
+
+# ONGEKI 用マネージャー
+class SongDataONManager(BaseSongDataManager):
+    songdata_model = SongDataON
+    json_file_path = JSON_O_FILE_PATH
+    update_at_file_path = UPDATE_AT_O_FILE_PATH
+
+    @classmethod
+    def update_rights_data(cls):
+        """
+        ONGEKI の著作権情報を取得するメソッド
         """
         ongeki_rights_url = "https://ongeki.sega.jp/assets/json/music/music.json"
-
-        # 定数情報を取得する
-        response= requests.get(ongeki_rights_url)
+        response = requests.get(ongeki_rights_url)
         response.encoding = response.apparent_encoding
         ongeki_rights_json = response.json()
 
         ongeki_rights = []
-
         for e in ongeki_rights_json:
             if e["copyright1"] != "-":
                 ongeki_rights.append(e["copyright1"])
 
-        with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_ongeki.txt"),"w") as f:
+        with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/const_rights_ongeki.txt"), "w") as f:
             f.write("\n".join(list(set(ongeki_rights))))
-
-# ----------------------------------
-
-# 部内戦2023試合データ
-class GameDataB2023(models.Model):
-    game_kisyu = models.CharField(max_length=30)
-    game_no = models.CharField(max_length=30)
-    game_player = models.CharField(max_length=100)
-    game_kadai1 = models.CharField(max_length=50)
-    game_kadai2 = models.CharField(max_length=50)
-    game_kadai3 = models.CharField(max_length=50)

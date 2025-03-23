@@ -98,69 +98,6 @@ def ongeki_genre(request):
 
 # --------------------------------------------------
 
-# 課題曲選択
-def kadaikyoku(request):
-    context = { "title":f"課題曲セレクト {title_base}" ,"is_beta":False, "is_app":False }
-
-    # 試合情報を読み込む
-    gamedata = GameDataB2023
-
-
-    if request.POST:
-
-        # POSTから機種を取得
-        post = request.POST
-        kisyu = post.get("kisyu")
-        game = post.get("game")
-
-        response = { "kisyu":kisyu, "test":f"{kisyu}の{game}が選択されました！", }
-
-        # 機種名から試合名を読み込む
-        if len(game)==0:
-            if not kisyu.startswith("("):
-
-                # 試合名を読み込む
-                game_list = [ o for o in gamedata.objects.filter(game_kisyu=kisyu)]
-                games = [ f"{o.game_no} {o.game_player}" for o in game_list ]
-
-                # 試合一覧を整えて返す
-                games_response = [ f'<option class="games">{g}</option>' for g in games ]
-                response["games_response"]=games_response[::-1]
-
-        # 試合名から試合情報を返す
-        else:
-            if not game.startswith("("):
-
-                # 試合情報を読み込む
-                game_selected = gamedata.objects.filter(game_kisyu=kisyu,game_no=game.split()[0])[0]
-
-                # 試合情報を整形する
-                games_info = {
-
-                    "vs_game":game_selected.game_kisyu,
-                    "vs_name":game_selected.game_no,
-                    "vs_player":game_selected.game_player,
-
-                    "kadai":[
-
-                        game_selected.game_kadai1,
-                        game_selected.game_kadai2,
-                        game_selected.game_kadai3,
-
-                    ],
-
-                }
-
-                # 課題曲数を数える
-                games_info["kadai_count"] =  len([ s for s in games_info["kadai"] if len(s)>0])
-
-                # 試合情報を返す
-                response["games_info"]=games_info
-
-        return JsonResponse(response)
-
-    return render(request, 'kadaikyoku/kadaikyoku.html',context=context)
-
 # 雑多なツール
 def random_tools(request):
 
@@ -204,14 +141,14 @@ def random_tools(request):
 
 # データベース
 def songdata_chunithm(request):
-    file_path = os.path.join(settings.BASE_DIR, 'my_apps/my_data/songdata_c_dict.json')
+    file_path = os.path.join(settings.BASE_DIR, 'my_apps/my_data/songdata_chunithm_for_public.json')
     if os.path.exists(file_path):
         return FileResponse(open(file_path, 'rb'), content_type='application/json')
     else:
         raise Http404("JSONファイルが見つかりません")
 
 def songdata_ongeki(request):
-    file_path = os.path.join(settings.BASE_DIR, 'my_apps/my_data/songdata_o_dict.json')
+    file_path = os.path.join(settings.BASE_DIR, 'my_apps/my_data/songdata_ongeki_for_public.json')
     if os.path.exists(file_path):
         return FileResponse(open(file_path, 'rb'), content_type='application/json')
     else:

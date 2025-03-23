@@ -25,7 +25,11 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 
 # --- 定数 ---
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-JSON_FILE_PATH = os.path.join(BASE_DIR, "my_apps/my_data/songdata_o_dict.json")
+DATA_DIR = os.path.join(BASE_DIR, "my_apps/my_data")
+JSON_FILE_PATH = os.path.join(DATA_DIR, "songdata_o_dict.json")
+JSON_FILE_FOR_PUBLIC_PATH = os.path.join(DATA_DIR, "songdata_ongeki_for_public.json")
+OFFICIAL_JSON_URL = "https://ongeki.sega.jp/assets/json/music/music.json"
+REIWAF5_JSON_URL = "https://reiwa.f5.si/ongeki_const_all.json"
 ONGEKI_GENRE_JSON_FILE_PATH = os.path.join(BASE_DIR, "my_apps/my_data/ongeki_genre_data.json")
 
 # 環境変数のロード
@@ -34,9 +38,6 @@ dotenv_path = os.path.join(BASE_DIR.parent, ".env")
 load_dotenv(dotenv_path)
 LINE_BOT_ACCESS_TOKEN = os.environ.get("LINE_BOT_ACCESS_TOKEN")
 LINE_USER_ID = os.environ.get("LINE_USER_ID")
-
-OFFICIAL_JSON_URL = "https://ongeki.sega.jp/assets/json/music/music.json"
-REIWAF5_JSON_URL = "https://reiwa.f5.si/ongeki_const_all.json"
 
 # --- HTTPセッション ---
 session = requests.Session()
@@ -51,16 +52,17 @@ def date_to_ongekiversion(date_str: str) -> str:
     JST = datetime.timezone(datetime.timedelta(hours=+9), "JST")
     d = dateutil.parser.parse(date_str).astimezone(JST).date()
     ongeki_versions = [
-        "無印",
-        "PLUS",
-        "SUMMER",
-        "SUMMER PLUS",
-        "R.E.D.",
-        "R.E.D. PLUS",
-        "bright",
-        "bright MEMORY Act.1",
-        "bright MEMORY Act.2",
-        "bright MEMORY Act.3",
+        "オンゲキ",
+        "オンゲキ PLUS",
+        "オンゲキ SUMMER",
+        "オンゲキ SUMMER PLUS",
+        "オンゲキ R.E.D.",
+        "オンゲキ R.E.D. PLUS",
+        "オンゲキ bright",
+        "オンゲキ bright MEMORY Act.1",
+        "オンゲキ bright MEMORY Act.2",
+        "オンゲキ bright MEMORY Act.3",
+        "オンゲキ Re:Fresh",
     ]
     ongeki_versions_date = [
         datetime.date(2018, 7, 26),
@@ -73,6 +75,7 @@ def date_to_ongekiversion(date_str: str) -> str:
         datetime.date(2022, 3, 3),
         datetime.date(2022, 8, 4),
         datetime.date(2024, 3, 7),
+        datetime.date(2025, 3, 27),
         datetime.date(9999, 12, 31),
     ]
     for i in range(len(ongeki_versions)):
@@ -167,6 +170,10 @@ class SongData:
     only_lunatic: bool = False
     is_remaster: Optional[bool] = None
     is_remaster_nodata: bool = True
+    bas_const: Optional[float] = None
+    bas_const_nodata: bool = True
+    adv_const: Optional[float] = None
+    adv_const_nodata: bool = True
     exp_const: Optional[float] = None
     exp_const_nodata: bool = True
     exp_notes: Optional[int] = None
@@ -240,6 +247,8 @@ class SongData:
                 self.lun_const_nodata = False
 
             if is_only_lunatic:
+                self.bas_const_nodata = True
+                self.adv_const_nodata = True
                 self.exp_const_nodata = True
                 self.exp_notes_nodata = True
                 self.exp_bell_nodata = True
@@ -250,11 +259,28 @@ class SongData:
                 self.mas_notesdesigner_nodata = True
 
         else:
-            # EXPERT / MASTER
+            # BASIC /ADVANCED / EXPERT / MASTER
+            basic_info = reiwa_data.get("basic", {})
+            advanced_info = reiwa_data.get("advanced", {})
             expert_info = reiwa_data.get("expert", {})
             master_info = reiwa_data.get("master", {})
+            level_advanced = string_level_to_float(advanced_info.get("level"))
             level_expert = string_level_to_float(expert_info.get("level"))
+
+            self.bas_const = basic_info.get("const")
+            self.bas_const_nodata = False
+
             # レベル10未満はレベルと定数が一致する
+            if level_advanced < 10:
+                self.adv_const = level_advanced
+                self.adv_const_nodata = False
+            elif bool(advanced_info.get("is_unknown")):
+                self.adv_const = string_level_to_float(advanced_info.get("level"))
+                self.adv_const_nodata = True
+            else:
+                self.adv_const = advanced_info.get("const")
+                self.adv_const_nodata = False
+
             if level_expert < 10:
                 self.exp_const = level_expert
                 self.exp_const_nodata = False
@@ -314,11 +340,6 @@ class SongDataManager:
             return
         with open(self.data_file, "r", encoding="utf-8") as f:
             data = json.load(f)
-        # self.new_song_offi_ids = data.get("new_song_offi_ids", [])
-        # self.new_lunatic_song_offi_ids = data.get("new_lunatic_song_offi_ids", [])
-        # self.update_song_offi_ids = data.get("update_song_offi_ids", [])
-        # self.delete_song_offi_ids = data.get("delete_song_offi_ids", [])
-        # self.update_at = data.get("update_at")
         self.songs = [SongData(**song) for song in data.get("songs", [])]
         logging.info("既存データロード完了: %d件", len(self.songs))
 
@@ -328,16 +349,98 @@ class SongDataManager:
         """
         data = {
             "songs": [song.to_dict() for song in self.songs],
-            "new_song_offi_ids": self.new_song_offi_ids,
-            "new_lunatic_song_offi_ids": self.new_lunatic_song_offi_ids,
-            "update_song_offi_ids": self.update_song_offi_ids,
-            "delete_song_offi_ids": self.delete_song_offi_ids,
+            "new_song_offi_ids": list(set(self.new_song_offi_ids)),
+            "new_lunatic_song_offi_ids": list(set(self.new_lunatic_song_offi_ids)),
+            "update_song_offi_ids": list(set(self.update_song_offi_ids)),
+            "delete_song_offi_ids": list(set(self.delete_song_offi_ids)),
             "update_at": datetime.datetime.now().strftime("%Y/%m/%d %H:%M"),
         }
         with open(self.data_file, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
         decode_unicode_json_file(self.data_file)
         logging.info("データ保存完了")
+
+    def save_public_data(self) -> None:
+        """
+        公開用のJSONファイルを出力する。
+        """
+        sorted_songs = sorted(self.songs, key=lambda song: int(song.song_official_id))
+        public_data = {"songs": []}
+        for song in sorted_songs:
+            data = song.to_dict()
+            public_song = {
+                "meta": {
+                    "official_id": data.get("song_official_id"),
+                    "official_id_lunatic": data.get("song_official_id_lunatic"),
+                    "name": data.get("song_name"),
+                    "reading": data.get("song_reading"),
+                    "subname": data.get("song_subname"),
+                    "subname_nodata": data.get("song_subname_nodata"),
+                    "artist": data.get("song_artist"),
+                    "genre": data.get("song_genre"),
+                    "bpm": data.get("song_bpm"),
+                    "bpm_nodata": data.get("song_bpm_nodata"),
+                    "release": data.get("song_release"),
+                    "release_version": data.get("song_release_version"),
+                    "release_lunatic": data.get("song_release_lunatic"),
+                    "release_lunatic_version": data.get("song_release_lunatic_version"),
+                    "image_url": data.get("song_image_url"),
+                    "fumen_id": data.get("song_fumen_id"),
+                    "character": data.get("character"),
+                    "character_lunatic": data.get("character_lunatic"),
+                    "is_bonus": data.get("is_bonus"),
+                    "has_lunatic": data.get("has_lunatic"),
+                    "only_lunatic": data.get("only_lunatic"),
+                    "is_remaster": data.get("is_remaster"),
+                    "is_remaster_nodata": data.get("is_remaster_nodata"),
+                },
+                "basic": {
+                    "const": data.get("bas_const"),
+                    "const_nodata": data.get("bas_const_nodata"),
+                },
+                "advanced": {
+                    "const": data.get("adv_const"),
+                    "const_nodata": data.get("adv_const_nodata"),
+                },
+                "expert": {
+                    "const": data.get("exp_const"),
+                    "const_nodata": data.get("exp_const_nodata"),
+                    "notes": data.get("exp_notes"),
+                    "notes_nodata": data.get("exp_notes_nodata"),
+                    "bell": data.get("exp_bell"),
+                    "bell_nodata": data.get("exp_bell_nodata"),
+                    "notesdesigner": data.get("exp_notesdesigner"),
+                    "notesdesigner_nodata": data.get("exp_notesdesigner_nodata"),
+                },
+                "master": {
+                    "const": data.get("mas_const"),
+                    "const_nodata": data.get("mas_const_nodata"),
+                    "notes": data.get("mas_notes"),
+                    "notes_nodata": data.get("mas_notes_nodata"),
+                    "bell": data.get("mas_bell"),
+                    "bell_nodata": data.get("mas_bell_nodata"),
+                    "notesdesigner": data.get("mas_notesdesigner"),
+                    "notesdesigner_nodata": data.get("mas_notesdesigner_nodata"),
+                },
+                "lunatic": {
+                    "const": data.get("lun_const"),
+                    "const_nodata": data.get("lun_const_nodata"),
+                    "notes": data.get("lun_notes"),
+                    "notes_nodata": data.get("lun_notes_nodata"),
+                    "bell": data.get("lun_bell"),
+                    "bell_nodata": data.get("lun_bell_nodata"),
+                    "notesdesigner": data.get("lun_notesdesigner"),
+                    "notesdesigner_nodata": data.get("lun_notesdesigner_nodata"),
+                },
+            }
+            public_data["songs"].append(public_song)
+
+        # 更新日時の追加
+        public_data["update_at"] = datetime.datetime.now().strftime("%Y/%m/%d %H:%M")
+
+        # 指定ファイル名でJSON出力
+        with open(JSON_FILE_FOR_PUBLIC_PATH, "w", encoding="utf-8") as f:
+            json.dump(public_data, f, indent=4, ensure_ascii=False)
 
     def _fetch_official_json(self) -> List[Dict[str, Any]]:
         """
@@ -424,8 +527,6 @@ class SongDataManager:
                 logging.error("Error fetching URL %s: %s", url, e)
         return fumen_ids_all
 
-    # ----------------------------------
-
     def update_new_songs(self) -> None:
         """
         公式データと既存データを比較し、新規楽曲を追加する。
@@ -460,11 +561,10 @@ class SongDataManager:
             for reiwa in reiwa_data_list:
                 if target_name in reiwa.get("title", ""):
                     matching_reiwa = reiwa
+                    song.apply_reiwaf5_data(matching_reiwa)
                     break
             if matching_reiwa is None:
                 messages.append(f"[新曲登録] reiwaf5内にデータがありません。song_name: {song.song_name}")
-                continue
-            song.apply_reiwaf5_data(matching_reiwa)
 
             # ジャンル名の付与
             if song.song_name in self.genre_dict:
@@ -525,17 +625,17 @@ class SongDataManager:
 
             # 新規楽曲 = only_lunaticならば...
             song = SongData.from_official_data(s, is_only_lunatic=True)
+            song.has_lunatic = True
+            song.only_lunatic = True
+
             matching_reiwa = None
             for reiwa in reiwa_data_list:
                 if song.song_name and song.song_name in reiwa.get("title", ""):
                     matching_reiwa = reiwa
+                    song.apply_reiwaf5_data(matching_reiwa, is_lunatic=True, is_only_lunatic=True)
                     break
             if matching_reiwa is None:
                 messages.append(f"[新曲登録(LUNATIC)] reiwaf5内にデータがありません。song_name: {song.song_name}")
-                continue
-            song.apply_reiwaf5_data(matching_reiwa, is_lunatic=True, is_only_lunatic=True)
-            song.has_lunatic = True
-            song.only_lunatic = True
 
             # 譜面データは初期状態では未取得としてマーク
             song.song_bpm_nodata = True
@@ -561,6 +661,9 @@ class SongDataManager:
         current_official_ids = {s.get("id") for s in official_data}
         songs_to_remove = [song for song in self.songs if song.song_official_id not in current_official_ids]
         for song in songs_to_remove:
+            # Perfect Shining!![LUN0]は削除しない
+            if song.song_official_id == "948700":
+                continue
             messages.append(f"削除曲: {song.song_name}")
             self.songs.remove(song)
             self.delete_song_offi_ids.append(song.song_official_id)
@@ -575,8 +678,23 @@ class SongDataManager:
                     break
             if not matching_reiwa:
                 continue
-            # EXPRT / MASTERを持つ曲 = not only_lunatic
+            # BASIC-MASTERを持つ曲 = not only_lunatic
             if not song.only_lunatic:
+
+                # BASIC
+                # ...
+
+                # ADVANCED
+                if song.adv_const_nodata and not bool(matching_reiwa.get("advanced", {}).get("is_unknown")) and string_level_to_float(
+                    matching_reiwa.get("advanced", {}).get("level", "0")
+                ) >= 10:
+                    messages.append(
+                        f"定数更新: {song.song_name} ADVANCED {song.adv_const} -> {matching_reiwa.get('advanced', {}).get('const')}"
+                    )
+                    song.adv_const = matching_reiwa.get("advanced", {}).get("const")
+                    song.adv_const_nodata = False
+                    self.update_song_offi_ids.append(song.song_official_id)
+
                 # EXPERT
                 if (
                     song.exp_const_nodata
@@ -624,7 +742,7 @@ class SongDataManager:
         messages.append("-----\n定数不明曲一覧")
         for song in self.songs:
             if not song.only_lunatic:
-                if song.exp_const_nodata or song.mas_const_nodata or (song.has_lunatic and song.lun_const_nodata):
+                if song.adv_const_nodata or song.exp_const_nodata or song.mas_const_nodata or (song.has_lunatic and song.lun_const_nodata):
                     messages.append(
                         f"- {song.song_name} {'[EXPERT]'*song.exp_const_nodata}{'[MASTER]'*song.mas_const_nodata}{'[LUNATIC]'*( song.has_lunatic and song.lun_const_nodata)}"
                     )
@@ -678,6 +796,9 @@ class SongDataManager:
 
             # 既存楽曲データと突合してリンク
             for song in self.songs:
+                # Perfect Shining!![LUN0]は除外
+                if song.song_official_id == "948700":
+                    continue
                 if song.song_name == song_name_fumen:
                     if song.song_fumen_id is None:
                         song.song_fumen_id = fumen_id
@@ -716,6 +837,9 @@ class SongDataManager:
         # 未リンクの曲一覧を出力
         messages.append("-----\n未リンク曲一覧")
         for song in self.songs:
+            # Perfect Shining!![LUN0]は除外
+            if song.song_official_id == "948700":
+                continue
             if song.song_fumen_id is None:
                 messages.append(f"- {song.song_name}")
 
@@ -768,15 +892,15 @@ class SongDataManager:
         # for i in tqdm.tqdm(target_index):
         for i in target_index:
             song: SongData = self.songs[i]
+            updated = False  # この楽曲で何か更新があったかどうか
 
             url = f"https://www.sdvx.in/ongeki/{song.song_fumen_id[:2]}/js/{song.song_fumen_id}sort.js"
             try:
                 time.sleep(0.5)
                 resp = session.get(url, timeout=10)
                 if resp.ok:
-                    self.update_song_offi_ids.append(song.song_official_id)
                     data_parts = html.unescape(resp.text).replace("\r\n", "").split(";")
-                    # BPM
+                    # BPM 更新
                     bpm_match = re.search(r"<td class=f\d>(.*?)</table>", data_parts[2])
                     if bpm_match:
                         bpm_str = bpm_match.group(1)
@@ -784,8 +908,13 @@ class SongDataManager:
                             new_bpm = int(bpm_str)
                             if song.song_bpm_nodata or song.song_bpm != new_bpm:
                                 messages.append(f"『{song.song_name}』: BPM updated to {new_bpm}")
-                            song.song_bpm = new_bpm
-                            song.song_bpm_nodata = False
+                                song.song_bpm = new_bpm
+                                song.song_bpm_nodata = False
+                                updated = True
+                            else:
+                                # 値は同じなので nodata 状態でなければ変更なし
+                                song.song_bpm_nodata = False
+                            # 例外発生時は何もしない（nodataのまま）
                         except Exception as e:
                             song.song_bpm_nodata = True
                     else:
@@ -794,23 +923,37 @@ class SongDataManager:
                     if not song.only_lunatic:
                         # EXPERT / MASTER NOTES DESIGNER
                         nd_match = re.search(r"<td class=ef>NOTES DESIGNER / (.*?)</table>", data_parts[3])
-                        song.exp_notesdesigner = nd_match.group(1) if nd_match else None
-                        song.exp_notesdesigner_nodata = not bool(nd_match)
+                        new_exp_notesdesigner = nd_match.group(1) if nd_match else None
+                        if song.exp_notesdesigner != new_exp_notesdesigner or song.exp_notesdesigner_nodata != (
+                            not bool(nd_match)
+                        ):
+                            song.exp_notesdesigner = new_exp_notesdesigner
+                            song.exp_notesdesigner_nodata = not bool(nd_match)
+                            messages.append(f"『{song.song_name}』: EXP NOTES DESIGNER updated to {new_exp_notesdesigner}")
+                            updated = True
 
                         nd_match = re.search(r"<td class=ef>NOTES DESIGNER / (.*?)</table>", data_parts[4])
-                        song.mas_notesdesigner = nd_match.group(1) if nd_match else None
-                        song.mas_notesdesigner_nodata = not bool(nd_match)
+                        new_mas_notesdesigner = nd_match.group(1) if nd_match else None
+                        if song.mas_notesdesigner != new_mas_notesdesigner or song.mas_notesdesigner_nodata != (
+                            not bool(nd_match)
+                        ):
+                            song.mas_notesdesigner = new_mas_notesdesigner
+                            song.mas_notesdesigner_nodata = not bool(nd_match)
+                            messages.append(f"『{song.song_name}』: MASTER NOTES DESIGNER updated to {new_mas_notesdesigner}")
+                            updated = True
 
                         # EXPERT NOTES
                         notes_match = re.search(r"<td class=exp1>(.*?)</table>", data_parts[11])
                         if notes_match:
-                            notes_str = notes_match.group(1)
                             try:
-                                new_exp_notes = int(notes_str)
+                                new_exp_notes = int(notes_match.group(1))
                                 if song.exp_notes_nodata or song.exp_notes != new_exp_notes:
                                     messages.append(f"『{song.song_name}』: EXP NOTES updated to {new_exp_notes}")
-                                song.exp_notes = new_exp_notes
-                                song.exp_notes_nodata = False
+                                    song.exp_notes = new_exp_notes
+                                    song.exp_notes_nodata = False
+                                    updated = True
+                                else:
+                                    song.exp_notes_nodata = False
                             except Exception as e:
                                 song.exp_notes_nodata = True
                         else:
@@ -819,13 +962,15 @@ class SongDataManager:
                         # MASTER NOTES
                         notes_match = re.search(r"<td class=mst1>(.*?)</table>", data_parts[12])
                         if notes_match:
-                            notes_str = notes_match.group(1)
                             try:
-                                new_mas_notes = int(notes_str)
+                                new_mas_notes = int(notes_match.group(1))
                                 if song.mas_notes_nodata or song.mas_notes != new_mas_notes:
                                     messages.append(f"『{song.song_name}』: MASTER NOTES updated to {new_mas_notes}")
-                                song.mas_notes = new_mas_notes
-                                song.mas_notes_nodata = False
+                                    song.mas_notes = new_mas_notes
+                                    song.mas_notes_nodata = False
+                                    updated = True
+                                else:
+                                    song.mas_notes_nodata = False
                             except Exception as e:
                                 song.mas_notes_nodata = True
                         else:
@@ -834,13 +979,15 @@ class SongDataManager:
                         # EXPERT BELL
                         bell_match = re.search(r"<td class=y1>(.*?)</table>", data_parts[15])
                         if bell_match:
-                            bell_str = bell_match.group(1)
                             try:
-                                new_exp_bell = int(bell_str)
+                                new_exp_bell = int(bell_match.group(1))
                                 if song.exp_bell_nodata or song.exp_bell != new_exp_bell:
                                     messages.append(f"『{song.song_name}』: EXP BELL updated to {new_exp_bell}")
-                                song.exp_bell = new_exp_bell
-                                song.exp_bell_nodata = False
+                                    song.exp_bell = new_exp_bell
+                                    song.exp_bell_nodata = False
+                                    updated = True
+                                else:
+                                    song.exp_bell_nodata = False
                             except Exception as e:
                                 song.exp_bell_nodata = True
                         else:
@@ -849,13 +996,15 @@ class SongDataManager:
                         # MASTER BELL
                         bell_match = re.search(r"<td class=y1>(.*?)</table>", data_parts[16])
                         if bell_match:
-                            bell_str = bell_match.group(1)
                             try:
-                                new_mas_bell = int(bell_str)
+                                new_mas_bell = int(bell_match.group(1))
                                 if song.mas_bell_nodata or song.mas_bell != new_mas_bell:
                                     messages.append(f"『{song.song_name}』: MASTER BELL updated to {new_mas_bell}")
-                                song.mas_bell = new_mas_bell
-                                song.mas_bell_nodata = False
+                                    song.mas_bell = new_mas_bell
+                                    song.mas_bell_nodata = False
+                                    updated = True
+                                else:
+                                    song.mas_bell_nodata = False
                             except Exception as e:
                                 song.mas_bell_nodata = True
                         else:
@@ -868,19 +1017,29 @@ class SongDataManager:
                         if resp_lun.ok:
                             data_parts = html.unescape(resp_lun.text).replace("\r\n", "").split(";")
                             nd_match = re.search(r"<td class=ef>NOTES DESIGNER / (.*?)</table>", data_parts[3])
-                            song.lun_notesdesigner = nd_match.group(1) if nd_match else None
-                            song.lun_notesdesigner_nodata = not bool(nd_match)
+                            new_lun_notesdesigner = nd_match.group(1) if nd_match else None
+                            if song.lun_notesdesigner != new_lun_notesdesigner or song.lun_notesdesigner_nodata != (
+                                not bool(nd_match)
+                            ):
+                                song.lun_notesdesigner = new_lun_notesdesigner
+                                song.lun_notesdesigner_nodata = not bool(nd_match)
+                                messages.append(
+                                    f"『{song.song_name}』: LUNATIC NOTES DESIGNER updated to {new_lun_notesdesigner}"
+                                )
+                                updated = True
 
                             # LUNATIC NOTES
                             notes_match = re.search(r"<td class=luna1>(.*?)</table>", data_parts[5])
                             if notes_match:
-                                notes_str = notes_match.group(1)
                                 try:
-                                    new_lun_notes = int(notes_str)
+                                    new_lun_notes = int(notes_match.group(1))
                                     if song.lun_notes_nodata or song.lun_notes != new_lun_notes:
                                         messages.append(f"『{song.song_name}』: LUNATIC NOTES updated to {new_lun_notes}")
-                                    song.lun_notes = new_lun_notes
-                                    song.lun_notes_nodata = False
+                                        song.lun_notes = new_lun_notes
+                                        song.lun_notes_nodata = False
+                                        updated = True
+                                    else:
+                                        song.lun_notes_nodata = False
                                 except Exception as e:
                                     song.lun_notes_nodata = True
                             else:
@@ -889,13 +1048,15 @@ class SongDataManager:
                             # LUNATIC BELL
                             bell_match = re.search(r"<td class=y1>(.*?)</table>", data_parts[6])
                             if bell_match:
-                                bell_str = bell_match.group(1)
                                 try:
-                                    new_lun_bell = int(bell_str)
+                                    new_lun_bell = int(bell_match.group(1))
                                     if song.lun_bell_nodata or song.lun_bell != new_lun_bell:
                                         messages.append(f"『{song.song_name}』: LUNATIC BELL updated to {new_lun_bell}")
-                                    song.lun_bell = new_lun_bell
-                                    song.lun_bell_nodata = False
+                                        song.lun_bell = new_lun_bell
+                                        song.lun_bell_nodata = False
+                                        updated = True
+                                    else:
+                                        song.lun_bell_nodata = False
                                 except Exception as e:
                                     song.lun_bell_nodata = True
                             else:
@@ -917,15 +1078,24 @@ class SongDataManager:
                             song.lun_notes_nodata = True
                             song.lun_bell_nodata = True
             except Exception as e:
-                messages.append(f"[fumen] エラー: {song.song_name}{song.song_fumen_id} - {e}")
+                messages.append(f"[fumen] エラー: {song.song_name} {song.song_fumen_id} - {e}")
+
+            # 更新があった場合のみ、対象楽曲の公式IDを更新対象リストに追加
+            if updated:
+                self.update_song_offi_ids.append(song.song_official_id)
 
         # ReMasterかどうかのデータを追加
         remaster_fumen_ids = self._fetch_fumen_remaster()
         for song in self.songs:
             if song.has_lunatic:
                 if song.song_fumen_id is not None:
-                    song.is_remaster = song.song_fumen_id in remaster_fumen_ids
-                    song.is_remaster_nodata = False
+                    if song.is_remaster != (song.song_fumen_id in remaster_fumen_ids):
+                        song.is_remaster = (song.song_fumen_id in remaster_fumen_ids)
+                        song.is_remaster_nodata = False
+                        messages.append(f"『{song.song_name}』: ReMASTER updated to {song.is_remaster}")
+                        self.update_song_offi_ids.append(song.song_official_id)
+                    else:
+                        song.is_remaster_nodata = False
                 else:
                     song.is_remaster_nodata = True
 
@@ -950,6 +1120,7 @@ def main() -> None:
     manager.update_fumen_data()
 
     manager.save_data()
+    manager.save_public_data()
     LineNotification.send_notification()
 
 
