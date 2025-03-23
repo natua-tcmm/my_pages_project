@@ -6,14 +6,31 @@
 <head prefix="og: http://ogp.me/ns#">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Language" content="ja">
     <title>{{title}}</title>
     <meta property="og:url" content="{% url 'my_apps:top_page' %}" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{title}}" />
-    <meta property="og:description" content="△Natua♪▽(@natua_tcmm)が制作したツールや資料集をまとめたWebサイトです。" />
+    <meta property="og:description" content="△Natua♪▽(@natua_tcmm)が制作した、主に音ゲーに関するツールや資料集をまとめたWebサイトです。" />
     <meta property="og:site_name" content="△Natua♪▽のツールとか保管所" />
     <meta property="og:locale" content="ja_JP">
     {% comment %} <meta property="og:image" content=" サムネイル画像の URL" /> {% endcomment %}
+
+    <meta name="description" content="△Natua♪▽(@natua_tcmm)が制作した、主に音ゲーに関するツールや資料集をまとめたWebサイトです。">
+    <meta name="author" content="△Natua♪▽">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@natua_tcmm">
+    <meta name="twitter:creator" content="@natua_tcmm">
+    <meta name="twitter:title" content="{{title}}">
+    <meta name="twitter:description" content="△Natua♪▽(@natua_tcmm)が制作した、主に音ゲーに関するツールや資料集をまとめたWebサイトです。">
+    {% comment %} <meta name="twitter:image" content=" サムネイル画像の URL" /> {% endcomment %}
+    <meta name="twitter:domain" content="natua.pythonanywhere.com">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <!-- CSRF Token for AJAX -->
+    <meta name="csrf-token-ajax" content="{{ csrf_token }}">
 
     <!-- favicon の設定 -->
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
@@ -29,22 +46,6 @@
     <link rel="stylesheet" href="{% static 'AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css' %}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{% static 'AdminLTE-3.2.0/dist/css/adminlte.css' %}">
-
-    <!-- Ionicons -->
-    <!-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
-    <!-- Tempusdominus Bootstrap 4 -->
-    <!-- <link rel="stylesheet" -->
-    <!-- href="{% static 'AdminLTE-3.2.0/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css' %}"> -->
-    <!-- iCheck -->
-    <!-- <link rel="stylesheet" href="{% static 'AdminLTE-3.2.0/plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}"> -->
-    <!-- JQVMap -->
-    <!-- <link rel="stylesheet" href="{% static 'AdminLTE-3.2.0/plugins/jqvmap/jqvmap.min.css' %}"> -->
-    <!-- overlayScrollbars -->
-    <!-- <link rel="stylesheet" href="{% static 'AdminLTE-3.2.0/plugins/overlayScrollbars/css/OverlayScrollbars.min.css' %}"> -->
-    <!-- Daterange picker -->
-    <!-- <link rel="stylesheet" href="{% static 'AdminLTE-3.2.0/plugins/daterangepicker/daterangepicker.css' %}"> -->
-    <!-- summernote -->
-    <!-- <link rel="stylesheet" href="{% static 'AdminLTE-3.2.0/plugins/summernote/summernote-bs4.min.css' %}"> -->
 
     <!-- 全ページ適応のcss -->
     <link rel="stylesheet" href="{% static 'base/style.css' %}">
@@ -93,30 +94,6 @@
     <script src="{% static 'AdminLTE-3.2.0/dist/js/adminlte.js' %}"></script>
     <!-- Ion.RangeSlider -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
-
-    <!-- ChartJS -->
-    <!-- <script src="{% static 'AdminLTE-3.2.0/plugins/chart.js/Chart.min.js' %}"></script> -->
-    <!-- Sparkline -->
-    <!-- <script src="{% static 'AdminLTE-3.2.0/plugins/sparklines/sparkline.js' %}"></script> -->
-    <!-- JQVMap -->
-    <!-- <script src="{% static 'AdminLTE-3.2.0/plugins/jqvmap/jquery.vmap.min.js' %}"></script> -->
-    <!-- <script src="{% static 'AdminLTE-3.2.0/plugins/jqvmap/maps/jquery.vmap.usa.js' %}"></script> -->
-    <!-- jQuery Knob Chart -->
-    <!-- <script src="{% static 'AdminLTE-3.2.0/plugins/jquery-knob/jquery.knob.min.js' %}"></script> -->
-    <!-- daterangepicker -->
-    <!-- <script src="{% static 'AdminLTE-3.2.0/plugins/moment/moment.min.js' %}"></script> -->
-    <!-- <script src="{% static 'AdminLTE-3.2.0/plugins/daterangepicker/daterangepicker.js' %}"></script> -->
-    <!-- Tempusdominus Bootstrap 4 -->
-    <!-- <script -->
-    <!-- src="{% static 'AdminLTE-3.2.0/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js' %}"></script> -->
-    <!-- Summernote -->
-    <!-- <script src="{% static 'AdminLTE-3.2.0/plugins/summernote/summernote-bs4.min.js' %}"></script> -->
-    <!-- overlayScrollbars -->
-    <!-- <script src="{% static 'AdminLTE-3.2.0/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' %}"></script> -->
-    <!-- AdminLTE for demo purposes -->
-    <!-- <script src="{% static 'AdminLTE-3.2.0/dist/js/demo.js' %}"></script> -->
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <!-- <script src="{% static 'AdminLTE-3.2.0/dist/js/pages/dashboard.js' %}"></script> -->
 
 </body>
 
