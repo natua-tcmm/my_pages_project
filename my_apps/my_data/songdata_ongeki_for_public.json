@@ -35106,8 +35106,8 @@
                 "official_id_lunatic": null,
                 "name": "THE TRiANGLE",
                 "reading": "THETRIANGLE",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "WALTZ THE HARDEST",
+                "subname_nodata": false,
                 "artist": "Yuta Imai",
                 "genre": "オンゲキ",
                 "bpm": 230,
@@ -40566,8 +40566,8 @@
                 "official_id_lunatic": null,
                 "name": "オン×ステージ！",
                 "reading": "オンステシ",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "ズッ友POP",
+                "subname_nodata": false,
                 "artist": "曲：塩野 海／歌：星咲 あかり(CV：赤尾 ひかる)、式宮 舞菜(CV：牧野 天音)",
                 "genre": "オンゲキ",
                 "bpm": 170,
@@ -58306,5 +58306,5 @@
             }
         }
     ],
-    "update_at": "2025/03/22 22:59"
+    "update_at": "2025/03/23 17:26"
 }
