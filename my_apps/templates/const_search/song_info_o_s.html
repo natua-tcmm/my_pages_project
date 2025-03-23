@@ -142,16 +142,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        document.getElementById("fumenbtn-e_{{song.id}}").onclick = function () {
-            window.open("https://www.sdvx.in/ongeki/" + (Number("{{song.song_fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.song_fumen_id}}").toFixed().padStart(5, "0") + "exp.htm");
-        }
-        document.getElementById("fumenbtn-m_{{song.id}}").onclick = function () {
-            window.open("https://www.sdvx.in/ongeki/" + (Number("{{song.song_fumen_id}}") / 1000).toFixed().padStart(2, "0") + "/" + Number("{{song.song_fumen_id}}").toFixed().padStart(5, "0") + "mst.htm");
-        }
-        document.getElementById("fumenbtn-l_{{song.id}}").onclick = function () {
-            window.open("https://www.sdvx.in/ongeki/luna/" + Number("{{song.song_fumen_id}}").toFixed().padStart(5, "0") + "luna.htm");
-        }
-    </script>
 </div>
