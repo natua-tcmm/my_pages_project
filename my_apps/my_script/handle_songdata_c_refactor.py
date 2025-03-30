@@ -758,16 +758,16 @@ class SongDataManager:
 
                         # EXPERT / MASTER NOTES DESIGNER 更新
                         nd_match = re.search(r"<td class=ef>NOTES DESIGNER / (.*?)</table>", data_parts[3])
-                        new_exp_notesdesigner = nd_match.group(1) if nd_match else None
-                        if song.exp_notesdesigner != new_exp_notesdesigner or song.exp_notesdesigner_nodata != (not bool(nd_match)):
+                        new_exp_notesdesigner = nd_match.group(1) if nd_match and nd_match.group(1) else None
+                        if song.exp_notesdesigner != new_exp_notesdesigner or song.exp_notesdesigner_nodata != (not (bool(nd_match) and bool(nd_match.group(1)))):
                             song.exp_notesdesigner = new_exp_notesdesigner
                             song.exp_notesdesigner_nodata = not bool(nd_match)
                             messages.append(f"『{song.song_name}』: EXP NOTES DESIGNER updated to {new_exp_notesdesigner}")
                             updated = True
 
                         nd_match = re.search(r"<td class=ef>NOTES DESIGNER / (.*?)</table>", data_parts[4])
-                        new_mas_notesdesigner = nd_match.group(1) if nd_match else None
-                        if song.mas_notesdesigner != new_mas_notesdesigner or song.mas_notesdesigner_nodata != (not bool(nd_match)):
+                        new_mas_notesdesigner = nd_match.group(1) if nd_match and nd_match.group(1) else None
+                        if song.mas_notesdesigner != new_mas_notesdesigner or song.mas_notesdesigner_nodata != (not (bool(nd_match) and bool(nd_match.group(1)))):
                             song.mas_notesdesigner = new_mas_notesdesigner
                             song.mas_notesdesigner_nodata = not bool(nd_match)
                             messages.append(f"『{song.song_name}』: MASTER NOTES DESIGNER updated to {new_mas_notesdesigner}")
@@ -822,8 +822,8 @@ class SongDataManager:
 
                         # ULTIMA NOTES DESIGNER
                         nd_match = re.search(r"<td class=ef>NOTES DESIGNER / (.*?)</table>", data_parts[3])
-                        new_ult_notesdesigner = nd_match.group(1) if nd_match else None
-                        if song.ult_notesdesigner != new_ult_notesdesigner or song.ult_notesdesigner_nodata != (not bool(nd_match)):
+                        new_ult_notesdesigner = nd_match.group(1) if nd_match and nd_match.group(1) else None
+                        if song.ult_notesdesigner != new_ult_notesdesigner or song.ult_notesdesigner_nodata != (not (bool(nd_match) and bool(nd_match.group(1)))):
                             song.ult_notesdesigner = new_ult_notesdesigner
                             song.ult_notesdesigner_nodata = not bool(nd_match)
                             messages.append(f"『{song.song_name}』: ULT NOTES DESIGNER updated to {new_ult_notesdesigner}")

@@ -20851,8 +20851,8 @@
                 "notes_nodata": false,
                 "bell": 117,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "lunatic": {
                 "const": null,
@@ -35986,8 +35986,8 @@
                 "notes_nodata": false,
                 "bell": 739,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "master": {
                 "const": 13,
@@ -35996,8 +35996,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "lunatic": {
                 "const": null,
@@ -55616,8 +55616,8 @@
                 "notes_nodata": false,
                 "bell": 739,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "master": {
                 "const": 13,
@@ -55626,8 +55626,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "lunatic": {
                 "const": null,
@@ -55681,8 +55681,8 @@
                 "notes_nodata": false,
                 "bell": 739,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "master": {
                 "const": 13,
@@ -55691,8 +55691,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "lunatic": {
                 "const": null,
@@ -55746,8 +55746,8 @@
                 "notes_nodata": false,
                 "bell": 739,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "master": {
                 "const": 13,
@@ -55756,8 +55756,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "lunatic": {
                 "const": null,
@@ -55811,8 +55811,8 @@
                 "notes_nodata": false,
                 "bell": 739,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "master": {
                 "const": 13,
@@ -55821,8 +55821,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "lunatic": {
                 "const": null,
@@ -55876,8 +55876,8 @@
                 "notes_nodata": false,
                 "bell": 739,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "master": {
                 "const": 13,
@@ -55886,8 +55886,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "lunatic": {
                 "const": null,
@@ -55941,8 +55941,8 @@
                 "notes_nodata": false,
                 "bell": 739,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "master": {
                 "const": 13,
@@ -55951,8 +55951,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "lunatic": {
                 "const": null,
@@ -56006,8 +56006,8 @@
                 "notes_nodata": false,
                 "bell": 739,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "master": {
                 "const": 13,
@@ -56016,8 +56016,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "lunatic": {
                 "const": null,
@@ -56071,8 +56071,8 @@
                 "notes_nodata": false,
                 "bell": 739,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "master": {
                 "const": 13,
@@ -56081,8 +56081,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "lunatic": {
                 "const": null,
@@ -56136,8 +56136,8 @@
                 "notes_nodata": false,
                 "bell": 739,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "master": {
                 "const": 13,
@@ -56146,8 +56146,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "lunatic": {
                 "const": null,
@@ -58086,8 +58086,8 @@
                 "notes_nodata": true,
                 "bell": null,
                 "bell_nodata": true,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "master": {
                 "const": null,
@@ -58096,8 +58096,8 @@
                 "notes_nodata": true,
                 "bell": null,
                 "bell_nodata": true,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "lunatic": {
                 "const": 14.0,
@@ -58151,8 +58151,8 @@
                 "notes_nodata": true,
                 "bell": null,
                 "bell_nodata": true,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "master": {
                 "const": null,
@@ -58161,8 +58161,8 @@
                 "notes_nodata": true,
                 "bell": null,
                 "bell_nodata": true,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "lunatic": {
                 "const": 13.8,
@@ -58281,8 +58281,8 @@
                 "notes_nodata": true,
                 "bell": null,
                 "bell_nodata": true,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "master": {
                 "const": null,
@@ -58291,8 +58291,8 @@
                 "notes_nodata": true,
                 "bell": null,
                 "bell_nodata": true,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "lunatic": {
                 "const": 0.0,
@@ -58606,8 +58606,8 @@
                 "notes_nodata": true,
                 "bell": null,
                 "bell_nodata": true,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "master": {
                 "const": null,
@@ -58616,8 +58616,8 @@
                 "notes_nodata": true,
                 "bell": null,
                 "bell_nodata": true,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "lunatic": {
                 "const": 0.0,
@@ -58671,8 +58671,8 @@
                 "notes_nodata": true,
                 "bell": null,
                 "bell_nodata": true,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "master": {
                 "const": null,
@@ -58681,8 +58681,8 @@
                 "notes_nodata": true,
                 "bell": null,
                 "bell_nodata": true,
-                "notesdesigner": "",
-                "notesdesigner_nodata": false
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
             },
             "lunatic": {
                 "const": 0.0,
@@ -58891,5 +58891,5 @@
             }
         }
     ],
-    "update_at": "2025/03/30 23:13"
+    "update_at": "2025/03/30 23:36"
 }

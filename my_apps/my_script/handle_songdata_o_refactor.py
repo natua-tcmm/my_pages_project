@@ -938,9 +938,9 @@ class SongDataManager:
                     if not song.only_lunatic:
                         # EXPERT / MASTER NOTES DESIGNER
                         nd_match = re.search(r"<td class=ef>NOTES DESIGNER / (.*?)</table>", data_parts[3])
-                        new_exp_notesdesigner = nd_match.group(1) if nd_match else None
+                        new_exp_notesdesigner = nd_match.group(1) if nd_match and nd_match.group(1) else None
                         if song.exp_notesdesigner != new_exp_notesdesigner or song.exp_notesdesigner_nodata != (
-                            not bool(nd_match)
+                            not (bool(nd_match) and bool(nd_match.group(1)))
                         ):
                             song.exp_notesdesigner = new_exp_notesdesigner
                             song.exp_notesdesigner_nodata = not bool(nd_match)
@@ -948,9 +948,9 @@ class SongDataManager:
                             updated = True
 
                         nd_match = re.search(r"<td class=ef>NOTES DESIGNER / (.*?)</table>", data_parts[4])
-                        new_mas_notesdesigner = nd_match.group(1) if nd_match else None
+                        new_mas_notesdesigner = nd_match.group(1) if nd_match and nd_match.group(1) else None
                         if song.mas_notesdesigner != new_mas_notesdesigner or song.mas_notesdesigner_nodata != (
-                            not bool(nd_match)
+                            not (bool(nd_match) and bool(nd_match.group(1)))
                         ):
                             song.mas_notesdesigner = new_mas_notesdesigner
                             song.mas_notesdesigner_nodata = not bool(nd_match)
@@ -1032,9 +1032,9 @@ class SongDataManager:
                         if resp_lun.ok:
                             data_parts = html.unescape(resp_lun.text).replace("\r\n", "").split(";")
                             nd_match = re.search(r"<td class=ef>NOTES DESIGNER / (.*?)</table>", data_parts[3])
-                            new_lun_notesdesigner = nd_match.group(1) if nd_match else None
+                            new_lun_notesdesigner = nd_match.group(1) if nd_match and nd_match.group(1) else None
                             if song.lun_notesdesigner != new_lun_notesdesigner or song.lun_notesdesigner_nodata != (
-                                not bool(nd_match)
+                                not (bool(nd_match) and bool(nd_match.group(1)))
                             ):
                                 song.lun_notesdesigner = new_lun_notesdesigner
                                 song.lun_notesdesigner_nodata = not bool(nd_match)
