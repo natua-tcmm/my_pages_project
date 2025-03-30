@@ -1136,10 +1136,10 @@ def main() -> None:
     manager.update_existing_songs()
 
     # 保管所IDリンク処理
-    manager.link_fumen_ids()
+    # manager.link_fumen_ids()
 
     # 譜面データの更新
-    manager.update_fumen_data()
+    # manager.update_fumen_data()
 
     manager.save_data()
     manager.save_public_data()
