@@ -47,8 +47,8 @@ def schedule_run():
     # その他
     # -------------------------------------
     # 著作権情報のアップデート
-    # SongDataCNManager.update_rights_data()
-    # SongDataONManager.update_rights_data()
+    SongDataCNManager.update_rights_data()
+    SongDataONManager.update_rights_data()
 
 
     return

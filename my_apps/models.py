@@ -209,6 +209,37 @@ class BaseSongDataManager(models.Manager):
         return
 
     @classmethod
+    def reflesh_all_db(cls):
+        """
+        JSONから楽曲情報を読み込み、DBを全て更新する共通処理(通常は使用しない)
+        """
+        try:
+            with open(cls.json_file_path, "r") as f:
+                data = json.load(f)
+        except FileNotFoundError:
+            print(f"ファイルが見つかりません: {cls.json_file_path}")
+            return None
+        except json.JSONDecodeError:
+            print(f"JSONの読み込みに失敗しました: {cls.json_file_path}")
+            return None
+
+        print(f"[{cls.__name__}] データベースをすべて削除し、リフレッシュします")
+        cls.songdata_model.objects.all().delete()
+
+        # data["songs"]をすべて登録
+        for song in data["songs"]:
+            obj, created = cls.songdata_model.objects.update_or_create(song_official_id=song["song_official_id"], defaults=song)
+            action = "作成" if created else "更新"
+            print(f"- {action}: {obj.song_name}")
+
+        print(f"[{cls.__name__}] 送信完了")
+
+        # 更新日時の記録
+        with open(cls.update_at_file_path, "w") as f:
+            f.write(data.get("update_at", ""))
+        return
+
+    @classmethod
     def get_update_time(cls):
         """
         更新日時を取得する共通処理

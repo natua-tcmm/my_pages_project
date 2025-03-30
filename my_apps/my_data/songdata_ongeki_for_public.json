@@ -58232,11 +58232,11 @@
             "lunatic": {
                 "const": 15,
                 "const_nodata": false,
-                "notes": null,
-                "notes_nodata": true,
-                "bell": null,
-                "bell_nodata": true,
-                "notesdesigner": "you can't kill me</div>",
+                "notes": 1888,
+                "notes_nodata": false,
+                "bell": 148,
+                "bell_nodata": false,
+                "notesdesigner": "you can't kill me",
                 "notesdesigner_nodata": false
             }
         },
@@ -58297,11 +58297,11 @@
             "lunatic": {
                 "const": 0.0,
                 "const_nodata": false,
-                "notes": null,
-                "notes_nodata": true,
-                "bell": null,
-                "bell_nodata": true,
-                "notesdesigner": "――THE END――</div>",
+                "notes": 2700,
+                "notes_nodata": false,
+                "bell": 70,
+                "bell_nodata": false,
+                "notesdesigner": "――THE END――",
                 "notesdesigner_nodata": false
             }
         },
@@ -58891,5 +58891,5 @@
             }
         }
     ],
-    "update_at": "2025/03/31 00:16"
+    "update_at": "2025/03/31 00:26"
 }
