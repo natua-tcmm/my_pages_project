@@ -718,7 +718,7 @@
         {
             "meta": {
                 "official_id": "172600",
-                "official_id_lunatic": null,
+                "official_id_lunatic": "989200",
                 "name": "シル・ヴ・プレジデント",
                 "reading": "シルウフレシテント",
                 "subname": null,
@@ -729,17 +729,17 @@
                 "bpm_nodata": false,
                 "release": "2023-02-09",
                 "release_version": "オンゲキ bright MEMORY Act.2",
-                "release_lunatic": null,
-                "release_lunatic_version": null,
+                "release_lunatic": "2023-02-09",
+                "release_lunatic_version": "オンゲキ bright MEMORY Act.2",
                 "image_url": "7714dafd7807aa2b.png",
                 "fumen_id": "04215",
                 "character": "逢坂 茜",
-                "character_lunatic": null,
+                "character_lunatic": "逢坂 茜",
                 "is_bonus": false,
-                "has_lunatic": false,
+                "has_lunatic": true,
                 "only_lunatic": false,
-                "is_remaster": null,
-                "is_remaster_nodata": true
+                "is_remaster": true,
+                "is_remaster_nodata": false
             },
             "basic": {
                 "const": 3.0,
@@ -770,14 +770,14 @@
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": null,
+                "const": 13.0,
                 "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "bell": null,
-                "bell_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notes": 1161,
+                "notes_nodata": false,
+                "bell": 138,
+                "bell_nodata": false,
+                "notesdesigner": "Re:MASTER by みそかつ侍＠代わりに抜刀",
+                "notesdesigner_nodata": false
             }
         },
         {
@@ -2083,7 +2083,7 @@
         {
             "meta": {
                 "official_id": "184600",
-                "official_id_lunatic": null,
+                "official_id_lunatic": "989700",
                 "name": "シリウスの輝きのように",
                 "reading": "シリウスノカカヤキノヨウニ",
                 "subname": null,
@@ -2094,17 +2094,17 @@
                 "bpm_nodata": false,
                 "release": "2024-03-07",
                 "release_version": "オンゲキ bright MEMORY Act.3",
-                "release_lunatic": null,
-                "release_lunatic_version": null,
+                "release_lunatic": "2024-03-21",
+                "release_lunatic_version": "オンゲキ bright MEMORY Act.3",
                 "image_url": "c5e4a159db6da949.png",
                 "fumen_id": "04285",
                 "character": "鳳 ここな",
-                "character_lunatic": null,
+                "character_lunatic": "鳳 ここな",
                 "is_bonus": false,
-                "has_lunatic": false,
+                "has_lunatic": true,
                 "only_lunatic": false,
-                "is_remaster": null,
-                "is_remaster_nodata": true
+                "is_remaster": true,
+                "is_remaster_nodata": false
             },
             "basic": {
                 "const": 5.0,
@@ -2135,14 +2135,14 @@
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "bell": null,
-                "bell_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "const": 14.9,
+                "const_nodata": false,
+                "notes": 1442,
+                "notes_nodata": false,
+                "bell": 108,
+                "bell_nodata": false,
+                "notesdesigner": "さぁ！始めよう！",
+                "notesdesigner_nodata": false
             }
         },
         {
@@ -5853,7 +5853,7 @@
         {
             "meta": {
                 "official_id": "275500",
-                "official_id_lunatic": "989200",
+                "official_id_lunatic": "988900",
                 "name": "ヒバナ",
                 "reading": "ヒハナ",
                 "subname": null,
@@ -5905,8 +5905,8 @@
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": 14.1,
-                "const_nodata": false,
+                "const": 14.0,
+                "const_nodata": true,
                 "notes": 1883,
                 "notes_nodata": false,
                 "bell": 130,
@@ -6308,7 +6308,7 @@
         {
             "meta": {
                 "official_id": "276400",
-                "official_id_lunatic": "986600",
+                "official_id_lunatic": "986300",
                 "name": "六兆年と一夜物語",
                 "reading": "ロクチヨウネントイチヤモノカタリ",
                 "subname": null,
@@ -12288,7 +12288,7 @@
         {
             "meta": {
                 "official_id": "287400",
-                "official_id_lunatic": "989700",
+                "official_id_lunatic": "989400",
                 "name": "脳漿炸裂ガール",
                 "reading": "ノウシヨウサクレツカル",
                 "subname": null,
@@ -12340,8 +12340,8 @@
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": 14.4,
-                "const_nodata": false,
+                "const": 14.0,
+                "const_nodata": true,
                 "notes": 1755,
                 "notes_nodata": false,
                 "bell": 92,
@@ -12353,7 +12353,7 @@
         {
             "meta": {
                 "official_id": "287500",
-                "official_id_lunatic": "985400",
+                "official_id_lunatic": "989800",
                 "name": "千本桜",
                 "reading": "センホンサクラ",
                 "subname": null,
@@ -12405,8 +12405,8 @@
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": 13.9,
-                "const_nodata": false,
+                "const": 14.0,
+                "const_nodata": true,
                 "notes": 1503,
                 "notes_nodata": false,
                 "bell": 173,
@@ -12678,7 +12678,7 @@
         {
             "meta": {
                 "official_id": "288000",
-                "official_id_lunatic": "986400",
+                "official_id_lunatic": "986100",
                 "name": "グリーンライツ・セレナーデ",
                 "reading": "クリンライツセレナテ",
                 "subname": null,
@@ -12730,8 +12730,8 @@
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": 13.4,
-                "const_nodata": false,
+                "const": 13.0,
+                "const_nodata": true,
                 "notes": 2018,
                 "notes_nodata": false,
                 "bell": 39,
@@ -18593,7 +18593,7 @@
         {
             "meta": {
                 "official_id": "389700",
-                "official_id_lunatic": "989400",
+                "official_id_lunatic": "989100",
                 "name": "Destiny Runner",
                 "reading": "DESTINYRUNNER",
                 "subname": null,
@@ -18645,7 +18645,7 @@
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": 14.5,
+                "const": 14.6,
                 "const_nodata": false,
                 "notes": 1524,
                 "notes_nodata": false,
@@ -23598,7 +23598,7 @@
         {
             "meta": {
                 "official_id": "487200",
-                "official_id_lunatic": "989100",
+                "official_id_lunatic": "988800",
                 "name": "Halcyon",
                 "reading": "HALCYON",
                 "subname": null,
@@ -29773,7 +29773,7 @@
         {
             "meta": {
                 "official_id": "583400",
-                "official_id_lunatic": "948800",
+                "official_id_lunatic": "948600",
                 "name": "Gate of Doom",
                 "reading": "GATEOFDOOM",
                 "subname": null,
@@ -35753,7 +35753,7 @@
         {
             "meta": {
                 "official_id": "669500",
-                "official_id_lunatic": "986300",
+                "official_id_lunatic": "986000",
                 "name": "No Limit RED Force",
                 "reading": "NOLIMITREDFORCE",
                 "subname": null,
@@ -35805,8 +35805,8 @@
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": 13.9,
-                "const_nodata": false,
+                "const": 14.0,
+                "const_nodata": true,
                 "notes": 1503,
                 "notes_nodata": false,
                 "bell": 67,
@@ -36923,7 +36923,7 @@
         {
             "meta": {
                 "official_id": "671300",
-                "official_id_lunatic": "987600",
+                "official_id_lunatic": "987300",
                 "name": "Here We Go",
                 "reading": "HEREWEGO",
                 "subname": null,
@@ -37053,7 +37053,7 @@
         {
             "meta": {
                 "official_id": "671500",
-                "official_id_lunatic": "987700",
+                "official_id_lunatic": "987400",
                 "name": "P！P！P！P！がおー!!",
                 "reading": "PPPPカオ",
                 "subname": "モンスターJKロック",
@@ -37183,7 +37183,7 @@
         {
             "meta": {
                 "official_id": "671700",
-                "official_id_lunatic": "987800",
+                "official_id_lunatic": "987500",
                 "name": "タテマエと本心の大乱闘",
                 "reading": "タテマエトホンシンノタイラントウ",
                 "subname": null,
@@ -37236,7 +37236,7 @@
             },
             "lunatic": {
                 "const": 13.7,
-                "const_nodata": false,
+                "const_nodata": true,
                 "notes": 1461,
                 "notes_nodata": false,
                 "bell": 98,
@@ -37443,7 +37443,7 @@
         {
             "meta": {
                 "official_id": "672100",
-                "official_id_lunatic": "987900",
+                "official_id_lunatic": "987600",
                 "name": "SWEET SHAKE!!",
                 "reading": "SWEETSHAKE",
                 "subname": "ふんわりディスコ",
@@ -37495,8 +37495,8 @@
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": 13.8,
-                "const_nodata": false,
+                "const": 13.7,
+                "const_nodata": true,
                 "notes": 1547,
                 "notes_nodata": false,
                 "bell": 95,
@@ -37573,7 +37573,7 @@
         {
             "meta": {
                 "official_id": "672300",
-                "official_id_lunatic": "988000",
+                "official_id_lunatic": "987700",
                 "name": "What color...",
                 "reading": "WHATCOLOR",
                 "subname": null,
@@ -37833,7 +37833,7 @@
         {
             "meta": {
                 "official_id": "672700",
-                "official_id_lunatic": "988100",
+                "official_id_lunatic": "987800",
                 "name": "GAME IS LIFE",
                 "reading": "GAMEISLIFE",
                 "subname": null,
@@ -37885,8 +37885,8 @@
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": 13.9,
-                "const_nodata": false,
+                "const": 13.7,
+                "const_nodata": true,
                 "notes": 1241,
                 "notes_nodata": false,
                 "bell": 127,
@@ -37963,7 +37963,7 @@
         {
             "meta": {
                 "official_id": "672900",
-                "official_id_lunatic": "988200",
+                "official_id_lunatic": "987900",
                 "name": "GranFatalité",
                 "reading": "GRANFATALITE",
                 "subname": "プリンセスナイトロック",
@@ -38015,8 +38015,8 @@
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": 14.1,
-                "const_nodata": false,
+                "const": 14.0,
+                "const_nodata": true,
                 "notes": 1585,
                 "notes_nodata": false,
                 "bell": 60,
@@ -38288,7 +38288,7 @@
         {
             "meta": {
                 "official_id": "673400",
-                "official_id_lunatic": "988300",
+                "official_id_lunatic": "988000",
                 "name": "UTAKATA",
                 "reading": "UTAKATA",
                 "subname": null,
@@ -38418,7 +38418,7 @@
         {
             "meta": {
                 "official_id": "673600",
-                "official_id_lunatic": "988400",
+                "official_id_lunatic": "988100",
                 "name": "Rule the World!!",
                 "reading": "RULETHEWORLD",
                 "subname": null,
@@ -38470,8 +38470,8 @@
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": 14.1,
-                "const_nodata": false,
+                "const": 14.0,
+                "const_nodata": true,
                 "notes": 1403,
                 "notes_nodata": false,
                 "bell": 117,
@@ -38613,7 +38613,7 @@
         {
             "meta": {
                 "official_id": "673900",
-                "official_id_lunatic": "988500",
+                "official_id_lunatic": "988200",
                 "name": "どうぶつ☆パラダイス",
                 "reading": "トウフツハラタイス",
                 "subname": null,
@@ -38938,11 +38938,11 @@
         {
             "meta": {
                 "official_id": "674400",
-                "official_id_lunatic": "988600",
+                "official_id_lunatic": "988300",
                 "name": "まっすぐ→→→ストリーム！",
                 "reading": "マツスクストリム",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "OTAKU HAPPYCORE",
+                "subname_nodata": false,
                 "artist": "曲：本多友紀（Arte Refact）／歌：日向 千夏(CV：岡咲 美保)",
                 "genre": "オンゲキ",
                 "bpm": 184,
@@ -39068,7 +39068,7 @@
         {
             "meta": {
                 "official_id": "674600",
-                "official_id_lunatic": "988700",
+                "official_id_lunatic": "988400",
                 "name": "トリドリ⇒モリモリ！Lovely fruits☆",
                 "reading": "トリトリモリモリLOVELYFRUITS",
                 "subname": null,
@@ -39120,8 +39120,8 @@
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": 14.2,
-                "const_nodata": false,
+                "const": 14.0,
+                "const_nodata": true,
                 "notes": 1694,
                 "notes_nodata": false,
                 "bell": 108,
@@ -39198,7 +39198,7 @@
         {
             "meta": {
                 "official_id": "674800",
-                "official_id_lunatic": "988800",
+                "official_id_lunatic": "988500",
                 "name": "夜明けのストリング",
                 "reading": "ヨアケノストリンク",
                 "subname": null,
@@ -39250,8 +39250,8 @@
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": 13.4,
-                "const_nodata": false,
+                "const": 13.0,
+                "const_nodata": true,
                 "notes": 1095,
                 "notes_nodata": false,
                 "bell": 75,
@@ -39328,7 +39328,7 @@
         {
             "meta": {
                 "official_id": "675000",
-                "official_id_lunatic": "988900",
+                "official_id_lunatic": "988600",
                 "name": "GODLINESS",
                 "reading": "GODLINESS",
                 "subname": null,
@@ -41346,8 +41346,8 @@
                 "official_id_lunatic": null,
                 "name": "Viyella's Tears",
                 "reading": "VIYELLASTEARS",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "Classical Hardcore",
+                "subname_nodata": false,
                 "artist": "Laur",
                 "genre": "オンゲキ",
                 "bpm": 218,
@@ -42451,8 +42451,8 @@
                 "official_id_lunatic": null,
                 "name": "Ai Nov",
                 "reading": "AINOV",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "Helzh Out",
+                "subname_nodata": false,
                 "artist": "Feryquitous",
                 "genre": "オンゲキ",
                 "bpm": 195,
@@ -43426,8 +43426,8 @@
                 "official_id_lunatic": null,
                 "name": "ブツメツビーターズ",
                 "reading": "フツメツヒタス",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "NEOEDOBTZ",
+                "subname_nodata": false,
                 "artist": "有形ランペイジ",
                 "genre": "オンゲキ",
                 "bpm": 160,
@@ -44011,8 +44011,8 @@
                 "official_id_lunatic": null,
                 "name": "R'N'R Monsta",
                 "reading": "RNRMONSTA",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "220",
+                "subname_nodata": false,
                 "artist": "Lite Show Magic",
                 "genre": "オンゲキ",
                 "bpm": 220,
@@ -45116,8 +45116,8 @@
                 "official_id_lunatic": null,
                 "name": "A Man In The Mirror",
                 "reading": "AMANINTHEMIRROR",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "Dissociative Identity Disorder",
+                "subname_nodata": false,
                 "artist": "orangentle",
                 "genre": "オンゲキ",
                 "bpm": 180,
@@ -45506,8 +45506,8 @@
                 "official_id_lunatic": null,
                 "name": "Sword of Secret",
                 "reading": "SWORDOFSECRET",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "Feline Groove",
+                "subname_nodata": false,
                 "artist": "Cranky,Morrigan feat.Lily",
                 "genre": "オンゲキ",
                 "bpm": 180,
@@ -46286,8 +46286,8 @@
                 "official_id_lunatic": null,
                 "name": "YURUSHITE",
                 "reading": "YURUSHITE",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "Nightmare",
+                "subname_nodata": false,
                 "artist": "t+pazolite",
                 "genre": "オンゲキ",
                 "bpm": 270,
@@ -46351,8 +46351,8 @@
                 "official_id_lunatic": null,
                 "name": "GEOMETRIC DANCE",
                 "reading": "GEOMETRICDANCE",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "Progressive Fusion",
+                "subname_nodata": false,
                 "artist": "山本真央樹",
                 "genre": "オンゲキ",
                 "bpm": 150,
@@ -46741,8 +46741,8 @@
                 "official_id_lunatic": null,
                 "name": "Opfer",
                 "reading": "OPFER",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "symphonic",
+                "subname_nodata": false,
                 "artist": "かねこちはる",
                 "genre": "オンゲキ",
                 "bpm": 175,
@@ -46806,8 +46806,8 @@
                 "official_id_lunatic": null,
                 "name": "Titania",
                 "reading": "TITANIA",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "LIFE STREAM",
+                "subname_nodata": false,
                 "artist": "xi",
                 "genre": "オンゲキ",
                 "bpm": 212,
@@ -47326,8 +47326,8 @@
                 "official_id_lunatic": null,
                 "name": "Baqeela",
                 "reading": "BAQEELA",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "owl＊samba",
+                "subname_nodata": false,
                 "artist": "owl＊tree",
                 "genre": "オンゲキ",
                 "bpm": 130,
@@ -47456,8 +47456,8 @@
                 "official_id_lunatic": null,
                 "name": "Good bye, Merry-Go-Round.",
                 "reading": "GOODBYEMERRYGOROUND",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "Amusement Hardcore",
+                "subname_nodata": false,
                 "artist": "Yooh",
                 "genre": "オンゲキ",
                 "bpm": 185,
@@ -47781,8 +47781,8 @@
                 "official_id_lunatic": null,
                 "name": "Aenbharr",
                 "reading": "AENBHARR",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "mythology",
+                "subname_nodata": false,
                 "artist": "Project Grimoire",
                 "genre": "オンゲキ",
                 "bpm": 195,
@@ -47846,8 +47846,8 @@
                 "official_id_lunatic": null,
                 "name": "ω4",
                 "reading": "ω4",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "Neuro Opera",
+                "subname_nodata": false,
                 "artist": "穴山大輔 VS 光吉猛修 VS Kai",
                 "genre": "オンゲキ",
                 "bpm": 192,
@@ -58891,5 +58891,5 @@
             }
         }
     ],
-    "update_at": "2025/03/30 22:45"
+    "update_at": "2025/03/30 23:13"
 }

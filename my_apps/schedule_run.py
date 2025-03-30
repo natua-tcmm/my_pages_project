@@ -20,9 +20,13 @@ from my_apps.my_script import handle_songdata_c_refactor, handle_songdata_o_refa
 
 def schedule_run():
 
+
     # -------------------------------------
     # 楽曲データの更新
     # -------------------------------------
+    # オンゲキジャンル名を取得して既定の場所に出力
+    get_ongeki_genre()
+
     # jsonファイルを更新する
     print("-" * 50)
     print("楽曲データの更新を開始します")
@@ -46,8 +50,6 @@ def schedule_run():
     # SongDataCNManager.update_rights_data()
     # SongDataONManager.update_rights_data()
 
-    # オンゲキジャンル名を取得して既定の場所に出力
-    get_ongeki_genre()
 
     return
 
@@ -59,12 +61,12 @@ def get_ongeki_genre():
     # wikiwikiから取得
     r = requests.get(URL, headers={"User-Agent": ""})
     soup = BeautifulSoup(r.text, "html.parser")
+
+    genre_list = []
+    # 表1
     genre_table = soup.select(
         'p:-soup-contains("称号はすべてオリジナル曲・コラボ曲のジャンル名となっている。") ~ div.h-scrollable td '
     )
-
-    # リスト化
-    genre_list = []
     for i, d in enumerate(genre_table):
         if i % 2 == 0:
             if len(d.text) == 0:
@@ -72,6 +74,19 @@ def get_ongeki_genre():
             genre_list.append(d.text)
         else:
             genre_list.append(re.findall(P, d.text)[0].replace("」「", ", "))
+
+    genre_table = soup.select('li:-soup-contains("称号はすべてオリジナル曲のジャンル名となっている") div.h-scrollable td ')
+    for i, d in enumerate(genre_table):
+        if i <= 1:
+            continue
+        if i % 2 == 0:
+            if len(d.text) == 0:
+                break
+            genre_list.append(d.text)
+        else:
+            genre_list.append(re.findall(P, d.text)[0].replace("」「", ", "))
+
+    # リストを2つずつに分ける
     genre_pairs = [genre_list[i : i + 2] for i in range(0, len(genre_list), 2)]
 
     # json化して出力
