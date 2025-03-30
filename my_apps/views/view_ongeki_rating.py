@@ -92,7 +92,3 @@ def ongeki_rating_all(request):
         return JsonResponse(ajax_response)
 
     return render(request, 'ongeki_rating_all/ongeki_rating_all.html',context=context)
-
-# def ongeki_rating_act2(request):
-#     context = { "title":f"オンゲキ brightMEMORY Act.2基準レーティング {title_base}" ,"is_beta":False, "is_app":True }
-#     return render(request, 'ongeki_rating_act2/ongeki_rating_act2.html',context=context)
