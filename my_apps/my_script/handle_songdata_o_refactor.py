@@ -452,7 +452,7 @@ class SongDataManager:
             resp.encoding = resp.apparent_encoding
             data = resp.json()
             # Perfect Shining!![LUN0]を除外
-            data = [s for s in data if s.get("id") != "948700"]
+            data = [s for s in data if not(s.get("title") == "Perfect Shining!!" and s.get("lev_lnt")== "0")]
             logging.info("公式データ取得完了: %d件", len(data))
             return data
         except Exception as e:
@@ -553,6 +553,7 @@ class SongDataManager:
         for s in new_normal_official:
             # 公式から取得したデータを元に新規楽曲データを作成
             song = SongData.from_official_data(s)
+            messages.append(f"- 新曲登録: {song.song_name} (ID: {song.song_official_id})")
 
             # reiwaf5のデータを参照して定数情報などを適用
             target_name = song.song_name
@@ -565,7 +566,7 @@ class SongDataManager:
                     song.apply_reiwaf5_data(matching_reiwa)
                     break
             if matching_reiwa is None:
-                messages.append(f"[新曲登録] reiwaf5内にデータがありません。song_name: {song.song_name}")
+                messages.append(f"-- reiwaf5内にデータがありません。song_name: {song.song_name}")
 
             # ジャンル名の付与
             if song.song_name in self.genre_dict:
@@ -608,6 +609,7 @@ class SongDataManager:
                         break
                 # 適応
                 if matching_reiwa:
+                    messages.append(f"- LUNATIC追加: {existing_song.song_name} (ID: {s.get('id')})")
                     existing_song.apply_reiwaf5_data(matching_reiwa, is_lunatic=True, is_only_lunatic=False)
                     existing_song.has_lunatic = True
                     existing_song.only_lunatic = False
@@ -626,6 +628,7 @@ class SongDataManager:
 
             # 新規楽曲 = only_lunaticならば...
             song = SongData.from_official_data(s, is_only_lunatic=True)
+            messages.append(f"- 新曲登録(LUNATIC): {song.song_name} (ID: {s.get('id')})")
             song.has_lunatic = True
             song.only_lunatic = True
 
@@ -636,7 +639,7 @@ class SongDataManager:
                     song.apply_reiwaf5_data(matching_reiwa, is_lunatic=True, is_only_lunatic=True)
                     break
             if matching_reiwa is None:
-                messages.append(f"[新曲登録(LUNATIC)] reiwaf5内にデータがありません。song_name: {song.song_name}")
+                messages.append(f"-- reiwaf5内にデータがありません。song_name: {song.song_name}")
 
             # 譜面データは初期状態では未取得としてマーク
             song.song_bpm_nodata = True
@@ -663,7 +666,7 @@ class SongDataManager:
         songs_to_remove = [song for song in self.songs if song.song_official_id not in current_official_ids]
         for song in songs_to_remove:
             # Perfect Shining!![LUN0]は削除しない
-            if song.song_official_id == "948700":
+            if song.song_name == "Perfect Shining!!" and song.lun_const==0.0:
                 continue
             messages.append(f"削除曲: {song.song_name}")
             self.songs.remove(song)
@@ -809,7 +812,7 @@ class SongDataManager:
             # 既存楽曲データと突合してリンク
             for song in self.songs:
                 # Perfect Shining!![LUN0]は除外
-                if song.song_official_id == "948700":
+                if song.song_name == "Perfect Shining!!" and song.lun_const==0.0:
                     continue
                 if song.song_name == song_name_fumen:
                     if song.song_fumen_id is None:
@@ -850,7 +853,7 @@ class SongDataManager:
         messages.append("-----\n未リンク曲一覧")
         for song in self.songs:
             # Perfect Shining!![LUN0]は除外
-            if song.song_official_id == "948700":
+            if song.song_name == "Perfect Shining!!" and song.lun_const==0.0:
                 continue
             if song.song_fumen_id is None:
                 messages.append(f"- {song.song_name}")

@@ -27,15 +27,15 @@ def schedule_run():
     print("-" * 50)
     print("楽曲データの更新を開始します")
     print("-" * 50)
-    handle_songdata_c_refactor.main()
+    # handle_songdata_c_refactor.main()
     handle_songdata_o_refactor.main()
 
     # jsonファイルからデータベースにインポート・アップデート日時を更新
     print("-" * 50)
     print("楽曲データをデータベースにインポートします")
     print("-" * 50)
-    SongDataCNManager.import_songdata_from_json()
-    SongDataONManager.import_songdata_from_json()
+    # SongDataCNManager.import_songdata_from_json()
+    # SongDataONManager.import_songdata_from_json()
 
     print("-" * 50)
 
@@ -43,8 +43,8 @@ def schedule_run():
     # その他
     # -------------------------------------
     # 著作権情報のアップデート
-    SongDataCNManager.update_rights_data()
-    SongDataONManager.update_rights_data()
+    # SongDataCNManager.update_rights_data()
+    # SongDataONManager.update_rights_data()
 
     # オンゲキジャンル名を取得して既定の場所に出力
     get_ongeki_genre()

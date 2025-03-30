@@ -74466,6 +74466,58 @@
         },
         {
             "meta": {
+                "official_id": "2749",
+                "name": "本能的 Survivor",
+                "reading": "ホンノウテキサハイハウ",
+                "artist": "曲：eba／歌：⊿TRiEDGE [高瀬 梨緒(CV：久保 ユリカ)、結城 莉玖(CV：朝日奈 丸佳)、藍原 椿(CV：橋本 ちなみ)]",
+                "genre": "ゲキマイ",
+                "bpm": 190,
+                "bpm_nodata": false,
+                "release": "2025-03-27",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "fe7e37a925a81fc7.jpg",
+                "fumen_id": "10066",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10,
+                "const_nodata": true,
+                "notes": 1123,
+                "notes_nodata": false,
+                "notesdesigner": "ミニミライト",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.5,
+                "const_nodata": true,
+                "notes": 2094,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
                 "official_id": "2750",
                 "name": "INFiNiTE ENERZY -Overdoze-",
                 "reading": "INFINITEENERZYOVERDOZE",
@@ -74986,6 +75038,58 @@
         },
         {
             "meta": {
+                "official_id": "2800",
+                "name": "淵底のグレイ・ユークロニア",
+                "reading": "エンテイノクレイユウクロニア",
+                "artist": "打打だいず vs. siromaru vs. Tanchiky",
+                "genre": "ゲキマイ",
+                "bpm": 210,
+                "bpm_nodata": false,
+                "release": "2025-03-27",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "8bb3740dfc89d2b6.jpg",
+                "fumen_id": "10067",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 8,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 13.5,
+                "const_nodata": true,
+                "notes": 1977,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 15,
+                "const_nodata": true,
+                "notes": 2649,
+                "notes_nodata": false,
+                "notesdesigner": "夕凪アロエ",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
                 "official_id": "2806",
                 "name": "Campus mode!!",
                 "reading": "CAMPUSMODE",
@@ -75349,5 +75453,5 @@
             }
         }
     ],
-    "update_at": "2025/03/24 00:08"
+    "update_at": "2025/03/30 22:09"
 }

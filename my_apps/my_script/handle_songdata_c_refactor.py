@@ -460,6 +460,7 @@ class SongDataManager:
 
                 # 公式から
                 song = SongData.from_official_data(s_offi)
+                messages.append(f"- 新曲登録: {song.song_name} (ID: {song.song_official_id})")
 
                 # reiwaf5から
                 # WEを除外
@@ -471,7 +472,7 @@ class SongDataManager:
                             song.apply_reiwaf5_data(matching_reiwa)
                             break
                     if matching_reiwa is None:
-                        messages.append(f"[新曲登録] reiwaf5内にデータがありません。song_name: {song.song_name}")
+                        messages.append(f"-- reiwaf5内にデータがありません。song_name: {song.song_name}")
 
                     # 譜面保管所からの情報はNoDataとする
                     song.song_bpm_nodata = True
