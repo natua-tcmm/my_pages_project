@@ -754,16 +754,21 @@ class SongDataManager:
                     song.song_subname_nodata = True
 
         # 定数不明曲一覧
-        messages.append("-----\n定数不明曲一覧")
+        # messages.append("-----\n定数不明曲一覧")
+        print("-----\n定数不明曲一覧")
         for song in self.songs:
             if not song.only_lunatic:
                 if song.adv_const_nodata or song.exp_const_nodata or song.mas_const_nodata or (song.has_lunatic and song.lun_const_nodata):
-                    messages.append(
+                    # messages.append(
+                    #     f"- {song.song_name} {'[EXPERT]'*song.exp_const_nodata}{'[MASTER]'*song.mas_const_nodata}{'[LUNATIC]'*( song.has_lunatic and song.lun_const_nodata)}"
+                    # )
+                    print(
                         f"- {song.song_name} {'[EXPERT]'*song.exp_const_nodata}{'[MASTER]'*song.mas_const_nodata}{'[LUNATIC]'*( song.has_lunatic and song.lun_const_nodata)}"
                     )
             else:
                 if song.lun_const_nodata:
-                    messages.append(f"- {song.song_name} [LUNATIC]")
+                    # messages.append(f"- {song.song_name} [LUNATIC]")
+                    print(f"- {song.song_name} [LUNATIC]")
 
         messages.append("公式・定数データ更新処理完了。")
         LineNotification.add_message_by_list(messages)
@@ -850,13 +855,15 @@ class SongDataManager:
                     )
 
         # 未リンクの曲一覧を出力
-        messages.append("-----\n未リンク曲一覧")
+        # messages.append("-----\n未リンク曲一覧")
+        print("-----\n未リンク曲一覧")
         for song in self.songs:
             # Perfect Shining!![LUN0]は除外
             if song.song_name == "Perfect Shining!!" and song.lun_const==0.0:
                 continue
             if song.song_fumen_id is None:
-                messages.append(f"- {song.song_name}")
+                # messages.append(f"- {song.song_name}")
+                print(f"- {song.song_name}")
 
         messages.append("リンク処理完了。")
         LineNotification.add_message_by_list(messages)

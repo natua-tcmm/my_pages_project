@@ -619,10 +619,14 @@ class SongDataManager:
                     self.update_song_offi_ids.append(song.song_official_id)
 
         # 定数不明曲一覧
-        messages.append("-----\n定数不明曲一覧")
+        # messages.append("-----\n定数不明曲一覧")
+        print("-----\n定数不明曲一覧")
         for song in self.songs:
             if song.adv_const_nodata or song.exp_const_nodata or song.mas_const_nodata or (song.has_ultima and song.ult_const_nodata):
-                messages.append(
+                # messages.append(
+                #     f"- {song.song_name} {'[EXPERT]'*song.exp_const_nodata}{'[MASTER]'*song.mas_const_nodata}{'[ULTIMA]'*( song.has_ultima and song.ult_const_nodata)}"
+                # )
+                print(
                     f"- {song.song_name} {'[EXPERT]'*song.exp_const_nodata}{'[MASTER]'*song.mas_const_nodata}{'[ULTIMA]'*( song.has_ultima and song.ult_const_nodata)}"
                 )
 
@@ -680,10 +684,12 @@ class SongDataManager:
                 messages.append(f"- 『{song_name_fumen}』のリンクに失敗。ID: None - {fumen_id}")
 
         # 未リンク楽曲一覧
-        messages.append("-----\n未リンク曲一覧")
+        # messages.append("-----\n未リンク曲一覧")
+        print("-----\n未リンク曲一覧")
         for song in self.songs:
             if song.song_fumen_id is None and not song.is_worldsend:
-                messages.append(f"- {song.song_name}")
+                # messages.append(f"- {song.song_name}")
+                print(f"- {song.song_name}")
 
         messages.append("リンク処理完了。")
         LineNotification.add_message_by_list(messages)
