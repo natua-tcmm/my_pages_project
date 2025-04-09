@@ -561,7 +561,7 @@ class SongDataManager:
                 target_name = target_name[:-16]  # ボーナスの場合は末尾を除去
             matching_reiwa = None
             for reiwa in reiwa_data_list:
-                if target_name == reiwa["meta"]["title"] and ("MAS" in reiwa["data"]):
+                if target_name == reiwa["meta"]["title"] and song.song_artist == reiwa["meta"]["artist"] and ("MAS" in reiwa["data"]):
                     matching_reiwa = reiwa
                     song.apply_reiwaf5_data(matching_reiwa)
                     break
@@ -634,7 +634,7 @@ class SongDataManager:
 
             matching_reiwa = None
             for reiwa in reiwa_data_list:
-                if song.song_name and song.song_name == reiwa["meta"]["title"] and ("LUN" in reiwa["data"]):
+                if song.song_name and song.song_name == reiwa["meta"]["title"] and song.song_artist == reiwa["meta"]["artist"] and ("LUN" in reiwa["data"]):
                     matching_reiwa = reiwa
                     song.apply_reiwaf5_data(matching_reiwa, is_lunatic=True, is_only_lunatic=True)
                     break
@@ -677,7 +677,7 @@ class SongDataManager:
             # 検索
             matching_reiwa = None
             for reiwa in reiwa_data_list:
-                if song.song_name and song.song_name == reiwa["meta"]["title"] and ("MAS" in reiwa["data"]):
+                if song.song_name and song.song_name == reiwa["meta"]["title"] and song.song_artist == reiwa["meta"]["artist"] and ("MAS" in reiwa["data"]):
                     matching_reiwa = reiwa
                     break
             if not matching_reiwa:
@@ -1136,10 +1136,10 @@ def main() -> None:
     manager.update_existing_songs()
 
     # 保管所IDリンク処理
-    # manager.link_fumen_ids()
+    manager.link_fumen_ids()
 
     # 譜面データの更新
-    # manager.update_fumen_data()
+    manager.update_fumen_data()
 
     manager.save_data()
     manager.save_public_data()
