@@ -10,7 +10,7 @@ import requests,re,math,datetime
 from bs4 import BeautifulSoup
 from django.conf import settings
 
-from .view_ongeki_op import get_ongeki_score_log_player_data
+from ..my_script.fetch_osl import get_ongeki_score_log_player_data
 
 title_base = "| △Natua♪▽のツールとか保管所"
 
