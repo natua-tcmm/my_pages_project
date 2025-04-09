@@ -155,7 +155,7 @@ def get_ongeki_score_log_player_data(user_id: str) -> tuple:
                     # print(f'{m["meta"]["name"]} / {m["meta"]["artist"]}')
                     music_data = m
                     break
-            print(music_data)
+            # print(music_data)
 
         else:
             # 楽曲データベースを曲名で検索
