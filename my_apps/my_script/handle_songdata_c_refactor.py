@@ -531,8 +531,9 @@ class SongDataManager:
 
                                 # まだreiwaf5に反映されていないならスキップ
                                 if "ULT" not in matching_reiwa["data"]:
-                                    self.ult_const_nodata = False
-                                if matching_reiwa["data"]["ULT"]["is_const_unknown"] or matching_reiwa["data"]["ULT"]["const"] == 0:
+                                    self.ult_const_nodata = True
+
+                                elif matching_reiwa["data"]["ULT"]["is_const_unknown"] or matching_reiwa["data"]["ULT"]["const"] == 0:
                                     self.ult_const = matching_reiwa["data"]["ULT"]["level"]
                                     self.ult_const_nodata = True
                                 else:
@@ -608,7 +609,12 @@ class SongDataManager:
                 self.update_song_offi_ids.append(song.song_official_id)
             # ULTIMA
             if song.has_ultima:
-                if song.ult_const_nodata and not (
+
+                # まだreiwaf5に反映されていないならスキップ
+                if "ULT" not in matching_reiwa["data"]:
+                    pass
+
+                elif song.ult_const_nodata and not (
                     matching_reiwa["data"]["ULT"]["is_const_unknown"] or matching_reiwa["data"]["ULT"]["const"] == 0
                 ):
                     messages.append(

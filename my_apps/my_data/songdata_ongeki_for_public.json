@@ -2,6 +2,136 @@
     "songs": [
         {
             "meta": {
+                "official_id": "167600",
+                "official_id_lunatic": null,
+                "name": "Hey Darling!",
+                "reading": "HEYDARLING",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "歌：松下／曲：堀江晶太",
+                "genre": "POPS＆ANIME",
+                "bpm": null,
+                "bpm_nodata": true,
+                "release": "2025-04-24",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "86aab18a4826f9aa.png",
+                "fumen_id": null,
+                "character": "井之原 小星",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 2.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.7,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            },
+            "master": {
+                "const": 13.0,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "167700",
+                "official_id_lunatic": null,
+                "name": "一冊のアロー",
+                "reading": "イツサツノアロ",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "歌：櫻川めぐ／曲：堀江晶太",
+                "genre": "POPS＆ANIME",
+                "bpm": null,
+                "bpm_nodata": true,
+                "release": "2025-04-24",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "ed26cae99192f4e6.png",
+                "fumen_id": null,
+                "character": "和泉 妃愛",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 2.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.0,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            },
+            "master": {
+                "const": 13.0,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
                 "official_id": "167800",
                 "official_id_lunatic": null,
                 "name": "POP IN 2",
@@ -296,7 +426,7 @@
             },
             "expert": {
                 "const": 11.0,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1233,
                 "notes_nodata": false,
                 "bell": 196,
@@ -566,7 +696,7 @@
             },
             "master": {
                 "const": 12.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 858,
                 "notes_nodata": false,
                 "bell": 103,
@@ -3221,7 +3351,7 @@
             },
             "expert": {
                 "const": 12.0,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1087,
                 "notes_nodata": false,
                 "bell": 121,
@@ -3741,7 +3871,7 @@
             },
             "expert": {
                 "const": 11.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1011,
                 "notes_nodata": false,
                 "bell": 127,
@@ -4000,8 +4130,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.6,
+                "const_nodata": false,
                 "notes": 999,
                 "notes_nodata": false,
                 "bell": 161,
@@ -4650,8 +4780,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.7,
-                "const_nodata": true,
+                "const": 11.8,
+                "const_nodata": false,
                 "notes": 894,
                 "notes_nodata": false,
                 "bell": 146,
@@ -5040,8 +5170,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.2,
+                "const_nodata": false,
                 "notes": 1054,
                 "notes_nodata": false,
                 "bell": 152,
@@ -5301,7 +5431,7 @@
             },
             "expert": {
                 "const": 11.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1075,
                 "notes_nodata": false,
                 "bell": 95,
@@ -5365,8 +5495,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.1,
+                "const_nodata": false,
                 "notes": 708,
                 "notes_nodata": false,
                 "bell": 70,
@@ -5951,7 +6081,7 @@
             },
             "expert": {
                 "const": 11.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 956,
                 "notes_nodata": false,
                 "bell": 105,
@@ -6080,8 +6210,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.2,
+                "const_nodata": false,
                 "notes": 826,
                 "notes_nodata": false,
                 "bell": 82,
@@ -7185,8 +7315,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.3,
+                "const_nodata": false,
                 "notes": 653,
                 "notes_nodata": false,
                 "bell": 86,
@@ -7250,8 +7380,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.3,
+                "const_nodata": false,
                 "notes": 747,
                 "notes_nodata": false,
                 "bell": 99,
@@ -7316,7 +7446,7 @@
             },
             "expert": {
                 "const": 11.0,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 850,
                 "notes_nodata": false,
                 "bell": 126,
@@ -7585,8 +7715,8 @@
                 "notesdesigner_nodata": false
             },
             "master": {
-                "const": 12.7,
-                "const_nodata": true,
+                "const": 12.8,
+                "const_nodata": false,
                 "notes": 1266,
                 "notes_nodata": false,
                 "bell": 17,
@@ -7836,7 +7966,7 @@
             },
             "expert": {
                 "const": 11.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 749,
                 "notes_nodata": false,
                 "bell": 209,
@@ -7901,7 +8031,7 @@
             },
             "expert": {
                 "const": 12.0,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1386,
                 "notes_nodata": false,
                 "bell": 309,
@@ -8160,8 +8290,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.2,
+                "const_nodata": false,
                 "notes": 698,
                 "notes_nodata": false,
                 "bell": 170,
@@ -8876,7 +9006,7 @@
             },
             "expert": {
                 "const": 11.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 849,
                 "notes_nodata": false,
                 "bell": 160,
@@ -9005,8 +9135,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.4,
+                "const_nodata": false,
                 "notes": 619,
                 "notes_nodata": false,
                 "bell": 75,
@@ -9460,8 +9590,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.1,
+                "const_nodata": false,
                 "notes": 706,
                 "notes_nodata": false,
                 "bell": 69,
@@ -9720,8 +9850,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.3,
+                "const_nodata": false,
                 "notes": 897,
                 "notes_nodata": false,
                 "bell": 140,
@@ -9851,7 +9981,7 @@
             },
             "expert": {
                 "const": 11.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1131,
                 "notes_nodata": false,
                 "bell": 238,
@@ -9915,8 +10045,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.6,
+                "const_nodata": false,
                 "notes": 727,
                 "notes_nodata": false,
                 "bell": 93,
@@ -10045,8 +10175,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.2,
+                "const_nodata": false,
                 "notes": 1019,
                 "notes_nodata": false,
                 "bell": 238,
@@ -10435,8 +10565,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.6,
+                "const_nodata": false,
                 "notes": 934,
                 "notes_nodata": false,
                 "bell": 161,
@@ -13035,8 +13165,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.6,
+                "const_nodata": false,
                 "notes": 1050,
                 "notes_nodata": false,
                 "bell": 230,
@@ -14270,8 +14400,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.2,
+                "const_nodata": false,
                 "notes": 1130,
                 "notes_nodata": false,
                 "bell": 93,
@@ -14466,7 +14596,7 @@
             },
             "expert": {
                 "const": 11.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 626,
                 "notes_nodata": false,
                 "bell": 138,
@@ -14985,8 +15115,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.4,
+                "const_nodata": false,
                 "notes": 973,
                 "notes_nodata": false,
                 "bell": 43,
@@ -15311,7 +15441,7 @@
             },
             "expert": {
                 "const": 11.0,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 543,
                 "notes_nodata": false,
                 "bell": 277,
@@ -15440,8 +15570,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.2,
+                "const_nodata": false,
                 "notes": 758,
                 "notes_nodata": false,
                 "bell": 84,
@@ -16545,8 +16675,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.1,
+                "const_nodata": false,
                 "notes": 720,
                 "notes_nodata": false,
                 "bell": 165,
@@ -16870,8 +17000,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.1,
+                "const_nodata": false,
                 "notes": 1112,
                 "notes_nodata": false,
                 "bell": 117,
@@ -17065,8 +17195,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.7,
-                "const_nodata": true,
+                "const": 12.9,
+                "const_nodata": false,
                 "notes": 1163,
                 "notes_nodata": false,
                 "bell": 192,
@@ -17845,8 +17975,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.6,
+                "const_nodata": false,
                 "notes": 1091,
                 "notes_nodata": false,
                 "bell": 203,
@@ -19015,8 +19145,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.5,
+                "const_nodata": false,
                 "notes": 641,
                 "notes_nodata": false,
                 "bell": 140,
@@ -19080,8 +19210,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.1,
+                "const_nodata": false,
                 "notes": 1085,
                 "notes_nodata": false,
                 "bell": 200,
@@ -19860,8 +19990,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.7,
-                "const_nodata": true,
+                "const": 11.9,
+                "const_nodata": false,
                 "notes": 738,
                 "notes_nodata": false,
                 "bell": 111,
@@ -20770,8 +20900,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.7,
-                "const_nodata": true,
+                "const": 11.8,
+                "const_nodata": false,
                 "notes": 853,
                 "notes_nodata": false,
                 "bell": 115,
@@ -20965,8 +21095,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.1,
+                "const_nodata": false,
                 "notes": 927,
                 "notes_nodata": false,
                 "bell": 62,
@@ -21095,8 +21225,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.3,
+                "const_nodata": false,
                 "notes": 712,
                 "notes_nodata": false,
                 "bell": 152,
@@ -21355,8 +21485,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.1,
+                "const_nodata": false,
                 "notes": 452,
                 "notes_nodata": false,
                 "bell": 68,
@@ -21485,8 +21615,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.4,
+                "const_nodata": false,
                 "notes": 1010,
                 "notes_nodata": false,
                 "bell": 225,
@@ -21811,7 +21941,7 @@
             },
             "expert": {
                 "const": 11.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 963,
                 "notes_nodata": false,
                 "bell": 115,
@@ -21876,7 +22006,7 @@
             },
             "expert": {
                 "const": 11.0,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 868,
                 "notes_nodata": false,
                 "bell": 89,
@@ -22591,7 +22721,7 @@
             },
             "expert": {
                 "const": 12.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1172,
                 "notes_nodata": false,
                 "bell": 249,
@@ -22655,8 +22785,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.3,
+                "const_nodata": false,
                 "notes": 702,
                 "notes_nodata": false,
                 "bell": 88,
@@ -23045,8 +23175,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.2,
+                "const_nodata": false,
                 "notes": 1067,
                 "notes_nodata": false,
                 "bell": 204,
@@ -23110,8 +23240,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.7,
-                "const_nodata": true,
+                "const": 11.9,
+                "const_nodata": false,
                 "notes": 1020,
                 "notes_nodata": false,
                 "bell": 133,
@@ -23305,8 +23435,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.1,
+                "const_nodata": false,
                 "notes": 524,
                 "notes_nodata": false,
                 "bell": 106,
@@ -23825,8 +23955,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.4,
+                "const_nodata": false,
                 "notes": 993,
                 "notes_nodata": false,
                 "bell": 176,
@@ -24215,8 +24345,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.5,
+                "const_nodata": false,
                 "notes": 1161,
                 "notes_nodata": false,
                 "bell": 98,
@@ -24280,8 +24410,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.5,
+                "const_nodata": false,
                 "notes": 704,
                 "notes_nodata": false,
                 "bell": 124,
@@ -24345,8 +24475,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.6,
+                "const_nodata": false,
                 "notes": 977,
                 "notes_nodata": false,
                 "bell": 77,
@@ -24670,8 +24800,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.5,
+                "const_nodata": false,
                 "notes": 1198,
                 "notes_nodata": false,
                 "bell": 227,
@@ -25125,8 +25255,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.1,
+                "const_nodata": false,
                 "notes": 622,
                 "notes_nodata": false,
                 "bell": 85,
@@ -25320,8 +25450,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.7,
-                "const_nodata": true,
+                "const": 12.8,
+                "const_nodata": false,
                 "notes": 973,
                 "notes_nodata": false,
                 "bell": 73,
@@ -25710,8 +25840,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.2,
+                "const_nodata": false,
                 "notes": 791,
                 "notes_nodata": false,
                 "bell": 129,
@@ -25841,7 +25971,7 @@
             },
             "expert": {
                 "const": 11.0,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 743,
                 "notes_nodata": false,
                 "bell": 151,
@@ -26491,7 +26621,7 @@
             },
             "expert": {
                 "const": 12.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1160,
                 "notes_nodata": false,
                 "bell": 132,
@@ -27140,8 +27270,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.5,
+                "const_nodata": false,
                 "notes": 887,
                 "notes_nodata": false,
                 "bell": 153,
@@ -27400,8 +27530,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.3,
+                "const_nodata": false,
                 "notes": 712,
                 "notes_nodata": false,
                 "bell": 172,
@@ -27985,8 +28115,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.6,
+                "const_nodata": false,
                 "notes": 522,
                 "notes_nodata": false,
                 "bell": 65,
@@ -28961,7 +29091,7 @@
             },
             "expert": {
                 "const": 11.0,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 933,
                 "notes_nodata": false,
                 "bell": 73,
@@ -30195,8 +30325,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.2,
+                "const_nodata": false,
                 "notes": 1248,
                 "notes_nodata": false,
                 "bell": 118,
@@ -30325,8 +30455,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.7,
-                "const_nodata": true,
+                "const": 11.9,
+                "const_nodata": false,
                 "notes": 1314,
                 "notes_nodata": false,
                 "bell": 176,
@@ -30391,7 +30521,7 @@
             },
             "expert": {
                 "const": 11.0,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1053,
                 "notes_nodata": false,
                 "bell": 111,
@@ -30650,8 +30780,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.3,
+                "const_nodata": false,
                 "notes": 921,
                 "notes_nodata": false,
                 "bell": 167,
@@ -30781,7 +30911,7 @@
             },
             "expert": {
                 "const": 11.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 903,
                 "notes_nodata": false,
                 "bell": 106,
@@ -31105,8 +31235,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.5,
+                "const_nodata": false,
                 "notes": 1385,
                 "notes_nodata": false,
                 "bell": 126,
@@ -31235,8 +31365,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.7,
-                "const_nodata": true,
+                "const": 11.8,
+                "const_nodata": false,
                 "notes": 1122,
                 "notes_nodata": false,
                 "bell": 183,
@@ -31300,8 +31430,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.2,
+                "const_nodata": false,
                 "notes": 1315,
                 "notes_nodata": false,
                 "bell": 157,
@@ -31755,8 +31885,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.4,
+                "const_nodata": false,
                 "notes": 1029,
                 "notes_nodata": false,
                 "bell": 187,
@@ -31821,7 +31951,7 @@
             },
             "expert": {
                 "const": 11.0,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 840,
                 "notes_nodata": false,
                 "bell": 164,
@@ -31886,7 +32016,7 @@
             },
             "expert": {
                 "const": 11.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 759,
                 "notes_nodata": false,
                 "bell": 195,
@@ -32471,7 +32601,7 @@
             },
             "expert": {
                 "const": 12.0,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 906,
                 "notes_nodata": false,
                 "bell": 94,
@@ -33575,8 +33705,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.7,
-                "const_nodata": true,
+                "const": 11.9,
+                "const_nodata": false,
                 "notes": 960,
                 "notes_nodata": false,
                 "bell": 166,
@@ -33835,8 +33965,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.1,
+                "const_nodata": false,
                 "notes": 1003,
                 "notes_nodata": false,
                 "bell": 120,
@@ -34062,6 +34192,461 @@
         },
         {
             "meta": {
+                "official_id": "666100",
+                "official_id_lunatic": null,
+                "name": "Sargasso",
+                "reading": "SARGASSO",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "Aoi",
+                "genre": "オンゲキ",
+                "bpm": 175,
+                "bpm_nodata": false,
+                "release": "2025-04-10",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "11895c8d8d5c6536.png",
+                "fumen_id": "05025",
+                "character": "三角 葵",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 7.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 10.0,
+                "const_nodata": true
+            },
+            "expert": {
+                "const": 13.9,
+                "const_nodata": false,
+                "notes": 1081,
+                "notes_nodata": false,
+                "bell": 86,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 15.3,
+                "const_nodata": false,
+                "notes": 1884,
+                "notes_nodata": false,
+                "bell": 77,
+                "bell_nodata": false,
+                "notesdesigner": "みぞれヤナギ vs ミニミライト",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "666200",
+                "official_id_lunatic": null,
+                "name": "Nýx",
+                "reading": "NYX",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "7mai",
+                "genre": "オンゲキ",
+                "bpm": 183,
+                "bpm_nodata": false,
+                "release": "2025-04-10",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "666893feb248258b.png",
+                "fumen_id": "05024",
+                "character": "桜井 春菜",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 6.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 9.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.7,
+                "const_nodata": false,
+                "notes": 1122,
+                "notes_nodata": false,
+                "bell": 220,
+                "bell_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.9,
+                "const_nodata": false,
+                "notes": 1465,
+                "notes_nodata": false,
+                "bell": 255,
+                "bell_nodata": false,
+                "notesdesigner": "Liz Ichinose -A new world expressed in watercolors-",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "666300",
+                "official_id_lunatic": null,
+                "name": "ALLNIGHT_DANCER",
+                "reading": "ALLNIGHTDANCER",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "brz1128",
+                "genre": "オンゲキ",
+                "bpm": 182,
+                "bpm_nodata": false,
+                "release": "2025-04-10",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "bdd19a65e718fd1c.png",
+                "fumen_id": "05023",
+                "character": "九條 楓",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 4.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 9.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.8,
+                "const_nodata": false,
+                "notes": 892,
+                "notes_nodata": false,
+                "bell": 95,
+                "bell_nodata": false,
+                "notesdesigner": "サファ太",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.2,
+                "const_nodata": false,
+                "notes": 1220,
+                "notes_nodata": false,
+                "bell": 129,
+                "bell_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "666400",
+                "official_id_lunatic": null,
+                "name": "Never Ending Adventure",
+                "reading": "NEVERENDINGADVENTURE",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "提供",
+                "genre": "オンゲキ",
+                "bpm": 200,
+                "bpm_nodata": false,
+                "release": "2025-04-10",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "f3c1f5c5fdfdbb01.png",
+                "fumen_id": "05022",
+                "character": "井之原 小星",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 4.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 8.7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.5,
+                "const_nodata": false,
+                "notes": 1262,
+                "notes_nodata": false,
+                "bell": 189,
+                "bell_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.5,
+                "const_nodata": false,
+                "notes": 1584,
+                "notes_nodata": false,
+                "bell": 196,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍＠終わらない冒険の旅へ！",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "666500",
+                "official_id_lunatic": null,
+                "name": "耐冬花麗",
+                "reading": "ツハキウルワシ",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "曲：テラ(少女理論観測所)／歌：藍原 椿(CV：橋本 ちなみ)",
+                "genre": "オンゲキ",
+                "bpm": 184,
+                "bpm_nodata": false,
+                "release": "2025-04-10",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "23df9a07b40285f2.png",
+                "fumen_id": "05021",
+                "character": "藍原 椿",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.0,
+                "const_nodata": false,
+                "notes": 946,
+                "notes_nodata": false,
+                "bell": 140,
+                "bell_nodata": false,
+                "notesdesigner": "rioN",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.6,
+                "const_nodata": false,
+                "notes": 1330,
+                "notes_nodata": false,
+                "bell": 143,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "666600",
+                "official_id_lunatic": null,
+                "name": "がおっと!!最強☆ぱーりーないと",
+                "reading": "カオツトサイキヨウハリナイト",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "曲：KENSUKE／歌：結城 莉玖(CV：朝日奈 丸佳)",
+                "genre": "オンゲキ",
+                "bpm": 180,
+                "bpm_nodata": false,
+                "release": "2025-04-10",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "78a28f414013f7ad.png",
+                "fumen_id": "05020",
+                "character": "結城 莉玖",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 4.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 8.7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.1,
+                "const_nodata": false,
+                "notes": 1199,
+                "notes_nodata": false,
+                "bell": 186,
+                "bell_nodata": false,
+                "notesdesigner": "アマリリス",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.7,
+                "const_nodata": false,
+                "notes": 1820,
+                "notes_nodata": false,
+                "bell": 124,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "666700",
+                "official_id_lunatic": null,
+                "name": "Ai Me",
+                "reading": "AIME",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "曲：Feryquitous／歌：高瀬 梨緒(CV：久保 ユリカ)",
+                "genre": "オンゲキ",
+                "bpm": 180,
+                "bpm_nodata": false,
+                "release": "2025-04-10",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "7d9c8d958037cb99.png",
+                "fumen_id": "05019",
+                "character": "高瀬 梨緒",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 8.7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.8,
+                "const_nodata": false,
+                "notes": 1094,
+                "notes_nodata": false,
+                "bell": 244,
+                "bell_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.8,
+                "const_nodata": false,
+                "notes": 1275,
+                "notes_nodata": false,
+                "bell": 221,
+                "bell_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
                 "official_id": "666800",
                 "official_id_lunatic": null,
                 "name": "共鳴合体 オトゲリヲン",
@@ -34096,7 +34681,7 @@
             },
             "expert": {
                 "const": 11.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 989,
                 "notes_nodata": false,
                 "bell": 188,
@@ -34161,7 +34746,7 @@
             },
             "expert": {
                 "const": 11.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 898,
                 "notes_nodata": false,
                 "bell": 269,
@@ -34765,8 +35350,8 @@
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.2,
+                "const_nodata": false,
                 "notes": 808,
                 "notes_nodata": false,
                 "bell": 69,
@@ -36110,8 +36695,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.3,
+                "const_nodata": false,
                 "notes": 709,
                 "notes_nodata": false,
                 "bell": 108,
@@ -37020,8 +37605,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.1,
+                "const_nodata": false,
                 "notes": 1123,
                 "notes_nodata": false,
                 "bell": 270,
@@ -37151,7 +37736,7 @@
             },
             "expert": {
                 "const": 11.0,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 897,
                 "notes_nodata": false,
                 "bell": 159,
@@ -38710,8 +39295,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.2,
+                "const_nodata": false,
                 "notes": 1279,
                 "notes_nodata": false,
                 "bell": 96,
@@ -39035,8 +39620,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.4,
+                "const_nodata": false,
                 "notes": 879,
                 "notes_nodata": false,
                 "bell": 85,
@@ -40725,8 +41310,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.2,
+                "const_nodata": false,
                 "notes": 983,
                 "notes_nodata": false,
                 "bell": 148,
@@ -40981,8 +41566,8 @@
                 "const_nodata": false
             },
             "advanced": {
-                "const": 11.0,
-                "const_nodata": true
+                "const": 11.4,
+                "const_nodata": false
             },
             "expert": {
                 "const": 14.3,
@@ -42155,8 +42740,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.5,
+                "const_nodata": false,
                 "notes": 935,
                 "notes_nodata": false,
                 "bell": 128,
@@ -43195,8 +43780,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.6,
+                "const_nodata": false,
                 "notes": 1138,
                 "notes_nodata": false,
                 "bell": 192,
@@ -43260,8 +43845,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.5,
+                "const_nodata": false,
                 "notes": 880,
                 "notes_nodata": false,
                 "bell": 117,
@@ -43780,8 +44365,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.3,
+                "const_nodata": false,
                 "notes": 899,
                 "notes_nodata": false,
                 "bell": 224,
@@ -43845,8 +44430,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.1,
+                "const_nodata": false,
                 "notes": 1129,
                 "notes_nodata": false,
                 "bell": 128,
@@ -43975,8 +44560,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.5,
+                "const_nodata": false,
                 "notes": 870,
                 "notes_nodata": false,
                 "bell": 59,
@@ -44235,8 +44820,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.4,
+                "const_nodata": false,
                 "notes": 830,
                 "notes_nodata": false,
                 "bell": 124,
@@ -44690,8 +45275,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.5,
+                "const_nodata": false,
                 "notes": 885,
                 "notes_nodata": false,
                 "bell": 269,
@@ -45340,8 +45925,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.7,
-                "const_nodata": true,
+                "const": 11.9,
+                "const_nodata": false,
                 "notes": 929,
                 "notes_nodata": false,
                 "bell": 62,
@@ -45601,7 +46186,7 @@
             },
             "expert": {
                 "const": 11.0,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 821,
                 "notes_nodata": false,
                 "bell": 88,
@@ -45666,7 +46251,7 @@
             },
             "expert": {
                 "const": 12.0,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 915,
                 "notes_nodata": false,
                 "bell": 189,
@@ -45731,7 +46316,7 @@
             },
             "expert": {
                 "const": 12.0,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1094,
                 "notes_nodata": false,
                 "bell": 125,
@@ -45860,8 +46445,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.1,
+                "const_nodata": false,
                 "notes": 915,
                 "notes_nodata": false,
                 "bell": 194,
@@ -45925,8 +46510,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.5,
+                "const_nodata": false,
                 "notes": 843,
                 "notes_nodata": false,
                 "bell": 102,
@@ -46120,8 +46705,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.3,
+                "const_nodata": false,
                 "notes": 799,
                 "notes_nodata": false,
                 "bell": 70,
@@ -46185,8 +46770,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.3,
+                "const_nodata": false,
                 "notes": 926,
                 "notes_nodata": false,
                 "bell": 113,
@@ -46835,8 +47420,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.5,
+                "const_nodata": false,
                 "notes": 952,
                 "notes_nodata": false,
                 "bell": 100,
@@ -46965,8 +47550,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.4,
+                "const_nodata": false,
                 "notes": 1032,
                 "notes_nodata": false,
                 "bell": 189,
@@ -47030,8 +47615,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.7,
-                "const_nodata": true,
+                "const": 11.8,
+                "const_nodata": false,
                 "notes": 929,
                 "notes_nodata": false,
                 "bell": 120,
@@ -47226,7 +47811,7 @@
             },
             "expert": {
                 "const": 11.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1258,
                 "notes_nodata": false,
                 "bell": 228,
@@ -47290,8 +47875,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 11.0,
-                "const_nodata": true,
+                "const": 11.4,
+                "const_nodata": false,
                 "notes": 1118,
                 "notes_nodata": false,
                 "bell": 131,
@@ -47615,8 +48200,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.2,
+                "const_nodata": false,
                 "notes": 1006,
                 "notes_nodata": false,
                 "bell": 142,
@@ -48136,7 +48721,7 @@
             },
             "expert": {
                 "const": 12.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 975,
                 "notes_nodata": false,
                 "bell": 192,
@@ -48265,8 +48850,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 12.0,
-                "const_nodata": true,
+                "const": 12.1,
+                "const_nodata": false,
                 "notes": 871,
                 "notes_nodata": false,
                 "bell": 61,
@@ -48331,7 +48916,7 @@
             },
             "expert": {
                 "const": 11.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 669,
                 "notes_nodata": false,
                 "bell": 77,
@@ -55480,8 +56065,8 @@
                 "const_nodata": true
             },
             "expert": {
-                "const": null,
-                "const_nodata": true,
+                "const": 11.3,
+                "const_nodata": false,
                 "notes": 709,
                 "notes_nodata": false,
                 "bell": 108,
@@ -55545,8 +56130,8 @@
                 "const_nodata": true
             },
             "expert": {
-                "const": null,
-                "const_nodata": true,
+                "const": 11.3,
+                "const_nodata": false,
                 "notes": 709,
                 "notes_nodata": false,
                 "bell": 108,
@@ -55610,8 +56195,8 @@
                 "const_nodata": true
             },
             "expert": {
-                "const": null,
-                "const_nodata": true,
+                "const": 11.3,
+                "const_nodata": false,
                 "notes": 709,
                 "notes_nodata": false,
                 "bell": 108,
@@ -58956,5 +59541,5 @@
             }
         }
     ],
-    "update_at": "2025/04/09 18:12"
+    "update_at": "2025/04/26 13:02"
 }
