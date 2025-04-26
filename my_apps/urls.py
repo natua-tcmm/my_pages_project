@@ -1,4 +1,5 @@
 from django.urls import path
+from django.shortcuts import redirect
 
 app_name = "my_apps"
 
@@ -16,6 +17,7 @@ urlpatterns = [
     path("incomplete_page", views.incomplete_page, name="incomplete_page"),
 
     # トップ
+    path("", lambda request: redirect(f"/{app_name}/top")),
     path("top", views.top, name="top_page"),
     path("about", views.about, name="about_page"),
     path("update_info", views.update_info, name="update_info_page"),
