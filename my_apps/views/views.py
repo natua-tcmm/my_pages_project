@@ -1,13 +1,18 @@
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.http import JsonResponse, FileResponse, Http404
-from django.db.models import Q
+from django.db.models import Q, Count
+from django.utils import timezone
+from django.db.models.functions import ExtractHour, ExtractWeekDay
+
+from user_agents import parse as ua_parse
 
 # from django.core.handlers.wsgi import WSGIRequest
 
 from ..models import *
 
 import os, json, datetime, jaconv, re, unicodedata
+from datetime import timedelta
 from django.conf import settings
 
 # --------------------------------------------------
@@ -58,6 +63,129 @@ def app_template(request):
 
 # 自己紹介ページ
 def about(request):
+
+    now = timezone.now()
+
+    # --- bot 判定パターン ---
+    BOT_KEYWORDS = [
+        "bot",
+        "crawl",
+        "spider",
+        "slurp",
+        "python-requests",
+        "curl",
+        "wget",
+        "facebookexternalhit",
+        "ahrefs",
+        "semrush",
+        "yandex",
+        "duckduck",
+        "dotbot",
+        # …他必要に応じて
+    ]
+    bot_q = Q()
+    for kw in BOT_KEYWORDS:
+        bot_q |= Q(user_agent__icontains=kw)
+
+    # --- 共通 filters ---
+    nonbot_base = Q(path__startswith="/my_apps/") & ~bot_q
+    json_base = Q(path__startswith="/my_apps/") & Q(path__iendswith=".json")
+
+    # --- 1) bot 除く：各ページごとのアクセス数 ---
+    per_page = (
+        PageView.objects.filter(nonbot_base)
+        .values("path")
+        .annotate(
+            total=Count("id"),
+            last24h=Count("id", filter=Q(timestamp__gte=now - timedelta(hours=24))),
+            last7d=Count("id", filter=Q(timestamp__gte=now - timedelta(days=7))),
+        )
+        .order_by("-total")
+    )
+
+    # --- 2) bot 除く：/my_apps/ 配下全体の集計 ---
+    all_myapps = PageView.objects.filter(nonbot_base)
+    agg_all = {
+        "total": all_myapps.count(),
+        "last24h": all_myapps.filter(timestamp__gte=now - timedelta(hours=24)).count(),
+        "last7d": all_myapps.filter(timestamp__gte=now - timedelta(days=7)).count(),
+    }
+
+    # 時間帯統計（0–23時）
+    hour_stats = all_myapps.annotate(hour=ExtractHour("timestamp")).values("hour").annotate(cnt=Count("id")).order_by("hour")
+
+    # 曜日統計（1=日曜…7=土曜）
+    weekday_stats = (
+        all_myapps.annotate(weekday=ExtractWeekDay("timestamp")).values("weekday").annotate(cnt=Count("id")).order_by("weekday")
+    )
+
+    # OSランキング
+    os_counts = {}
+    for pv in all_myapps.exclude(user_agent__isnull=True).only("user_agent"):
+        ua = ua_parse(pv.user_agent)
+        osn = ua.os.family or "Unknown"
+        os_counts[osn] = os_counts.get(osn, 0) + 1
+
+    top_os = sorted(os_counts.items(), key=lambda x: -x[1])
+
+    # --- 3) bot 含む：JSON へのアクセス ---
+    json_qs = PageView.objects.filter(json_base)
+    agg_json = {
+        "total": json_qs.count(),
+        "last24h": json_qs.filter(timestamp__gte=now - timedelta(hours=24)).count(),
+        "last7d": json_qs.filter(timestamp__gte=now - timedelta(days=7)).count(),
+    }
+
+    # --- コンソール出力 ---
+    print("=== /my_apps/ 各ページ（bot 除く） ===")
+    print("-- Total --")
+    for row in per_page:
+        # print(f"{row['path']}: total={row['total']}, 24h={row['last24h']}, 7d={row['last7d']}")
+        print(f"{row['path'][9:]:40}: {row['total']:5} | {row['total']//20 * '#'}")
+
+    print("\n-- 24h --")
+    for row in per_page:
+        print(f"{row['path'][9:]:40}: {row['last24h']:5} | {row['last24h']//1 * '#'}")
+
+    print("\n-- 7d --")
+    for row in per_page:
+        print(f"{row['path'][9:]:40}: {row['last7d']:5} | {row['last7d']//5 * '#'}")
+
+    print("\n=== /my_apps/ 配下全体（bot 除く） ===")
+    print(f"Total={agg_all['total']} 24h={agg_all['last24h']} 7d={agg_all['last7d']}")
+
+    print("\n-- 時間帯統計 --")
+    for h in hour_stats:
+        print(f"{h['hour']:3}h: {h['cnt']:5} | {h['cnt']//10 * '#'}")
+
+    print("\n-- 曜日統計 (1=Sun…) --")
+    for d in weekday_stats:
+        print(f"{d['weekday']}: {d['cnt']:5} | {d['cnt']//10 * '#'}")
+
+    print("\n-- OS 名ランキング --")
+    for osn, cnt in top_os:
+        print(f"{osn}: {cnt}")
+
+    print("\n=== /my_apps/*.json（bot 含む） ===")
+    print(f"Total={agg_json['total']} 24h={agg_json['last24h']} 7d={agg_json['last7d']}")
+
+    stats = (
+        ToolUsage.objects
+        .values('tool_name')
+        .annotate(
+            total=Count('id'),
+            last24h=Count('id', filter=Q(timestamp__gte=now - timedelta(hours=24))),
+            last7d=Count('id', filter=Q(timestamp__gte=now - timedelta(days=7))),
+        )
+        .order_by('-total')
+    )
+
+    print("=== ToolUsage Stats ===")
+    for row in stats:
+        name = row['tool_name'] or '<Unknown>'
+        print(f"{name}: total={row['total']}, 24h={row['last24h']}, 7d={row['last7d']}")
+
+
     context = {"title": f"△Natua♪▽について {title_base}", "is_beta": False, "is_app": False}
     return render(request, "about/about.html", context=context)
 
