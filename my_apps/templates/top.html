@@ -1,229 +1,178 @@
 {% extends './base/base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" href="{% static 'top/style.css' %}">
-<!-- Content Wrapper. Contains page content -->
-<div class="container">
-    <div class="content-header">
-        <!-- Content Header (Page header) -->
-        <div class="container-fluid pl-0">
-            <div class="row mb-2">
-                <div class="col">
-                    <h1 class="m-0">TopPage</h1>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-
-            {% if is_beta %}
-            {% include "./common/info_alert.html" %}
-            {% endif %}
-
-            <!-- ここにいろいろ書く -->
-            <h4>作成ツール一覧</h4>
-            <hr>
-            <div class="row mb-3">
-
-                <div class="col-xl-4 col-md-6 col-12">
-                    <a href="{% url 'my_apps:const_search_page' %}" class="small-box bg-light app-box">
-                        <div class="inner p-4">
-                            <h4 class="app-name font-weight-bold">クイック定数検索+</h4>
-                            <p class="app-desc">CHUNITHM・オンゲキの譜面定数やその他のデータを簡単に検索できます。譜面保管所へのリンク付き。</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-search"></i>
-                        </div>
-                    </a>
+    <link rel="stylesheet" href="{% static 'top/style.css' %}" />
+    <!-- Content Wrapper. Contains page content -->
+    <div class="container">
+        <div class="content-header">
+            <!-- Content Header (Page header) -->
+            <div class="container-fluid pl-0">
+                <div class="row mb-2">
+                    <div class="col">
+                        <h1 class="m-0">TopPage</h1>
+                    </div>
+                    <!-- /.col -->
                 </div>
-
-
-                <div class="col-xl-4 col-md-6 col-12">
-                    <a href="{% url 'my_apps:ongeki_op_page' %}" class="small-box bg-light app-box">
-                        <div class="inner p-4">
-                            <h4 class="app-name font-weight-bold">オンゲキ版OVERPOWER</h4>
-                            <p class="app-desc">全MASTER譜面対象・理論値まで伸びる実力指標です。</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-percent"></i>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-xl-4 col-md-6 col-12">
-                    <a href="{% url 'my_apps:ongeki_rating_all_page' %}" class="small-box bg-light app-box">
-                        <div class="inner p-4">
-                            <h4 class="app-name font-weight-bold">オンゲキ(全曲ベスト枠)</h4>
-                            <p class="app-desc">新曲・旧曲関係なくベスト枠(30枠)を計算します。</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-table"></i>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-xl-4 col-md-6 col-12">
-                    <a href="{% url 'my_apps:chunithm_rating_all_page' %}" class="small-box bg-light app-box">
-                        <div class="inner p-4">
-                            <h4 class="app-name font-weight-bold">CHUNITHM(全曲ベスト枠)</h4>
-                            <p class="app-desc">新曲・旧曲関係なくベスト枠(30枠)を計算します。〜LMN+基準にも対応。</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-table"></i>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-xl-4 col-md-6 col-12">
-                    <a href="{% url 'my_apps:bpm_checker_page' %}" class="small-box bg-light app-box">
-                        <div class="inner p-4">
-                            <h4 class="app-name font-weight-bold">BPMチェッカー</h4>
-                            <p class="app-desc">BPMから3600族・擦り・全押し連打に関する情報を表示します。</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-music"></i>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- <div class="col-xl-4 col-md-6 col-12">
-                    <a href="{% url 'my_apps:incomplete_page' %}" class="small-box bg-light app-box">
-                        <div class="inner p-4">
-                            <h4 class="app-name font-weight-bold">定数別OP表示</h4>
-                            <p class="app-desc">CHUNITHMの譜面定数ごとにOPや埋まり具合を表示します。</p>
-                        </div>
-                        <div class="icon">
-                            <i class="far fa-question-circle"></i>
-                        </div>
-                    </a>
-                </div> -->
-
-                <!-- <div class="col-xl-4 col-md-6 col-12">
-                    <a href="{% url 'my_apps:incomplete_page' %}" class="small-box bg-light app-box">
-                        <div class="inner p-4">
-                            <h4 class="app-name font-weight-bold">これって何落ちAJ?</h4>
-                            <p class="app-desc">AJ時のスコアから何落ちAJかを逆算します。</p>
-                        </div>
-                        <div class="icon">
-                            <i class="far fa-question-circle"></i>
-                        </div>
-                    </a>
-                </div> -->
-
-                <div class="col-xl-4 col-md-6 col-12">
-                    <a href="{% url 'my_apps:fullbell_page' %}" class="small-box bg-light app-box">
-                        <div class="inner p-4">
-                            <h4 class="app-name font-weight-bold">FULLBELLだったら？</h4>
-                            <p class="app-desc">未FB時の情報から、FBだった場合のスコアを計算します。</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-bell"></i>
-                        </div>
-                    </a>
-                </div>
-
-
-                <!-- <div class="col-xl-4 col-md-6 col-12">
-                    <a href="{% url 'my_apps:incomplete_page' %}" class="small-box bg-light app-box">
-                        <div class="inner p-4">
-                            <h4 class="app-name font-weight-bold">BS/OD計算機</h4>
-                            <p class="app-desc">カードのスキルとノーツ数などからBS/ODを計算します。</p>
-                        </div>
-                        <div class="icon">
-                            <i class="far fa-question-circle"></i>
-                        </div>
-                    </a>
-                </div> -->
-
-                <!-- <div class="col-xl-4 col-md-6 col-12">
-                    <a href="{% url 'my_apps:incomplete_page' %}" class="small-box bg-light app-box">
-                        <div class="inner p-4">
-                            <h4 class="app-name font-weight-bold">緑数字計算機</h4>
-                            <p class="app-desc">緑数字と白数字、BPMとHS値を使った計算ができます。</p>
-                        </div>
-                        <div class="icon">
-                            <i class="far fa-question-circle"></i>
-                        </div>
-                    </a>
-                </div> -->
-
-                <div class="col-xl-4 col-md-6 col-12">
-                    <a href="{% url 'my_apps:random_tools_page' %}" class="small-box bg-light app-box">
-                        <div class="inner p-4">
-                            <h4 class="app-name font-weight-bold">雑多なツール集</h4>
-                            <p class="app-desc">いろんなツールを雑に置く場所です。</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                    </a>
-                </div>
-
+                <!-- /.row -->
             </div>
-
-            <h4>資料集</h4>
-            <hr>
-            <div class="row mb-3">
-
-                <div class="col-xl-4 col-md-6 col-12">
-                    <a href="{% url 'my_apps:sega_nenpyo_page' %}" class="small-box bg-light app-box">
-                        <div class="inner p-4">
-                            <h4 class="app-name font-weight-bold">SEGA音ゲー年表</h4>
-                            <p class="app-desc">ゲキチュウマイの稼働日・バージョンアップ日などをまとめたページです。</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                    </a>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                {% if is_beta %}
+                    {% include './common/info_alert.html' %}
+                {% endif %}
+                <!-- ここにいろいろ書く -->
+                <h4>作成ツール一覧</h4>
+                <hr />
+                <div class="row mb-3">
+                    <div class="col-xl-4 col-md-6 col-12">
+                        <a href="{% url 'my_apps:const_search_page' %}"
+                           class="small-box bg-light app-box">
+                            <div class="inner p-4">
+                                <h4 class="app-name font-weight-bold">クイック定数検索+</h4>
+                                <p class="app-desc">CHUNITHM・オンゲキの譜面定数やその他のデータを簡単に検索できます。譜面保管所へのリンク付き。</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-12">
+                        <a href="{% url 'my_apps:ongeki_op_page' %}"
+                           class="small-box bg-light app-box">
+                            <div class="inner p-4">
+                                <h4 class="app-name font-weight-bold">オンゲキ版OVERPOWER</h4>
+                                <p class="app-desc">全MASTER譜面対象・理論値まで伸びる実力指標です。</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-percent"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-12">
+                        <a href="{% url 'my_apps:ongeki_rating_all_page' %}"
+                           class="small-box bg-light app-box">
+                            <div class="inner p-4">
+                                <h4 class="app-name font-weight-bold">オンゲキ(全曲ベスト枠)</h4>
+                                <p class="app-desc">新曲・旧曲関係なくベスト枠(30枠)を計算します。</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-table"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-12">
+                        <a href="{% url 'my_apps:chunithm_rating_all_page' %}"
+                           class="small-box bg-light app-box">
+                            <div class="inner p-4">
+                                <h4 class="app-name font-weight-bold">CHUNITHM(全曲ベスト枠)</h4>
+                                <p class="app-desc">新曲・旧曲関係なくベスト枠(30枠)を計算します。〜LMN+基準にも対応。</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-table"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-12">
+                        <a href="{% url 'my_apps:bpm_checker_page' %}"
+                           class="small-box bg-light app-box">
+                            <div class="inner p-4">
+                                <h4 class="app-name font-weight-bold">BPMチェッカー</h4>
+                                <p class="app-desc">BPMから3600族・擦り・全押し連打に関する情報を表示します。</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-music"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-12">
+                        <a href="{% url 'my_apps:fullbell_page' %}"
+                           class="small-box bg-light app-box">
+                            <div class="inner p-4">
+                                <h4 class="app-name font-weight-bold">FULLBELLだったら？</h4>
+                                <p class="app-desc">未FB時の情報から、FBだった場合のスコアを計算します。</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-12">
+                        <a href="{% url 'my_apps:random_tools_page' %}"
+                           class="small-box bg-light app-box">
+                            <div class="inner p-4">
+                                <h4 class="app-name font-weight-bold">雑多なツール集</h4>
+                                <p class="app-desc">いろんなツールを雑に置く場所です。</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-
-                <div class="col-xl-4 col-md-6 col-12">
-                    <a href="{% url 'my_apps:ongeki_genre_page' %}" class="small-box bg-light app-box">
-                        <div class="inner p-4">
-                            <h4 class="app-name font-weight-bold">オンゲキジャンル名図鑑</h4>
-                            <p class="app-desc">オンゲキの楽曲たちをポップン選曲画面風に閲覧！</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-book-open"></i>
-                        </div>
-                    </a>
+                <h4>資料集</h4>
+                <hr />
+                <div class="row mb-3">
+                    <div class="col-xl-4 col-md-6 col-12">
+                        <a href="{% url 'my_apps:sega_nenpyo_page' %}"
+                           class="small-box bg-light app-box">
+                            <div class="inner p-4">
+                                <h4 class="app-name font-weight-bold">SEGA音ゲー年表</h4>
+                                <p class="app-desc">ゲキチュウマイの稼働日・バージョンアップ日などをまとめたページです。</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-12">
+                        <a href="{% url 'my_apps:ongeki_genre_page' %}"
+                           class="small-box bg-light app-box">
+                            <div class="inner p-4">
+                                <h4 class="app-name font-weight-bold">オンゲキジャンル名図鑑</h4>
+                                <p class="app-desc">オンゲキの楽曲たちをポップン選曲画面風に閲覧！</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-12">
+                        <a href="https://drive.google.com/drive/folders/1PcnB-3RMiAqD6WwADyJYmusPTwIY_7mA?usp=drive_link"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="small-box bg-light app-box">
+                            <div class="inner p-4">
+                                <h4 class="app-name font-weight-bold">
+                                    PlarisCharts <i class="ml-2 fas fa-external-link-alt"></i>
+                                </h4>
+                                <p class="app-desc">ポラリスコード譜面画像集</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-
-                <div class="col-xl-4 col-md-6 col-12">
-                    <a href="https://drive.google.com/drive/folders/1PcnB-3RMiAqD6WwADyJYmusPTwIY_7mA?usp=drive_link" target="_blank" rel="noopener noreferrer" class="small-box bg-light app-box">
-                        <div class="inner p-4">
-                            <h4 class="app-name font-weight-bold">PlarisCharts <i class="ml-2 fas fa-external-link-alt"></i></h4>
-                            <p class="app-desc">ポラリスコード譜面画像集</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
-            <h4>その他のページ</h4>
-            <hr>
-            <div class="row">
-
-                <div class="col-xl-4 col-md-6 col-12">
-                    <a href="{% url 'my_apps:about_page' %}" class="small-box bg-light app-box">
-                        <div class="inner p-4">
-                            <h4 class="app-name font-weight-bold">私について</h4>
-                            <p class="app-desc">△Natua♪▽についての情報が書かれています。誰得？</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-address-card"></i>
-                        </div>
-                    </a>
-                </div>
-
-                <!--
+                <h4>その他のページ</h4>
+                <hr />
+                <div class="row">
+                    <div class="col-xl-4 col-md-6 col-12">
+                        <a href="{% url 'my_apps:about_page' %}"
+                           class="small-box bg-light app-box">
+                            <div class="inner p-4">
+                                <h4 class="app-name font-weight-bold">私について</h4>
+                                <p class="app-desc">△Natua♪▽についての情報が書かれています。誰得？</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-address-card"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <!--
                 <div class="col-xl-4 col-md-6 col-12">
                     <a href="{% url 'my_apps:incomplete_page' %}" class="small-box bg-light app-box">
                         <div class="inner p-4">
@@ -234,12 +183,155 @@
                             <i class="far fa-question-circle"></i>
                         </div>
                     </a>
-                </div> -->
+                </div>         -->
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <h4>アクセス統計</h4>
+                <hr />
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-6 col-12 mb-2">
+                        <div style="width: 100%; height: 300px;">
+                            <canvas id="donutChart-total"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12 mb-2">
+                        <div style="width: 100%; height: 300px;">
+                            <canvas id="donutChart-os"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12 mb-2">
+                        <div style="width: 100%; height: 300px;">
+                            <canvas id="lineChart-daily"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12 mb-2">
+                        <div style="width: 100%; height: 300px;">
+                            <canvas id="lineChart-tools"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                const donutChart_total = document.getElementById('donutChart-total').getContext('2d');
+                const donutChart_os = document.getElementById('donutChart-os').getContext('2d');
+                const lineChart_daily = document.getElementById('lineChart-daily').getContext('2d');
+                const lineChart_tools = document.getElementById('lineChart-tools').getContext('2d');
 
+                new Chart(donutChart_total, {
+                    type: 'doughnut',
+                    data: {
+                        labels: {{ data_total.labels| safe }},
+                        datasets: [{
+                            data: {{ data_total.data | safe }},
+                            backgroundColor: [
+                                "#FF979F", "#d3ff97", "#fff797",
+                                "#ffc397", "#97edff", "#aaaaaa"
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                            },
+                            title: {
+                                display: true,
+                                text: '各ページの通算アクセス数 '
+                            }
+                        }
+                    }
+                });
+
+                new Chart(donutChart_os, {
+                    type: 'doughnut',
+                    data: {
+                        labels: {{ data_os.labels| safe }},
+                        datasets: [{
+                            data: {{ data_os.data | safe }},
+                            backgroundColor: [
+                                "#FF979F", "#d3ff97", "#fff797",
+                                "#ffc397", "#aaaaaa"
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                            },
+                            title: {
+                                display: true,
+                                text: 'OS別アクセス数'
+                            }
+                        }
+                    }
+                });
+
+                new Chart(lineChart_daily, {
+                    type: 'line',
+                    data: {
+                        labels: {{ data_daily.labels| safe }},
+                        datasets: [{
+                            label: "アクセス数",
+                            data: {{ data_daily.data | safe }},
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                              beginAtZero: true
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'bottom'
+                            },
+                            title: {
+                                display: true,
+                                text: '直近10日間の全ページ合計アクセス数'
+                            }
+                        }
+                    }
+                });
+                new Chart(lineChart_tools, {
+                    type: 'line',
+                    data: {
+                        labels: {{ data_tools.labels|safe }},
+                        datasets: {{ data_tools.datasets|safe }}
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'bottom'
+                            },
+                            title: {
+                                display: true,
+                                text: '直近10日間の各ツール使用数'
+                            }
+                        }
+                    }
+                });
+
+                </script>
             </div>
-
-        </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-</div>
-{% endblock content %}
+            <!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+{% endblock %}
