@@ -1,13 +1,18 @@
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.http import JsonResponse, FileResponse, Http404
-from django.db.models import Q
+from django.db.models import Q, Count
+from django.utils import timezone
+from django.db.models.functions import ExtractHour, ExtractWeekDay
+
+from user_agents import parse as ua_parse
 
 # from django.core.handlers.wsgi import WSGIRequest
 
 from ..models import *
 
 import os, json, datetime, jaconv, re, unicodedata
+from datetime import timedelta
 from django.conf import settings
 
 # --------------------------------------------------
@@ -19,7 +24,167 @@ title_base = "| △Natua♪▽のツールとか保管所"
 
 # トップ画面
 def top(request):
+
     context = {"title": "△Natua♪▽のツールとか保管所", "is_beta": False, "is_app": False}
+
+    now = timezone.now()
+
+    # データを取得 (botを除外)
+    BOT_KEYWORDS = [
+        "bot",
+        "crawl",
+        "spider",
+        "slurp",
+        "python-requests",
+        "curl",
+        "wget",
+        "facebookexternalhit",
+        "ahrefs",
+        "semrush",
+        "yandex",
+        "duckduck",
+        "dotbot",
+    ]
+    bot_q = Q()
+    for kw in BOT_KEYWORDS:
+        bot_q |= Q(user_agent__icontains=kw)
+    nonbot_base = Q(path__startswith="/my_apps/") & ~bot_q
+    all_myapps = PageView.objects.filter(nonbot_base)
+    # json_base = Q(path__startswith="/my_apps/") & Q(path__iendswith=".json")
+
+    # --------------------
+
+    # 総アクセス数
+    total_access = str(all_myapps.count()).translate(str.maketrans("1234567890", "𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗𝟎"))
+    context |= {"total_access": total_access}
+
+    # --------------------
+
+    # 各ページごとの総アクセス数
+    per_page = (
+        PageView.objects.filter(nonbot_base)
+        .values("path")
+        .annotate(
+            total=Count("id"),
+            last24h=Count("id", filter=Q(timestamp__gte=now - timedelta(hours=24))),
+            last7d=Count("id", filter=Q(timestamp__gte=now - timedelta(days=7))),
+        )
+        .order_by("-total")
+    )
+    labels = []
+    data = []
+    other_total = 0
+    for i,row in enumerate(per_page):
+        if i>=5:
+            other_total += row["total"]
+            continue
+        labels.append(row["path"][9:])
+        data.append(row["total"])
+    if other_total > 0:
+        labels.append("others")
+        data.append(other_total)
+
+    context |= {
+        "data_total": {
+            "labels": json.dumps(labels),
+            "data": json.dumps(data),
+        }
+    }
+
+    # --------------------
+
+    # OS割合
+    os_counts = {}
+    for pv in all_myapps.exclude(user_agent__isnull=True).only("user_agent"):
+        ua = ua_parse(pv.user_agent)
+        osn = ua.os.family or "Unknown"
+        os_counts[osn] = os_counts.get(osn, 0) + 1
+
+    top_os = sorted(os_counts.items(), key=lambda x: -x[1])
+
+    labels = []
+    data = []
+    other_total = 0
+    for i,row in enumerate(top_os):
+        if i>=4:
+            other_total += row[1]
+            continue
+        labels.append(row[0])
+        data.append(row[1])
+    if other_total > 0:
+        labels.append("others")
+        data.append(other_total)
+
+    context |= {
+        "data_os": {
+            "labels": json.dumps(labels),
+            "data": json.dumps(data),
+        }
+    }
+
+    # --------------------
+
+    # 毎日の各ページアクセス数 折れ線グラフ
+    from django.db.models.functions import TruncDate
+
+    daily_stats = (
+        PageView.objects.filter(nonbot_base, timestamp__gte=now - timedelta(days=10))
+        .annotate(date=TruncDate("timestamp"))
+        .values("date")
+        .annotate(cnt=Count("id"))
+        .order_by("date")
+    )
+
+    labels = []
+    data = []
+    for row in daily_stats:
+        labels.append(row["date"].strftime("%Y-%m-%d"))
+        data.append(row["cnt"])
+    context |= {
+        "data_daily": {
+            "labels": json.dumps(labels),
+            "data": json.dumps(data),
+        }
+    }
+
+    # --------------------
+
+    # 毎日の各ツールの使用回数 折れ線グラフ
+    tool_usage_daily = (
+        ToolUsage.objects.filter(timestamp__gte=now - timedelta(days=10))
+        .annotate(date=TruncDate("timestamp"))
+        .values("date", "tool_name")
+        .annotate(count=Count("id"))
+        .order_by("date", "tool_name")
+    )
+
+    tool_data = {}
+    for row in tool_usage_daily:
+        date = row["date"].strftime("%Y-%m-%d")
+        tool_name = row["tool_name"]
+        count = row["count"]
+        if date not in tool_data:
+            tool_data[date] = {}
+        tool_data[date][tool_name] = count
+
+    labels = sorted(tool_data.keys())
+    tools = set()
+    for daily_data in tool_data.values():
+        tools.update(daily_data.keys())
+    tools = sorted(tools)
+
+    datasets = []
+    for tool in tools:
+        data = [tool_data[date].get(tool, 0) for date in labels]
+        datasets.append({"label": tool, "data": data})
+
+    context |= {
+        "data_tools": {
+            "labels": json.dumps(labels),
+            "datasets": json.dumps(datasets),
+        }
+    }
+
     return render(request, "top.html", context=context)
 
 
@@ -58,6 +223,7 @@ def app_template(request):
 
 # 自己紹介ページ
 def about(request):
+
     context = {"title": f"△Natua♪▽について {title_base}", "is_beta": False, "is_app": False}
     return render(request, "about/about.html", context=context)
 
