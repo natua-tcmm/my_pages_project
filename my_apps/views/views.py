@@ -54,6 +54,12 @@ def top(request):
 
     # --------------------
 
+    # 総アクセス数
+    total_access = str(all_myapps.count()).translate(str.maketrans("1234567890", "𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗𝟎"))
+    context |= {"total_access": total_access}
+
+    # --------------------
+
     # 各ページごとの総アクセス数
     per_page = (
         PageView.objects.filter(nonbot_base)
