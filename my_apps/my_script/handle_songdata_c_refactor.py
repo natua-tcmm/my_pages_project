@@ -876,14 +876,18 @@ class SongDataManager:
         # フォルダに振り分ける
         for song in self.songs:
             c = song.song_reading[0]
-            if "A" <= c <= "G":
-                song.song_namefolder_name = "A-G"
-            elif "H" <= c <= "N":
-                song.song_namefolder_name = "H-N"
-            elif "O" <= c <= "U":
-                song.song_namefolder_name = "O-U"
-            elif "V" <= c <= "Z":
-                song.song_namefolder_name = "V-Z"
+            if "A" <= c <= "D":
+                song.song_namefolder_name = "ABCD"
+            elif "E" <= c <= "H":
+                song.song_namefolder_name = "EFGH"
+            elif "I" <= c <= "L":
+                song.song_namefolder_name = "IJKL"
+            elif "M" <= c <= "P":
+                song.song_namefolder_name = "MNOP"
+            elif "Q" <= c <= "T":
+                song.song_namefolder_name = "QRST"
+            elif "U" <= c <= "Z":
+                song.song_namefolder_name = "UVWXYZ"
             elif "ア" <= c <= "オ":
                 song.song_namefolder_name = "あ行"
             elif "カ" <= c <= "コ":
