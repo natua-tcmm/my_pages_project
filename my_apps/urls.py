@@ -8,6 +8,7 @@ from .views import view_ongeki_op
 from .views import view_ongeki_rating
 from .views import view_const_search
 from .views import view_chunithm_rating
+from .views import view_yumesute_ocr
 
 urlpatterns = [
     # システム
@@ -29,6 +30,7 @@ urlpatterns = [
     path("ongeki_op", view_ongeki_op.ongeki_op, name="ongeki_op_page"),
     path("ongeki_rating_all", view_ongeki_rating.ongeki_rating_all, name="ongeki_rating_all_page"),
     path("chunithm_rating_all", view_chunithm_rating.chunithm_rating_all, name="chunithm_rating_all_page"),
+    path("yumesute_ocr", view_yumesute_ocr.yumesute_ocr, name="yumesute_ocr_page"),
 
     # 資料集
     path("ongeki_genre", views.ongeki_genre, name="ongeki_genre_page"),
