@@ -19,6 +19,8 @@ from django.contrib import admin
 from django.urls import include, path
 from django.shortcuts import redirect
 from django.http import HttpResponse
+from django.conf import settings
+from django.conf.urls.static import static
 
 def robots_txt(request):
     content = "User-agent: *\nDisallow:"
@@ -30,3 +32,7 @@ urlpatterns = [
     path("", lambda request: redirect("my_apps/top")),
     path('robots.txt', robots_txt),
 ]
+
+# メディアファイル配信用（開発環境のみ）
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
