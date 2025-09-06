@@ -1,2 +1,1 @@
-[djlint]
-ignore = T002,H012
+{ "ignore": "T002,H012,H021" }

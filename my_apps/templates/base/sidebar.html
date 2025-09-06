@@ -74,6 +74,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{% url 'my_apps:yumesute_ocr_page' %}"
+                        class="nav-link {% if request.path == '/my_apps/yumesute_ocr' %}active{% endif %} ">
+                        <i class="nav-icon fas fa-camera"></i>
+                        <p>ユメステOCR(β版)</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{% url 'my_apps:bpm_checker_page' %}"
                         class="nav-link {% if request.path == '/my_apps/bpm_checker' %}active{% endif %} ">
                         <i class="nav-icon fas fa-music"></i>
