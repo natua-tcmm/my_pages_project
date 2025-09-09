@@ -50,6 +50,7 @@ six==1.16.0
 soupsieve==2.4.1
 sqlparse==0.4.4
 tablib==3.5.0
+tomli==2.2.1
 tqdm==4.67.1
 typing_extensions==4.12.2
 tzdata==2023.3
