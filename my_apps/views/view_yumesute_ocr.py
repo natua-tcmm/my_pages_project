@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse, FileResponse, Http404
+from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 from pathlib import Path
 import os
@@ -11,38 +13,12 @@ title_base = "| △Natua♪▽のツールとか保管所"
 
 # --------------------------------------------------
 
+
 # ユメステOCR(β版)
 def yumesute_ocr(request):
     message = None
     video_url = None
-
-    if request.method == "POST":
-        form = YumesuteOcrVideoForm(request.POST, request.FILES)
-        if form.is_valid():
-            video = form.cleaned_data["video"]
-            # 保存先ディレクトリ
-            save_dir = os.path.join(BASE_DIR, "temp", "yumesute_ocr", "videos")
-            os.makedirs(save_dir, exist_ok=True)
-            # ファイル名重複回避
-            filename_uuid = str(uuid.uuid4())
-            video_path = os.path.join(save_dir, filename_uuid)
-            with open(video_path, "wb+") as destination:
-                for chunk in video.chunks():
-                    destination.write(chunk)
-            message = "アップロードが完了しました。"
-
-            # OCR実行
-            csv_filename, csv_path, filename_uuid = run_ocr(video_path, filename_uuid)
-            print(csv_filename, csv_path, filename_uuid)
-
-            # 動画データを削除
-            if os.path.exists(video_path):
-                os.remove(video_path)
-
-        else:
-            message = "アップロードに失敗しました：" + "; ".join([str(e) for e in form.errors.values()])
-    else:
-        form = YumesuteOcrVideoForm()
+    form = YumesuteOcrVideoForm()
 
     context = {
         "title": f"ユメステOCR(β版) {title_base}",
@@ -53,3 +29,56 @@ def yumesute_ocr(request):
         "video_url": video_url,
     }
     return render(request, "yumesute_ocr/yumesute_ocr.html", context=context)
+
+
+@csrf_exempt
+def yumesute_ocr_ajax_upload(request):
+    """
+    動画アップロード＆OCR実行（Ajax）
+    """
+    if request.method != "POST":
+        return JsonResponse({"success": False, "error": "POSTのみ対応しています。"})
+
+    form = YumesuteOcrVideoForm(request.POST, request.FILES)
+    if not form.is_valid():
+        return JsonResponse({"success": False, "error": " ".join([str(e) for e in form.errors.values()])})
+
+    # 動画を保存
+    video = form.cleaned_data["video"]
+    save_dir = os.path.join(BASE_DIR, "temp", "yumesute_ocr", "videos")
+    os.makedirs(save_dir, exist_ok=True)
+    filename_uuid = str(uuid.uuid4())
+    video_path = os.path.join(save_dir, filename_uuid)
+    with open(video_path, "wb+") as destination:
+        for chunk in video.chunks():
+            destination.write(chunk)
+
+    # OCR実行
+    csv_filename, csv_path, filename_uuid = run_ocr(video_path, filename_uuid)
+
+    # 動画データを削除
+    if os.path.exists(video_path):
+        os.remove(video_path)
+
+    return JsonResponse({"success": True, "filename_uuid": filename_uuid})
+
+
+def yumesute_ocr_csv_download(request):
+    """
+    OCR結果のCSVダウンロード
+    """
+    uuid_val = request.GET.get("uuid")
+    if not uuid_val:
+        raise Http404("uuidが指定されていません。")
+    csv_dir = os.path.join(BASE_DIR, "temp", "yumesute_ocr", "csvs")
+
+    # csvファイルを検索
+    csv_file = None
+    for fname in os.listdir(csv_dir):
+        if fname.endswith(".csv") and uuid_val in fname:
+            csv_file = os.path.join(csv_dir, fname)
+            break
+    if not csv_file or not os.path.exists(csv_file):
+        raise Http404("CSVファイルが見つかりません。")
+
+    return FileResponse(open(csv_file, "rb"), as_attachment=True, filename=os.path.basename(csv_file))

@@ -11,6 +11,8 @@ from .views import view_chunithm_rating
 from .views import view_yumesute_ocr
 
 urlpatterns = [
+    path("yumesute_ocr_ajax_upload", view_yumesute_ocr.yumesute_ocr_ajax_upload, name="yumesute_ocr_ajax_upload"),
+    path("yumesute_ocr_csv_download", view_yumesute_ocr.yumesute_ocr_csv_download, name="yumesute_ocr_csv_download"),
     # システム
     path("p403", views.preview403, name="p403_page"),
     path("p404", views.preview404, name="p404_page"),
