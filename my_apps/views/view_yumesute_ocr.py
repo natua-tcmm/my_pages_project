@@ -6,7 +6,8 @@ from pathlib import Path
 import os
 import uuid
 from ..forms import YumesuteOcrVideoForm
-from ..my_script.yumesute_ocr.run_ocr import run_ocr
+from ..jobs import run_ocr_job
+import threading
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 title_base = "| △Natua♪▽のツールとか保管所"
@@ -34,7 +35,7 @@ def yumesute_ocr(request):
 @csrf_exempt
 def yumesute_ocr_ajax_upload(request):
     """
-    動画アップロード＆OCR実行（Ajax）
+    動画アップロード（Ajax）→ OCRはバックグラウンドで実行
     """
     if request.method != "POST":
         return JsonResponse({"success": False, "error": "POSTのみ対応しています。"})
@@ -53,13 +54,11 @@ def yumesute_ocr_ajax_upload(request):
         for chunk in video.chunks():
             destination.write(chunk)
 
-    # OCR実行
-    csv_filename, csv_path, filename_uuid = run_ocr(video_path, filename_uuid)
+    # OCRをバックグラウンドで実行（threading）
+    thread = threading.Thread(target=run_ocr_job, args=(video_path, filename_uuid))
+    thread.start()
 
-    # 動画データを削除
-    if os.path.exists(video_path):
-        os.remove(video_path)
-
+    # ここですぐレスポンス返却
     return JsonResponse({"success": True, "filename_uuid": filename_uuid})
 
 
@@ -82,3 +81,16 @@ def yumesute_ocr_csv_download(request):
         raise Http404("CSVファイルが見つかりません。")
 
     return FileResponse(open(csv_file, "rb"), as_attachment=True, filename=os.path.basename(csv_file))
+
+def yumesute_ocr_check_status(request):
+    """
+    OCR完了状況を返すAPI（JSON）
+    """
+    uuid_val = request.GET.get("uuid")
+    if not uuid_val:
+        return JsonResponse({"ready": False, "error": "uuidが指定されていません。"})
+    csv_dir = os.path.join(BASE_DIR, "temp", "yumesute_ocr", "csvs")
+    for fname in os.listdir(csv_dir):
+        if fname.endswith(".csv") and uuid_val in fname:
+            return JsonResponse({"ready": True})
+    return JsonResponse({"ready": False})
