@@ -41,4 +41,7 @@ urlpatterns = [
     # データベース
     path("songdata_chunithm.json", views.songdata_chunithm, name="songdata_chunithm_json"),
     path("songdata_ongeki.json", views.songdata_ongeki, name="songdata_ongeki_json"),
+
+    # 統計API
+    path("api/stats", views.api_stats, name="api_stats"),
 ]
