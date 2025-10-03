@@ -190,7 +190,7 @@
                 <hr />
                 <div class="row justify-content-center align-items-center">
                     <div class="col-12 mb-2 text-center">
-                        <p class="h2">𝐀𝐜𝐜𝐞𝐬𝐬 𝐂𝐨𝐮𝐧𝐭 : {{ total_access }}</p>
+                        <p class="h2" id="access-count">𝐀𝐜𝐜𝐞𝐬𝐬 𝐂𝐨𝐮𝐧𝐭 : <span id="access-count-value">loading...</span></p>
                     </div>
                     <div class="col-md-6 col-12 mb-2">
                         <div style="width: 100%; height: 300px;">
@@ -219,117 +219,160 @@
                 const lineChart_daily = document.getElementById('lineChart-daily').getContext('2d');
                 const lineChart_tools = document.getElementById('lineChart-tools').getContext('2d');
 
-                new Chart(donutChart_total, {
-                    type: 'doughnut',
-                    data: {
-                        labels: {{ data_total.labels| safe }},
+                // 総アクセス数をAjaxで取得
+                fetch("/my_apps/api/stats?type=total")
+                  .then(res => res.json())
+                  .then(data => {
+                    document.getElementById("access-count-value").textContent = data.total_access;
+                  })
+                  .catch(() => {
+                    document.getElementById("access-count-value").textContent = "取得失敗";
+                  });
+
+                // ページ別アクセス数グラフをAjaxで取得して描画
+                fetch("/my_apps/api/stats?type=pages")
+                  .then(res => res.json())
+                  .then(data => {
+                    new Chart(donutChart_total, {
+                      type: 'doughnut',
+                      data: {
+                        labels: data.labels,
                         datasets: [{
-                            data: {{ data_total.data | safe }},
-                            backgroundColor: [
-                                "#FF979F", "#d3ff97", "#fff797",
-                                "#ffc397", "#97edff", "#aaaaaa"
-                            ],
-                            borderWidth: 1
+                          data: data.data,
+                          backgroundColor: [
+                            "#FF979F", "#d3ff97", "#fff797",
+                            "#ffc397", "#97edff", "#aaaaaa"
+                          ],
+                          borderWidth: 1
                         }]
-                    },
-                    options: {
+                      },
+                      options: {
                         responsive: true,
                         maintainAspectRatio: false,
                         plugins: {
-                            legend: {
-                                position: 'right',
-                            },
-                            title: {
-                                display: true,
-                                text: '各ページの通算アクセス数 '
-                            }
+                          legend: {
+                            position: 'right',
+                          },
+                          title: {
+                            display: true,
+                            text: '各ページの通算アクセス数 '
+                          }
                         }
-                    }
-                });
+                      }
+                    });
+                  })
+                  .catch(() => {
+                    donutChart_total.canvas.parentNode.innerHTML = "<div class='text-danger'>取得失敗</div>";
+                  });
 
-                new Chart(donutChart_os, {
-                    type: 'doughnut',
-                    data: {
-                        labels: {{ data_os.labels| safe }},
+                // OS別アクセス数グラフをAjaxで取得して描画
+                fetch("/my_apps/api/stats?type=os")
+                  .then(res => res.json())
+                  .then(data => {
+                    new Chart(donutChart_os, {
+                      type: 'doughnut',
+                      data: {
+                        labels: data.labels,
                         datasets: [{
-                            data: {{ data_os.data | safe }},
-                            backgroundColor: [
-                                "#FF979F", "#d3ff97", "#fff797",
-                                "#ffc397", "#aaaaaa"
-                            ],
-                            borderWidth: 1
+                          data: data.data,
+                          backgroundColor: [
+                            "#FF979F", "#d3ff97", "#fff797",
+                            "#ffc397", "#aaaaaa"
+                          ],
+                          borderWidth: 1
                         }]
-                    },
-                    options: {
+                      },
+                      options: {
                         responsive: true,
                         maintainAspectRatio: false,
                         plugins: {
-                            legend: {
-                                position: 'right',
-                            },
-                            title: {
-                                display: true,
-                                text: 'OS別アクセス数'
-                            }
+                          legend: {
+                            position: 'right',
+                          },
+                          title: {
+                            display: true,
+                            text: 'OS別アクセス数'
+                          }
                         }
-                    }
-                });
+                      }
+                    });
+                  })
+                  .catch(() => {
+                    donutChart_os.canvas.parentNode.innerHTML = "<div class='text-danger'>取得失敗</div>";
+                  });
 
-                new Chart(lineChart_daily, {
-                    type: 'line',
-                    data: {
-                        labels: {{ data_daily.labels| safe }},
+                // 日別アクセス数グラフをAjaxで取得して描画
+                fetch("/my_apps/api/stats?type=daily")
+                  .then(res => res.json())
+                  .then(data => {
+                    new Chart(lineChart_daily, {
+                      type: 'line',
+                      data: {
+                        labels: data.labels,
                         datasets: [{
-                            label: "アクセス数",
-                            data: {{ data_daily.data | safe }},
+                          label: "アクセス数",
+                          data: data.data,
                         }]
-                    },
-                    options: {
+                      },
+                      options: {
                         responsive: true,
                         maintainAspectRatio: false,
                         scales: {
-                            y: {
-                              beginAtZero: true
-                            }
+                          y: {
+                            beginAtZero: true
+                          }
                         },
                         plugins: {
-                            legend: {
-                                display: true,
-                                position: 'bottom'
-                            },
-                            title: {
-                                display: true,
-                                text: '直近10日間の全ページ合計アクセス数'
-                            }
+                          legend: {
+                            display: true,
+                            position: 'bottom'
+                          },
+                          title: {
+                            display: true,
+                            text: '直近10日間の全ページ合計アクセス数'
+                          }
                         }
-                    }
-                });
-                new Chart(lineChart_tools, {
-                    type: 'line',
-                    data: {
-                        labels: {{ data_tools.labels|safe }},
-                        datasets: {{ data_tools.datasets|safe }}
-                    },
-                    options: {
+                      }
+                    });
+                  })
+                  .catch(() => {
+                    lineChart_daily.canvas.parentNode.innerHTML = "<div class='text-danger'>取得失敗</div>";
+                  });
+
+                // ツール統計グラフをAjaxで取得して描画
+                fetch("/my_apps/api/stats?type=tools")
+                  .then(res => res.json())
+                  .then(data => {
+                    new Chart(lineChart_tools, {
+                      type: 'line',
+                      data: {
+                        labels: data.labels,
+                        datasets: data.datasets
+                      },
+                      options: {
                         responsive: true,
                         maintainAspectRatio: false,
                         scales: {
-                            y: {
-                                beginAtZero: true
-                            }
+                          y: {
+                            beginAtZero: true
+                          }
                         },
                         plugins: {
-                            legend: {
-                                display: true,
-                                position: 'bottom'
-                            },
-                            title: {
-                                display: true,
-                                text: '直近10日間の各ツール使用数'
-                            }
+                          legend: {
+                            display: true,
+                            position: 'bottom'
+                          },
+                          title: {
+                            display: true,
+                            text: '直近10日間の各ツール使用数'
+                          }
                         }
-                    }
-                });
+                      }
+                    });
+                  })
+                  .catch(() => {
+                    lineChart_tools.canvas.parentNode.innerHTML = "<div class='text-danger'>取得失敗</div>";
+                  });
 
                 </script>
             </div>

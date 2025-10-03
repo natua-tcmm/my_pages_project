@@ -1,19 +1,12 @@
-from django.shortcuts import render, redirect
-from django.template.loader import render_to_string
+from django.shortcuts import render
 from django.http import JsonResponse, FileResponse, Http404
 from django.db.models import Q, Count
 from django.utils import timezone
-from django.db.models.functions import ExtractHour, ExtractWeekDay
-
 from user_agents import parse as ua_parse
-
+from django.views.decorators.http import require_GET
 # from django.core.handlers.wsgi import WSGIRequest
 
 from ..models import *
-
-import os, json, datetime, jaconv, re, unicodedata
-from datetime import timedelta
-from django.conf import settings
 
 # --------------------------------------------------
 
@@ -24,12 +17,11 @@ title_base = "| △Natua♪▽のツールとか保管所"
 
 # トップ画面
 def top(request):
-
     context = {"title": "△Natua♪▽のツールとか保管所", "is_beta": False, "is_app": False}
+    return render(request, "top.html", context=context)
 
-    now = timezone.now()
-
-    # データを取得 (botを除外)
+# ---- 統計API共通処理 ----
+def get_nonbot_base_query():
     BOT_KEYWORDS = [
         "bot",
         "crawl",
@@ -48,19 +40,17 @@ def top(request):
     bot_q = Q()
     for kw in BOT_KEYWORDS:
         bot_q |= Q(user_agent__icontains=kw)
-    nonbot_base = Q(path__startswith="/my_apps/") & ~bot_q
-    all_myapps = PageView.objects.filter(nonbot_base)
-    # json_base = Q(path__startswith="/my_apps/") & Q(path__iendswith=".json")
+    return Q(path__startswith="/my_apps/") & ~bot_q
 
-    # --------------------
 
-    # 総アクセス数
-    total_access = str(all_myapps.count()).translate(str.maketrans("1234567890", "𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗𝟎"))
-    context |= {"total_access": total_access}
+def get_total_stats(nonbot_base):
+    total_access = PageView.objects.filter(nonbot_base).count()
+    total_access_str = str(total_access).translate(str.maketrans("1234567890", "𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗𝟎"))
+    return {"total_access": total_access_str}
 
-    # --------------------
 
-    # 各ページごとの総アクセス数
+def get_pages_stats(nonbot_base):
+    now = timezone.now()
     per_page = (
         PageView.objects.filter(nonbot_base)
         .values("path")
@@ -74,8 +64,8 @@ def top(request):
     labels = []
     data = []
     other_total = 0
-    for i,row in enumerate(per_page):
-        if i>=5:
+    for i, row in enumerate(per_page):
+        if i >= 5:
             other_total += row["total"]
             continue
         labels.append(row["path"][9:])
@@ -83,30 +73,22 @@ def top(request):
     if other_total > 0:
         labels.append("others")
         data.append(other_total)
+    return {"labels": labels, "data": data}
 
-    context |= {
-        "data_total": {
-            "labels": json.dumps(labels),
-            "data": json.dumps(data),
-        }
-    }
 
-    # --------------------
-
-    # OS割合
+def get_os_stats(nonbot_base):
+    all_myapps = PageView.objects.filter(nonbot_base)
     os_counts = {}
     for pv in all_myapps.exclude(user_agent__isnull=True).only("user_agent"):
         ua = ua_parse(pv.user_agent)
         osn = ua.os.family or "Unknown"
         os_counts[osn] = os_counts.get(osn, 0) + 1
-
     top_os = sorted(os_counts.items(), key=lambda x: -x[1])
-
     labels = []
     data = []
     other_total = 0
-    for i,row in enumerate(top_os):
-        if i>=4:
+    for i, row in enumerate(top_os):
+        if i >= 4:
             other_total += row[1]
             continue
         labels.append(row[0])
@@ -114,17 +96,11 @@ def top(request):
     if other_total > 0:
         labels.append("others")
         data.append(other_total)
+    return {"labels": labels, "data": data}
 
-    context |= {
-        "data_os": {
-            "labels": json.dumps(labels),
-            "data": json.dumps(data),
-        }
-    }
 
-    # --------------------
-
-    # 毎日の各ページアクセス数 折れ線グラフ
+def get_daily_stats(nonbot_base):
+    now = timezone.now()
     from django.db.models.functions import TruncDate
 
     daily_stats = (
@@ -134,22 +110,18 @@ def top(request):
         .annotate(cnt=Count("id"))
         .order_by("date")
     )
-
     labels = []
     data = []
     for row in daily_stats:
         labels.append(row["date"].strftime("%Y-%m-%d"))
         data.append(row["cnt"])
-    context |= {
-        "data_daily": {
-            "labels": json.dumps(labels),
-            "data": json.dumps(data),
-        }
-    }
+    return {"labels": labels, "data": data}
 
-    # --------------------
 
-    # 毎日の各ツールの使用回数 折れ線グラフ
+def get_tools_stats():
+    now = timezone.now()
+    from django.db.models.functions import TruncDate
+
     tool_usage_daily = (
         ToolUsage.objects.filter(timestamp__gte=now - timedelta(days=10))
         .annotate(date=TruncDate("timestamp"))
@@ -157,7 +129,6 @@ def top(request):
         .annotate(count=Count("id"))
         .order_by("date", "tool_name")
     )
-
     tool_data = {}
     for row in tool_usage_daily:
         date = row["date"].strftime("%Y-%m-%d")
@@ -166,26 +137,39 @@ def top(request):
         if date not in tool_data:
             tool_data[date] = {}
         tool_data[date][tool_name] = count
-
     labels = sorted(tool_data.keys())
     tools = set()
     for daily_data in tool_data.values():
         tools.update(daily_data.keys())
     tools = sorted(tools)
-
     datasets = []
     for tool in tools:
         data = [tool_data[date].get(tool, 0) for date in labels]
         datasets.append({"label": tool, "data": data})
+    return {"labels": labels, "datasets": datasets}
 
-    context |= {
-        "data_tools": {
-            "labels": json.dumps(labels),
-            "datasets": json.dumps(datasets),
-        }
-    }
 
-    return render(request, "top.html", context=context)
+@require_GET
+def api_stats(request):
+    stat_type = request.GET.get("type", "total")
+    nonbot_base = get_nonbot_base_query()
+    if stat_type == "total":
+        return JsonResponse(get_total_stats(nonbot_base))
+    elif stat_type == "pages":
+        return JsonResponse(get_pages_stats(nonbot_base))
+    elif stat_type == "os":
+        return JsonResponse(get_os_stats(nonbot_base))
+    elif stat_type == "daily":
+        return JsonResponse(get_daily_stats(nonbot_base))
+    elif stat_type == "tools":
+        return JsonResponse(get_tools_stats())
+    else:
+        return JsonResponse({"error": "Invalid type"}, status=400)
+
+
+import os, json, unicodedata
+from datetime import timedelta
+from django.conf import settings
 
 
 # 403ページを見るためのview
