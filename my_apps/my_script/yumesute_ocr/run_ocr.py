@@ -88,7 +88,6 @@ def find_top2_and_decide(raw_target: str, song_name_list_orig: list):
     return top1[0], accepted
 
 
-# TODO : ファイル名を修正
 def load_song_name_list(file_path):
     """
     曲名リストをファイルから読み込む関数
