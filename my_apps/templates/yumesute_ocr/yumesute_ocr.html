@@ -36,10 +36,12 @@
 
                             <div class="row justify-content-center">
                                 <div class="col-12 col-md-10">
-                                    <p>ユメステの楽曲選曲画面の録画ファイルをアップロードすると、OCR(光学文字認識)を用いて自動で曲名・難易度・スコアを抽出し、CSV形式に整えます。</p>
+                                    <p>ユメステの楽曲選曲画面の録画ファイルをアップロードすると、OCR(光学文字認識)を用いて自動で曲名・難易度・スコアを抽出し、CSV形式で出力できます。</p>
                                     <h4>【重要】アップロードする動画について</h4>
                                     <p>スクロールするのではなく、以下の動画のように<strong>1曲ずつ移動する</strong>動画をアップロードしてください！<br><strong><span style="color: red">現在のところアスペクト比が1640x2360と同様の機種にしか対応していません。</strong></span></p>
-                                    {% comment %} gif画像 {% endcomment %}
+                                    <div class="text-center mb-3">
+                                        <img src="{% static 'yumesute_ocr/yumesute_ocr_sample.gif' %}" alt="ユメステOCRサンプル動画" class="img-fluid" style="width: 80%; border: 1px solid #ccc; border-radius: 5px;">
+                                    </div>
                                     <h4>注意点</h4>
                                     <ul>
                                         <li><span style="color: red"><strong>OCRの精度は完璧ではありません。</strong></span>誤認識が含まれる可能性がかなり高いです。</li>
@@ -50,11 +52,11 @@
                                     <form id="yumesute-ocr-upload-form" method="post" enctype="multipart/form-data" style="display:block">
                                         {% csrf_token %}
                                         <div class="form-group">
-                                            <label for="video">動画ファイル（.mp4のみ・最大300MB）</label>
+                                            <label for="video">動画ファイルのアップロード</label>
                                             <input type="file" id="video" name="video" class="form-control-file" accept=".mp4" required>
                                             <small class="form-text text-muted">300MBまでの.mp4ファイルのみアップロード可能です。</small>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">アップロード</button>
+                                        <button type="submit" class="btn btn-primary">アップロード＆実行開始</button>
                                     </form>
                                     <div id="yumesute-ocr-message" class="alert alert-info" style="display:none"></div>
                                     <div id="yumesute-ocr-download-link" style="display:none"></div>
