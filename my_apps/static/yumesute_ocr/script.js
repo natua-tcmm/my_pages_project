@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (data.ready) {
                         if(messageBox) {
                             messageBox.classList.remove("alert-info");
+                            messageBox.classList.remove("alert-danger");
                             messageBox.classList.add("alert-success");
                             messageBox.textContent = "OCR処理が完了しました！";
                         }
@@ -76,6 +77,16 @@ document.addEventListener("DOMContentLoaded", function () {
                                     window.location.reload();
                                 }
                             });
+                        }
+                    } else if (data.error) {
+                        if(messageBox) {
+                            messageBox.classList.remove("alert-info");
+                            messageBox.classList.remove("alert-success");
+                            messageBox.classList.add("alert-danger");
+                            messageBox.textContent = "【ERROR】" + data.error;
+                        }
+                        if(downloadArea) {
+                            downloadArea.innerHTML = "";
                         }
                     } else {
                         downloadArea.innerHTML = "現在処理中です。完了するとダウンロードボタンが表示されます。";

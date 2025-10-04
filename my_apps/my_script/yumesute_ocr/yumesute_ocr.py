@@ -422,7 +422,7 @@ def yumesute_ocr(video_path, interval_seconds=0.1):
     cap.set(cv2.CAP_PROP_ORIENTATION_AUTO, 0)
 
     if not cap.isOpened():
-        raise ValueError("Could not open video file: " + video_path)
+        raise ValueError("動画ファイルが見つかりません。" + video_path)
 
     # アスペクト比を確認
     width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
@@ -432,7 +432,7 @@ def yumesute_ocr(video_path, interval_seconds=0.1):
     # 2360×1640 px
     print(f"Video resolution: {int(width)}x{int(height)}, Aspect ratio: {aspect_ratio:.2f}")
     if not (0.69 <= aspect_ratio <= 0.70):
-        raise ValueError(f"Unexpected aspect ratio: {aspect_ratio:.2f}. Expected around 0.69 to 0.70.")
+        raise ValueError(f"動画アスペクト比が不正です: {aspect_ratio:.2f}。0.69〜0.70である必要があります。")
 
     fps = cap.get(cv2.CAP_PROP_FPS)
     frame_interval = calculate_frame_interval(fps, interval_seconds)

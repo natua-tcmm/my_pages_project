@@ -91,8 +91,21 @@ def yumesute_ocr_check_status(request):
     uuid_val = request.GET.get("uuid")
     if not uuid_val:
         return JsonResponse({"ready": False, "error": "uuidが指定されていません。"})
+
     csv_dir = os.path.join(BASE_DIR, "temp", "yumesute_ocr", "csvs")
+    error_dir = os.path.join(BASE_DIR, "temp", "yumesute_ocr", "errors")
+    error_path = os.path.join(error_dir, f"{uuid_val}.error.txt")
+
+    # エラーがあれば返す
+    if os.path.exists(error_path):
+        with open(error_path, "r", encoding="utf-8") as f:
+            error_msg = f.read()
+        return JsonResponse({"ready": False, "error": error_msg})
+
+    # csvファイルがあれば完了
     for fname in os.listdir(csv_dir):
         if fname.endswith(".csv") and uuid_val in fname:
             return JsonResponse({"ready": True})
+
+    # どちらもなければ未完了
     return JsonResponse({"ready": False})
