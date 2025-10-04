@@ -36,9 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         if (downloadArea) {
                             downloadArea.innerHTML = `
                                 <p class="mb-2">以下のボタンからCSVファイルをダウンロードしてください。</p>
-                                <button id="yumesute-ocr-download-btn" class="btn btn-success mb-4">CSVをダウンロード</button>
-                                <p class="mb-2">再度ツールを使用する場合は「データクリア」ボタンを押してください。<span style="color: red;"><strong>今回のデータは消去され、二度とダウンロードできなくなります。</strong></span></p>
-                                <button id="yumesute-ocr-clear" class="btn btn-secondary mb-4">データクリア</button>
+                                <button id="yumesute-ocr-download-btn" class="btn btn-outline-success mb-4">CSVをダウンロード</button>
+                                <p class="mb-2">再度ツールを使用する場合は「リセット」ボタンを押してください。<span style="color: red;"><strong>今回のデータは消去され、二度とダウンロードできなくなります。</strong></span></p>
+                                <button id="yumesute-ocr-clear" class="btn btn-outline-danger mb-4">リセット</button>
                             `;
                             const btn = document.getElementById("yumesute-ocr-download-btn");
                             const clearBtn = document.getElementById("yumesute-ocr-clear");
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                     });
                             });
                             clearBtn.addEventListener("click", function () {
-                                if (confirm("本当にデータをクリアしますか？今回のデータは消去され、二度とダウンロードできなくなります。")) {
+                                if (confirm("今回のデータは消去され、二度とダウンロードできなくなります。よろしいですか？")) {
                                     localStorage.removeItem(uuidKey);
                                     window.location.reload();
                                 }
@@ -86,10 +86,30 @@ document.addEventListener("DOMContentLoaded", function () {
                             messageBox.textContent = "【ERROR】" + data.error;
                         }
                         if(downloadArea) {
-                            downloadArea.innerHTML = "";
+                            downloadArea.innerHTML = `
+                                <p class="mb-2">再度ツールを使用する場合は「リセット」ボタンを押してください。</p>
+                                <button id="yumesute-ocr-clear" class="btn btn-outline-secondary mb-4">リセット</button>
+                            `;
+                            const clearBtn = document.getElementById("yumesute-ocr-clear");
+                            clearBtn.addEventListener("click", function () {
+                                localStorage.removeItem(uuidKey);
+                                window.location.reload();
+                            });
                         }
                     } else {
-                        downloadArea.innerHTML = "現在処理中です。完了するとダウンロードボタンが表示されます。";
+                        if(downloadArea) {
+                            downloadArea.innerHTML = `
+                                <p><span class="text-muted">現在処理中です。完了するとダウンロードボタンが表示されます。</span></p>
+                                <button id="yumesute-ocr-clear" class="btn btn-outline-danger mb-4">処理を中止する</button>
+                            `;
+                            const clearBtn = document.getElementById("yumesute-ocr-clear");
+                            clearBtn.addEventListener("click", function () {
+                                if (confirm("本当に処理を中止しますか？今回のデータは消去され、二度とダウンロードできなくなります。")) {
+                                    localStorage.removeItem(uuidKey);
+                                    window.location.reload();
+                                }
+                            });
+                        }
                         setTimeout(pollStatus, 2000);
                     }
                 })
