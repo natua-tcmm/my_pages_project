@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         localStorage.setItem(uuidKey, data.filename_uuid);
                         if (messageBox) {
                             messageBox.style.display = "block";
-                            messageBox.textContent = "アップロードが完了しました。ページが再読み込みされます...";
+                            messageBox.textContent = "アップロードが完了しました。3秒後にページが再読み込みされます...";
                             setTimeout(() => {
                                 window.location.reload();
                             }, 3000);
