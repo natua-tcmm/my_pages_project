@@ -2,7 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("#yumesute-ocr-upload-form");
-    const fileInput = document.querySelector("#id_video");
+    const fileInput = document.querySelector("#video");
     const messageBox = document.querySelector("#yumesute-ocr-message");
     const downloadArea = document.querySelector("#yumesute-ocr-download-link");
 
@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (form) form.style.display = "none";
         if (messageBox) {
             messageBox.style.display = "block";
-            messageBox.textContent = "実行済みのデータがあります！（処理中の場合は完了までお待ちください）";
+            messageBox.textContent = "OCR実行中のデータがあります！";
         }
         if (downloadArea) {
             downloadArea.style.display = "block";
-            downloadArea.innerHTML = `<span class="text-muted">処理中...</span>`;
+            downloadArea.innerHTML = `<span class="text-muted">状況確認中...</span>`;
         }
 
         // ポーリングでOCR完了を監視
@@ -27,11 +27,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then(res => res.json())
                 .then(data => {
                     if (data.ready) {
+                        if(messageBox) {
+                            messageBox.classList.remove("alert-info");
+                            messageBox.classList.add("alert-success");
+                            messageBox.textContent = "OCR処理が完了しました！";
+                        }
                         if (downloadArea) {
                             downloadArea.innerHTML = `
-                                <button id="yumesute-ocr-download-btn" class="btn btn-success">CSVをダウンロード</button>
+                                <p class="mb-2">以下のボタンからCSVファイルをダウンロードしてください。</p>
+                                <button id="yumesute-ocr-download-btn" class="btn btn-success mb-4">CSVをダウンロード</button>
+                                <p class="mb-2">再度ツールを使用する場合は「データクリア」ボタンを押してください。<span style="color: red;"><strong>今回のデータは消去され、二度とダウンロードできなくなります。</strong></span></p>
+                                <button id="yumesute-ocr-clear" class="btn btn-secondary mb-4">データクリア</button>
                             `;
                             const btn = document.getElementById("yumesute-ocr-download-btn");
+                            const clearBtn = document.getElementById("yumesute-ocr-clear");
                             btn.addEventListener("click", function () {
                                 btn.disabled = true;
                                 btn.textContent = "ダウンロード中...";
@@ -52,18 +61,24 @@ document.addEventListener("DOMContentLoaded", function () {
                                         a.click();
                                         a.remove();
                                         window.URL.revokeObjectURL(url);
-                                        localStorage.removeItem(uuidKey);
-                                        if (messageBox) messageBox.textContent = "CSVファイルをダウンロードしました。";
-                                        if (downloadArea) downloadArea.style.display = "none";
+                                        btn.disabled = false;
+                                        btn.textContent = "CSVをダウンロード";
                                     })
                                     .catch(err => {
-                                        if (messageBox) messageBox.textContent = err.message;
+                                        alert(err.message);
                                         btn.disabled = false;
                                         btn.textContent = "CSVをダウンロード";
                                     });
                             });
+                            clearBtn.addEventListener("click", function () {
+                                if (confirm("本当にデータをクリアしますか？今回のデータは消去され、二度とダウンロードできなくなります。")) {
+                                    localStorage.removeItem(uuidKey);
+                                    window.location.reload();
+                                }
+                            });
                         }
                     } else {
+                        downloadArea.innerHTML = "現在処理中です。完了するとダウンロードボタンが表示されます。";
                         setTimeout(pollStatus, 2000);
                     }
                 })
@@ -98,15 +113,12 @@ document.addEventListener("DOMContentLoaded", function () {
                         localStorage.setItem(uuidKey, data.filename_uuid);
                         if (messageBox) {
                             messageBox.style.display = "block";
-                            messageBox.textContent = "アップロード完了！サーバー側で処理を開始しました。ページを再読み込みせずにお待ちください。";
+                            messageBox.textContent = "アップロードが完了しました。ページが再読み込みされます...";
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 3000);
                         }
                         if (form) form.style.display = "none";
-                        if (downloadArea) {
-                            downloadArea.style.display = "block";
-                            downloadArea.innerHTML = `
-                                <span class="text-muted">処理が完了するとここにダウンロードボタンが表示されます。</span>
-                            `;
-                        }
                     } else {
                         if (messageBox) {
                             messageBox.style.display = "block";

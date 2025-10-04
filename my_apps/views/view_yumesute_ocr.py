@@ -5,7 +5,6 @@ from django.conf import settings
 from pathlib import Path
 import os
 import uuid
-from ..forms import YumesuteOcrVideoForm
 from ..jobs import run_ocr_job
 import threading
 
@@ -19,13 +18,11 @@ title_base = "| △Natua♪▽のツールとか保管所"
 def yumesute_ocr(request):
     message = None
     video_url = None
-    form = YumesuteOcrVideoForm()
 
     context = {
         "title": f"ユメステOCR(β版) {title_base}",
         "is_beta": True,
         "is_app": True,
-        "form": form,
         "message": message,
         "video_url": video_url,
     }
@@ -40,12 +37,17 @@ def yumesute_ocr_ajax_upload(request):
     if request.method != "POST":
         return JsonResponse({"success": False, "error": "POSTのみ対応しています。"})
 
-    form = YumesuteOcrVideoForm(request.POST, request.FILES)
-    if not form.is_valid():
-        return JsonResponse({"success": False, "error": " ".join([str(e) for e in form.errors.values()])})
+    video = request.FILES.get("video")
+    if not video:
+        return JsonResponse({"success": False, "error": "ファイルが選択されていません。"})
+
+    if not video.name.lower().endswith(".mp4"):
+        return JsonResponse({"success": False, "error": "mp4ファイルのみアップロードできます。"})
+
+    if video.size > 300 * 1024 * 1024:
+        return JsonResponse({"success": False, "error": "ファイルサイズは300MB以下にしてください。"})
 
     # 動画を保存
-    video = form.cleaned_data["video"]
     save_dir = os.path.join(BASE_DIR, "temp", "yumesute_ocr", "videos")
     os.makedirs(save_dir, exist_ok=True)
     filename_uuid = str(uuid.uuid4())
