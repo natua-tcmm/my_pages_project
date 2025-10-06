@@ -11,9 +11,6 @@ from .views import view_chunithm_rating
 from .views import view_yumesute_ocr
 
 urlpatterns = [
-    path("yumesute_ocr_ajax_upload", view_yumesute_ocr.yumesute_ocr_ajax_upload, name="yumesute_ocr_ajax_upload"),
-    path("yumesute_ocr_csv_download", view_yumesute_ocr.yumesute_ocr_csv_download, name="yumesute_ocr_csv_download"),
-    path("yumesute_ocr_check_status", view_yumesute_ocr.yumesute_ocr_check_status, name="yumesute_ocr_check_status"),
     # システム
     path("p403", views.preview403, name="p403_page"),
     path("p404", views.preview404, name="p404_page"),
@@ -33,7 +30,13 @@ urlpatterns = [
     path("ongeki_op", view_ongeki_op.ongeki_op, name="ongeki_op_page"),
     path("ongeki_rating_all", view_ongeki_rating.ongeki_rating_all, name="ongeki_rating_all_page"),
     path("chunithm_rating_all", view_chunithm_rating.chunithm_rating_all, name="chunithm_rating_all_page"),
+
+    # ユメステOCR
     path("yumesute_ocr", view_yumesute_ocr.yumesute_ocr, name="yumesute_ocr_page"),
+    path("yumesute_ocr_ajax_upload", view_yumesute_ocr.yumesute_ocr_ajax_upload, name="yumesute_ocr_ajax_upload"),
+    path("yumesute_ocr_csv_download", view_yumesute_ocr.yumesute_ocr_csv_download, name="yumesute_ocr_csv_download"),
+    path("yumesute_ocr_check_status", view_yumesute_ocr.yumesute_ocr_check_status, name="yumesute_ocr_check_status"),
+    path("yumesute_ocr_cleanup", view_yumesute_ocr.yumesute_ocr_cleanup_files, name="yumesute_ocr_cleanup"),
 
     # 資料集
     path("ongeki_genre", views.ongeki_genre, name="ongeki_genre_page"),

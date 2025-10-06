@@ -20,3 +20,7 @@ def run_ocr_job(video_path, filename_uuid):
         error_path = os.path.join(error_dir, f"{filename_uuid}.error.txt")
         with open(error_path, "w", encoding="utf-8") as f:
             f.write(str(e))
+    finally:
+        # 処理が終わったら動画ファイルを削除
+        if os.path.exists(video_path):
+            os.remove(video_path)

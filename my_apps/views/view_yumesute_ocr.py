@@ -11,6 +11,42 @@ import threading
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 title_base = "| △Natua♪▽のツールとか保管所"
 
+@csrf_exempt
+def yumesute_ocr_cleanup_files(request):
+    """
+    指定されたUUIDに関連するファイル（CSV、エラーファイル）を削除
+    """
+    if request.method != "POST":
+        return JsonResponse({"success": False, "error": "POSTのみ対応しています。"})
+    uuid_val = request.GET.get("uuid")
+    if not uuid_val:
+        return JsonResponse({"success": False, "error": "uuidが指定されていません。"})
+
+    csv_dir = os.path.join(BASE_DIR, "temp", "yumesute_ocr", "csvs")
+    error_dir = os.path.join(BASE_DIR, "temp", "yumesute_ocr", "errors")
+    deleted_files = []
+
+    # CSVファイル削除
+    for fname in os.listdir(csv_dir):
+        if fname.endswith(".csv") and uuid_val in fname:
+            csv_file = os.path.join(csv_dir, fname)
+            try:
+                os.remove(csv_file)
+                deleted_files.append(csv_file)
+            except Exception as e:
+                pass
+
+    # エラーファイル削除
+    error_file = os.path.join(error_dir, f"{uuid_val}.error.txt")
+    if os.path.exists(error_file):
+        try:
+            os.remove(error_file)
+            deleted_files.append(error_file)
+        except Exception as e:
+            pass
+
+    return JsonResponse({"success": True, "deleted_files": deleted_files})
+
 # --------------------------------------------------
 
 

@@ -21,13 +21,28 @@ document.addEventListener("DOMContentLoaded", function () {
             downloadArea.innerHTML = `<span class="text-muted">状況確認中...</span>`;
         }
 
+        function handleYumesuteOcrClear(confirmMsg) {
+            if (!confirmMsg || confirm(confirmMsg)) {
+                fetch(`/my_apps/yumesute_ocr_cleanup?uuid=${encodeURIComponent(uuid)}`, {
+                    method: "POST",
+                    headers: {
+                        "X-Requested-With": "XMLHttpRequest"
+                    }
+                })
+                    .finally(() => {
+                        localStorage.removeItem(uuidKey);
+                        window.location.reload();
+                    });
+            }
+        }
+
         // ポーリングでOCR完了を監視
         const pollStatus = () => {
             fetch(`/my_apps/yumesute_ocr_check_status?uuid=${encodeURIComponent(uuid)}`)
                 .then(res => res.json())
                 .then(data => {
                     if (data.ready) {
-                        if(messageBox) {
+                        if (messageBox) {
                             messageBox.classList.remove("alert-info");
                             messageBox.classList.remove("alert-danger");
                             messageBox.classList.add("alert-success");
@@ -72,42 +87,35 @@ document.addEventListener("DOMContentLoaded", function () {
                                     });
                             });
                             clearBtn.addEventListener("click", function () {
-                                if (confirm("今回のデータは消去され、二度とダウンロードできなくなります。よろしいですか？")) {
-                                    localStorage.removeItem(uuidKey);
-                                    window.location.reload();
-                                }
+                                handleYumesuteOcrClear("今回のデータは消去され、二度とダウンロードできなくなります。よろしいですか？");
                             });
                         }
                     } else if (data.error) {
-                        if(messageBox) {
+                        if (messageBox) {
                             messageBox.classList.remove("alert-info");
                             messageBox.classList.remove("alert-success");
                             messageBox.classList.add("alert-danger");
                             messageBox.textContent = "【ERROR】" + data.error;
                         }
-                        if(downloadArea) {
+                        if (downloadArea) {
                             downloadArea.innerHTML = `
                                 <p class="mb-2">再度ツールを使用する場合は「リセット」ボタンを押してください。</p>
                                 <button id="yumesute-ocr-clear" class="btn btn-outline-secondary mb-4">リセット</button>
                             `;
                             const clearBtn = document.getElementById("yumesute-ocr-clear");
                             clearBtn.addEventListener("click", function () {
-                                localStorage.removeItem(uuidKey);
-                                window.location.reload();
+                                handleYumesuteOcrClear("今回のデータは消去され、二度とダウンロードできなくなります。よろしいですか？");
                             });
                         }
                     } else {
-                        if(downloadArea) {
+                        if (downloadArea) {
                             downloadArea.innerHTML = `
                                 <p><span class="text-muted">現在処理中です。完了するとダウンロードボタンが表示されます。</span></p>
                                 <button id="yumesute-ocr-clear" class="btn btn-outline-danger mb-4">処理を中止する</button>
                             `;
                             const clearBtn = document.getElementById("yumesute-ocr-clear");
                             clearBtn.addEventListener("click", function () {
-                                if (confirm("本当に処理を中止しますか？今回のデータは消去され、二度とダウンロードできなくなります。")) {
-                                    localStorage.removeItem(uuidKey);
-                                    window.location.reload();
-                                }
+                                handleYumesuteOcrClear("本当に処理を中止しますか？今回のデータは消去され、二度とダウンロードできなくなります。");
                             });
                         }
                         setTimeout(pollStatus, 2000);
