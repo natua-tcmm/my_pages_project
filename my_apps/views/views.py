@@ -40,6 +40,8 @@ def get_nonbot_base_query():
     bot_q = Q()
     for kw in BOT_KEYWORDS:
         bot_q |= Q(user_agent__icontains=kw)
+    # IPアドレス127.0.0.1も除外
+    bot_q |= Q(ip="127.0.0.1")
     return Q(path__startswith="/my_apps/") & ~bot_q
 
 
