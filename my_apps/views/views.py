@@ -126,6 +126,7 @@ def get_tools_stats():
 
     tool_usage_daily = (
         ToolUsage.objects.filter(timestamp__gte=now - timedelta(days=10))
+        .exclude(ip="127.0.0.1")
         .annotate(date=TruncDate("timestamp"))
         .values("date", "tool_name")
         .annotate(count=Count("id"))
