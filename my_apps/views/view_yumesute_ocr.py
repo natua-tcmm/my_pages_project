@@ -7,6 +7,7 @@ import os
 import uuid
 from ..jobs import run_ocr_job
 import threading
+from ..models import ToolUsageManager
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 title_base = "| △Natua♪▽のツールとか保管所"
@@ -91,6 +92,16 @@ def yumesute_ocr_ajax_upload(request):
     with open(video_path, "wb+") as destination:
         for chunk in video.chunks():
             destination.write(chunk)
+
+    # 情報収集（IP取得・ToolUsageManager.add_usage）
+    x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
+    ip = x_forwarded_for.split(",")[0] if x_forwarded_for else request.META.get("REMOTE_ADDR")
+    ToolUsageManager.add_usage(
+        request,
+        "yumesute_ocr",
+        f"{filename_uuid}"
+    )
+    print(f"[{ip}][yumesute_ocr] {filename_uuid}")
 
     # OCRをバックグラウンドで実行（threading）
     thread = threading.Thread(target=run_ocr_job, args=(video_path, filename_uuid))

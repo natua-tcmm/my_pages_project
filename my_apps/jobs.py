@@ -10,12 +10,10 @@ def run_ocr_job(video_path, filename_uuid):
     error_dir = os.path.join(BASE_DIR, "temp", "yumesute_ocr", "errors")
     os.makedirs(error_dir, exist_ok=True)
 
-    print(f"OCRジョブ開始: {filename_uuid}")
     try:
         csv_filename, csv_path, uuid_val = run_ocr(video_path, filename_uuid)
-        print(f"OCRジョブ完了: {csv_filename}")
     except Exception as e:
-        print(f"OCRジョブ失敗: {e}")
+        print(f"[yumesute_ocr][error] OCR処理が失敗したぞ: {e}")
         # エラー内容をファイルに保存
         error_path = os.path.join(error_dir, f"{filename_uuid}.error.txt")
         with open(error_path, "w", encoding="utf-8") as f:
