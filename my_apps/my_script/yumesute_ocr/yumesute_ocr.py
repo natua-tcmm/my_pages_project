@@ -217,17 +217,15 @@ def process_score_data(score_data, detected_difficulty):
             # レートがNoneなら、スコアからレートを計算する
             if score_data["score"] is not None and score_data["rate"] is None:
                 score_data["rate"] = calculate_score2rate(score_data["level"], score_data["score"])
-                print(f"Info: スコアからレートを計算しました。 {score_data['song_name']} ({score_data['difficulty']})")
             # 両方Noneでないなら、スコアからレートを計算して整合性を確認する
             elif score_data["score"] is not None and score_data["rate"] is not None:
                 calculated_rate = calculate_score2rate(score_data["level"], score_data["score"])
                 if abs(calculated_rate - score_data["rate"]) > 0.01:
-                    print(f"Warning: スコアとレートが合いません。 {score_data['song_name']} ({score_data['difficulty']})")
-                    print(f"  スコア: {score_data['score']}, レート: {score_data['rate']}, 計算されたレート: {calculated_rate}")
+                    pass
             # スコアがNoneならレートからスコアを計算する(逆変換の実装)
             elif score_data["score"] is None and score_data["rate"] is not None:
                 score_data["score"] = calculate_rate2score(score_data["level"], score_data["rate"])
-                print(f"Info: レートからスコアを計算しました。 {score_data['song_name']} ({score_data['difficulty']})")
+
 
     return score_data
 
@@ -430,7 +428,6 @@ def yumesute_ocr(video_path, interval_seconds=0.1):
     aspect_ratio = width / height
 
     # 2360×1640 px
-    print(f"Video resolution: {int(width)}x{int(height)}, Aspect ratio: {aspect_ratio:.2f}")
     if not (0.69 <= aspect_ratio <= 0.70):
         raise ValueError(f"動画アスペクト比が不正です: {aspect_ratio:.2f}。0.69〜0.70である必要があります。")
 
@@ -467,7 +464,6 @@ def yumesute_ocr(video_path, interval_seconds=0.1):
                 frame_before = frame.copy()
                 detected_difficulty_before = detected_difficulty
                 score_data = ocr_image(frame)
-                print(score_data)
 
                 if score_data["song_name"] == "":
                     continue
@@ -479,9 +475,6 @@ def yumesute_ocr(video_path, interval_seconds=0.1):
                 score_data = process_score_data(score_data, detected_difficulty)
 
                 score_data_list.append(score_data)
-                print(
-                    f"\033[32mDone! : {score_data['song_name']}\033[0m {score_data['difficulty']} {score_data['level']} {score_data['score']} {score_data['rate']}"
-                )
 
     finally:
         cap.release()

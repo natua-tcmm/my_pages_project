@@ -2,7 +2,6 @@ import csv
 import os
 import unicodedata
 import re
-import pprint
 from datetime import datetime
 from pathlib import Path
 from .yumesute_ocr import yumesute_ocr
@@ -135,7 +134,6 @@ def find_closest_song_name(target_song_name, song_name_list):
             min_distance = distance
             closest_song_name = song_name
 
-    # print(f"{min_distance}\t{closest_song_name}")
     return closest_song_name
 
 
@@ -154,8 +152,6 @@ def run_ocr(video_path,filename_uuid):
             d["song_name"] = top1_name
         else:
             d["song_name"] = f"({top1_name})"
-
-    pprint.pprint(score_data_list)
 
     # song_nameとdifficultyをキーとして重複削除
     unique_dict = {}
