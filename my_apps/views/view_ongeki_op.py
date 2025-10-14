@@ -128,9 +128,8 @@ def ongeki_op(request):
         op_aggregate_all = op_aggregate["ALL"]["ALL"]
 
         # 情報収集
-        print(f"[{ip}][ongeki_op] {osl_id} / {player_data['name']} / {op_aggregate_all['op_percent_str']}")
         ToolUsageManager.add_usage(
-            request, "ongeki_op", f"{osl_id} / {player_data['name']} / {op_aggregate_all['op_percent_str']}"
+            request, "ongeki_op", ""
         )
 
         # 概要+ALLを描画

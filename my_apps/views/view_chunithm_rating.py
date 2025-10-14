@@ -113,9 +113,8 @@ def chunithm_rating_all(request):
             ajax_response = {"summary": cr_player_info_table_html, "result": cr_rating_table_html}
 
             # 情報収集
-            print(f"[{ip}][chunithm_rating] {rec_id} / {player_data['player_name']} / {result_best_30}(30)")
             ToolUsageManager.add_usage(
-                request, "chunithm_rating_all", f"{rec_id} / {player_data['player_name']} / {result_best_30}(30)"
+                request, "chunithm_rating_all", ""
             )
 
         return JsonResponse(ajax_response)
@@ -135,7 +134,6 @@ def get_chunirec_player_info(user_name):
     r = requests.get(f"{endpoint_url}?{q}")
     if r.ok:
         player_data = r.json()
-        # pprint.pprint(player_data)
         return player_data
     elif r.status_code == 429:
         raise TooManyRequestsError
@@ -181,7 +179,6 @@ def calculate_rating(score, const):
 
     rating += 0.00001
     rating = (int(rating * 100)) / 100
-    # print(f"{rating:2.50f}")
     return rating
 
 

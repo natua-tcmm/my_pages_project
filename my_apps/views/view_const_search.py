@@ -67,11 +67,6 @@ class ConstSearchView(View):
         search_hit_count = 0
         search_results_html = ""
 
-        # IP情報の取得
-        x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
-        ip = x_forwarded_for.split(",")[0] if x_forwarded_for else request.META.get("REMOTE_ADDR")
-        print(f"[{ip}][{self.type_game}] q:{query}")
-
         # 機種選択
         if self.type_game == "c":
             self.songdata_manager = SongDataCNManager

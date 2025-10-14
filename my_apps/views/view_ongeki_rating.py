@@ -64,9 +64,8 @@ def ongeki_rating_all(request):
         result_range = int((music_rate_list[0]-music_rate_list[-1])*100)/100
 
         # 情報収集
-        print(f"[{ip}][ongeki_rating] {osl_id} / {player_data['name']} / {result_best}")
         ToolUsageManager.add_usage(
-            request, "ongeki_rating_all", f"{osl_id} / {player_data['name']} / {result_best}"
+            request, "ongeki_rating_all", ""
         )
 
         # プレイヤー情報を描画
