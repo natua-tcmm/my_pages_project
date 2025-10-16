@@ -6,6 +6,12 @@ window.addEventListener('DOMContentLoaded', function(){
         $("#osl-id").val(ls_osl_id);
     }
 
+    // music_rate_typeをlocalStrageとやりとり
+    var ls_music_rate_type = localStorage.getItem("ongeki_rating_all__music_rate_type");
+    if (ls_music_rate_type !== null) {
+        $("#music-rate-type").val(ls_music_rate_type);
+    }
+
 
 });
 
@@ -22,6 +28,7 @@ $("#calc-button").on("click",function(e){
 
         // localStrageにIDを保存
         localStorage.setItem("ongeki_rating_all__osl_id",osl_id);
+        localStorage.setItem("ongeki_rating_all__music_rate_type",music_rate_type);
 
         // 送信
         ajax_send(e, osl_id, music_rate_type)
