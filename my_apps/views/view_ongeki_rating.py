@@ -34,30 +34,28 @@ def ongeki_rating_all(request):
         # 入力情報を取得
         osl_id = post.get("osl_id")
 
-
         # OngekiScoreLogにrequest送る
         player_data,records_data_list,_ = get_ongeki_score_log_player_data(osl_id)
         response = {"player_data":player_data,"records":records_data_list}
 
-
         # ベスト枠を算出
-        rating_all_best_songs_raw = sorted(response["records"], key=lambda x:x["music_rate"], reverse=True )[:30]
+        rating_all_best_songs_raw = sorted(response["records"], key=lambda x:x["music_rate_old"], reverse=True )[:30]
         music_rate_list = []
         music_rate_max = 0
         rating_all_best_songs_str = []
         for i,d in enumerate(rating_all_best_songs_raw):
-            music_rate_list.append(d["music_rate"])
+            music_rate_list.append(d["music_rate_old"])
             a_song_dict = {
                 "n":f"{i+1:3n}",
                 "const":f'{d["const"]:2.1f}',
-                "music_rate":f'{d["music_rate"]:2.2f}',
+                "music_rate":f'{d["music_rate_old"]:2.2f}',
                 "score":f'{d["t-score"]:7n}',
                 "diff":f'{d["difficulty"][:3]}',
                 "title":f'{d["title"]}',
             }
             rating_all_best_songs_str.append(a_song_dict)
             if d["difficulty"] != "LUNATIC":
-                music_rate_max = max(music_rate_max,d["music_rate"])
+                music_rate_max = max(music_rate_max,d["music_rate_old"])
 
         result_best = int(sum(music_rate_list)*100/30)/100
         result_reachable = int(( sum(music_rate_list)*3/120 + music_rate_max/4 )*100)/100

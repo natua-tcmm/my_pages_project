@@ -201,7 +201,7 @@ def calc_op(response):
             r["music_op"] = (r["const"] + 3) * 5
         else:
             lump_op = 0.5 * r["is_FC"] + 0.5 * r["is_AB"]
-            r["music_op"] = min(r["const"] + 2, r["music_rate"]) * 5 + lump_op + max(0, (r["t-score"] - 1007500) * 0.0015)
+            r["music_op"] = min(r["const"] + 2, r["music_rate_old"]) * 5 + lump_op + max(0, (r["t-score"] - 1007500) * 0.0015)
         r["music_op_max"] = (r["const"] + 3) * 5
         records_master.append(r)
 

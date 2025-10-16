@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 
 # 単曲レート計算
-def calc_music_rate(score_rank: str, t_score: int, const: float) -> float:
+def calc_music_rate_old(score_rank: str, t_score: int, const: float) -> float:
 
     music_rate = 0
 
@@ -195,7 +195,7 @@ def get_ongeki_score_log_player_data(user_id: str) -> tuple:
         }
 
         try:
-            record_data["music_rate"] = calc_music_rate(record_data["score_rank"], record_data["t-score"], record_data["const"])
+            record_data["music_rate_old"] = calc_music_rate(record_data["score_rank"], record_data["t-score"], record_data["const"])
         except Exception as e:
             print(
                 f"[ongeki_op][error] 曲レート計算に失敗したぞ name:{music_title} rank:{record_data['score_rank']} score:{record_data['t-score']} const:{record_data['const']}"
@@ -221,8 +221,5 @@ def get_ongeki_score_log_player_data(user_id: str) -> tuple:
 
 
 if __name__ == "__main__":
-    p, r, _ = get_ongeki_score_log_player_data("5216")
-    for rr in r:
-        if rr["title"] == "Singularity":
-            print(f"{rr['title']} {rr['music_rate']} {rr['t-score']} {rr['const']} {rr['difficulty']}")
-            ...
+    # p, r, _ = get_ongeki_score_log_player_data("5216")
+    pass
