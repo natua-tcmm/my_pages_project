@@ -6,6 +6,12 @@ window.addEventListener('DOMContentLoaded', function(){
         $("#osl-id").val(ls_osl_id);
     }
 
+    // music_rate_typeをlocalStrageとやりとり
+    var ls_music_rate_type = localStorage.getItem("ongeki_rating_all__music_rate_type");
+    if (ls_music_rate_type !== null) {
+        $("#music-rate-type").val(ls_music_rate_type);
+    }
+
 
 });
 
@@ -17,13 +23,15 @@ $("#calc-button").on("click",function(e){
     if(!isNaN(osl_id)&&osl_id.length>0){
 
         osl_id = Number(osl_id);
-        // console.log(type)
+
+        var music_rate_type = $("#music-rate-type").val();
 
         // localStrageにIDを保存
         localStorage.setItem("ongeki_rating_all__osl_id",osl_id);
+        localStorage.setItem("ongeki_rating_all__music_rate_type",music_rate_type);
 
         // 送信
-        ajax_send(e, osl_id)
+        ajax_send(e, osl_id, music_rate_type)
         .done(function (response) {
 
             localStorage.setItem("ongeki_rating_all__osl_id",osl_id);
@@ -50,13 +58,13 @@ $("#calc-button").on("click",function(e){
 
     }
     else{
-        console.log("数値以外がにゅうりょくされています");
+        console.log("数値以外が入力されています");
     }
 
 });
 
 
-var ajax_send = function (e, osl_id) {
+var ajax_send = function (e, osl_id, music_rate_type) {
 
     $("#loading-text").css("display", "");
 
@@ -72,6 +80,7 @@ var ajax_send = function (e, osl_id) {
         'data': {
             "csrfmiddlewaretoken": csrfmiddlewaretoken,
             "osl_id": osl_id,
+            "music_rate_type": music_rate_type,
             "request_time": new Date().getTime(),
         },
         'dataType': 'json',
