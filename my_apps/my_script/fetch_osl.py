@@ -22,6 +22,60 @@ def calc_music_rate_old(score_rank: str, t_score: int, const: float) -> float:
 
     return music_rate
 
+# 単曲レート計算(新)
+def calc_music_rate(score_rank: str, t_score: int, const: float, is_FC:bool, is_AB:bool, is_FB:bool) -> float:
+
+    music_rate = 0
+
+    # TSポイント
+    # スコアランク	TS	値
+    if score_rank == "AB+":
+        music_rate = const + 2.0
+    elif score_rank == "SSS+":
+        music_rate = const + 1.75 + math.floor((t_score - 1_007_500) / 10) * 0.001
+    elif score_rank == "SSS":
+        music_rate = const + 1.25 + math.floor((t_score - 1_000_000) / 15) * 0.001
+    elif score_rank == "SS":
+        music_rate = const + 0.75 + math.floor((t_score - 990_000) / 20) * 0.001
+    elif score_rank == "S":
+        music_rate = const + math.floor((t_score - 970_000) / 26.66666) * 0.001
+    elif score_rank in ["AAA","AA"]:
+        music_rate = const - 4 + math.floor((t_score - 900_000) / 17.5) * 0.001
+    elif score_rank in ["A","BBB"]:
+        music_rate = const - 6 + math.floor((t_score - 800_000) / 50) * 0.001
+    else:
+        music_rate = 0
+
+    if music_rate < 0:
+        music_rate = 0
+
+    # ランクポイント
+    if score_rank == "SSS+":
+        music_rate += 0.3
+    elif score_rank == "SSS":
+        music_rate += 0.2
+    elif score_rank == "SS":
+        music_rate += 0.1
+
+    # FBポイント
+    if is_FB:
+        music_rate += 0.05
+
+    # ランプポイント
+    is_ABplus = score_rank == "AB+"
+    if is_FC and not is_AB:
+        music_rate += 0.1
+    elif is_AB and not is_ABplus:
+        music_rate += 0.3
+    elif is_ABplus:
+        music_rate += 0.35
+
+
+    # 切り捨て
+    music_rate = int(music_rate * 1000 + 0.5) / 1000
+
+    return music_rate
+
 
 # オンゲキのバージョンを求める
 def date2ongekiversion(t: str) -> str:
@@ -195,10 +249,18 @@ def get_ongeki_score_log_player_data(user_id: str) -> tuple:
         }
 
         try:
-            record_data["music_rate_old"] = calc_music_rate(record_data["score_rank"], record_data["t-score"], record_data["const"])
+            record_data["music_rate_old"] = calc_music_rate_old(record_data["score_rank"], record_data["t-score"], record_data["const"])
         except Exception as e:
             print(
-                f"[ongeki_op][error] 曲レート計算に失敗したぞ name:{music_title} rank:{record_data['score_rank']} score:{record_data['t-score']} const:{record_data['const']}"
+                f"[ongeki_op][error] 旧計算式 単曲レート計算に失敗: {str(e)} | {music_title} Rank {record_data['score_rank']} {record_data['t-score']} {record_data['const']}"
+            )
+            # record_data["music_rate"] = 0
+
+        try:
+            record_data["music_rate"] = calc_music_rate(record_data["score_rank"], record_data["t-score"], record_data["const"], record_data["is_FC"], record_data["is_AB"], record_data["is_FB"])
+        except Exception as e:
+            print(
+                f"[ongeki_op][error] 新計算式 単曲レート計算に失敗: {str(e)} | {music_title} Rank {record_data['score_rank']} {record_data['t-score']} {record_data['const']}"
             )
             # record_data["music_rate"] = 0
 
