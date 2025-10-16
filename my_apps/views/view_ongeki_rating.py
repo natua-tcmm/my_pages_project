@@ -1,14 +1,7 @@
 from django.shortcuts import render,redirect
 from django.template.loader import render_to_string
 from django.http import JsonResponse
-from django.db.models import Q
-# from django.core.handlers.wsgi import WSGIRequest
-
 from ..models import *
-
-import requests,re,math,datetime
-from bs4 import BeautifulSoup
-from django.conf import settings
 
 from ..my_script.fetch_osl import get_ongeki_score_log_player_data
 
