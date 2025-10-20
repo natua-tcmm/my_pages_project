@@ -58,6 +58,17 @@ def get_ongeki_genre():
     URL = "https://wikiwiki.jp/gameongeki/%E7%A7%B0%E5%8F%B7%E4%B8%80%E8%A6%A7"
     P = re.compile(r"[「」](.+)[「」]")
 
+    # 既存データを読み込み
+    existing_data = {}
+    json_path = os.path.join(settings.BASE_DIR, "my_apps/my_data/ongeki_genre_data.json")
+    if os.path.exists(json_path):
+        try:
+            with open(json_path, "r", encoding="utf-8") as f:
+                existing_json = json.load(f)
+                existing_data = existing_json.get("genre_data", {})
+        except (json.JSONDecodeError, FileNotFoundError):
+            existing_data = {}
+
     # wikiwikiから取得
     r = requests.get(URL, headers={"User-Agent": ""})
     soup = BeautifulSoup(r.text, "html.parser")
@@ -89,15 +100,20 @@ def get_ongeki_genre():
     # リストを2つずつに分ける
     genre_pairs = [genre_list[i : i + 2] for i in range(0, len(genre_list), 2)]
 
-    # json化して出力
-    ongeki_genre_json = {}
-    ongeki_genre_json["genre_data"] = {}
-    ongeki_genre_json["updated_date"] = datetime.date.today().strftime("%Y/%m/%d")
+    # 新しいデータと既存データをマージ
+    merged_data = existing_data.copy()  # 既存データをベースに
     for genre, song_name in genre_pairs:
-        ongeki_genre_json["genre_data"][genre] = song_name
+        merged_data[genre] = song_name  # 新しいデータで上書き/追加
+
+    # json化して出力
+    ongeki_genre_json = {
+        "genre_data": merged_data,
+        "updated_date": datetime.date.today().strftime("%Y/%m/%d")
+    }
     with open(os.path.join(settings.BASE_DIR, "my_apps/my_data/ongeki_genre_data.json"), "w", encoding="utf-8") as f:
         json.dump(ongeki_genre_json, f, ensure_ascii=False, indent=4)
 
 
 if __name__ == "__main__":
-    schedule_run()
+    # schedule_run()
+    get_ongeki_genre()
