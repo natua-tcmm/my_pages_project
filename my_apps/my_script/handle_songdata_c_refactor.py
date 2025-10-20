@@ -372,7 +372,7 @@ class SongDataManager:
 
         # 指定ファイル名でJSON出力
         with open(JSON_FILE_FOR_PUBLIC_PATH, "w", encoding="utf-8") as f:
-            json.dump(public_data, f, indent=4, ensure_ascii=False)
+            json.dump(public_data, f, ensure_ascii=False)
 
     def _fetch_official_json(self) -> List[Dict[str, Any]]:
         """
