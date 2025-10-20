@@ -115,5 +115,5 @@ def get_ongeki_genre():
 
 
 if __name__ == "__main__":
-    # schedule_run()
-    get_ongeki_genre()
+    schedule_run()
+    # get_ongeki_genre()
