@@ -550,8 +550,8 @@
             "expert": {
                 "const": 10.1,
                 "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
+                "notes": 1044,
+                "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
                 "notesdesigner_nodata": false
             },
@@ -2422,8 +2422,8 @@
             "expert": {
                 "const": 8,
                 "const_nodata": false,
-                "notes": null,
-                "notes_nodata": true,
+                "notes": 736,
+                "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
                 "notesdesigner_nodata": false
             },
@@ -4397,7 +4397,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1076,
                 "notes_nodata": false,
                 "notesdesigner": "Techno Kitchen",
@@ -5801,7 +5801,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1400,
                 "notes_nodata": false,
                 "notesdesigner": "mai-Star",
@@ -9622,58 +9622,6 @@
         },
         {
             "meta": {
-                "official_id": "273",
-                "name": "ビバハピ",
-                "reading": "ヒハハヒ",
-                "artist": "Mitchie M",
-                "genre": "niconico",
-                "bpm": 148,
-                "bpm_nodata": false,
-                "release": "2016-09-08",
-                "release_version": "CHUNITHM AIR",
-                "image_url": "604157e2c49d91d7.jpg",
-                "fumen_id": "02026",
-                "is_worldsend": false,
-                "has_ultima": false,
-                "only_ultima": false,
-                "we_star": null,
-                "we_kanji": null
-            },
-            "basic": {
-                "const": 3,
-                "const_nodata": false
-            },
-            "advanced": {
-                "const": 6,
-                "const_nodata": false
-            },
-            "expert": {
-                "const": 9,
-                "const_nodata": false,
-                "notes": 970,
-                "notes_nodata": false,
-                "notesdesigner": "某S氏",
-                "notesdesigner_nodata": false
-            },
-            "master": {
-                "const": 11.9,
-                "const_nodata": false,
-                "notes": 1561,
-                "notes_nodata": false,
-                "notesdesigner": "VIVA HAPPY",
-                "notesdesigner_nodata": false
-            },
-            "ultima": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
-            }
-        },
-        {
-            "meta": {
                 "official_id": "274",
                 "name": "願い星",
                 "reading": "ネカイホシ",
@@ -10298,58 +10246,6 @@
         },
         {
             "meta": {
-                "official_id": "286",
-                "name": "Tell Your World",
-                "reading": "TELLYOURWORLD",
-                "artist": "livetune",
-                "genre": "niconico",
-                "bpm": 150,
-                "bpm_nodata": false,
-                "release": "2016-09-08",
-                "release_version": "CHUNITHM AIR",
-                "image_url": "afcce0c85c1f8610.jpg",
-                "fumen_id": "02027",
-                "is_worldsend": false,
-                "has_ultima": false,
-                "only_ultima": false,
-                "we_star": null,
-                "we_kanji": null
-            },
-            "basic": {
-                "const": 3,
-                "const_nodata": false
-            },
-            "advanced": {
-                "const": 5,
-                "const_nodata": false
-            },
-            "expert": {
-                "const": 8,
-                "const_nodata": false,
-                "notes": 1370,
-                "notes_nodata": false,
-                "notesdesigner": "はっぴー",
-                "notesdesigner_nodata": false
-            },
-            "master": {
-                "const": 11.4,
-                "const_nodata": false,
-                "notes": 1560,
-                "notes_nodata": false,
-                "notesdesigner": "rioN",
-                "notesdesigner_nodata": false
-            },
-            "ultima": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
-            }
-        },
-        {
-            "meta": {
                 "official_id": "287",
                 "name": "ロミオとシンデレラ",
                 "reading": "ロミオトシンテレラ",
@@ -10860,8 +10756,8 @@
                 "notesdesigner_nodata": false
             },
             "ultima": {
-                "const": null,
-                "const_nodata": true,
+                "const": 14.9,
+                "const_nodata": false,
                 "notes": 1737,
                 "notes_nodata": false,
                 "notesdesigner": "みぞれヤナギ",
@@ -18125,7 +18021,7 @@
             },
             "expert": {
                 "const": 10.4,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1363,
                 "notes_nodata": false,
                 "notesdesigner": "wonder*",
@@ -24001,7 +23897,7 @@
             },
             "expert": {
                 "const": 10.7,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1036,
                 "notes_nodata": false,
                 "notesdesigner": "Emerald",
@@ -39430,7 +39326,7 @@
                 "image_url": "bb98ab5897edfc8e.jpg",
                 "fumen_id": "06073",
                 "is_worldsend": false,
-                "has_ultima": false,
+                "has_ultima": true,
                 "only_ultima": false,
                 "we_star": null,
                 "we_kanji": null
@@ -39460,12 +39356,12 @@
                 "notesdesigner_nodata": false
             },
             "ultima": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "const": 14.5,
+                "const_nodata": false,
+                "notes": 2254,
+                "notes_nodata": false,
+                "notesdesigner": "ぬめぬめするペンギン",
+                "notesdesigner_nodata": false
             }
         },
         {
@@ -46101,7 +45997,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1169,
                 "notes_nodata": false,
                 "notesdesigner": "すきやき奉行",
@@ -50001,7 +49897,7 @@
             },
             "expert": {
                 "const": 10.5,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1630,
                 "notes_nodata": false,
                 "notesdesigner": "ミストルティン",
@@ -50910,58 +50806,6 @@
         },
         {
             "meta": {
-                "official_id": "2226",
-                "name": "失礼しますが、RIP♡",
-                "reading": "シツレイシマスカRIP",
-                "artist": "Mori Calliope（ホロライブEnglish）",
-                "genre": "POPS & ANIME",
-                "bpm": 124,
-                "bpm_nodata": false,
-                "release": "2022-07-21",
-                "release_version": "CHUNITHM NEW PLUS",
-                "image_url": "35d7a030ccf41e8c.jpg",
-                "fumen_id": "07200",
-                "is_worldsend": false,
-                "has_ultima": false,
-                "only_ultima": false,
-                "we_star": null,
-                "we_kanji": null
-            },
-            "basic": {
-                "const": 3,
-                "const_nodata": false
-            },
-            "advanced": {
-                "const": 5,
-                "const_nodata": false
-            },
-            "expert": {
-                "const": 10,
-                "const_nodata": false,
-                "notes": 985,
-                "notes_nodata": false,
-                "notesdesigner": "Techno Kitchen",
-                "notesdesigner_nodata": false
-            },
-            "master": {
-                "const": 13.5,
-                "const_nodata": false,
-                "notes": 1511,
-                "notes_nodata": false,
-                "notesdesigner": "アミノハバキリ",
-                "notesdesigner_nodata": false
-            },
-            "ultima": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
-            }
-        },
-        {
-            "meta": {
                 "official_id": "2227",
                 "name": "Splash Dance!!",
                 "reading": "SPLASHDANCE",
@@ -51794,58 +51638,6 @@
         },
         {
             "meta": {
-                "official_id": "2243",
-                "name": "Rumbling hearts",
-                "reading": "RUMBLINGHEARTS",
-                "artist": "栗林みな実",
-                "genre": "POPS & ANIME",
-                "bpm": 136,
-                "bpm_nodata": false,
-                "release": "2022-09-15",
-                "release_version": "CHUNITHM NEW PLUS",
-                "image_url": "7afe569d2bdc5b39.jpg",
-                "fumen_id": "07218",
-                "is_worldsend": false,
-                "has_ultima": false,
-                "only_ultima": false,
-                "we_star": null,
-                "we_kanji": null
-            },
-            "basic": {
-                "const": 2,
-                "const_nodata": false
-            },
-            "advanced": {
-                "const": 5,
-                "const_nodata": false
-            },
-            "expert": {
-                "const": 8,
-                "const_nodata": false,
-                "notes": 1249,
-                "notes_nodata": false,
-                "notesdesigner": "Techno Kitchen",
-                "notesdesigner_nodata": false
-            },
-            "master": {
-                "const": 11.6,
-                "const_nodata": false,
-                "notes": 1373,
-                "notes_nodata": false,
-                "notesdesigner": "制作・ロシェ　監修・原D & Nameless One",
-                "notesdesigner_nodata": false
-            },
-            "ultima": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
-            }
-        },
-        {
-            "meta": {
                 "official_id": "2244",
                 "name": "非実在系女子達はどうすりゃいいですか？",
                 "reading": "ヒシツサイケイシヨシタチハトウスリヤイイテスカ",
@@ -52353,318 +52145,6 @@
                 "notes": 2090,
                 "notes_nodata": false,
                 "notesdesigner": "【Ex】譜面-100ミ",
-                "notesdesigner_nodata": false
-            },
-            "ultima": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
-            }
-        },
-        {
-            "meta": {
-                "official_id": "2254",
-                "name": "1",
-                "reading": "1",
-                "artist": "MOB CHOIR「モブサイコ100 Ⅲ」",
-                "genre": "POPS & ANIME",
-                "bpm": 168,
-                "bpm_nodata": false,
-                "release": "2022-10-13",
-                "release_version": "CHUNITHM SUN",
-                "image_url": "caad12b0796510dd.jpg",
-                "fumen_id": "08001",
-                "is_worldsend": false,
-                "has_ultima": false,
-                "only_ultima": false,
-                "we_star": null,
-                "we_kanji": null
-            },
-            "basic": {
-                "const": 3,
-                "const_nodata": false
-            },
-            "advanced": {
-                "const": 5,
-                "const_nodata": false
-            },
-            "expert": {
-                "const": 10,
-                "const_nodata": false,
-                "notes": 2300,
-                "notes_nodata": false,
-                "notesdesigner": "ミストルティン",
-                "notesdesigner_nodata": false
-            },
-            "master": {
-                "const": 13.2,
-                "const_nodata": false,
-                "notes": 2250,
-                "notes_nodata": false,
-                "notesdesigner": "ロシェ＠ペンギン",
-                "notesdesigner_nodata": false
-            },
-            "ultima": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
-            }
-        },
-        {
-            "meta": {
-                "official_id": "2255",
-                "name": "Before I Rise",
-                "reading": "BEFOREIRISE",
-                "artist": "麻枝 准×やなぎなぎ「ヘブンバーンズレッド」",
-                "genre": "POPS & ANIME",
-                "bpm": 140,
-                "bpm_nodata": false,
-                "release": "2022-10-13",
-                "release_version": "CHUNITHM SUN",
-                "image_url": "f6111989dc90a1dc.jpg",
-                "fumen_id": "08002",
-                "is_worldsend": false,
-                "has_ultima": false,
-                "only_ultima": false,
-                "we_star": null,
-                "we_kanji": null
-            },
-            "basic": {
-                "const": 2,
-                "const_nodata": false
-            },
-            "advanced": {
-                "const": 5,
-                "const_nodata": false
-            },
-            "expert": {
-                "const": 8.5,
-                "const_nodata": false,
-                "notes": 1163,
-                "notes_nodata": false,
-                "notesdesigner": "ミストルティン",
-                "notesdesigner_nodata": false
-            },
-            "master": {
-                "const": 11.9,
-                "const_nodata": false,
-                "notes": 1356,
-                "notes_nodata": false,
-                "notesdesigner": "Techno Kitchen",
-                "notesdesigner_nodata": false
-            },
-            "ultima": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
-            }
-        },
-        {
-            "meta": {
-                "official_id": "2257",
-                "name": "ミックスナッツ",
-                "reading": "ミツクスナツツ",
-                "artist": "Official髭男dism TVアニメ『SPY×FAMILY』オープニング主題歌",
-                "genre": "POPS & ANIME",
-                "bpm": 300,
-                "bpm_nodata": false,
-                "release": "2022-10-13",
-                "release_version": "CHUNITHM SUN",
-                "image_url": "cb3bbd47175ac585.jpg",
-                "fumen_id": "08004",
-                "is_worldsend": false,
-                "has_ultima": false,
-                "only_ultima": false,
-                "we_star": null,
-                "we_kanji": null
-            },
-            "basic": {
-                "const": 2,
-                "const_nodata": false
-            },
-            "advanced": {
-                "const": 5,
-                "const_nodata": false
-            },
-            "expert": {
-                "const": 9,
-                "const_nodata": false,
-                "notes": 954,
-                "notes_nodata": false,
-                "notesdesigner": "アミノハバキリ",
-                "notesdesigner_nodata": false
-            },
-            "master": {
-                "const": 13,
-                "const_nodata": false,
-                "notes": 1633,
-                "notes_nodata": false,
-                "notesdesigner": "【Ex】みそかつ侍",
-                "notesdesigner_nodata": false
-            },
-            "ultima": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
-            }
-        },
-        {
-            "meta": {
-                "official_id": "2258",
-                "name": "阿修羅ちゃん",
-                "reading": "アシユラチヤン",
-                "artist": "Ado",
-                "genre": "POPS & ANIME",
-                "bpm": 156,
-                "bpm_nodata": false,
-                "release": "2022-10-13",
-                "release_version": "CHUNITHM SUN",
-                "image_url": "9082b93fb7ee3d1b.jpg",
-                "fumen_id": "08005",
-                "is_worldsend": false,
-                "has_ultima": false,
-                "only_ultima": false,
-                "we_star": null,
-                "we_kanji": null
-            },
-            "basic": {
-                "const": 3,
-                "const_nodata": false
-            },
-            "advanced": {
-                "const": 5,
-                "const_nodata": false
-            },
-            "expert": {
-                "const": 9,
-                "const_nodata": false,
-                "notes": 1027,
-                "notes_nodata": false,
-                "notesdesigner": "Redarrow",
-                "notesdesigner_nodata": false
-            },
-            "master": {
-                "const": 13,
-                "const_nodata": false,
-                "notes": 1401,
-                "notes_nodata": false,
-                "notesdesigner": "アミノハバキリ",
-                "notesdesigner_nodata": false
-            },
-            "ultima": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
-            }
-        },
-        {
-            "meta": {
-                "official_id": "2259",
-                "name": "なにやってもうまくいかない",
-                "reading": "ナニヤツテモウマクイカナイ",
-                "artist": "meiyo",
-                "genre": "POPS & ANIME",
-                "bpm": 125,
-                "bpm_nodata": false,
-                "release": "2022-10-13",
-                "release_version": "CHUNITHM SUN",
-                "image_url": "d479af7ea6651ae0.jpg",
-                "fumen_id": "08006",
-                "is_worldsend": false,
-                "has_ultima": false,
-                "only_ultima": false,
-                "we_star": null,
-                "we_kanji": null
-            },
-            "basic": {
-                "const": 2,
-                "const_nodata": false
-            },
-            "advanced": {
-                "const": 5,
-                "const_nodata": false
-            },
-            "expert": {
-                "const": 9.5,
-                "const_nodata": false,
-                "notes": 1223,
-                "notes_nodata": false,
-                "notesdesigner": "アミノハバキリ",
-                "notesdesigner_nodata": false
-            },
-            "master": {
-                "const": 12.7,
-                "const_nodata": false,
-                "notes": 1289,
-                "notes_nodata": false,
-                "notesdesigner": "【Ex】Techno Kitchen",
-                "notesdesigner_nodata": false
-            },
-            "ultima": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
-            }
-        },
-        {
-            "meta": {
-                "official_id": "2260",
-                "name": "ユメヲカケル！",
-                "reading": "ユメヲカケル",
-                "artist": "スペシャルウィーク (CV.和氣あず未)、サイレンススズカ (CV.高野麻里佳)、トウカイテイオー(CV.Machico)、ウオッカ (CV.大橋彩香)、ダイワスカーレット (CV.木村千咲)、ゴールドシップ (CV.上田 瞳)、メジロマックイーン (CV.大西沙織)／TVアニメ『ウマ娘 プリティーダービー Season 2』",
-                "genre": "POPS & ANIME",
-                "bpm": 195,
-                "bpm_nodata": false,
-                "release": "2022-10-13",
-                "release_version": "CHUNITHM SUN",
-                "image_url": "209d7e8364669fa7.jpg",
-                "fumen_id": "08007",
-                "is_worldsend": false,
-                "has_ultima": false,
-                "only_ultima": false,
-                "we_star": null,
-                "we_kanji": null
-            },
-            "basic": {
-                "const": 3,
-                "const_nodata": false
-            },
-            "advanced": {
-                "const": 6,
-                "const_nodata": false
-            },
-            "expert": {
-                "const": 9.5,
-                "const_nodata": false,
-                "notes": 1476,
-                "notes_nodata": false,
-                "notesdesigner": "小鳥遊さん",
-                "notesdesigner_nodata": false
-            },
-            "master": {
-                "const": 12.6,
-                "const_nodata": false,
-                "notes": 2033,
-                "notes_nodata": false,
-                "notesdesigner": "[チュウニ学園]レッドアロー",
                 "notesdesigner_nodata": false
             },
             "ultima": {
@@ -54121,162 +53601,6 @@
                 "notes": 1802,
                 "notes_nodata": false,
                 "notesdesigner": "ミストルティン@漢字2文字変えたら田中",
-                "notesdesigner_nodata": false
-            },
-            "ultima": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
-            }
-        },
-        {
-            "meta": {
-                "official_id": "2290",
-                "name": "INSIDE IDENTITY",
-                "reading": "INSIDEIDENTITY",
-                "artist": "Black Raison d'être「中二病でも恋がしたい！」",
-                "genre": "POPS & ANIME",
-                "bpm": 186,
-                "bpm_nodata": false,
-                "release": "2022-11-10",
-                "release_version": "CHUNITHM SUN",
-                "image_url": "2b46ca1d67afdcbc.jpg",
-                "fumen_id": "08038",
-                "is_worldsend": false,
-                "has_ultima": false,
-                "only_ultima": false,
-                "we_star": null,
-                "we_kanji": null
-            },
-            "basic": {
-                "const": 3,
-                "const_nodata": false
-            },
-            "advanced": {
-                "const": 6,
-                "const_nodata": false
-            },
-            "expert": {
-                "const": 9.5,
-                "const_nodata": false,
-                "notes": 1492,
-                "notes_nodata": false,
-                "notesdesigner": "ミストルティン",
-                "notesdesigner_nodata": false
-            },
-            "master": {
-                "const": 12.7,
-                "const_nodata": false,
-                "notes": 2005,
-                "notes_nodata": false,
-                "notesdesigner": "緑化委員長・改 supported by †M†",
-                "notesdesigner_nodata": false
-            },
-            "ultima": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
-            }
-        },
-        {
-            "meta": {
-                "official_id": "2291",
-                "name": "Van!shment Th!s World",
-                "reading": "VANISHMENTTHISWORLD",
-                "artist": "Black Raison d'être「中二病でも恋がしたい！戀」",
-                "genre": "POPS & ANIME",
-                "bpm": 167,
-                "bpm_nodata": false,
-                "release": "2022-11-10",
-                "release_version": "CHUNITHM SUN",
-                "image_url": "9b3774292d846fc2.jpg",
-                "fumen_id": "08039",
-                "is_worldsend": false,
-                "has_ultima": false,
-                "only_ultima": false,
-                "we_star": null,
-                "we_kanji": null
-            },
-            "basic": {
-                "const": 3,
-                "const_nodata": false
-            },
-            "advanced": {
-                "const": 5,
-                "const_nodata": false
-            },
-            "expert": {
-                "const": 9.5,
-                "const_nodata": false,
-                "notes": 1531,
-                "notes_nodata": false,
-                "notesdesigner": "じゃこレモン",
-                "notesdesigner_nodata": false
-            },
-            "master": {
-                "const": 12.2,
-                "const_nodata": false,
-                "notes": 1908,
-                "notes_nodata": false,
-                "notesdesigner": "【Ex】Techno Kitchen",
-                "notesdesigner_nodata": false
-            },
-            "ultima": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
-            }
-        },
-        {
-            "meta": {
-                "official_id": "2292",
-                "name": "がんばれ！蜘蛛子さんのテーマ",
-                "reading": "カンハレクモコサンノテウマ",
-                "artist": "「私」(CV：悠木碧）「蜘蛛ですが、なにか？」",
-                "genre": "POPS & ANIME",
-                "bpm": 190,
-                "bpm_nodata": false,
-                "release": "2022-11-10",
-                "release_version": "CHUNITHM SUN",
-                "image_url": "de8ef40b84069ba5.jpg",
-                "fumen_id": "08041",
-                "is_worldsend": false,
-                "has_ultima": false,
-                "only_ultima": false,
-                "we_star": null,
-                "we_kanji": null
-            },
-            "basic": {
-                "const": 4,
-                "const_nodata": false
-            },
-            "advanced": {
-                "const": 7,
-                "const_nodata": false
-            },
-            "expert": {
-                "const": 10.5,
-                "const_nodata": true,
-                "notes": 1685,
-                "notes_nodata": false,
-                "notesdesigner": "【Ex】そらいろカリン supported by Techno Kitchen",
-                "notesdesigner_nodata": false
-            },
-            "master": {
-                "const": 14.3,
-                "const_nodata": false,
-                "notes": 3067,
-                "notes_nodata": false,
-                "notesdesigner": "【Ex】「猫」（CV：ぴちネコ）",
                 "notesdesigner_nodata": false
             },
             "ultima": {
@@ -57177,7 +56501,7 @@
             },
             "expert": {
                 "const": 10.3,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1211,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -58281,58 +57605,6 @@
                 "notes": 1524,
                 "notes_nodata": false,
                 "notesdesigner": "Techno Kitchen",
-                "notesdesigner_nodata": false
-            },
-            "ultima": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
-            }
-        },
-        {
-            "meta": {
-                "official_id": "2373",
-                "name": "Burn My Soul",
-                "reading": "BURNMYSOUL",
-                "artist": "She is Legend「ヘブンバーンズレッド」",
-                "genre": "POPS & ANIME",
-                "bpm": 180,
-                "bpm_nodata": false,
-                "release": "2022-10-13",
-                "release_version": "CHUNITHM SUN",
-                "image_url": "1b5a1acc95a85993.jpg",
-                "fumen_id": "08003",
-                "is_worldsend": false,
-                "has_ultima": false,
-                "only_ultima": false,
-                "we_star": null,
-                "we_kanji": null
-            },
-            "basic": {
-                "const": 3,
-                "const_nodata": false
-            },
-            "advanced": {
-                "const": 5,
-                "const_nodata": false
-            },
-            "expert": {
-                "const": 9,
-                "const_nodata": false,
-                "notes": 1371,
-                "notes_nodata": false,
-                "notesdesigner": "ロシェ＠ペンギン",
-                "notesdesigner_nodata": false
-            },
-            "master": {
-                "const": 12.8,
-                "const_nodata": false,
-                "notes": 1977,
-                "notes_nodata": false,
-                "notesdesigner": "Mistilteinn, Beat Down, Rise Up!",
                 "notesdesigner_nodata": false
             },
             "ultima": {
@@ -63833,7 +63105,7 @@
             },
             "expert": {
                 "const": 10.2,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1730,
                 "notes_nodata": false,
                 "notesdesigner": "そらいろカリン",
@@ -68030,7 +67302,7 @@
                 "image_url": "2274030518738fc8.jpg",
                 "fumen_id": "09094",
                 "is_worldsend": false,
-                "has_ultima": false,
+                "has_ultima": true,
                 "only_ultima": false,
                 "we_star": null,
                 "we_kanji": null
@@ -68060,12 +67332,12 @@
                 "notesdesigner_nodata": false
             },
             "ultima": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "const": 14.2,
+                "const_nodata": false,
+                "notes": 1540,
+                "notes_nodata": false,
+                "notesdesigner": "夕凪アロエ",
+                "notesdesigner_nodata": false
             }
         },
         {
@@ -70125,7 +69397,7 @@
             },
             "expert": {
                 "const": 10.6,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1650,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -73530,6 +72802,266 @@
         },
         {
             "meta": {
+                "official_id": "2717",
+                "name": "シリウスの輝きのように",
+                "reading": "シリウスノカカヤキノヨウニ",
+                "artist": "鳳 ここな(CV.石見舞菜香)、静香(CV.長谷川育美)、カトリナ・グリーベル(CV.天城サリー)、新妻八恵(CV.長縄まりあ)、柳場ぱんだ(CV.大空直美)、流石知冴(CV.佐々木李子)「ワールドダイスター 夢のステラリウム」",
+                "genre": "POPS & ANIME",
+                "bpm": 158,
+                "bpm_nodata": false,
+                "release": "2025-05-08",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "78f11a844ef50b93.jpg",
+                "fumen_id": "10078",
+                "is_worldsend": false,
+                "has_ultima": true,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10,
+                "const_nodata": true,
+                "notes": 1054,
+                "notes_nodata": false,
+                "notesdesigner": "ミニミライト",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.2,
+                "const_nodata": false,
+                "notes": 1298,
+                "notes_nodata": false,
+                "notesdesigner": "ミストルティン／旋律の餐宴",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": 14.9,
+                "const_nodata": false,
+                "notes": 1736,
+                "notes_nodata": false,
+                "notesdesigner": "夕凪アロエ／宵闇の大角星",
+                "notesdesigner_nodata": false
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2718",
+                "name": "I Wanna",
+                "reading": "IWANNA",
+                "artist": "静香(CV.長谷川育美)「ワールドダイスター 夢のステラリウム」",
+                "genre": "POPS & ANIME",
+                "bpm": 200,
+                "bpm_nodata": false,
+                "release": "2025-05-08",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "d499d0440e67306a.jpg",
+                "fumen_id": "10079",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 4,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 13.9,
+                "const_nodata": false,
+                "notes": 1790,
+                "notes_nodata": false,
+                "notesdesigner": "アミノハバキリ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 15.3,
+                "const_nodata": false,
+                "notes": 2726,
+                "notes_nodata": false,
+                "notesdesigner": "BELiZHEL & Twinrook",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2719",
+                "name": "革命ダンス",
+                "reading": "カクメイタンス",
+                "artist": "柳場ぱんだ(CV.大空直美)、与那国緋花里(CV.下地紫野)「ワールドダイスター 夢のステラリウム」",
+                "genre": "POPS & ANIME",
+                "bpm": 174,
+                "bpm_nodata": false,
+                "release": "2025-05-08",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "48edd790089655a7.jpg",
+                "fumen_id": "10080",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9.5,
+                "const_nodata": false,
+                "notes": 1177,
+                "notes_nodata": false,
+                "notesdesigner": "ミストルティン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.2,
+                "const_nodata": false,
+                "notes": 1485,
+                "notes_nodata": false,
+                "notesdesigner": "ミニミライト",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2720",
+                "name": "イガク",
+                "reading": "イカク",
+                "artist": "原口沙輔 feat.重音テト",
+                "genre": "niconico",
+                "bpm": 170,
+                "bpm_nodata": false,
+                "release": "2025-05-08",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "5d1c531e28d70b3f.jpg",
+                "fumen_id": "10081",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.9,
+                "const_nodata": false,
+                "notes": 976,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14,
+                "const_nodata": false,
+                "notes": 1437,
+                "notes_nodata": false,
+                "notesdesigner": "夕凪アロエ",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2721",
+                "name": "ザムザ",
+                "reading": "サムサ",
+                "artist": "てにをは",
+                "genre": "niconico",
+                "bpm": 121,
+                "bpm_nodata": false,
+                "release": "2025-05-08",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "3c1b95cc8448ea3d.jpg",
+                "fumen_id": "10082",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 2,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9.5,
+                "const_nodata": false,
+                "notes": 917,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.7,
+                "const_nodata": false,
+                "notes": 1351,
+                "notes_nodata": false,
+                "notesdesigner": "透明絵具",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
                 "official_id": "2722",
                 "name": "激烈!!!!ファミレスガールは帰しま1000!!!!",
                 "reading": "ケキレツフアミレスカウルハカエシマ1000",
@@ -74102,6 +73634,162 @@
         },
         {
             "meta": {
+                "official_id": "2740",
+                "name": "月光",
+                "reading": "ケツコウ",
+                "artist": "歌：V.I.P 作詞：廉　作曲：廉 「神椿市協奏中。」",
+                "genre": "niconico",
+                "bpm": 195,
+                "bpm_nodata": false,
+                "release": "2025-06-05",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "f671fc9f1b21cfdc.jpg",
+                "fumen_id": "10088",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 4,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7.5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.0,
+                "const_nodata": false,
+                "notes": 1476,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.2,
+                "const_nodata": false,
+                "notes": 2204,
+                "notes_nodata": false,
+                "notesdesigner": "ミストルティン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2741",
+                "name": "ゆりかご",
+                "reading": "ユリカコ",
+                "artist": "歌：可不 作詞：MIMI　作曲：MIMI 「神椿市協奏中。」",
+                "genre": "niconico",
+                "bpm": 120,
+                "bpm_nodata": false,
+                "release": "2025-06-05",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "eddc42780c7c9f66.jpg",
+                "fumen_id": "10089",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 2,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 4,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9,
+                "const_nodata": false,
+                "notes": 792,
+                "notes_nodata": false,
+                "notesdesigner": "アミノハバキリ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.3,
+                "const_nodata": false,
+                "notes": 1303,
+                "notes_nodata": false,
+                "notesdesigner": "ミニミライト",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2743",
+                "name": "ひつぎとふたご",
+                "reading": "ヒツキトフタコ",
+                "artist": "plastic feat. サキト",
+                "genre": "VARIETY",
+                "bpm": 172,
+                "bpm_nodata": false,
+                "release": "2025-06-05",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "609af8fb1bf0bc94.jpg",
+                "fumen_id": "10090",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.5,
+                "const_nodata": true,
+                "notes": 1384,
+                "notes_nodata": false,
+                "notesdesigner": "サファ太",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 15,
+                "const_nodata": false,
+                "notes": 2006,
+                "notes_nodata": false,
+                "notesdesigner": "みにみとあろえ",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
                 "official_id": "2744",
                 "name": "Crush the Dystopia",
                 "reading": "CRUSHTHEDYSTOPIA",
@@ -74232,8 +73920,8 @@
                 "const_nodata": true
             },
             "expert": {
-                "const": null,
-                "const_nodata": true,
+                "const": 10.4,
+                "const_nodata": false,
                 "notes": 1229,
                 "notes_nodata": false,
                 "notesdesigner": "アミノハバキリ",
@@ -74389,15 +74077,15 @@
             },
             "expert": {
                 "const": 10,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 1123,
                 "notes_nodata": false,
                 "notesdesigner": "ミニミライト",
                 "notesdesigner_nodata": false
             },
             "master": {
-                "const": 13.5,
-                "const_nodata": true,
+                "const": 13.8,
+                "const_nodata": false,
                 "notes": 2094,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -74785,8 +74473,8 @@
                 "genre": "niconico",
                 "bpm": 173,
                 "bpm_nodata": false,
-                "release": null,
-                "release_version": null,
+                "release": "2025-04-24",
+                "release_version": "CHUNITHM VERSE",
                 "image_url": "2279fa16c2352320.jpg",
                 "fumen_id": "10074",
                 "is_worldsend": false,
@@ -74804,16 +74492,16 @@
                 "const_nodata": true
             },
             "expert": {
-                "const": null,
-                "const_nodata": true,
+                "const": 11.0,
+                "const_nodata": false,
                 "notes": 1558,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
                 "notesdesigner_nodata": false
             },
             "master": {
-                "const": null,
-                "const_nodata": true,
+                "const": 13.7,
+                "const_nodata": false,
                 "notes": 2258,
                 "notes_nodata": false,
                 "notesdesigner": "そらいろカリン",
@@ -74837,8 +74525,8 @@
                 "genre": "niconico",
                 "bpm": 150,
                 "bpm_nodata": false,
-                "release": null,
-                "release_version": null,
+                "release": "2025-04-24",
+                "release_version": "CHUNITHM VERSE",
                 "image_url": "9fdef2873647e240.jpg",
                 "fumen_id": "10075",
                 "is_worldsend": false,
@@ -74864,8 +74552,8 @@
                 "notesdesigner_nodata": false
             },
             "master": {
-                "const": null,
-                "const_nodata": true,
+                "const": 13.2,
+                "const_nodata": false,
                 "notes": 1662,
                 "notes_nodata": false,
                 "notesdesigner": "侵略型ペンギン",
@@ -74889,8 +74577,8 @@
                 "genre": "niconico",
                 "bpm": 176,
                 "bpm_nodata": false,
-                "release": null,
-                "release_version": null,
+                "release": "2025-04-24",
+                "release_version": "CHUNITHM VERSE",
                 "image_url": "a5399b6acf8abaed.jpg",
                 "fumen_id": "10076",
                 "is_worldsend": false,
@@ -74916,8 +74604,8 @@
                 "notesdesigner_nodata": false
             },
             "master": {
-                "const": null,
-                "const_nodata": true,
+                "const": 13.1,
+                "const_nodata": false,
                 "notes": 1801,
                 "notes_nodata": false,
                 "notesdesigner": "鳩鳩鳩のホル連単",
@@ -74941,8 +74629,8 @@
                 "genre": "ゲキマイ",
                 "bpm": 211,
                 "bpm_nodata": false,
-                "release": null,
-                "release_version": null,
+                "release": "2025-04-24",
+                "release_version": "CHUNITHM VERSE",
                 "image_url": "bb9e1eee2bc96f89.jpg",
                 "fumen_id": "10077",
                 "is_worldsend": false,
@@ -74960,16 +74648,16 @@
                 "const_nodata": true
             },
             "expert": {
-                "const": null,
-                "const_nodata": true,
+                "const": 13.7,
+                "const_nodata": false,
                 "notes": 1690,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
                 "notesdesigner_nodata": false
             },
             "master": {
-                "const": null,
-                "const_nodata": true,
+                "const": 15,
+                "const_nodata": false,
                 "notes": 2188,
                 "notes_nodata": false,
                 "notesdesigner": "じゃこレモン＠7sRefちほー",
@@ -75181,6 +74869,630 @@
                 "notes": 2559,
                 "notes_nodata": false,
                 "notesdesigner": "Redarrow",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2768",
+                "name": "MegiddØ",
+                "reading": "MEGIDDO",
+                "artist": "BlackY VS 大国奏音",
+                "genre": "ORIGINAL",
+                "bpm": 180,
+                "bpm_nodata": false,
+                "release": "2025-06-05",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "a9b50666a6a84430.jpg",
+                "fumen_id": "10091",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 8.5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 14.4,
+                "const_nodata": false,
+                "notes": 2179,
+                "notes_nodata": false,
+                "notesdesigner": "夕凪アロエ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 15.6,
+                "const_nodata": false,
+                "notes": 3300,
+                "notes_nodata": false,
+                "notesdesigner": "Violetta vs Ataraxia",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2769",
+                "name": "We Are Us(IOSYS TRAX Remix)",
+                "reading": "WEAREUSIOSYSTRAXREMIX",
+                "artist": "舞ヶ原シンセ研究会",
+                "genre": "イロドリミドリ",
+                "bpm": 160,
+                "bpm_nodata": false,
+                "release": "2025-05-20",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "c164c69ead38bb76.jpg",
+                "fumen_id": "10087",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.5,
+                "const_nodata": true,
+                "notes": 1538,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14,
+                "const_nodata": false,
+                "notes": 1982,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン synthetic",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2771",
+                "name": "宵の平安京 Stargazer",
+                "reading": "ヨイノヘイアンキヨウスタウケイサウ",
+                "artist": "永田泰之",
+                "genre": "VARIETY",
+                "bpm": 268,
+                "bpm_nodata": false,
+                "release": "2025-05-20",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "be08c42de84d4873.jpg",
+                "fumen_id": "10085",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.4,
+                "const_nodata": false,
+                "notes": 1436,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.9,
+                "const_nodata": false,
+                "notes": 2511,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ軍 対 ミストルティン軍",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2776",
+                "name": "Paradoxes",
+                "reading": "PARADOXES",
+                "artist": "富田美憂「デート・ア・ライブ」",
+                "genre": "POPS & ANIME",
+                "bpm": 166,
+                "bpm_nodata": false,
+                "release": "2025-06-19",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "b1a2aed8c5b5b42e.jpg",
+                "fumen_id": "10093",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 1,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 4,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 8.5,
+                "const_nodata": false,
+                "notes": 690,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12,
+                "const_nodata": false,
+                "notes": 1297,
+                "notes_nodata": false,
+                "notesdesigner": "ミストルティン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2779",
+                "name": "you (Vocal)",
+                "reading": "YOUVOCAL",
+                "artist": "作詞、Vocal：癒月 作編曲：dai",
+                "genre": "POPS & ANIME",
+                "bpm": 87,
+                "bpm_nodata": false,
+                "release": "2025-06-19",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "964b587ea9036977.jpg",
+                "fumen_id": "10095",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 1,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 8,
+                "const_nodata": false,
+                "notes": 837,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.5,
+                "const_nodata": false,
+                "notes": 1983,
+                "notes_nodata": false,
+                "notesdesigner": "夕凪アロエ",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2780",
+                "name": "Southern Cross",
+                "reading": "SOUTHERNCROSS",
+                "artist": "403",
+                "genre": "VARIETY",
+                "bpm": 171,
+                "bpm_nodata": false,
+                "release": "2025-06-19",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "4d6af38ee61b612c.jpg",
+                "fumen_id": "10096",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.7,
+                "const_nodata": false,
+                "notes": 1206,
+                "notes_nodata": false,
+                "notesdesigner": "アミノハバキリ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.7,
+                "const_nodata": false,
+                "notes": 2028,
+                "notes_nodata": false,
+                "notesdesigner": "Luxizhel",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2782",
+                "name": "BOUNCE & DANCE",
+                "reading": "BOUNCEDANCE",
+                "artist": "IOSYS TRAX",
+                "genre": "ゲキマイ",
+                "bpm": 135,
+                "bpm_nodata": false,
+                "release": "2025-07-03",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "c1460f3736c8697a.jpg",
+                "fumen_id": "10102",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.2,
+                "const_nodata": false,
+                "notes": 1153,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.5,
+                "const_nodata": false,
+                "notes": 1993,
+                "notes_nodata": false,
+                "notesdesigner": "Elastic Blade",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2783",
+                "name": "7thSense",
+                "reading": "7THSENCE",
+                "artist": "削除",
+                "genre": "ゲキマイ",
+                "bpm": 150,
+                "bpm_nodata": false,
+                "release": "2025-07-03",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "30353e758d1648d3.jpg",
+                "fumen_id": "10098",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 4,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12,
+                "const_nodata": false,
+                "notes": 1180,
+                "notes_nodata": false,
+                "notesdesigner": "サファ太",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.7,
+                "const_nodata": false,
+                "notes": 1777,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2784",
+                "name": "デスパレイト",
+                "reading": "テスハレイト",
+                "artist": "owl＊tree",
+                "genre": "ゲキマイ",
+                "bpm": 145,
+                "bpm_nodata": false,
+                "release": "2025-07-03",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "d2a5bb85348ca6ca.jpg",
+                "fumen_id": "10099",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10,
+                "const_nodata": false,
+                "notes": 1119,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.6,
+                "const_nodata": false,
+                "notes": 1468,
+                "notes_nodata": false,
+                "notesdesigner": "ミストルティン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2785",
+                "name": "Swift Swing",
+                "reading": "SWIFTSWING",
+                "artist": "Laur",
+                "genre": "ゲキマイ",
+                "bpm": 150,
+                "bpm_nodata": false,
+                "release": "2025-07-03",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "aaf6732afb9f0067.jpg",
+                "fumen_id": "10100",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.4,
+                "const_nodata": false,
+                "notes": 1013,
+                "notes_nodata": false,
+                "notesdesigner": "アミノハバキリ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.8,
+                "const_nodata": false,
+                "notes": 1556,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2787",
+                "name": "超最終鬼畜妹フランドール・S",
+                "reading": "チヨウサイシユウキチクイモウトフラントウルS",
+                "artist": "ビートまりお×まろん",
+                "genre": "東方Project",
+                "bpm": 210,
+                "bpm_nodata": false,
+                "release": "2025-05-20",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "052a255b2deefaaa.jpg",
+                "fumen_id": "10083",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 4,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7.5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.3,
+                "const_nodata": false,
+                "notes": 2110,
+                "notes_nodata": false,
+                "notesdesigner": "ちょむ supported by アミノハバキリ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 15,
+                "const_nodata": false,
+                "notes": 2182,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2792",
+                "name": "Help me, ERINNNNNN!!",
+                "reading": "HELPMEERINNNNNN",
+                "artist": "ビートまりお",
+                "genre": "東方Project",
+                "bpm": 185,
+                "bpm_nodata": false,
+                "release": "2025-05-20",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "2249b72783ba421d.jpg",
+                "fumen_id": "10084",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 8,
+                "const_nodata": false,
+                "notes": 1488,
+                "notes_nodata": false,
+                "notesdesigner": "アミノハバキリ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.1,
+                "const_nodata": false,
+                "notes": 2187,
+                "notes_nodata": false,
+                "notesdesigner": "(　”∀”)o彡” ペンギン！ペンギン！",
                 "notesdesigner_nodata": false
             },
             "ultima": {
@@ -75480,8 +75792,8 @@
                 "const_nodata": false
             },
             "expert": {
-                "const": 13.5,
-                "const_nodata": true,
+                "const": 13.7,
+                "const_nodata": false,
                 "notes": 1977,
                 "notes_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
@@ -75489,10 +75801,270 @@
             },
             "master": {
                 "const": 15,
-                "const_nodata": true,
+                "const_nodata": false,
                 "notes": 2649,
                 "notes_nodata": false,
                 "notesdesigner": "夕凪アロエ",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2801",
+                "name": "Destined Marionette",
+                "reading": "DESTINEDMARIONETTE",
+                "artist": "ビートまりお",
+                "genre": "VARIETY",
+                "bpm": 186,
+                "bpm_nodata": false,
+                "release": "2025-05-20",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "de5fd541ca5e23be.jpg",
+                "fumen_id": "10086",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.5,
+                "const_nodata": false,
+                "notes": 1281,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.4,
+                "const_nodata": false,
+                "notes": 1956,
+                "notes_nodata": false,
+                "notesdesigner": "夕凪アロエ",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2802",
+                "name": "Crossmythos Rhapsodia",
+                "reading": "CROSSMYTHOSRHAPSODIA",
+                "artist": "Acotto vs Potwi",
+                "genre": "ORIGINAL",
+                "bpm": 198,
+                "bpm_nodata": false,
+                "release": "2025-06-05",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "77879f85dbdd32f2.jpg",
+                "fumen_id": "10092",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 9.5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 14.6,
+                "const_nodata": false,
+                "notes": 2399,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ@ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 15.7,
+                "const_nodata": false,
+                "notes": 3688,
+                "notes_nodata": false,
+                "notesdesigner": "譜面ボーイズからの挑戦状",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2803",
+                "name": "Running to the straight ver1.01",
+                "reading": "RUNNINGTOTHESTRAIGHTVER101",
+                "artist": "Shade feat.仲村芽衣子",
+                "genre": "POPS & ANIME",
+                "bpm": 129,
+                "bpm_nodata": false,
+                "release": "2025-06-19",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "bcf1f8d4a285e0dc.jpg",
+                "fumen_id": "10094",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10,
+                "const_nodata": true,
+                "notes": 1010,
+                "notes_nodata": false,
+                "notesdesigner": "ミニミライト",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.4,
+                "const_nodata": false,
+                "notes": 1600,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠移動要塞ママトト",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2804",
+                "name": "A c i - L",
+                "reading": "ACIL",
+                "artist": "-45",
+                "genre": "VARIETY",
+                "bpm": 162,
+                "bpm_nodata": false,
+                "release": "2025-06-19",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "c95d7b20c3c23275.jpg",
+                "fumen_id": "10097",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 13.3,
+                "const_nodata": false,
+                "notes": 1387,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 15,
+                "const_nodata": false,
+                "notes": 2135,
+                "notes_nodata": false,
+                "notesdesigner": "Blade of Witch",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2805",
+                "name": "Galaxy Blaster",
+                "reading": "GALAXYBLASTER",
+                "artist": "ああああ",
+                "genre": "ゲキマイ",
+                "bpm": 208,
+                "bpm_nodata": false,
+                "release": "2025-07-03",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "b67a3cd749371d4c.jpg",
+                "fumen_id": "10101",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 8,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.2,
+                "const_nodata": false,
+                "notes": 1847,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.6,
+                "const_nodata": false,
+                "notes": 2599,
+                "notes_nodata": false,
+                "notesdesigner": "アミノハバスター",
                 "notesdesigner_nodata": false
             },
             "ultima": {
@@ -75867,7 +76439,2867 @@
                 "notesdesigner": null,
                 "notesdesigner_nodata": true
             }
+        },
+        {
+            "meta": {
+                "official_id": "2816",
+                "name": "RE Aoharu",
+                "reading": "REAOHARU",
+                "artist": "Nor「ブルーアーカイブ -Blue Archive-」",
+                "genre": "VARIETY",
+                "bpm": 180,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "4ea6b37f3e6d40e5.jpg",
+                "fumen_id": "10111",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 2,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.2,
+                "const_nodata": false,
+                "notes": 1038,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.2,
+                "const_nodata": false,
+                "notes": 1677,
+                "notes_nodata": false,
+                "notesdesigner": "Where All Miracles Begin",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2817",
+                "name": "Unwelcome School",
+                "reading": "UNWELCOMESCHOOL",
+                "artist": "Mitsukiyo「ブルーアーカイブ -Blue Archive-」",
+                "genre": "VARIETY",
+                "bpm": 180,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "7c236c814e236d39.jpg",
+                "fumen_id": "10112",
+                "is_worldsend": false,
+                "has_ultima": true,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.8,
+                "const_nodata": false,
+                "notes": 1119,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.7,
+                "const_nodata": false,
+                "notes": 1615,
+                "notes_nodata": false,
+                "notesdesigner": "そらいろカリン（アルバイト）",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": 15,
+                "const_nodata": false,
+                "notes": 2173,
+                "notes_nodata": false,
+                "notesdesigner": "ポコポコヘッド団",
+                "notesdesigner_nodata": false
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2818",
+                "name": "彩りキャンバス",
+                "reading": "イロトリキヤンハス",
+                "artist": "Mitsukiyo「ブルーアーカイブ -Blue Archive-」",
+                "genre": "VARIETY",
+                "bpm": 180,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "2052bb12a465f286.jpg",
+                "fumen_id": "10113",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9.5,
+                "const_nodata": false,
+                "notes": 1365,
+                "notes_nodata": false,
+                "notesdesigner": "そらいろカリン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.6,
+                "const_nodata": false,
+                "notes": 2113,
+                "notes_nodata": false,
+                "notesdesigner": "Moon Strix（バンド）",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2819",
+                "name": "TAIDADA",
+                "reading": "TAIDADA",
+                "artist": "ずっと真夜中でいいのに。",
+                "genre": "POPS & ANIME",
+                "bpm": 144,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "86a52dcd3a3c1190.jpg",
+                "fumen_id": "10104",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 2,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9,
+                "const_nodata": false,
+                "notes": 1107,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.1,
+                "const_nodata": false,
+                "notes": 1560,
+                "notes_nodata": false,
+                "notesdesigner": "ターボレモン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2820",
+                "name": "モエチャッカファイア",
+                "reading": "モエチヤツカフアイア",
+                "artist": "弌誠「ゲーム『ゼンレスゾーンゼロ』エレン・ジョー 同人イメージソング」",
+                "genre": "POPS & ANIME",
+                "bpm": 163,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "4995a362b07802c4.jpg",
+                "fumen_id": "10105",
+                "is_worldsend": false,
+                "has_ultima": true,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9.5,
+                "const_nodata": false,
+                "notes": 1202,
+                "notes_nodata": false,
+                "notesdesigner": "サファ太",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.8,
+                "const_nodata": false,
+                "notes": 1881,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": 14.5,
+                "const_nodata": false,
+                "notes": 1937,
+                "notes_nodata": false,
+                "notesdesigner": "ミニミライト",
+                "notesdesigner_nodata": false
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2821",
+                "name": "はいよろこんで",
+                "reading": "ハイヨロコンテ",
+                "artist": "こっちのけんと",
+                "genre": "POPS & ANIME",
+                "bpm": 147,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "2d6724156acd1491.jpg",
+                "fumen_id": "10106",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 2,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9,
+                "const_nodata": false,
+                "notes": 1299,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.9,
+                "const_nodata": false,
+                "notes": 1599,
+                "notes_nodata": false,
+                "notesdesigner": "ミストルティン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2822",
+                "name": "ラヴィ",
+                "reading": "ラウイ",
+                "artist": "すりぃ",
+                "genre": "niconico",
+                "bpm": 183,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "cf64b226dc4e371d.jpg",
+                "fumen_id": "10107",
+                "is_worldsend": false,
+                "has_ultima": true,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9.5,
+                "const_nodata": false,
+                "notes": 1319,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13,
+                "const_nodata": false,
+                "notes": 1879,
+                "notes_nodata": false,
+                "notesdesigner": "Jack",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": 14.4,
+                "const_nodata": false,
+                "notes": 2004,
+                "notes_nodata": false,
+                "notesdesigner": "ミストルティンの華麗なる伝説集",
+                "notesdesigner_nodata": false
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2823",
+                "name": "テトリス",
+                "reading": "テトリス",
+                "artist": "柊マグネタイト",
+                "genre": "niconico",
+                "bpm": 170,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "2638c4d5ec3a4936.jpg",
+                "fumen_id": "10108",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.1,
+                "const_nodata": false,
+                "notes": 1206,
+                "notes_nodata": false,
+                "notesdesigner": "アミノハバキリ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.2,
+                "const_nodata": false,
+                "notes": 2343,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモンさん（１１）",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2824",
+                "name": "モ　ミ　ア　ゲ　ヲ　シ　ャ　カ　ア　ゲ　ヲ",
+                "reading": "モミアケヲシヤカアケヲ",
+                "artist": "ぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬ",
+                "genre": "niconico",
+                "bpm": 160,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "4f191745bb2adf3b.jpg",
+                "fumen_id": "10109",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 2,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.4,
+                "const_nodata": false,
+                "notes": 1160,
+                "notes_nodata": false,
+                "notesdesigner": "ミニミライト",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13,
+                "const_nodata": false,
+                "notes": 2153,
+                "notes_nodata": false,
+                "notesdesigner": "「みぞれ",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2825",
+                "name": "最終鬼畜妹フランドール・S (Chroma Remix)",
+                "reading": "サイシユウキチクイモウトフラントウルSCHROMAREMIX",
+                "artist": "ビートまりお × 黒魔",
+                "genre": "東方Project",
+                "bpm": 200,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "c8f86fe539ef4f25.jpg",
+                "fumen_id": "10110",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.5,
+                "const_nodata": false,
+                "notes": 2181,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.9,
+                "const_nodata": false,
+                "notes": 3025,
+                "notes_nodata": false,
+                "notesdesigner": "ミニミライト",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2826",
+                "name": "ニルヴの心臓",
+                "reading": "ニルウノシンソウ",
+                "artist": "TJ.hangneil + Atomic Sphere feat.Annabel",
+                "genre": "VARIETY",
+                "bpm": 256,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "e83b8caa89d6948e.jpg",
+                "fumen_id": "10114",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 4,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 13,
+                "const_nodata": false,
+                "notes": 1399,
+                "notes_nodata": false,
+                "notesdesigner": "アミノハバキリ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 15,
+                "const_nodata": false,
+                "notes": 1998,
+                "notes_nodata": false,
+                "notesdesigner": "THE IVORY LIGHT",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2827",
+                "name": "Individual on parade!",
+                "reading": "INDIVIDUALONPARADE",
+                "artist": "曲：渡部チェル／歌：珠洲島 有栖(CV：長縄 まりあ)、皇城 セツナ(CV：八巻 アンナ)、柏木 咲姫(CV：石見 舞菜香)、日向 千夏(CV：岡咲 美保)、井之原 小星(CV：ももの はるな)",
+                "genre": "ゲキマイ",
+                "bpm": 172,
+                "bpm_nodata": false,
+                "release": "2025-07-31",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "92f2fa910ab26134.jpg",
+                "fumen_id": "10130",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9,
+                "const_nodata": false,
+                "notes": 1238,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.6,
+                "const_nodata": false,
+                "notes": 1810,
+                "notes_nodata": false,
+                "notesdesigner": "ミニミライト＠can go to the next stage!!",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2828",
+                "name": "Energizing Flame",
+                "reading": "ENERGIZINGFLAME",
+                "artist": "Artifact vs. Dualcast",
+                "genre": "ゲキマイ",
+                "bpm": 201,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "bb1d32dafa47b4be.jpg",
+                "fumen_id": "10116",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 4,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.6,
+                "const_nodata": false,
+                "notes": 1613,
+                "notes_nodata": false,
+                "notesdesigner": "サファ太",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.5,
+                "const_nodata": false,
+                "notes": 2293,
+                "notes_nodata": false,
+                "notesdesigner": "アミノハバキリ",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2829",
+                "name": "Daydreama",
+                "reading": "DAYDREAMA",
+                "artist": "HiTECH NINJA",
+                "genre": "ゲキマイ",
+                "bpm": 153,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "72229dd444b71cb3.jpg",
+                "fumen_id": "10117",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.7,
+                "const_nodata": false,
+                "notes": 1449,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.4,
+                "const_nodata": false,
+                "notes": 1805,
+                "notes_nodata": false,
+                "notesdesigner": "ミストルティン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2831",
+                "name": "χρόνος",
+                "reading": "KRONOS",
+                "artist": "Street",
+                "genre": "ORIGINAL",
+                "bpm": 190,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "2aafc2127e1f7be2.jpg",
+                "fumen_id": "10121",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.8,
+                "const_nodata": false,
+                "notes": 1748,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.8,
+                "const_nodata": false,
+                "notes": 2892,
+                "notes_nodata": false,
+                "notesdesigner": "βλαδε",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2832",
+                "name": "TOXIC",
+                "reading": "TOXIC",
+                "artist": "Zekk",
+                "genre": "ORIGINAL",
+                "bpm": 183,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "e125b15c438a129a.jpg",
+                "fumen_id": "10122",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 2,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.3,
+                "const_nodata": false,
+                "notes": 1309,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.3,
+                "const_nodata": false,
+                "notes": 2134,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2833",
+                "name": "並行天涯",
+                "reading": "ハラレルホライスンス",
+                "artist": "BilliumMoto",
+                "genre": "ORIGINAL",
+                "bpm": 333,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "2a1627220d9ae475.jpg",
+                "fumen_id": "10123",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.7,
+                "const_nodata": false,
+                "notes": 1671,
+                "notes_nodata": false,
+                "notesdesigner": "アミノハバキリ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 15.2,
+                "const_nodata": false,
+                "notes": 2500,
+                "notes_nodata": false,
+                "notesdesigner": "Ataraxia beyond the horizon",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2834",
+                "name": "luminoid love PART2",
+                "reading": "LUMINOIDLOVEPART2",
+                "artist": "DÉ DÉ MOUSE",
+                "genre": "ORIGINAL",
+                "bpm": 155,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "fe9b367f73fee276.jpg",
+                "fumen_id": "10120",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.6,
+                "const_nodata": false,
+                "notes": 1345,
+                "notes_nodata": false,
+                "notesdesigner": "透明絵具",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.2,
+                "const_nodata": false,
+                "notes": 1828,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2835",
+                "name": "Wing:No.6223",
+                "reading": "WINGNO6223",
+                "artist": "NAMV & Game-i",
+                "genre": "ORIGINAL",
+                "bpm": 190,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "355e4c4d48457c14.jpg",
+                "fumen_id": "10124",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.4,
+                "const_nodata": false,
+                "notes": 1406,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.1,
+                "const_nodata": false,
+                "notes": 1966,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2836",
+                "name": "エモーション・キャプチャー",
+                "reading": "エモウシヨンキヤフチヤウ",
+                "artist": "藍月なくる",
+                "genre": "ORIGINAL",
+                "bpm": 185,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "3db8b98717501dfd.jpg",
+                "fumen_id": "10118",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9.5,
+                "const_nodata": false,
+                "notes": 1322,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.9,
+                "const_nodata": false,
+                "notes": 2176,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2837",
+                "name": "Flap&Clap",
+                "reading": "FLAPCLAP",
+                "artist": "棗いつき",
+                "genre": "ORIGINAL",
+                "bpm": 190,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "ed7ce038c352361a.jpg",
+                "fumen_id": "10119",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.7,
+                "const_nodata": false,
+                "notes": 1509,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14,
+                "const_nodata": false,
+                "notes": 2152,
+                "notes_nodata": false,
+                "notesdesigner": "Clematis&Mistilteinn",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2839",
+                "name": "ブタサンダー",
+                "reading": "フタサンタウ",
+                "artist": "ゆこぴ",
+                "genre": "niconico",
+                "bpm": 145,
+                "bpm_nodata": false,
+                "release": "2025-07-31",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "261b96cc30398de6.jpg",
+                "fumen_id": "10126",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 2,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 8.5,
+                "const_nodata": false,
+                "notes": 931,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.3,
+                "const_nodata": false,
+                "notes": 1724,
+                "notes_nodata": false,
+                "notesdesigner": "そらいろカリン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2840",
+                "name": "私の歯医者さん",
+                "reading": "ワタシノハイシヤサン",
+                "artist": "ゆこぴ",
+                "genre": "niconico",
+                "bpm": 147,
+                "bpm_nodata": false,
+                "release": "2025-07-31",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "99a5ef719e4a5b7e.jpg",
+                "fumen_id": "10127",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 8,
+                "const_nodata": false,
+                "notes": 747,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.2,
+                "const_nodata": false,
+                "notes": 1308,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン＠親知らず抜いた",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2841",
+                "name": "少女A",
+                "reading": "シヨウシヨA",
+                "artist": "椎名もた",
+                "genre": "niconico",
+                "bpm": 260,
+                "bpm_nodata": false,
+                "release": "2025-07-31",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "99a5f5206ba8389c.jpg",
+                "fumen_id": "10128",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 2,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.3,
+                "const_nodata": false,
+                "notes": 1136,
+                "notes_nodata": false,
+                "notesdesigner": "ミストルティン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.2,
+                "const_nodata": false,
+                "notes": 1667,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2842",
+                "name": "え？あぁ、そう。- 10th Anniversary Edition -",
+                "reading": "エアアソウ10THANNIVERSARYEDITION",
+                "artist": "蝶々P",
+                "genre": "niconico",
+                "bpm": 192,
+                "bpm_nodata": false,
+                "release": "2025-07-31",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "dc9accd551abab04.jpg",
+                "fumen_id": "10129",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9.5,
+                "const_nodata": false,
+                "notes": 1121,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14,
+                "const_nodata": false,
+                "notes": 1811,
+                "notes_nodata": false,
+                "notesdesigner": "ミストルティン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2843",
+                "name": "ノーライ",
+                "reading": "ノウライ",
+                "artist": "鬱P feat.鯖",
+                "genre": "ORIGINAL",
+                "bpm": 190,
+                "bpm_nodata": false,
+                "release": "2025-08-07",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "edd22f25d62b34ea.jpg",
+                "fumen_id": "10132",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.7,
+                "const_nodata": false,
+                "notes": 2404,
+                "notes_nodata": false,
+                "notesdesigner": "アミノハバキリ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.7,
+                "const_nodata": false,
+                "notes": 2875,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2844",
+                "name": "あの日、あの部屋で、あったこと",
+                "reading": "アノヒアノヘヤテアツタコト",
+                "artist": "wotaku feat. SHIKI",
+                "genre": "ORIGINAL",
+                "bpm": 328,
+                "bpm_nodata": false,
+                "release": "2025-08-07",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "efe636611ce07775.jpg",
+                "fumen_id": "10133",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 4,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 8.5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 13.3,
+                "const_nodata": false,
+                "notes": 1513,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 15.1,
+                "const_nodata": false,
+                "notes": 2180,
+                "notes_nodata": false,
+                "notesdesigner": "ミニミライト",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2845",
+                "name": "Star Saveler",
+                "reading": "STARSAVELER",
+                "artist": "ShiBa",
+                "genre": "ORIGINAL",
+                "bpm": 195,
+                "bpm_nodata": false,
+                "release": "2025-08-07",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "4cbf8a9dd137c01b.jpg",
+                "fumen_id": "10134",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.1,
+                "const_nodata": false,
+                "notes": 1360,
+                "notes_nodata": false,
+                "notesdesigner": "アミノハバキリ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.3,
+                "const_nodata": false,
+                "notes": 2137,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2847",
+                "name": "単位がない！",
+                "reading": "タンイカナイ",
+                "artist": "五十嵐 撫子(CV:花井 美春)",
+                "genre": "イロドリミドリ",
+                "bpm": 190,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "ca791e9bd762bc91.jpg",
+                "fumen_id": "10115",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.1,
+                "const_nodata": false,
+                "notes": 1472,
+                "notes_nodata": false,
+                "notesdesigner": "ミストルティン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.9,
+                "const_nodata": false,
+                "notes": 2771,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠再履修",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2848",
+                "name": "アージェントシンメトリー",
+                "reading": "アウシエントシンメトリウ",
+                "artist": "Sta feat.b",
+                "genre": "ゲキマイ",
+                "bpm": 172,
+                "bpm_nodata": false,
+                "release": "2025-08-07",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "72666e842e68af96.jpg",
+                "fumen_id": "10131",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.2,
+                "const_nodata": false,
+                "notes": 1186,
+                "notes_nodata": false,
+                "notesdesigner": "サファ太",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.4,
+                "const_nodata": false,
+                "notes": 1771,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2849",
+                "name": "1番輝く星",
+                "reading": "1ハンカカヤクホシ",
+                "artist": "アーリャ（CV：上坂すみれ）「時々ボソッとロシア語でデレる隣のアーリャさん」",
+                "genre": "POPS & ANIME",
+                "bpm": 182,
+                "bpm_nodata": false,
+                "release": "2025-08-21",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "f960455d602444ed.jpg",
+                "fumen_id": "10136",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9,
+                "const_nodata": false,
+                "notes": 904,
+                "notes_nodata": false,
+                "notesdesigner": "ミストルティン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.7,
+                "const_nodata": false,
+                "notes": 1198,
+                "notes_nodata": false,
+                "notesdesigner": "пингвин",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2850",
+                "name": "うい麦畑でつかまえて",
+                "reading": "ウイムキハタケテツカマエテ",
+                "artist": "しぐれうい",
+                "genre": "POPS & ANIME",
+                "bpm": 168,
+                "bpm_nodata": false,
+                "release": "2025-08-21",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "dc21a93a2a5103a3.jpg",
+                "fumen_id": "10137",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9.5,
+                "const_nodata": false,
+                "notes": 1377,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.7,
+                "const_nodata": false,
+                "notes": 2304,
+                "notes_nodata": false,
+                "notesdesigner": "そらいろカリン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2851",
+                "name": "幽霊船戦",
+                "reading": "ユウレイセンセン",
+                "artist": "宝鐘マリン（ホロライブ）",
+                "genre": "POPS & ANIME",
+                "bpm": 160,
+                "bpm_nodata": false,
+                "release": "2025-08-21",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "b21f078d9e70c073.jpg",
+                "fumen_id": "10140",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.0,
+                "const_nodata": false,
+                "notes": 1126,
+                "notes_nodata": false,
+                "notesdesigner": "サファ太",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.6,
+                "const_nodata": false,
+                "notes": 1654,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2852",
+                "name": "オブソミート",
+                "reading": "オフソミウト",
+                "artist": "サツキ",
+                "genre": "niconico",
+                "bpm": 158,
+                "bpm_nodata": false,
+                "release": "2025-09-18",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "ff288202a6e6b17c.jpg",
+                "fumen_id": "10147",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9.5,
+                "const_nodata": false,
+                "notes": 884,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.8,
+                "const_nodata": false,
+                "notes": 1516,
+                "notes_nodata": false,
+                "notesdesigner": "アミノハバキリ",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2853",
+                "name": "スーパーヒーロー",
+                "reading": "スウハウヒウロウ",
+                "artist": "Guiano",
+                "genre": "niconico",
+                "bpm": 132,
+                "bpm_nodata": false,
+                "release": "2025-09-18",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "e5d5d9718239e0dc.jpg",
+                "fumen_id": "10148",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 2,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 8,
+                "const_nodata": false,
+                "notes": 806,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.5,
+                "const_nodata": false,
+                "notes": 1400,
+                "notes_nodata": false,
+                "notesdesigner": "イノシカ提灯",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2854",
+                "name": "カルチャ",
+                "reading": "カルチヤ",
+                "artist": "ツミキ",
+                "genre": "niconico",
+                "bpm": 172,
+                "bpm_nodata": false,
+                "release": "2025-09-18",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "82dab59af12a8bd5.jpg",
+                "fumen_id": "10149",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.0,
+                "const_nodata": false,
+                "notes": 1299,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.0,
+                "const_nodata": false,
+                "notes": 2187,
+                "notes_nodata": false,
+                "notesdesigner": "ミストルティン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2855",
+                "name": "内臓♡マニピ",
+                "reading": "ナイソウマニヒ",
+                "artist": "Kijibato feat. をとは",
+                "genre": "ORIGINAL",
+                "bpm": 120,
+                "bpm_nodata": false,
+                "release": "2025-09-04",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "e18fd9af9133e46d.jpg",
+                "fumen_id": "10142",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 4,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 8,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.8,
+                "const_nodata": false,
+                "notes": 1257,
+                "notes_nodata": false,
+                "notesdesigner": "ミストルティン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.7,
+                "const_nodata": false,
+                "notes": 1912,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠要検査",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2856",
+                "name": "Steamed on the Beat",
+                "reading": "STEAMEDONTHEBEAT",
+                "artist": "電気式華憐音楽集団",
+                "genre": "ORIGINAL",
+                "bpm": 164,
+                "bpm_nodata": false,
+                "release": "2025-09-04",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "606b722f065dd646.jpg",
+                "fumen_id": "10143",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.9,
+                "const_nodata": false,
+                "notes": 1023,
+                "notes_nodata": false,
+                "notesdesigner": "ミニミライト",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.0,
+                "const_nodata": false,
+                "notes": 1560,
+                "notes_nodata": false,
+                "notesdesigner": "ミニミライト＠デンカリスト",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2857",
+                "name": "Challenger!!",
+                "reading": "CHALLENGER",
+                "artist": "シャティ",
+                "genre": "ORIGINAL",
+                "bpm": 130,
+                "bpm_nodata": false,
+                "release": "2025-09-04",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "68097129ef999df1.jpg",
+                "fumen_id": "10144",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.3,
+                "const_nodata": false,
+                "notes": 1076,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.0,
+                "const_nodata": false,
+                "notes": 1674,
+                "notes_nodata": false,
+                "notesdesigner": "ぴちネコ",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2859",
+                "name": "Burn!!!",
+                "reading": "BURN",
+                "artist": "藤堂 陽南袴(CV:八島 さらら)",
+                "genre": "イロドリミドリ",
+                "bpm": 150,
+                "bpm_nodata": false,
+                "release": "2025-09-04",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "d725398d89dbc652.jpg",
+                "fumen_id": "10141",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.7,
+                "const_nodata": false,
+                "notes": 1235,
+                "notes_nodata": false,
+                "notesdesigner": "そらいろカリン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.1,
+                "const_nodata": false,
+                "notes": 1815,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン!!!",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2862",
+                "name": "スパイダーダンス",
+                "reading": "スハイタウタンス",
+                "artist": "Toby Fox「UNDERTALE」",
+                "genre": "VARIETY",
+                "bpm": 115,
+                "bpm_nodata": false,
+                "release": "2025-09-18",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "f58c61f0f40e07cf.jpg",
+                "fumen_id": "10150",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 2,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.7,
+                "const_nodata": false,
+                "notes": 1088,
+                "notes_nodata": false,
+                "notesdesigner": "サファ太",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.5,
+                "const_nodata": false,
+                "notes": 1276,
+                "notes_nodata": false,
+                "notesdesigner": "アミノハバキリ",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2864",
+                "name": "きゅびずむ",
+                "reading": "キユヒスム",
+                "artist": "超てんちゃん",
+                "genre": "POPS & ANIME",
+                "bpm": 185,
+                "bpm_nodata": false,
+                "release": "2025-08-21",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "4679cc387de4fa20.jpg",
+                "fumen_id": "10138",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 4,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9.5,
+                "const_nodata": false,
+                "notes": 1218,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.8,
+                "const_nodata": false,
+                "notes": 1598,
+                "notes_nodata": false,
+                "notesdesigner": "ミニミライト",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2865",
+                "name": "きゅびびびびずむ",
+                "reading": "キユヒヒヒヒスム",
+                "artist": "超てんちゃん",
+                "genre": "POPS & ANIME",
+                "bpm": 185,
+                "bpm_nodata": false,
+                "release": "2025-08-21",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "ad5eefa492fc9172.jpg",
+                "fumen_id": "10139",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 9,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.9,
+                "const_nodata": false,
+                "notes": 1827,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.5,
+                "const_nodata": false,
+                "notes": 2848,
+                "notes_nodata": false,
+                "notesdesigner": "譜面MADとよばれるもの",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2866",
+                "name": "ナラク・オン・エア",
+                "reading": "ナラクオンエア",
+                "artist": "吉田夜世 feat.棗いつき",
+                "genre": "ORIGINAL",
+                "bpm": 220,
+                "bpm_nodata": false,
+                "release": "2025-10-02",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "83c2148b0c5439ea.jpg",
+                "fumen_id": "10153",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 4,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.0,
+                "const_nodata": false,
+                "notes": 1505,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.2,
+                "const_nodata": false,
+                "notes": 2078,
+                "notes_nodata": false,
+                "notesdesigner": "ミニミライト",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2867",
+                "name": "システム",
+                "reading": "システム",
+                "artist": "大漠波新 feat.ウォルピスカーター",
+                "genre": "ORIGINAL",
+                "bpm": 141,
+                "bpm_nodata": false,
+                "release": "2025-10-02",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "ff674bf7edab0f4c.jpg",
+                "fumen_id": "10154",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.4,
+                "const_nodata": false,
+                "notes": 1149,
+                "notes_nodata": false,
+                "notesdesigner": "ミストルティン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.6,
+                "const_nodata": false,
+                "notes": 1400,
+                "notes_nodata": false,
+                "notesdesigner": "じゃこレモン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2868",
+                "name": "恋伯色",
+                "reading": "コハクイロ",
+                "artist": "瀬名水紀 feat.六宮",
+                "genre": "ORIGINAL",
+                "bpm": 186,
+                "bpm_nodata": false,
+                "release": "2025-10-02",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "3c8481ae79bb7075.jpg",
+                "fumen_id": "10155",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 4,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9.5,
+                "const_nodata": false,
+                "notes": 1408,
+                "notes_nodata": false,
+                "notesdesigner": "イノシカ提灯",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.8,
+                "const_nodata": false,
+                "notes": 1787,
+                "notes_nodata": false,
+                "notesdesigner": "夕凪アロエ",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2870",
+                "name": "ソウルのピース",
+                "reading": "ソウルノヒウス",
+                "artist": "葛城 華(CV:丸岡 和佳奈)",
+                "genre": "イロドリミドリ",
+                "bpm": 146,
+                "bpm_nodata": false,
+                "release": "2025-10-02",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "d566db7c0f7ec2ba.jpg",
+                "fumen_id": "10152",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.6,
+                "const_nodata": false,
+                "notes": 836,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.7,
+                "const_nodata": false,
+                "notes": 1338,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2871",
+                "name": "Idoratrize World",
+                "reading": "IDORATRIZEWORLD",
+                "artist": "A-One",
+                "genre": "東方Project",
+                "bpm": 170,
+                "bpm_nodata": false,
+                "release": "2025-10-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "5e39b603890a94b9.jpg",
+                "fumen_id": "10159",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.4,
+                "const_nodata": false,
+                "notes": 1063,
+                "notes_nodata": false,
+                "notesdesigner": "アミノハバキリ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.1,
+                "const_nodata": false,
+                "notes": 1749,
+                "notes_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2872",
+                "name": "Necromantic",
+                "reading": "NECROMANTIC",
+                "artist": "暁Records",
+                "genre": "東方Project",
+                "bpm": 144,
+                "bpm_nodata": false,
+                "release": "2025-10-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "584b8e745e6ff7fc.jpg",
+                "fumen_id": "10160",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9.5,
+                "const_nodata": false,
+                "notes": 1100,
+                "notes_nodata": false,
+                "notesdesigner": "ぷれあらんす",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.0,
+                "const_nodata": false,
+                "notes": 1703,
+                "notes_nodata": false,
+                "notesdesigner": "サファ太",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2873",
+                "name": "Galaxy Collapse",
+                "reading": "GALAXYCOLLAPSE",
+                "artist": "黒皇帝",
+                "genre": "東方Project",
+                "bpm": 135,
+                "bpm_nodata": false,
+                "release": "2025-10-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "7e960cc79d3ba17d.jpg",
+                "fumen_id": "10161",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 4.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 9.5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 13.8,
+                "const_nodata": false,
+                "notes": 1563,
+                "notes_nodata": false,
+                "notesdesigner": "夕凪アロエ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 15.3,
+                "const_nodata": false,
+                "notes": 2414,
+                "notes_nodata": false,
+                "notesdesigner": "Unidentified Fierce Onslaught",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2874",
+                "name": "はじまりの未来",
+                "reading": "ハシマリノミライ",
+                "artist": "40mP × sasakure.UK / 初音ミク「劇場版プロジェクトセカイ　壊れたセカイと歌えないミク」",
+                "genre": "niconico",
+                "bpm": 156,
+                "bpm_nodata": false,
+                "release": "2025-10-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "8ff0614212fb7ad8.jpg",
+                "fumen_id": "10157",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 2.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9.0,
+                "const_nodata": false,
+                "notes": 1004,
+                "notes_nodata": false,
+                "notesdesigner": "ミストルティン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.9,
+                "const_nodata": false,
+                "notes": 1377,
+                "notes_nodata": false,
+                "notesdesigner": "イノシカ提灯",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2875",
+                "name": "Worlders",
+                "reading": "WORLDERS",
+                "artist": "じん / バーチャル・シンガー、Leo/need、MORE MORE JUMP！、Vivid BAD SQUAD、ワンダーランズ×ショウタイム、25時、ナイトコードで。「劇場版プロジェクトセカイ　壊れたセカイと歌えないミク」",
+                "genre": "niconico",
+                "bpm": 138,
+                "bpm_nodata": false,
+                "release": "2025-10-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "a44a7002e745fb11.jpg",
+                "fumen_id": "10158",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 2.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9.0,
+                "const_nodata": false,
+                "notes": 1021,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.8,
+                "const_nodata": false,
+                "notes": 1241,
+                "notes_nodata": false,
+                "notesdesigner": "ミストルティン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2893",
+                "name": "ぎゅむ！",
+                "reading": "キユム",
+                "artist": "ぷにる（CV：篠原 侑）「ぷにるはかわいいスライム」",
+                "genre": "POPS & ANIME",
+                "bpm": 168,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "c1d0d1c58257d3ce.jpg",
+                "fumen_id": "10103",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9.5,
+                "const_nodata": false,
+                "notes": 1213,
+                "notes_nodata": false,
+                "notesdesigner": "ミストルティン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.1,
+                "const_nodata": false,
+                "notes": 1808,
+                "notes_nodata": false,
+                "notesdesigner": "大根おろしペンギン",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2894",
+                "name": "ずんだシェイキング",
+                "reading": "スンタシエイキンク",
+                "artist": "なみぐる",
+                "genre": "niconico",
+                "bpm": 140,
+                "bpm_nodata": false,
+                "release": "2025-09-18",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "5e267d2979afc7f4.jpg",
+                "fumen_id": "10146",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.1,
+                "const_nodata": false,
+                "notes": 960,
+                "notes_nodata": false,
+                "notesdesigner": "アミノハバキリ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.6,
+                "const_nodata": false,
+                "notes": 1394,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "2895",
+                "name": "夢と希望",
+                "reading": "ユメトキホウ",
+                "artist": "Toby Fox「UNDERTALE」",
+                "genre": "VARIETY",
+                "bpm": 171,
+                "bpm_nodata": false,
+                "release": "2025-09-18",
+                "release_version": "CHUNITHM VERSE",
+                "image_url": "8d26ca603c9ecdea.jpg",
+                "fumen_id": "10151",
+                "is_worldsend": false,
+                "has_ultima": false,
+                "only_ultima": false,
+                "we_star": null,
+                "we_kanji": null
+            },
+            "basic": {
+                "const": 3,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.3,
+                "const_nodata": false,
+                "notes": 1489,
+                "notes_nodata": false,
+                "notesdesigner": "みぞれヤナギ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.5,
+                "const_nodata": false,
+                "notes": 2420,
+                "notes_nodata": false,
+                "notesdesigner": "＊おわりだ。",
+                "notesdesigner_nodata": false
+            },
+            "ultima": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
         }
     ],
-    "update_at": "2025/04/26 13:02"
+    "update_at": "2025/10/19 23:31"
 }

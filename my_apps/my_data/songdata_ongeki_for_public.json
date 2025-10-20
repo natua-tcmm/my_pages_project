@@ -2,6 +2,591 @@
     "songs": [
         {
             "meta": {
+                "official_id": "166600",
+                "official_id_lunatic": null,
+                "name": "Dream Believers (105期Ver.)",
+                "reading": "DREAMBELIEVERS105キVER",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "蓮ノ空女学院スクールアイドルクラブ",
+                "genre": "POPS＆ANIME",
+                "bpm": 162,
+                "bpm_nodata": false,
+                "release": "2025-09-18",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "99f0ff23b14b189c.png",
+                "fumen_id": "05062",
+                "character": "日野下 花帆",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9.7,
+                "const_nodata": false,
+                "notes": 827,
+                "notes_nodata": false,
+                "bell": 133,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.9,
+                "const_nodata": false,
+                "notes": 1256,
+                "notes_nodata": false,
+                "bell": 105,
+                "bell_nodata": false,
+                "notesdesigner": "ミニミライト@これからを咲き誇れと",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "166700",
+                "official_id_lunatic": null,
+                "name": "アイドゥーミー！",
+                "reading": "アイトウミ",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "蓮ノ空女学院スクールアイドルクラブ",
+                "genre": "POPS＆ANIME",
+                "bpm": 185,
+                "bpm_nodata": false,
+                "release": "2025-09-18",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "aaafe44ea222b8f9.png",
+                "fumen_id": "05063",
+                "character": "日野下 花帆",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 4.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7.7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.0,
+                "const_nodata": true,
+                "notes": 587,
+                "notes_nodata": false,
+                "bell": 170,
+                "bell_nodata": false,
+                "notesdesigner": "ぷれあらんす",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.8,
+                "const_nodata": false,
+                "notes": 1111,
+                "notes_nodata": false,
+                "bell": 105,
+                "bell_nodata": false,
+                "notesdesigner": "Revo＠星に憧れて、花は舞う",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "166800",
+                "official_id_lunatic": null,
+                "name": "Honeycomb",
+                "reading": "HONEYCOMB",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "天川はの",
+                "genre": "POPS＆ANIME",
+                "bpm": 130,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "a1b55ff02c538b4d.png",
+                "fumen_id": "05043",
+                "character": "藤沢 柚子",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 2.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.7,
+                "const_nodata": true,
+                "notes": 860,
+                "notes_nodata": false,
+                "bell": 100,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.9,
+                "const_nodata": false,
+                "notes": 1482,
+                "notes_nodata": false,
+                "bell": 143,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく＠OBTめぽ",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "166850",
+                "official_id_lunatic": null,
+                "name": "レイテストショーマン",
+                "reading": "レイテストシヨマン",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "ジョー・力一",
+                "genre": "POPS＆ANIME",
+                "bpm": 138,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "913cdd61abee9d86.png",
+                "fumen_id": "05044",
+                "character": "結城 莉玖",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 2.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.0,
+                "const_nodata": true,
+                "notes": 626,
+                "notes_nodata": false,
+                "bell": 110,
+                "bell_nodata": false,
+                "notesdesigner": "ぷれあらんす",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.0,
+                "const_nodata": false,
+                "notes": 1065,
+                "notes_nodata": false,
+                "bell": 96,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "166900",
+                "official_id_lunatic": null,
+                "name": "ユニゾンモノローグ",
+                "reading": "ユニソンモノロク",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "テトラルキア「Re:ステージ！プリズムステップ」",
+                "genre": "POPS＆ANIME",
+                "bpm": 165,
+                "bpm_nodata": false,
+                "release": "2025-07-03",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "a5731e5841067486.png",
+                "fumen_id": "05038",
+                "character": "式宮 舞菜",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 2.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7.7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.2,
+                "const_nodata": false,
+                "notes": 722,
+                "notes_nodata": false,
+                "bell": 134,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.4,
+                "const_nodata": false,
+                "notes": 875,
+                "notes_nodata": false,
+                "bell": 78,
+                "bell_nodata": false,
+                "notesdesigner": "緑化リーダー",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "167000",
+                "official_id_lunatic": null,
+                "name": "ガジェットはプリンセス",
+                "reading": "カシエツトハフリンセス",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "柊かえ（CV:立花芽恵夢）「Re:ステージ！プリズムステップ」",
+                "genre": "POPS＆ANIME",
+                "bpm": 190,
+                "bpm_nodata": false,
+                "release": "2025-07-03",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "0cb0dea18d16bf6a.png",
+                "fumen_id": "05039",
+                "character": "式宮 舞菜",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 4.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 8.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.6,
+                "const_nodata": false,
+                "notes": 745,
+                "notes_nodata": false,
+                "bell": 129,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.3,
+                "const_nodata": false,
+                "notes": 1435,
+                "notes_nodata": false,
+                "bell": 105,
+                "bell_nodata": false,
+                "notesdesigner": "Re:vo@LC！",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "167200",
+                "official_id_lunatic": null,
+                "name": "いっかい書いてさようなら",
+                "reading": "イツカイカイテサヨウナラ",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "名取さな",
+                "genre": "POPS＆ANIME",
+                "bpm": 135,
+                "bpm_nodata": false,
+                "release": "2025-05-22",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "820751d0563fc394.png",
+                "fumen_id": "05030",
+                "character": "名取さな",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 2.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.7,
+                "const_nodata": true,
+                "notes": 609,
+                "notes_nodata": false,
+                "bell": 73,
+                "bell_nodata": false,
+                "notesdesigner": "そらいろカリン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.0,
+                "const_nodata": false,
+                "notes": 801,
+                "notes_nodata": false,
+                "bell": 120,
+                "bell_nodata": false,
+                "notesdesigner": "アマリリス",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "167400",
+                "official_id_lunatic": null,
+                "name": "ほんの感想",
+                "reading": "ホンノカンソウ",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "歌：長瀬有花／曲：いよわ",
+                "genre": "POPS＆ANIME",
+                "bpm": 196,
+                "bpm_nodata": false,
+                "release": "2025-05-22",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "8dc51fbc45752ff2.png",
+                "fumen_id": "05031",
+                "character": "長瀬有花",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 4.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 8.7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.5,
+                "const_nodata": false,
+                "notes": 1009,
+                "notes_nodata": false,
+                "bell": 147,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.9,
+                "const_nodata": false,
+                "notes": 2225,
+                "notes_nodata": false,
+                "bell": 141,
+                "bell_nodata": false,
+                "notesdesigner": "だつりょく系ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "167500",
+                "official_id_lunatic": null,
+                "name": "オレンジスケール",
+                "reading": "オレンシスケル",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "歌：長瀬有花／曲：いよわ",
+                "genre": "POPS＆ANIME",
+                "bpm": 120,
+                "bpm_nodata": false,
+                "release": "2025-05-22",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "81d2e9de7a20c1c8.png",
+                "fumen_id": "05032",
+                "character": "長瀬有花",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 2.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.0,
+                "const_nodata": true,
+                "notes": 601,
+                "notes_nodata": false,
+                "bell": 88,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.1,
+                "const_nodata": false,
+                "notes": 936,
+                "notes_nodata": false,
+                "bell": 98,
+                "bell_nodata": false,
+                "notesdesigner": "だつりょく系ミニミライト",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
                 "official_id": "167600",
                 "official_id_lunatic": null,
                 "name": "Hey Darling!",
@@ -10,14 +595,14 @@
                 "subname_nodata": true,
                 "artist": "歌：松下／曲：堀江晶太",
                 "genre": "POPS＆ANIME",
-                "bpm": null,
-                "bpm_nodata": true,
+                "bpm": 141,
+                "bpm_nodata": false,
                 "release": "2025-04-24",
                 "release_version": "オンゲキ Re:Fresh",
                 "release_lunatic": null,
                 "release_lunatic_version": null,
                 "image_url": "86aab18a4826f9aa.png",
-                "fumen_id": null,
+                "fumen_id": "05026",
                 "character": "井之原 小星",
                 "character_lunatic": null,
                 "is_bonus": false,
@@ -37,22 +622,22 @@
             "expert": {
                 "const": 10.7,
                 "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "bell": null,
-                "bell_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notes": 594,
+                "notes_nodata": false,
+                "bell": 96,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
             },
             "master": {
-                "const": 13.0,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "bell": null,
-                "bell_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "const": 13.6,
+                "const_nodata": false,
+                "notes": 999,
+                "notes_nodata": false,
+                "bell": 151,
+                "bell_nodata": false,
+                "notesdesigner": "ミニミライトOC",
+                "notesdesigner_nodata": false
             },
             "lunatic": {
                 "const": null,
@@ -75,14 +660,14 @@
                 "subname_nodata": true,
                 "artist": "歌：櫻川めぐ／曲：堀江晶太",
                 "genre": "POPS＆ANIME",
-                "bpm": null,
-                "bpm_nodata": true,
+                "bpm": 153,
+                "bpm_nodata": false,
                 "release": "2025-04-24",
                 "release_version": "オンゲキ Re:Fresh",
                 "release_lunatic": null,
                 "release_lunatic_version": null,
                 "image_url": "ed26cae99192f4e6.png",
-                "fumen_id": null,
+                "fumen_id": "05027",
                 "character": "和泉 妃愛",
                 "character_lunatic": null,
                 "is_bonus": false,
@@ -102,22 +687,22 @@
             "expert": {
                 "const": 10.0,
                 "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "bell": null,
-                "bell_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notes": 752,
+                "notes_nodata": false,
+                "bell": 242,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
             },
             "master": {
-                "const": 13.0,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "bell": null,
-                "bell_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "const": 13.4,
+                "const_nodata": false,
+                "notes": 1340,
+                "notes_nodata": false,
+                "bell": 183,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく凸",
+                "notesdesigner_nodata": false
             },
             "lunatic": {
                 "const": null,
@@ -2147,67 +2732,67 @@
         },
         {
             "meta": {
-                "official_id": "181700",
-                "official_id_lunatic": null,
-                "name": "ホシノキズナ",
-                "reading": "ホシノキスナ",
+                "official_id": "182200",
+                "official_id_lunatic": "945400",
+                "name": "わたしたち魔法乙女です☆",
+                "reading": "ワタシタチマホウオトメテス",
                 "subname": null,
                 "subname_nodata": true,
-                "artist": "神樹ヶ峰女学園星守クラス「バトルガール ハイスクール」",
+                "artist": "LOVE☆MAXガールズ「ゴシックは魔法乙女」",
                 "genre": "POPS＆ANIME",
-                "bpm": 178,
+                "bpm": 190,
                 "bpm_nodata": false,
-                "release": "2020-03-12",
-                "release_version": "オンゲキ SUMMER PLUS",
-                "release_lunatic": null,
-                "release_lunatic_version": null,
-                "image_url": "f12b4cb4bb6ed402.png",
-                "fumen_id": "02112",
-                "character": "星月 みき",
-                "character_lunatic": null,
+                "release": "2025-07-03",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": "2025-07-03",
+                "release_lunatic_version": "オンゲキ Re:Fresh",
+                "image_url": "14a0e51e0adb2db2.png",
+                "fumen_id": "02099",
+                "character": "ロザリー",
+                "character_lunatic": "ロザリー",
                 "is_bonus": false,
-                "has_lunatic": false,
+                "has_lunatic": true,
                 "only_lunatic": false,
-                "is_remaster": null,
-                "is_remaster_nodata": true
+                "is_remaster": false,
+                "is_remaster_nodata": false
             },
             "basic": {
-                "const": 2.0,
+                "const": 4.0,
                 "const_nodata": false
             },
             "advanced": {
-                "const": 5.0,
+                "const": 6.0,
                 "const_nodata": false
             },
             "expert": {
                 "const": 9.0,
                 "const_nodata": false,
-                "notes": 938,
+                "notes": 1159,
                 "notes_nodata": false,
-                "bell": 168,
+                "bell": 171,
                 "bell_nodata": false,
                 "notesdesigner": "ロシェ＠ペンギン",
                 "notesdesigner_nodata": false
             },
             "master": {
-                "const": 12.1,
+                "const": 12.4,
                 "const_nodata": false,
-                "notes": 1651,
+                "notes": 1286,
                 "notes_nodata": false,
-                "bell": 161,
+                "bell": 141,
                 "bell_nodata": false,
-                "notesdesigner": "星守委員長",
+                "notesdesigner": "【絆地獄】MONOCLOCK",
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "bell": null,
-                "bell_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "const": 14.2,
+                "const_nodata": false,
+                "notes": 1891,
+                "notes_nodata": false,
+                "bell": 405,
+                "bell_nodata": false,
+                "notesdesigner": "さっさと完走しなさい！",
+                "notesdesigner_nodata": false
             }
         },
         {
@@ -3253,7 +3838,7 @@
         {
             "meta": {
                 "official_id": "186200",
-                "official_id_lunatic": null,
+                "official_id_lunatic": "985200",
                 "name": "君とインフィニティ -2021-",
                 "reading": "キミトインフイニテイ2021",
                 "subname": null,
@@ -3264,17 +3849,17 @@
                 "bpm_nodata": false,
                 "release": "2023-03-16",
                 "release_version": "オンゲキ bright MEMORY Act.2",
-                "release_lunatic": null,
-                "release_lunatic_version": null,
+                "release_lunatic": "2025-07-03",
+                "release_lunatic_version": "オンゲキ Re:Fresh",
                 "image_url": "f427843ff0d23c7a.png",
                 "fumen_id": "04223",
                 "character": "式宮 舞菜",
-                "character_lunatic": null,
+                "character_lunatic": "式宮 舞菜",
                 "is_bonus": false,
-                "has_lunatic": false,
+                "has_lunatic": true,
                 "only_lunatic": false,
-                "is_remaster": null,
-                "is_remaster_nodata": true
+                "is_remaster": true,
+                "is_remaster_nodata": false
             },
             "basic": {
                 "const": 4.0,
@@ -3305,14 +3890,14 @@
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "bell": null,
-                "bell_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "const": 14.8,
+                "const_nodata": false,
+                "notes": 2021,
+                "notes_nodata": false,
+                "bell": 88,
+                "bell_nodata": false,
+                "notesdesigner": "Re:MASTER by Twinrook",
+                "notesdesigner_nodata": false
             }
         },
         {
@@ -3562,136 +4147,6 @@
                 "bell": 63,
                 "bell_nodata": false,
                 "notesdesigner": "じゃこレモン",
-                "notesdesigner_nodata": false
-            },
-            "lunatic": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "bell": null,
-                "bell_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
-            }
-        },
-        {
-            "meta": {
-                "official_id": "186700",
-                "official_id_lunatic": null,
-                "name": "無敵☆moment",
-                "reading": "ムテキMOMENT",
-                "subname": null,
-                "subname_nodata": true,
-                "artist": "Peaky P-key「D4DJ」",
-                "genre": "POPS＆ANIME",
-                "bpm": 140,
-                "bpm_nodata": false,
-                "release": "2022-03-17",
-                "release_version": "オンゲキ bright MEMORY Act.1",
-                "release_lunatic": null,
-                "release_lunatic_version": null,
-                "image_url": "afe3758e2fb91486.png",
-                "fumen_id": "04117",
-                "character": "山手響子",
-                "character_lunatic": null,
-                "is_bonus": false,
-                "has_lunatic": false,
-                "only_lunatic": false,
-                "is_remaster": null,
-                "is_remaster_nodata": true
-            },
-            "basic": {
-                "const": 2.0,
-                "const_nodata": false
-            },
-            "advanced": {
-                "const": 5.0,
-                "const_nodata": false
-            },
-            "expert": {
-                "const": 9.0,
-                "const_nodata": false,
-                "notes": 698,
-                "notes_nodata": false,
-                "bell": 52,
-                "bell_nodata": false,
-                "notesdesigner": "みそかつ侍",
-                "notesdesigner_nodata": false
-            },
-            "master": {
-                "const": 12.6,
-                "const_nodata": false,
-                "notes": 993,
-                "notes_nodata": false,
-                "bell": 125,
-                "bell_nodata": false,
-                "notesdesigner": "ロシェ＠ピーキー",
-                "notesdesigner_nodata": false
-            },
-            "lunatic": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "bell": null,
-                "bell_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
-            }
-        },
-        {
-            "meta": {
-                "official_id": "186800",
-                "official_id_lunatic": null,
-                "name": "クライノイド",
-                "reading": "クライノイト",
-                "subname": null,
-                "subname_nodata": true,
-                "artist": "燐舞曲「D4DJ」",
-                "genre": "POPS＆ANIME",
-                "bpm": 185,
-                "bpm_nodata": false,
-                "release": "2022-03-17",
-                "release_version": "オンゲキ bright MEMORY Act.1",
-                "release_lunatic": null,
-                "release_lunatic_version": null,
-                "image_url": "8da3b32fa854c9ca.png",
-                "fumen_id": "04118",
-                "character": "青柳 椿",
-                "character_lunatic": null,
-                "is_bonus": false,
-                "has_lunatic": false,
-                "only_lunatic": false,
-                "is_remaster": null,
-                "is_remaster_nodata": true
-            },
-            "basic": {
-                "const": 4.0,
-                "const_nodata": false
-            },
-            "advanced": {
-                "const": 7.7,
-                "const_nodata": false
-            },
-            "expert": {
-                "const": 9.7,
-                "const_nodata": false,
-                "notes": 744,
-                "notes_nodata": false,
-                "bell": 110,
-                "bell_nodata": false,
-                "notesdesigner": "rioN",
-                "notesdesigner_nodata": false
-            },
-            "master": {
-                "const": 13,
-                "const_nodata": false,
-                "notes": 1071,
-                "notes_nodata": false,
-                "bell": 84,
-                "bell_nodata": false,
-                "notesdesigner": "みそかつ侍",
                 "notesdesigner_nodata": false
             },
             "lunatic": {
@@ -5317,6 +5772,396 @@
                 "bell": 176,
                 "bell_nodata": false,
                 "notesdesigner": "じゃこ侍＠蓮ノ空のこと好き好きクラブのみなさん",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "273600",
+                "official_id_lunatic": null,
+                "name": "はじまりの未来",
+                "reading": "ハシマリノミライ",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "40mP × sasakure.UK",
+                "genre": "niconico",
+                "bpm": 156,
+                "bpm_nodata": false,
+                "release": "2025-10-16",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "c63f5d061335e951.png",
+                "fumen_id": "05067",
+                "character": "閉ざされた窓のセカイの初音ミク",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.0,
+                "const_nodata": true,
+                "notes": 653,
+                "notes_nodata": false,
+                "bell": 123,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.5,
+                "const_nodata": false,
+                "notes": 929,
+                "notes_nodata": false,
+                "bell": 108,
+                "bell_nodata": false,
+                "notesdesigner": "ぷれあらんす",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "273700",
+                "official_id_lunatic": null,
+                "name": "Worlders",
+                "reading": "WORLDERS",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "じん",
+                "genre": "niconico",
+                "bpm": 138,
+                "bpm_nodata": false,
+                "release": "2025-10-16",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "ca47494d57c5041a.png",
+                "fumen_id": "05068",
+                "character": "開かれた窓のセカイの初音ミク",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 2.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 5.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 9.0,
+                "const_nodata": false,
+                "notes": 603,
+                "notes_nodata": false,
+                "bell": 57,
+                "bell_nodata": false,
+                "notesdesigner": "rioN",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.8,
+                "const_nodata": false,
+                "notes": 1176,
+                "notes_nodata": false,
+                "bell": 201,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "273800",
+                "official_id_lunatic": null,
+                "name": "ダイダイダイダイダイキライ",
+                "reading": "タイタイタイタイタイキライ",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "雨良 Amala",
+                "genre": "niconico",
+                "bpm": 130,
+                "bpm_nodata": false,
+                "release": "2025-10-16",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "bdc32c7afa9285c1.png",
+                "fumen_id": "05069",
+                "character": "藍原 椿",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 2.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.7,
+                "const_nodata": true,
+                "notes": 700,
+                "notes_nodata": false,
+                "bell": 156,
+                "bell_nodata": false,
+                "notesdesigner": "ぷれあらんす",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.4,
+                "const_nodata": false,
+                "notes": 1148,
+                "notes_nodata": false,
+                "bell": 165,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "273900",
+                "official_id_lunatic": null,
+                "name": "リアライズ",
+                "reading": "リアライス",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "柊マグネタイト",
+                "genre": "niconico",
+                "bpm": 150,
+                "bpm_nodata": false,
+                "release": "2025-07-10",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "a63f2be3cc7c99c4.png",
+                "fumen_id": "05040",
+                "character": "早乙女 彩華",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 2.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7.7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.0,
+                "const_nodata": true,
+                "notes": 873,
+                "notes_nodata": false,
+                "bell": 156,
+                "bell_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.3,
+                "const_nodata": false,
+                "notes": 1386,
+                "notes_nodata": false,
+                "bell": 134,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "274000",
+                "official_id_lunatic": null,
+                "name": "ライアーダンサー",
+                "reading": "ライアタンサ",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "マサラダ",
+                "genre": "niconico",
+                "bpm": 170,
+                "bpm_nodata": false,
+                "release": "2025-07-10",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "d76f8f7e6ff7d0e3.png",
+                "fumen_id": "05041",
+                "character": "重音テト",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7.7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.7,
+                "const_nodata": true,
+                "notes": 916,
+                "notes_nodata": false,
+                "bell": 121,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.6,
+                "const_nodata": false,
+                "notes": 1445,
+                "notes_nodata": false,
+                "bell": 61,
+                "bell_nodata": false,
+                "notesdesigner": "アミノハバキリ",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "274100",
+                "official_id_lunatic": null,
+                "name": "人マニア",
+                "reading": "ヒトマニア",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "原口沙輔 feat.重音テト",
+                "genre": "niconico",
+                "bpm": 150,
+                "bpm_nodata": false,
+                "release": "2025-07-10",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "979fff2053ed2264.png",
+                "fumen_id": "05042",
+                "character": "重音テト",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 2.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 8.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.7,
+                "const_nodata": true,
+                "notes": 753,
+                "notes_nodata": false,
+                "bell": 121,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.9,
+                "const_nodata": false,
+                "notes": 1038,
+                "notes_nodata": false,
+                "bell": 101,
+                "bell_nodata": false,
+                "notesdesigner": "ハバ良くない!",
                 "notesdesigner_nodata": false
             },
             "lunatic": {
@@ -8112,71 +8957,6 @@
                 "bell": 198,
                 "bell_nodata": false,
                 "notesdesigner": "譜面-100号",
-                "notesdesigner_nodata": false
-            },
-            "lunatic": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "bell": null,
-                "bell_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
-            }
-        },
-        {
-            "meta": {
-                "official_id": "280100",
-                "official_id_lunatic": null,
-                "name": "こどものしくみ",
-                "reading": "コトモノシクミ",
-                "subname": null,
-                "subname_nodata": true,
-                "artist": "ピノキオピー",
-                "genre": "niconico",
-                "bpm": 255,
-                "bpm_nodata": false,
-                "release": "2019-11-28",
-                "release_version": "オンゲキ SUMMER",
-                "release_lunatic": null,
-                "release_lunatic_version": null,
-                "image_url": "9952665c89c2c609.png",
-                "fumen_id": "02063",
-                "character": "結城 莉玖",
-                "character_lunatic": null,
-                "is_bonus": false,
-                "has_lunatic": false,
-                "only_lunatic": false,
-                "is_remaster": null,
-                "is_remaster_nodata": true
-            },
-            "basic": {
-                "const": 5.0,
-                "const_nodata": false
-            },
-            "advanced": {
-                "const": 7.7,
-                "const_nodata": false
-            },
-            "expert": {
-                "const": 11.0,
-                "const_nodata": false,
-                "notes": 988,
-                "notes_nodata": false,
-                "bell": 113,
-                "bell_nodata": false,
-                "notesdesigner": "うさぎランドリー",
-                "notesdesigner_nodata": false
-            },
-            "master": {
-                "const": 12.9,
-                "const_nodata": false,
-                "notes": 1172,
-                "notes_nodata": false,
-                "bell": 73,
-                "bell_nodata": false,
-                "notesdesigner": "ものくろっく",
                 "notesdesigner_nodata": false
             },
             "lunatic": {
@@ -11232,71 +12012,6 @@
                 "bell": 75,
                 "bell_nodata": false,
                 "notesdesigner": "ものくろっく",
-                "notesdesigner_nodata": false
-            },
-            "lunatic": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "bell": null,
-                "bell_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
-            }
-        },
-        {
-            "meta": {
-                "official_id": "285500",
-                "official_id_lunatic": null,
-                "name": "メルティランドナイトメア",
-                "reading": "メルテイラントナイトメア",
-                "subname": null,
-                "subname_nodata": true,
-                "artist": "はるまきごはん feat.初音ミク",
-                "genre": "niconico",
-                "bpm": 140,
-                "bpm_nodata": false,
-                "release": "2020-02-20",
-                "release_version": "オンゲキ SUMMER PLUS",
-                "release_lunatic": null,
-                "release_lunatic_version": null,
-                "image_url": "256bbb037a3a20a8.png",
-                "fumen_id": "02107",
-                "character": "東雲 つむぎ",
-                "character_lunatic": null,
-                "is_bonus": false,
-                "has_lunatic": false,
-                "only_lunatic": false,
-                "is_remaster": null,
-                "is_remaster_nodata": true
-            },
-            "basic": {
-                "const": 2.0,
-                "const_nodata": false
-            },
-            "advanced": {
-                "const": 5.0,
-                "const_nodata": false
-            },
-            "expert": {
-                "const": 9.7,
-                "const_nodata": false,
-                "notes": 734,
-                "notes_nodata": false,
-                "bell": 139,
-                "bell_nodata": false,
-                "notesdesigner": "rioN",
-                "notesdesigner_nodata": false
-            },
-            "master": {
-                "const": 12.5,
-                "const_nodata": false,
-                "notes": 905,
-                "notes_nodata": false,
-                "bell": 90,
-                "bell_nodata": false,
-                "notesdesigner": "Techno Kitchen",
                 "notesdesigner_nodata": false
             },
             "lunatic": {
@@ -18917,6 +19632,591 @@
         },
         {
             "meta": {
+                "official_id": "478700",
+                "official_id_lunatic": null,
+                "name": "As You Feel",
+                "reading": "ASYOUFEEL",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "DÉ DÉ MOUSE & WaMi",
+                "genre": "VARIETY",
+                "bpm": 128,
+                "bpm_nodata": false,
+                "release": "2025-08-21",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "608e7b18bdbc4625.png",
+                "fumen_id": "05051",
+                "character": "九條 楓",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 2.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.5,
+                "const_nodata": false,
+                "notes": 760,
+                "notes_nodata": false,
+                "bell": 99,
+                "bell_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.5,
+                "const_nodata": false,
+                "notes": 1313,
+                "notes_nodata": false,
+                "bell": 143,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく＠Futuredisco Love",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "478800",
+                "official_id_lunatic": null,
+                "name": "RE Aoharu",
+                "reading": "REAOHARU",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "Nor「ブルーアーカイブ -Blue Archive-」",
+                "genre": "VARIETY",
+                "bpm": 180,
+                "bpm_nodata": false,
+                "release": "2025-08-21",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "ac61d67382fb3a57.png",
+                "fumen_id": "05052",
+                "character": "聖園 ミカ",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.0,
+                "const_nodata": true,
+                "notes": 743,
+                "notes_nodata": false,
+                "bell": 135,
+                "bell_nodata": false,
+                "notesdesigner": "サファ太",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.8,
+                "const_nodata": false,
+                "notes": 1415,
+                "notes_nodata": false,
+                "bell": 93,
+                "bell_nodata": false,
+                "notesdesigner": "アマリリス -PHT決戦-",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "478900",
+                "official_id_lunatic": null,
+                "name": "Usagi Flap",
+                "reading": "USAGIFLAP",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "Nor「ブルーアーカイブ -Blue Archive-」",
+                "genre": "VARIETY",
+                "bpm": 170,
+                "bpm_nodata": false,
+                "release": "2025-08-07",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "264bb6d245b237fd.png",
+                "fumen_id": "05048",
+                "character": "陸八魔 アル",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.7,
+                "const_nodata": true,
+                "notes": 667,
+                "notes_nodata": false,
+                "bell": 66,
+                "bell_nodata": false,
+                "notesdesigner": "rioN",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.6,
+                "const_nodata": false,
+                "notes": 918,
+                "notes_nodata": false,
+                "bell": 127,
+                "bell_nodata": false,
+                "notesdesigner": "メロンポップ -We Were RABBITs!-",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "479000",
+                "official_id_lunatic": null,
+                "name": "Glitch Street",
+                "reading": "GLITCHSTREET",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "KARUT「ブルーアーカイブ -Blue Archive-」",
+                "genre": "VARIETY",
+                "bpm": 160,
+                "bpm_nodata": false,
+                "release": "2025-08-21",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "e93ea6ecfc6378ef.png",
+                "fumen_id": "05053",
+                "character": "聖園 ミカ",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 8.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.4,
+                "const_nodata": false,
+                "notes": 668,
+                "notes_nodata": false,
+                "bell": 121,
+                "bell_nodata": false,
+                "notesdesigner": "ぷれあらんす",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.9,
+                "const_nodata": false,
+                "notes": 1013,
+                "notes_nodata": false,
+                "bell": 167,
+                "bell_nodata": false,
+                "notesdesigner": "Amaryllis -vanitas vanitatum-",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "479100",
+                "official_id_lunatic": null,
+                "name": "彩りキャンバス",
+                "reading": "イロトリキヤンハス",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "SUGAR RUSH「ブルーアーカイブ -Blue Archive-」",
+                "genre": "VARIETY",
+                "bpm": 180,
+                "bpm_nodata": false,
+                "release": "2025-08-07",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "993cb5ac19602922.png",
+                "fumen_id": "05049",
+                "character": "陸八魔 アル",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 6.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.7,
+                "const_nodata": false,
+                "notes": 1109,
+                "notes_nodata": false,
+                "bell": 171,
+                "bell_nodata": false,
+                "notesdesigner": "アマリリス",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.6,
+                "const_nodata": false,
+                "notes": 1433,
+                "notes_nodata": false,
+                "bell": 146,
+                "bell_nodata": false,
+                "notesdesigner": "そらいろカリン（バンド）",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "479200",
+                "official_id_lunatic": null,
+                "name": "Unwelcome School",
+                "reading": "UNWELCOMESCHOOL",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "Mitsukiyo「ブルーアーカイブ -Blue Archive-」",
+                "genre": "VARIETY",
+                "bpm": 180,
+                "bpm_nodata": false,
+                "release": "2025-08-07",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "16596388af6910da.png",
+                "fumen_id": "05050",
+                "character": "陸八魔 アル",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 9.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.5,
+                "const_nodata": false,
+                "notes": 848,
+                "notes_nodata": false,
+                "bell": 133,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.3,
+                "const_nodata": false,
+                "notes": 1074,
+                "notes_nodata": false,
+                "bell": 127,
+                "bell_nodata": false,
+                "notesdesigner": "アマアマヘルメット団",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "479300",
+                "official_id_lunatic": null,
+                "name": "Distorted Fate",
+                "reading": "DISTORTEDFATE",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "Sakuzyo「Phigros」",
+                "genre": "VARIETY",
+                "bpm": 150,
+                "bpm_nodata": false,
+                "release": "2025-06-05",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "4909c7c938d899f7.png",
+                "fumen_id": "05033",
+                "character": "柏木 咲姫",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 6.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 10.0,
+                "const_nodata": true
+            },
+            "expert": {
+                "const": 13.5,
+                "const_nodata": false,
+                "notes": 1090,
+                "notes_nodata": false,
+                "bell": 329,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 15.0,
+                "const_nodata": false,
+                "notes": 1717,
+                "notes_nodata": false,
+                "bell": 442,
+                "bell_nodata": false,
+                "notesdesigner": "monoclock.Cross-rhythm",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "479400",
+                "official_id_lunatic": null,
+                "name": "Concvssion",
+                "reading": "CONCVSSION",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "Halv「Phigros」",
+                "genre": "VARIETY",
+                "bpm": 190,
+                "bpm_nodata": false,
+                "release": "2025-06-05",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "c945d1c91b48dece.png",
+                "fumen_id": "05034",
+                "character": "高瀬 梨緒",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 9.7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.6,
+                "const_nodata": false,
+                "notes": 934,
+                "notes_nodata": false,
+                "bell": 87,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.1,
+                "const_nodata": false,
+                "notes": 1704,
+                "notes_nodata": false,
+                "bell": 112,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "479500",
+                "official_id_lunatic": null,
+                "name": "Break Over",
+                "reading": "BREAKOVER",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "K-forest「Phigros」",
+                "genre": "VARIETY",
+                "bpm": 185,
+                "bpm_nodata": false,
+                "release": "2025-06-05",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "e8c1bd9af1ac5694.png",
+                "fumen_id": "05035",
+                "character": "柏木 美亜",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 9.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.1,
+                "const_nodata": false,
+                "notes": 1016,
+                "notes_nodata": false,
+                "bell": 134,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.0,
+                "const_nodata": false,
+                "notes": 1103,
+                "notes_nodata": false,
+                "bell": 99,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
                 "official_id": "479600",
                 "official_id_lunatic": null,
                 "name": "∀",
@@ -20201,8 +21501,8 @@
                 "notes_nodata": false,
                 "bell": 117,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
             },
             "lunatic": {
                 "const": null,
@@ -25532,6 +26832,591 @@
                 "bell": 81,
                 "bell_nodata": false,
                 "notesdesigner": "サファ太 vs ロシェ@ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "575900",
+                "official_id_lunatic": null,
+                "name": "アンビバレンス",
+                "reading": "アンヒハレンス",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "すりぃ×相沢",
+                "genre": "チュウマイ",
+                "bpm": 187,
+                "bpm_nodata": false,
+                "release": "2025-10-02",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "591ed2f3e8aebfb9.png",
+                "fumen_id": "05064",
+                "character": "東雲 つむぎ",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 4.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 8.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.0,
+                "const_nodata": false,
+                "notes": 1004,
+                "notes_nodata": false,
+                "bell": 94,
+                "bell_nodata": false,
+                "notesdesigner": "みぞかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.3,
+                "const_nodata": false,
+                "notes": 1512,
+                "notes_nodata": false,
+                "bell": 160,
+                "bell_nodata": false,
+                "notesdesigner": "ぷれあらんす（悪魔憑き）",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "576000",
+                "official_id_lunatic": null,
+                "name": "おしゃまなプリンセス",
+                "reading": "オシヤマナフリンセス",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "Shu feat. 七海うらら",
+                "genre": "チュウマイ",
+                "bpm": 200,
+                "bpm_nodata": false,
+                "release": "2025-10-02",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "d16fb013aa632dfd.png",
+                "fumen_id": "05066",
+                "character": "東雲 つむぎ",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 5.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 8.7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.2,
+                "const_nodata": false,
+                "notes": 1070,
+                "notes_nodata": false,
+                "bell": 101,
+                "bell_nodata": false,
+                "notesdesigner": "ぷれあらんす",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.3,
+                "const_nodata": false,
+                "notes": 1623,
+                "notes_nodata": false,
+                "bell": 208,
+                "bell_nodata": false,
+                "notesdesigner": "パラレルものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "576100",
+                "official_id_lunatic": null,
+                "name": "B100d Hunter",
+                "reading": "B100DHUNTER",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "DIVELA feat.いゔどっと",
+                "genre": "チュウマイ",
+                "bpm": 164,
+                "bpm_nodata": false,
+                "release": "2025-10-02",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "6d5f71583cba7254.png",
+                "fumen_id": "05065",
+                "character": "結城 莉玖",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 8.7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.7,
+                "const_nodata": false,
+                "notes": 1136,
+                "notes_nodata": false,
+                "bell": 160,
+                "bell_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.5,
+                "const_nodata": false,
+                "notes": 1417,
+                "notes_nodata": false,
+                "bell": 126,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍＠妖魔退治は終わらない",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "576200",
+                "official_id_lunatic": null,
+                "name": "crazy (about you)",
+                "reading": "CRAZYABOUTYOU",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "kamome sano",
+                "genre": "チュウマイ",
+                "bpm": 145,
+                "bpm_nodata": false,
+                "release": "2025-08-21",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "a84d4ca94a24ff7b.png",
+                "fumen_id": "05054",
+                "character": "三角 葵",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 5.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 8.7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.6,
+                "const_nodata": false,
+                "notes": 893,
+                "notes_nodata": false,
+                "bell": 159,
+                "bell_nodata": false,
+                "notesdesigner": "ぷれあらんす",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.6,
+                "const_nodata": false,
+                "notes": 1266,
+                "notes_nodata": false,
+                "bell": 186,
+                "bell_nodata": false,
+                "notesdesigner": "samurai.JP Garage (Sped Up)",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "576300",
+                "official_id_lunatic": null,
+                "name": "Ignition",
+                "reading": "IGNITION",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "パソコン音楽クラブ",
+                "genre": "チュウマイ",
+                "bpm": 160,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "b79e9edfe44d857e.png",
+                "fumen_id": "05045",
+                "character": "珠洲島 有栖",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 9.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 13.1,
+                "const_nodata": false,
+                "notes": 867,
+                "notes_nodata": false,
+                "bell": 137,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.3,
+                "const_nodata": false,
+                "notes": 1661,
+                "notes_nodata": false,
+                "bell": 89,
+                "bell_nodata": false,
+                "notesdesigner": "ぷれあらんす",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "576400",
+                "official_id_lunatic": null,
+                "name": "Λzure Vixen",
+                "reading": "AZUREVIXEN",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "かめりあ",
+                "genre": "チュウマイ",
+                "bpm": 163,
+                "bpm_nodata": false,
+                "release": "2025-07-16",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "58ea7a8eb3ba1816.png",
+                "fumen_id": "05046",
+                "character": "藍原 椿",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 6.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 9.7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 13.7,
+                "const_nodata": false,
+                "notes": 1430,
+                "notes_nodata": false,
+                "bell": 111,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 15.2,
+                "const_nodata": false,
+                "notes": 2684,
+                "notes_nodata": false,
+                "bell": 192,
+                "bell_nodata": false,
+                "notesdesigner": "monoclock",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "576500",
+                "official_id_lunatic": null,
+                "name": "SPILL OVER COLORS",
+                "reading": "SPILLOVERCOLORS",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "矢鴇つかさ feat. kalon.",
+                "genre": "チュウマイ",
+                "bpm": 142,
+                "bpm_nodata": false,
+                "release": "2025-06-19",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "5170a264f4e18b12.png",
+                "fumen_id": "05036",
+                "character": "日向 千夏",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 2.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 8.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.5,
+                "const_nodata": false,
+                "notes": 790,
+                "notes_nodata": false,
+                "bell": 113,
+                "bell_nodata": false,
+                "notesdesigner": "ぷれあらんす",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.5,
+                "const_nodata": false,
+                "notes": 1250,
+                "notes_nodata": false,
+                "bell": 87,
+                "bell_nodata": false,
+                "notesdesigner": "ミニミライト",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "576600",
+                "official_id_lunatic": null,
+                "name": "QuiQ",
+                "reading": "QUIQ",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "owl＊tree feat.nie＊tree",
+                "genre": "チュウマイ",
+                "bpm": 120,
+                "bpm_nodata": false,
+                "release": "2025-05-08",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "62e54492e501fbb8.png",
+                "fumen_id": "05028",
+                "character": "九條 楓",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 4.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 9.7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.8,
+                "const_nodata": false,
+                "notes": 1041,
+                "notes_nodata": false,
+                "bell": 332,
+                "bell_nodata": false,
+                "notesdesigner": "一ノ瀬 リズ",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.7,
+                "const_nodata": false,
+                "notes": 1348,
+                "notes_nodata": false,
+                "bell": 106,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍（寝坊魔）",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "576700",
+                "official_id_lunatic": null,
+                "name": "Energizing Flame",
+                "reading": "ENERGIZINGFLAME",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "Artifact vs. Dualcast",
+                "genre": "チュウマイ",
+                "bpm": 201,
+                "bpm_nodata": false,
+                "release": "2025-05-08",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "9c23193cb9ce0cf2.png",
+                "fumen_id": "05029",
+                "character": "星咲 あかり",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 4.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 9.7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.3,
+                "const_nodata": false,
+                "notes": 1169,
+                "notes_nodata": false,
+                "bell": 164,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.5,
+                "const_nodata": false,
+                "notes": 1628,
+                "notes_nodata": false,
+                "bell": 86,
+                "bell_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
                 "notesdesigner_nodata": false
             },
             "lunatic": {
@@ -34192,6 +36077,591 @@
         },
         {
             "meta": {
+                "official_id": "665200",
+                "official_id_lunatic": null,
+                "name": "girls.exe",
+                "reading": "GIRLSEXE",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "rintaro soma",
+                "genre": "オンゲキ",
+                "bpm": 188,
+                "bpm_nodata": false,
+                "release": "2025-09-04",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "282ab6697db00af6.png",
+                "fumen_id": "05061",
+                "character": "藍原 椿",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 7.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 11.7,
+                "const_nodata": true
+            },
+            "expert": {
+                "const": 14.2,
+                "const_nodata": false,
+                "notes": 1220,
+                "notes_nodata": false,
+                "bell": 175,
+                "bell_nodata": false,
+                "notesdesigner": "ぷれあらんす",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 15.5,
+                "const_nodata": false,
+                "notes": 2198,
+                "notes_nodata": false,
+                "bell": 219,
+                "bell_nodata": false,
+                "notesdesigner": "Please re:start this program and re:build the worldexperience.",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "665300",
+                "official_id_lunatic": null,
+                "name": "Xingularity",
+                "reading": "XINGULARITY",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "Alicemetix ex-ZAQUVA",
+                "genre": "オンゲキ",
+                "bpm": 162,
+                "bpm_nodata": false,
+                "release": "2025-09-04",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "da70cc925c173851.png",
+                "fumen_id": "05060",
+                "character": "日向 千夏",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 4.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 9.7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.8,
+                "const_nodata": false,
+                "notes": 1024,
+                "notes_nodata": false,
+                "bell": 75,
+                "bell_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.8,
+                "const_nodata": false,
+                "notes": 1326,
+                "notes_nodata": false,
+                "bell": 110,
+                "bell_nodata": false,
+                "notesdesigner": "ぷれあらんす",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "665400",
+                "official_id_lunatic": null,
+                "name": "Good bye, Merry-Go-Round. (Kobaryo's FTN-Remix)",
+                "reading": "GOODBYEMERRYGOROUNDKOBARYOSFTNREMIX",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "Yooh / Kobaryo",
+                "genre": "オンゲキ",
+                "bpm": null,
+                "bpm_nodata": true,
+                "release": "2025-09-04",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "a8120cc323af6931.png",
+                "fumen_id": null,
+                "character": "日向 千夏",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 5.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 9.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 13.1,
+                "const_nodata": false,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            },
+            "master": {
+                "const": 14.9,
+                "const_nodata": false,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "665500",
+                "official_id_lunatic": null,
+                "name": "TAIKAN GAME",
+                "reading": "TAIKANGAME",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "安井洋介",
+                "genre": "オンゲキ",
+                "bpm": 145,
+                "bpm_nodata": false,
+                "release": "2025-09-04",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "28fa15a3db6b572c.png",
+                "fumen_id": "05058",
+                "character": "星咲 あかり",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 9.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.8,
+                "const_nodata": false,
+                "notes": 1073,
+                "notes_nodata": false,
+                "bell": 92,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.2,
+                "const_nodata": false,
+                "notes": 1422,
+                "notes_nodata": false,
+                "bell": 116,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく＆一ノ瀬 リズ＠90's Arcade Game Lovers",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "665600",
+                "official_id_lunatic": null,
+                "name": "天河游泳",
+                "reading": "テンカユウエイ",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "igel",
+                "genre": "オンゲキ",
+                "bpm": 178,
+                "bpm_nodata": false,
+                "release": "2025-09-04",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "b7269454a4899ae8.png",
+                "fumen_id": "05057",
+                "character": "柏木 咲姫",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 8.7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 12.0,
+                "const_nodata": false,
+                "notes": 1112,
+                "notes_nodata": false,
+                "bell": 117,
+                "bell_nodata": false,
+                "notesdesigner": "ぷれあらんす",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.3,
+                "const_nodata": false,
+                "notes": 1293,
+                "notes_nodata": false,
+                "bell": 135,
+                "bell_nodata": false,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "665700",
+                "official_id_lunatic": null,
+                "name": "in den Himmel steigen",
+                "reading": "INDENHIMMELSTEIGEN",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "曲：RD-Sounds／歌：柏木 咲姫(CV：石見 舞菜香)",
+                "genre": "オンゲキ",
+                "bpm": 147,
+                "bpm_nodata": false,
+                "release": "2025-09-04",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "e034f43306922dbd.png",
+                "fumen_id": "05056",
+                "character": "柏木 咲姫",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 4.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.1,
+                "const_nodata": false,
+                "notes": 1175,
+                "notes_nodata": false,
+                "bell": 114,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.7,
+                "const_nodata": false,
+                "notes": 1920,
+                "notes_nodata": false,
+                "bell": 91,
+                "bell_nodata": false,
+                "notesdesigner": "ミニミライト",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "665800",
+                "official_id_lunatic": null,
+                "name": "スキが止まらない！",
+                "reading": "スキカトマラナイ",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "曲：TAG／歌：井之原 小星(CV：ももの はるな)",
+                "genre": "オンゲキ",
+                "bpm": 190,
+                "bpm_nodata": false,
+                "release": "2025-09-04",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "5ac7ca0321290280.png",
+                "fumen_id": "05055",
+                "character": "井之原 小星",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 4.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7.7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 11.8,
+                "const_nodata": false,
+                "notes": 1366,
+                "notes_nodata": false,
+                "bell": 187,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.7,
+                "const_nodata": false,
+                "notes": 1638,
+                "notes_nodata": false,
+                "bell": 136,
+                "bell_nodata": false,
+                "notesdesigner": "ロシェ＠ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "665900",
+                "official_id_lunatic": null,
+                "name": "パピプペ Popping！ Talk！",
+                "reading": "ハヒフヘPOPPINGTALK",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "曲：脇眞富／歌：オンゲキシューターズ",
+                "genre": "オンゲキ",
+                "bpm": 144,
+                "bpm_nodata": false,
+                "release": "2025-07-26",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "33634e39a152cf45.png",
+                "fumen_id": "05047",
+                "character": "柏木 美亜",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 7.7,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 10.7,
+                "const_nodata": true,
+                "notes": 808,
+                "notes_nodata": false,
+                "bell": 195,
+                "bell_nodata": false,
+                "notesdesigner": "ロシェ@ペンギン",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.4,
+                "const_nodata": false,
+                "notes": 1345,
+                "notes_nodata": false,
+                "bell": 161,
+                "bell_nodata": false,
+                "notesdesigner": "O.N.G.E.K.I. 7th Anniversary!",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "666000",
+                "official_id_lunatic": null,
+                "name": "[HALO]",
+                "reading": "HALO",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "Blacklolita",
+                "genre": "オンゲキ",
+                "bpm": 150,
+                "bpm_nodata": false,
+                "release": "2025-06-19",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "93fffecd58a61104.png",
+                "fumen_id": "05037",
+                "character": "柏木 美亜",
+                "character_lunatic": null,
+                "is_bonus": false,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": 3.0,
+                "const_nodata": false
+            },
+            "advanced": {
+                "const": 9.0,
+                "const_nodata": false
+            },
+            "expert": {
+                "const": 13.1,
+                "const_nodata": false,
+                "notes": 1017,
+                "notes_nodata": false,
+                "bell": 116,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 14.9,
+                "const_nodata": false,
+                "notes": 1197,
+                "notes_nodata": false,
+                "bell": 242,
+                "bell_nodata": false,
+                "notesdesigner": "レーザー搭載型漆黒光刃殲滅機 MNO-CLO",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
                 "official_id": "666100",
                 "official_id_lunatic": null,
                 "name": "Sargasso",
@@ -34908,7 +37378,7 @@
         {
             "meta": {
                 "official_id": "667200",
-                "official_id_lunatic": null,
+                "official_id_lunatic": "985100",
                 "name": "WakeUP MakeUP FEVER!",
                 "reading": "WAKEUPMAKEUPFEVER",
                 "subname": null,
@@ -34919,17 +37389,17 @@
                 "bpm_nodata": false,
                 "release": "2025-03-27",
                 "release_version": "オンゲキ Re:Fresh",
-                "release_lunatic": null,
-                "release_lunatic_version": null,
+                "release_lunatic": "2025-07-26",
+                "release_lunatic_version": "オンゲキ Re:Fresh",
                 "image_url": "5db1f906b22a4493.png",
                 "fumen_id": "05017",
                 "character": "星咲 あかり",
-                "character_lunatic": null,
+                "character_lunatic": "星咲 あかり",
                 "is_bonus": false,
-                "has_lunatic": false,
+                "has_lunatic": true,
                 "only_lunatic": false,
-                "is_remaster": null,
-                "is_remaster_nodata": true
+                "is_remaster": true,
+                "is_remaster_nodata": false
             },
             "basic": {
                 "const": 2.0,
@@ -34960,14 +37430,14 @@
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "bell": null,
-                "bell_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "const": 14.2,
+                "const_nodata": false,
+                "notes": 1533,
+                "notes_nodata": false,
+                "bell": 173,
+                "bell_nodata": false,
+                "notesdesigner": "O.N.G.E.K.I. 7th Anniversary!",
+                "notesdesigner_nodata": false
             }
         },
         {
@@ -35464,10 +37934,10 @@
                 "const_nodata": true,
                 "notes": 1354,
                 "notes_nodata": false,
-                "bell": 739,
+                "bell": 139,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
             },
             "master": {
                 "const": 13,
@@ -35476,8 +37946,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "Let's keep singing at anytime!",
+                "notesdesigner_nodata": false
             },
             "lunatic": {
                 "const": null,
@@ -40696,8 +43166,8 @@
                 "official_id_lunatic": null,
                 "name": "Tricky Treat!!!",
                 "reading": "TRICKYTREAT",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "Spooky Core",
+                "subname_nodata": false,
                 "artist": "曲：Kijibato(Dream Monster)／歌：逢坂 茜(CV：大空 直美)、高瀬 梨緒(CV：久保 ユリカ)、柏木 咲姫(CV：石見 舞菜香)",
                 "genre": "オンゲキ",
                 "bpm": 128,
@@ -42383,7 +44853,7 @@
         {
             "meta": {
                 "official_id": "678700",
-                "official_id_lunatic": null,
+                "official_id_lunatic": "985300",
                 "name": "Dolphika",
                 "reading": "DOLPHIKA",
                 "subname": null,
@@ -42394,17 +44864,17 @@
                 "bpm_nodata": false,
                 "release": "2018-07-26",
                 "release_version": "オンゲキ",
-                "release_lunatic": null,
-                "release_lunatic_version": null,
+                "release_lunatic": "2025-06-19",
+                "release_lunatic_version": "オンゲキ Re:Fresh",
                 "image_url": "dea92a6670e4d018.png",
                 "fumen_id": "01043",
                 "character": "高瀬 梨緒",
-                "character_lunatic": null,
+                "character_lunatic": "高瀬 梨緒",
                 "is_bonus": false,
-                "has_lunatic": false,
+                "has_lunatic": true,
                 "only_lunatic": false,
-                "is_remaster": null,
-                "is_remaster_nodata": true
+                "is_remaster": true,
+                "is_remaster_nodata": false
             },
             "basic": {
                 "const": 3.0,
@@ -42435,14 +44905,14 @@
                 "notesdesigner_nodata": false
             },
             "lunatic": {
-                "const": null,
-                "const_nodata": true,
-                "notes": null,
-                "notes_nodata": true,
-                "bell": null,
-                "bell_nodata": true,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "const": 14.8,
+                "const_nodata": false,
+                "notes": 1611,
+                "notes_nodata": false,
+                "bell": 179,
+                "bell_nodata": false,
+                "notesdesigner": "Re:MASTER by Revo@LC",
+                "notesdesigner_nodata": false
             }
         },
         {
@@ -44791,8 +47261,8 @@
                 "official_id_lunatic": null,
                 "name": "Azucar",
                 "reading": "AZUCAR",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "Electro House",
+                "subname_nodata": false,
                 "artist": "litmus*",
                 "genre": "オンゲキ",
                 "bpm": 128,
@@ -44921,8 +47391,8 @@
                 "official_id_lunatic": null,
                 "name": "Chant Say Yeah!",
                 "reading": "CHANTSAYYEAH",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "HYBRID DANCE",
+                "subname_nodata": false,
                 "artist": "MYUKKE.",
                 "genre": "オンゲキ",
                 "bpm": 150,
@@ -47716,8 +50186,8 @@
                 "official_id_lunatic": null,
                 "name": "Buck's Fizz",
                 "reading": "BUCKSFIZZ",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "Jazz House",
+                "subname_nodata": false,
                 "artist": "わかどり",
                 "genre": "オンゲキ",
                 "bpm": 142,
@@ -48626,8 +51096,8 @@
                 "official_id_lunatic": null,
                 "name": "Lazulis Gambit",
                 "reading": "LAZULISGAMBIT",
-                "subname": null,
-                "subname_nodata": true,
+                "subname": "Psystyle Concertante",
+                "subname_nodata": false,
                 "artist": "Acotto",
                 "genre": "オンゲキ",
                 "bpm": 170,
@@ -54342,6 +56812,201 @@
         },
         {
             "meta": {
+                "official_id": "716700",
+                "official_id_lunatic": null,
+                "name": "感情アクセラレイション -三角 葵ソロver.-",
+                "reading": "カンシヨウアクセラレイシヨンミスミアオイソロVER",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "曲：矢鴇つかさ（Arte Refact）／歌：三角 葵(CV：春野 杏)",
+                "genre": "オンゲキ",
+                "bpm": 146,
+                "bpm_nodata": false,
+                "release": "2025-10-02",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "06d89a3b68918eb8.png",
+                "fumen_id": "02054",
+                "character": "三角 葵",
+                "character_lunatic": null,
+                "is_bonus": true,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": null,
+                "const_nodata": true
+            },
+            "advanced": {
+                "const": null,
+                "const_nodata": true
+            },
+            "expert": {
+                "const": null,
+                "const_nodata": true,
+                "notes": 877,
+                "notes_nodata": false,
+                "bell": 129,
+                "bell_nodata": false,
+                "notesdesigner": "Techno Kitchen",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.0,
+                "const_nodata": false,
+                "notes": 1300,
+                "notes_nodata": false,
+                "bell": 126,
+                "bell_nodata": false,
+                "notesdesigner": "うさぎランドリー",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "716800",
+                "official_id_lunatic": null,
+                "name": "感情アクセラレイション -早乙女 彩華ソロver.-",
+                "reading": "カンシヨウアクセラレイシヨンサオトメアヤカソロVER",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "曲：矢鴇つかさ（Arte Refact）／歌：早乙女 彩華(CV：中島 唯)",
+                "genre": "オンゲキ",
+                "bpm": 146,
+                "bpm_nodata": false,
+                "release": "2025-10-02",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "feecf1e76631fc45.png",
+                "fumen_id": "02054",
+                "character": "早乙女 彩華",
+                "character_lunatic": null,
+                "is_bonus": true,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": null,
+                "const_nodata": true
+            },
+            "advanced": {
+                "const": null,
+                "const_nodata": true
+            },
+            "expert": {
+                "const": null,
+                "const_nodata": true,
+                "notes": 877,
+                "notes_nodata": false,
+                "bell": 129,
+                "bell_nodata": false,
+                "notesdesigner": "Techno Kitchen",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.0,
+                "const_nodata": false,
+                "notes": 1300,
+                "notes_nodata": false,
+                "bell": 126,
+                "bell_nodata": false,
+                "notesdesigner": "うさぎランドリー",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "716900",
+                "official_id_lunatic": null,
+                "name": "感情アクセラレイション -柏木 咲姫ソロver.-",
+                "reading": "カンシヨウアクセラレイシヨンカシワキサキソロVER",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "曲：矢鴇つかさ（Arte Refact）／歌：柏木 咲姫(CV：石見 舞菜香)",
+                "genre": "オンゲキ",
+                "bpm": 146,
+                "bpm_nodata": false,
+                "release": "2025-10-02",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "a07345a5705db536.png",
+                "fumen_id": "02054",
+                "character": "柏木 咲姫",
+                "character_lunatic": null,
+                "is_bonus": true,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": null,
+                "const_nodata": true
+            },
+            "advanced": {
+                "const": null,
+                "const_nodata": true
+            },
+            "expert": {
+                "const": null,
+                "const_nodata": true,
+                "notes": 877,
+                "notes_nodata": false,
+                "bell": 129,
+                "bell_nodata": false,
+                "notesdesigner": "Techno Kitchen",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.0,
+                "const_nodata": false,
+                "notes": 1300,
+                "notes_nodata": false,
+                "bell": 126,
+                "bell_nodata": false,
+                "notesdesigner": "うさぎランドリー",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
                 "official_id": "717000",
                 "official_id_lunatic": null,
                 "name": "撩乱乙女†無双劇 -高瀬 梨緒ソロver.-",
@@ -54717,6 +57382,266 @@
                 "bell": 191,
                 "bell_nodata": false,
                 "notesdesigner": "マーチングラビッツ",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "717600",
+                "official_id_lunatic": null,
+                "name": "夏色花火 -藤沢 柚子ソロver.-",
+                "reading": "ナツイロハナヒフシサワユスソロVER",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "曲：穴山大輔, 水野健治／歌：藤沢 柚子(CV：久保田 梨沙)",
+                "genre": "オンゲキ",
+                "bpm": 85,
+                "bpm_nodata": false,
+                "release": "2025-08-07",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "8d724f264d77371c.png",
+                "fumen_id": "02136",
+                "character": "藤沢 柚子",
+                "character_lunatic": null,
+                "is_bonus": true,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": null,
+                "const_nodata": true
+            },
+            "advanced": {
+                "const": null,
+                "const_nodata": true
+            },
+            "expert": {
+                "const": null,
+                "const_nodata": true,
+                "notes": 986,
+                "notes_nodata": false,
+                "bell": 208,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.1,
+                "const_nodata": false,
+                "notes": 1078,
+                "notes_nodata": false,
+                "bell": 81,
+                "bell_nodata": false,
+                "notesdesigner": "アマリリス",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "717700",
+                "official_id_lunatic": null,
+                "name": "夏色花火 -早乙女 彩華ソロver.-",
+                "reading": "ナツイロハナヒサオトメアヤカソロVER",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "曲：穴山大輔, 水野健治／歌：早乙女 彩華(CV：中島 唯)",
+                "genre": "オンゲキ",
+                "bpm": 85,
+                "bpm_nodata": false,
+                "release": "2025-08-07",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "2069f3a6846c2410.png",
+                "fumen_id": "02136",
+                "character": "早乙女 彩華",
+                "character_lunatic": null,
+                "is_bonus": true,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": null,
+                "const_nodata": true
+            },
+            "advanced": {
+                "const": null,
+                "const_nodata": true
+            },
+            "expert": {
+                "const": null,
+                "const_nodata": true,
+                "notes": 986,
+                "notes_nodata": false,
+                "bell": 208,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.1,
+                "const_nodata": false,
+                "notes": 1078,
+                "notes_nodata": false,
+                "bell": 81,
+                "bell_nodata": false,
+                "notesdesigner": "アマリリス",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "717800",
+                "official_id_lunatic": null,
+                "name": "Iudicium “Apocalypsis Mix” -柏木 咲姫ソロver.-",
+                "reading": "IUDICIUMAPOCALYPSISMIXカシワキサキソロVER",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "曲：Powerless／歌：柏木 咲姫(CV：石見 舞菜香)",
+                "genre": "オンゲキ",
+                "bpm": 170,
+                "bpm_nodata": false,
+                "release": "2025-08-07",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "4978b8ca6143525a.png",
+                "fumen_id": "02154",
+                "character": "柏木 咲姫",
+                "character_lunatic": null,
+                "is_bonus": true,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": null,
+                "const_nodata": true
+            },
+            "advanced": {
+                "const": null,
+                "const_nodata": true
+            },
+            "expert": {
+                "const": 11.4,
+                "const_nodata": false,
+                "notes": 879,
+                "notes_nodata": false,
+                "bell": 85,
+                "bell_nodata": false,
+                "notesdesigner": "Techno Kitchen",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.1,
+                "const_nodata": false,
+                "notes": 1062,
+                "notes_nodata": false,
+                "bell": 37,
+                "bell_nodata": false,
+                "notesdesigner": "MTO-XXX:Lilium Nemesis",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "717900",
+                "official_id_lunatic": null,
+                "name": "Iudicium “Apocalypsis Mix” -柏木 美亜ソロver.-",
+                "reading": "IUDICIUMAPOCALYPSISMIXカシワキミアソロVER",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "曲：Powerless／歌：柏木 美亜(CV：和氣 あず未)",
+                "genre": "オンゲキ",
+                "bpm": 170,
+                "bpm_nodata": false,
+                "release": "2025-08-07",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "0dc33f7d76b44df5.png",
+                "fumen_id": "02154",
+                "character": "柏木 美亜",
+                "character_lunatic": null,
+                "is_bonus": true,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": null,
+                "const_nodata": true
+            },
+            "advanced": {
+                "const": null,
+                "const_nodata": true
+            },
+            "expert": {
+                "const": 11.4,
+                "const_nodata": false,
+                "notes": 879,
+                "notes_nodata": false,
+                "bell": 85,
+                "bell_nodata": false,
+                "notesdesigner": "Techno Kitchen",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 13.1,
+                "const_nodata": false,
+                "notes": 1062,
+                "notes_nodata": false,
+                "bell": 37,
+                "bell_nodata": false,
+                "notesdesigner": "MTO-XXX:Lilium Nemesis",
                 "notesdesigner_nodata": false
             },
             "lunatic": {
@@ -56264,10 +59189,10 @@
                 "const_nodata": true,
                 "notes": 1354,
                 "notes_nodata": false,
-                "bell": 739,
+                "bell": 139,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
             },
             "master": {
                 "const": 13,
@@ -56276,8 +59201,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "Let's keep singing at anytime!",
+                "notesdesigner_nodata": false
             },
             "lunatic": {
                 "const": null,
@@ -56329,10 +59254,10 @@
                 "const_nodata": true,
                 "notes": 1354,
                 "notes_nodata": false,
-                "bell": 739,
+                "bell": 139,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
             },
             "master": {
                 "const": 13,
@@ -56341,8 +59266,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "Let's keep singing at anytime!",
+                "notesdesigner_nodata": false
             },
             "lunatic": {
                 "const": null,
@@ -56394,10 +59319,10 @@
                 "const_nodata": true,
                 "notes": 1354,
                 "notes_nodata": false,
-                "bell": 739,
+                "bell": 139,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
             },
             "master": {
                 "const": 13,
@@ -56406,8 +59331,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "Let's keep singing at anytime!",
+                "notesdesigner_nodata": false
             },
             "lunatic": {
                 "const": null,
@@ -56459,10 +59384,10 @@
                 "const_nodata": true,
                 "notes": 1354,
                 "notes_nodata": false,
-                "bell": 739,
+                "bell": 139,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
             },
             "master": {
                 "const": 13,
@@ -56471,8 +59396,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "Let's keep singing at anytime!",
+                "notesdesigner_nodata": false
             },
             "lunatic": {
                 "const": null,
@@ -56524,10 +59449,10 @@
                 "const_nodata": true,
                 "notes": 1354,
                 "notes_nodata": false,
-                "bell": 739,
+                "bell": 139,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
             },
             "master": {
                 "const": 13,
@@ -56536,8 +59461,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "Let's keep singing at anytime!",
+                "notesdesigner_nodata": false
             },
             "lunatic": {
                 "const": null,
@@ -56589,10 +59514,10 @@
                 "const_nodata": true,
                 "notes": 1354,
                 "notes_nodata": false,
-                "bell": 739,
+                "bell": 139,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
             },
             "master": {
                 "const": 13,
@@ -56601,8 +59526,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "Let's keep singing at anytime!",
+                "notesdesigner_nodata": false
             },
             "lunatic": {
                 "const": null,
@@ -56654,10 +59579,10 @@
                 "const_nodata": true,
                 "notes": 1354,
                 "notes_nodata": false,
-                "bell": 739,
+                "bell": 139,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
             },
             "master": {
                 "const": 13,
@@ -56666,8 +59591,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "Let's keep singing at anytime!",
+                "notesdesigner_nodata": false
             },
             "lunatic": {
                 "const": null,
@@ -56719,10 +59644,10 @@
                 "const_nodata": true,
                 "notes": 1354,
                 "notes_nodata": false,
-                "bell": 739,
+                "bell": 139,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
             },
             "master": {
                 "const": 13,
@@ -56731,8 +59656,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "Let's keep singing at anytime!",
+                "notesdesigner_nodata": false
             },
             "lunatic": {
                 "const": null,
@@ -56784,10 +59709,10 @@
                 "const_nodata": true,
                 "notes": 1354,
                 "notes_nodata": false,
-                "bell": 739,
+                "bell": 139,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
             },
             "master": {
                 "const": 13,
@@ -56796,8 +59721,8 @@
                 "notes_nodata": false,
                 "bell": 100,
                 "bell_nodata": false,
-                "notesdesigner": null,
-                "notesdesigner_nodata": true
+                "notesdesigner": "Let's keep singing at anytime!",
+                "notesdesigner_nodata": false
             },
             "lunatic": {
                 "const": null,
@@ -58632,6 +61557,331 @@
         },
         {
             "meta": {
+                "official_id": "724300",
+                "official_id_lunatic": null,
+                "name": "WakeUP MakeUP FEVER! -星咲 あかりソロver.-",
+                "reading": "WAKEUPMAKEUPFEVERホシサキアカリソロVER",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "曲：アオワイファイ／歌：星咲 あかり(CV：赤尾 ひかる)",
+                "genre": "オンゲキ",
+                "bpm": 126,
+                "bpm_nodata": false,
+                "release": "2025-05-28",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "21a4adcdf219d9f3.png",
+                "fumen_id": "05017",
+                "character": "星咲 あかり",
+                "character_lunatic": null,
+                "is_bonus": true,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": null,
+                "const_nodata": true
+            },
+            "advanced": {
+                "const": null,
+                "const_nodata": true
+            },
+            "expert": {
+                "const": null,
+                "const_nodata": true,
+                "notes": 845,
+                "notes_nodata": false,
+                "bell": 175,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.6,
+                "const_nodata": false,
+                "notes": 1144,
+                "notes_nodata": false,
+                "bell": 200,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "724400",
+                "official_id_lunatic": null,
+                "name": "WakeUP MakeUP FEVER! -高瀬 梨緒ソロver.-",
+                "reading": "WAKEUPMAKEUPFEVERタカセリオソロVER",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "曲：アオワイファイ／歌：高瀬 梨緒(CV：久保 ユリカ)",
+                "genre": "オンゲキ",
+                "bpm": 126,
+                "bpm_nodata": false,
+                "release": "2025-05-28",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "c62d7edbabb2ca4f.png",
+                "fumen_id": "05017",
+                "character": "高瀬 梨緒",
+                "character_lunatic": null,
+                "is_bonus": true,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": null,
+                "const_nodata": true
+            },
+            "advanced": {
+                "const": null,
+                "const_nodata": true
+            },
+            "expert": {
+                "const": null,
+                "const_nodata": true,
+                "notes": 845,
+                "notes_nodata": false,
+                "bell": 175,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.6,
+                "const_nodata": false,
+                "notes": 1144,
+                "notes_nodata": false,
+                "bell": 200,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "724500",
+                "official_id_lunatic": null,
+                "name": "WakeUP MakeUP FEVER! -藍原 椿ソロver.-",
+                "reading": "WAKEUPMAKEUPFEVERアイハラツハキソロVER",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "曲：アオワイファイ／歌：藍原 椿(CV：橋本 ちなみ)",
+                "genre": "オンゲキ",
+                "bpm": 126,
+                "bpm_nodata": false,
+                "release": "2025-05-28",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "c1d89ccc9a5e66ef.png",
+                "fumen_id": "05017",
+                "character": "藍原 椿",
+                "character_lunatic": null,
+                "is_bonus": true,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": null,
+                "const_nodata": true
+            },
+            "advanced": {
+                "const": null,
+                "const_nodata": true
+            },
+            "expert": {
+                "const": null,
+                "const_nodata": true,
+                "notes": 845,
+                "notes_nodata": false,
+                "bell": 175,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.6,
+                "const_nodata": false,
+                "notes": 1144,
+                "notes_nodata": false,
+                "bell": 200,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "724600",
+                "official_id_lunatic": null,
+                "name": "WakeUP MakeUP FEVER! -桜井 春菜ソロver.-",
+                "reading": "WAKEUPMAKEUPFEVERサクライハルナソロVER",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "曲：アオワイファイ／歌：桜井 春菜(CV：近藤 玲奈)",
+                "genre": "オンゲキ",
+                "bpm": 126,
+                "bpm_nodata": false,
+                "release": "2025-05-28",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "56be5d27918e7ffa.png",
+                "fumen_id": "05017",
+                "character": "桜井 春菜",
+                "character_lunatic": null,
+                "is_bonus": true,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": null,
+                "const_nodata": true
+            },
+            "advanced": {
+                "const": null,
+                "const_nodata": true
+            },
+            "expert": {
+                "const": null,
+                "const_nodata": true,
+                "notes": 845,
+                "notes_nodata": false,
+                "bell": 175,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.6,
+                "const_nodata": false,
+                "notes": 1144,
+                "notes_nodata": false,
+                "bell": 200,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
+                "official_id": "724700",
+                "official_id_lunatic": null,
+                "name": "WakeUP MakeUP FEVER! -東雲 つむぎソロver.-",
+                "reading": "WAKEUPMAKEUPFEVERシノノメツムキソロVER",
+                "subname": null,
+                "subname_nodata": true,
+                "artist": "曲：アオワイファイ／歌：東雲 つむぎ(CV：和泉 風花)",
+                "genre": "オンゲキ",
+                "bpm": 126,
+                "bpm_nodata": false,
+                "release": "2025-05-28",
+                "release_version": "オンゲキ Re:Fresh",
+                "release_lunatic": null,
+                "release_lunatic_version": null,
+                "image_url": "64453d0af79be21c.png",
+                "fumen_id": "05017",
+                "character": "東雲 つむぎ",
+                "character_lunatic": null,
+                "is_bonus": true,
+                "has_lunatic": false,
+                "only_lunatic": false,
+                "is_remaster": null,
+                "is_remaster_nodata": true
+            },
+            "basic": {
+                "const": null,
+                "const_nodata": true
+            },
+            "advanced": {
+                "const": null,
+                "const_nodata": true
+            },
+            "expert": {
+                "const": null,
+                "const_nodata": true,
+                "notes": 845,
+                "notes_nodata": false,
+                "bell": 175,
+                "bell_nodata": false,
+                "notesdesigner": "ものくろっく",
+                "notesdesigner_nodata": false
+            },
+            "master": {
+                "const": 12.6,
+                "const_nodata": false,
+                "notes": 1144,
+                "notes_nodata": false,
+                "bell": 200,
+                "bell_nodata": false,
+                "notesdesigner": "みそかつ侍",
+                "notesdesigner_nodata": false
+            },
+            "lunatic": {
+                "const": null,
+                "const_nodata": true,
+                "notes": null,
+                "notes_nodata": true,
+                "bell": null,
+                "bell_nodata": true,
+                "notesdesigner": null,
+                "notesdesigner_nodata": true
+            }
+        },
+        {
+            "meta": {
                 "official_id": "946600",
                 "official_id_lunatic": "946600",
                 "name": "最終鬼畜全部声",
@@ -59541,5 +62791,5 @@
             }
         }
     ],
-    "update_at": "2025/04/26 13:02"
+    "update_at": "2025/10/19 23:31"
 }
