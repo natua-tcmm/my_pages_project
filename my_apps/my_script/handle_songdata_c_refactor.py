@@ -46,7 +46,7 @@ session.headers.update({"User-Agent": "RefactoredSongDataManager/1.0"})
 # --- ユーティリティ ---
 def date_to_chunithmversion(date_str: str) -> str:
     """
-    日付文字列（YYYY-MM-DD）からオンゲキのバージョン文字列に変換する。
+    日付文字列（YYYY-MM-DD）からチュウニズムのバージョン文字列に変換する。
     """
     JST = datetime.timezone(datetime.timedelta(hours=+9), "JST")
     d = dateutil.parser.parse(date_str).astimezone(JST).date()
@@ -70,6 +70,7 @@ def date_to_chunithmversion(date_str: str) -> str:
         "CHUNITHM LUMINOUS",
         "CHUNITHM LUMINOUS PLUS",
         "CHUNITHM VERSE",
+        "CHUNITHM X-VERSE",
     ]
     chunithm_versions_date = [
         datetime.date(2015, 7, 16),
@@ -91,6 +92,7 @@ def date_to_chunithmversion(date_str: str) -> str:
         datetime.date(2023, 12, 14),
         datetime.date(2024, 6, 20),
         datetime.date(2024, 12, 12),
+        datetime.date(2025, 7, 16),
         datetime.date(9999, 12, 31),
     ]
     for i in range(len(chunithm_versions)):
@@ -568,6 +570,12 @@ class SongDataManager:
                 song.song_release = matching_reiwa["meta"]["release"]
                 song.song_release_version = date_to_chunithmversion(song.song_release)
                 messages.append(f"リリース日更新: {song.song_name} {song.song_release}")
+                self.update_song_offi_ids.append(song.song_official_id)
+
+            # バージョン
+            if song.song_release_version != date_to_chunithmversion(matching_reiwa["meta"]["release"]):
+                song.song_release_version = date_to_chunithmversion(song.song_release)
+                messages.append(f"リリースバージョン更新: {song.song_name} {song.song_release_version}")
                 self.update_song_offi_ids.append(song.song_official_id)
 
             # BASIC
