@@ -62,7 +62,7 @@ def date_to_chunithmversion(date_str: str) -> str:
         "CHUNITHM CRYSTAL",
         "CHUNITHM CRYSTAL PLUS",
         "CHUNITHM PARADISE",
-        "CHUNITHM PARADISE PLUS",
+        "CHUNITHM PARADISE LOST",
         "CHUNITHM NEW",
         "CHUNITHM NEW PLUS",
         "CHUNITHM SUN",
