@@ -29,6 +29,7 @@ def ongeki_rating_all(request):
         response = {"player_data": player_data, "records": records_data_list}
 
         # ベスト枠を算出
+        response["records"] = [r for r in response["records"] if (not r["is_const_unknown"] or not r["is_bonus"])]
         rating_all_best_songs_raw = sorted(response["records"], key=lambda x: x[music_rate_type], reverse=True)[:30]
         music_rate_list = []
         rating_all_best_songs_str = []

@@ -60,6 +60,7 @@ def chunithm_rating_all(request):
             response = {"player_data": player_data, "records": records_data_list}
 
             # ベスト枠を算出
+            response["records"] = [r for r in response["records"] if (not r["is_const_unknown"])]
             rating_all_best_songs_raw = sorted(response["records"], key=lambda x: x["rating"], reverse=True)[:waku_count]
             music_rate_list = []
             music_rate_old_list = []
