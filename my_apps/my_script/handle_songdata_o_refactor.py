@@ -558,10 +558,14 @@ class SongDataManager:
             # reiwaf5のデータを参照して定数情報などを適用
             target_name = song.song_name
             if song.is_bonus and target_name:
-                target_name = target_name[:-16]  # ボーナスの場合は末尾を除去
+                # 「<曲名> -<人名>ソロver.-」形式から曲名だけ抽出
+                m = re.match(r"^(.+?)\s+-.*ソロver\.-$", target_name)
+                if m:
+                    target_name = m.group(1)
             matching_reiwa = None
             for reiwa in reiwa_data_list:
-                if target_name == reiwa["meta"]["title"] and song.song_artist == reiwa["meta"]["artist"] and ("MAS" in reiwa["data"]):
+                artist_match = True if song.is_bonus else (song.song_artist == reiwa["meta"]["artist"])
+                if target_name == reiwa["meta"]["title"] and artist_match and ("MAS" in reiwa["data"]):
                     matching_reiwa = reiwa
                     song.apply_reiwaf5_data(matching_reiwa)
                     break
@@ -604,7 +608,8 @@ class SongDataManager:
                 # 検索
                 matching_reiwa = None
                 for reiwa in reiwa_data_list:
-                    if existing_song.song_name and existing_song.song_name == reiwa["meta"]["title"] and ("LUN" in reiwa["data"]):
+                    artist_match = True if existing_song.is_bonus else (existing_song.song_artist == reiwa["meta"]["artist"])
+                    if existing_song.song_name and existing_song.song_name == reiwa["meta"]["title"] and artist_match and ("LUN" in reiwa["data"]):
                         matching_reiwa = reiwa
                         break
                 # 適応
@@ -676,8 +681,15 @@ class SongDataManager:
         for song in self.songs:
             # 検索
             matching_reiwa = None
+            target_name = song.song_name
+            if song.is_bonus and target_name:
+                # 「<曲名> -<人名>ソロver.-」形式から曲名だけ抽出
+                m = re.match(r"^(.+?)\s+-.*ソロver\.-$", target_name)
+                if m:
+                    target_name = m.group(1)
             for reiwa in reiwa_data_list:
-                if song.song_name and song.song_name == reiwa["meta"]["title"] and song.song_artist == reiwa["meta"]["artist"] and ("MAS" in reiwa["data"]):
+                artist_match = True if song.is_bonus else (song.song_artist == reiwa["meta"]["artist"])
+                if target_name and target_name == reiwa["meta"]["title"] and artist_match and ("MAS" in reiwa["data"]):
                     matching_reiwa = reiwa
                     break
             if not matching_reiwa:
