@@ -71,6 +71,7 @@ def date_to_chunithmversion(date_str: str) -> str:
         "CHUNITHM LUMINOUS PLUS",
         "CHUNITHM VERSE",
         "CHUNITHM X-VERSE",
+        "CHUNITHM X-VERSE-X",
     ]
     chunithm_versions_date = [
         datetime.date(2015, 7, 16),
@@ -93,6 +94,7 @@ def date_to_chunithmversion(date_str: str) -> str:
         datetime.date(2024, 6, 20),
         datetime.date(2024, 12, 12),
         datetime.date(2025, 7, 16),
+        datetime.date(2025, 12, 11),
         datetime.date(9999, 12, 31),
     ]
     for i in range(len(chunithm_versions)):
