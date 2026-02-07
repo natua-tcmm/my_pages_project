@@ -57,6 +57,7 @@
 ©2023 DWANGO Co.,Ltd.<br>©吉田夜世<br>©シシア
 ©2023 EMP Inc.<br>©AHS Co. Ltd.<br>©2023 Yukopi<br>©小津
 © 2023 by FUJIPACIFIC MUSIC INC.
+© 2023 isonosuke
 ©2023 Rayark Inc. CYTUS II®
 © 2023 THINKR inc.
 ©2023 橘公司・つなこ／KADOKAWA／「デート・ア・ライブⅤ」製作委員会
@@ -64,6 +65,7 @@
 ℗&©2024 ANYCOLOR, Inc.
 © 2024 THINKR inc.
 © 2025 NEXON Games Co., Ltd. All Rights Reserved.
+©2025 Victor Entertainment, Inc. JAPAN
 ©32ki_May
 ©AHS Co. Ltd.<br>©2023 Yukopi　©coalowl
 ©AI, Inc.
@@ -86,10 +88,12 @@ Art by Shirow Miwa © CFM<br>©supercell / INCS toenter Co., ltd. / Sony Music L
 ©COLOPL, Inc.
 ©Copyright 2021 SSS<br>©2021 VOCALOMAKETS Powered by Bumpy Factory Corporation.
 ©cosMo@Bousou-P
+© COVER
 © Crypton Future Media, INC. www.piapro.net
 © Cygames, Inc.
 ©dai / M.Graveyard
 © DECO*27<br>© OTOIRO
+©森羅万象
 © Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All rights reserved.<br>© GungHo Online Entertainment, Inc. All Rights Reserved.
 © Green Leaves / Wake Up, Girls！製作委員会
 GUMI(Megpoid)©INTERNET Co., LTD.
@@ -105,9 +109,10 @@ GUMI(Megpoid)©INTERNET Co., LTD.
 ©KASUKABE project<br>VOICEVOX:春日部つむぎ
 © Koi・芳文社／ご注文はBLOOM製作委員会ですか？
 © Koi・芳文社／ご注文は製作委員会ですか？？
-©Konami Amusement
+©Konami Arcade Games
 ©LaRa
 ©Licensed by BANDAI NAMCO Arts Inc./Lantis Records
+Licensed by Diverse System
 Licensed by EMI Records, A UNIVERSAL MUSIC COMPANY
 Licensed by FlyingDog, Inc.
 Licensed by KING RECORD Co.,Ltd.
@@ -117,6 +122,7 @@ Licensed by Polydor Records, A UNIVERSAL MUSIC COMPANY<br>©2023 by NIPPON TELEV
 Licensed by NBCUniversal Entertainment Japan, LLC.
 ©Toby Fox 2015-2023. All rights reserved.<br>Licensed by Royal Sciences LLC
 Licensed by Sony Music Labels Inc.
+Licensed by Sony Music Labels Inc. 提供：Sony Music Labels Inc.<br>Illustration by Kenshi Yonezu<br>©TSURUMAIKADA, KODANSHA/Medalist Partners
 Licensed by Sony Music Entertainment(Japan)Inc.
 Licensed by TOY'S FACTORY INC.
 Licensed by VAP INC．<br>©VAP INC.
@@ -136,11 +142,11 @@ Licensed by Virgin Music, A UNIVERSAL MUSIC COMPANY
 ©ONE・小学館／「モブサイコ100 Ⅲ」製作委員会
 ©OTOIRO Inc.
 ©peropero
+©Pigeon Games
 ©Princess Principal Project
 © Project Revue Starlight<br>©2018  by  NICHION,INC.&  PONY CANYON MUSIC PUBLISHING INC.
 ©PROJECT W.A.2
 ©Project シンフォギアＧ
-©Pigeon Games
 ©Qruppo
 ©Quro・芳文社／星咲高校地学部
 ©Rayark Inc.
@@ -157,6 +163,7 @@ Licensed by Virgin Music, A UNIVERSAL MUSIC COMPANY
 ©Sirius/Project WDS Developed and Published by KMS, inc.
 ©Sony Music Entertainment (Japan) Inc.
 ©Spider Lily／アニプレックス・ABCアニメーション・BS11
+© SQUARE ENIX Developed by indieszero Co., Ltd.
 © SQUARE PIXELS
 ©SSS
 ©Sunsunsun,Momoco/KADOKAWA/Alya-san Partners
@@ -168,8 +175,9 @@ TatshMusicCircle
 THE IDOLM@STER™& ©Bandai Namco Entertainment Inc.
 ©TOKYO LOGIC Ltd.
 TVアニメ『Hi☆sCoool! セハガール』©SEGA/セハガガ学園理事会
+© Ui Shigure
+©UNIVERSAL MUSIC ARTISTS LLC
 ℗©U/M/A/A Inc.
-©umbrella record<br>©しぐれうい
 ©VisualArt's/Key/Angel Beats! Project
 ©VisualArt's/Key/翼人伝承会<br>©VisualArt's/Key Sounds Label
 ※「VOCALOID(ボーカロイド)」および「ボカロ」は、ヤマハ株式会社の登録商標です。
@@ -187,6 +195,7 @@ TVアニメ『Hi☆sCoool! セハガール』©SEGA/セハガガ学園理事会
 ©伊藤いづも・芳文社／まちカドまぞく製作委員会／℗ PONY CANYON Inc.
 ©犬塚惇平・主婦の友インフォス／「異世界食堂」製作委員会
 ©いよわ<br>©Mechanical Girl LLC.
+©上山道郎・少年画報社／悪役令嬢転生おじさん製作委員会・MBS
 ©卯花ロク<br>©檀上大空
 ©うたわれるもの偽りの仮面製作委員会
 ©大川ぶくぶ／竹書房・キングレコード<br>©大川ぶくぶ／竹書房・キングレコード　©AC部
@@ -195,13 +204,13 @@ TVアニメ『Hi☆sCoool! セハガール』©SEGA/セハガガ学園理事会
 ©おりもとみまな（ヤングチャンピオン烈）／ばくおん!!製作委員会<br>(P)Lantis
 © 温泉むすめ／Enbound, Inc.
 ©蝸牛くも・SBクリエイティブ／ゴブリンスレイヤー製作委員会
-重音テト©線/小山乃舞世/ ツインドリルロゴ
-重音テト©線/小山乃舞世/TWINDRILL
+重音テト © 線/小山乃舞世/ ツインドリルロゴ
 ©カヅホ・芳文社／キルミーベイベー製作委員会
 ©金城宗幸・ノ村優介・講談社／「ブルーロック」製作委員会
 ©鎌池和馬／冬川基／アスキー・メディアワークス／PROJECT-RAILGUN S
 © かめりあ
 ©河本ほむら・尚村透／SQUARE ENIX・「賭ケグルイ××」製作委員会
+©九井諒子・KADOKAWA刊／「ダンジョン飯」製作委員会
 ©窪岡俊之 ©BANDAI NAMCO Entertainment Inc.
 ©クール教信者・双葉社／ドラゴン生活向上委員会
 ©「劇場版プロジェクトセカイ　壊れたセカイと歌えないミク」製作委員会
@@ -217,13 +226,13 @@ TVアニメ『Hi☆sCoool! セハガール』©SEGA/セハガガ学園理事会
 ©周防パトラ
 ©鈴木央・講談社／「七つの大罪 憤怒の審判」製作委員会・テレビ東京
 セガ・ハード・ガールズ ©SEGA
-©線/小山乃舞世/ツインドリル
 ©創通・サンライズ・MBS<br>©Sony Music Entertainment (Japan) Inc.
 ©ゾンビランドサガ製作委員会
 ©高橋留美子・小学館／アニメ「うる星やつら」製作委員会
 ©武田綾乃・宝島社／『響け！』製作委員会<br>©武田綾乃・宝島社／『響け！』製作委員会2024
 ©竹宮ゆゆこ／アスキー・メディアワークス／「とらドラ！」製作委員会
 ©円谷プロ ©2018 TRIGGER・雨宮哲／「GRIDMAN」製作委員会
+©つるまいかだ・講談社／メダリスト製作委員会
 電音部™＆ ©Bandai Namco Entertainment Inc.
 ©得能正太郎・芳文社／NEW GAME!製作委員会
 ©虎虎/京都アニメーション/中二病でも製作委員会
@@ -245,7 +254,6 @@ TVアニメ『Hi☆sCoool! セハガール』©SEGA/セハガガ学園理事会
 ©殆ど死んでいる・KADOKAWA刊／異世界おじさん製作委員会
 ©堀越耕平／集英社・僕のヒーローアカデミア製作委員会
 ©マサラダ
-©九井諒子・KADOKAWA刊／「ダンジョン飯」製作委員会
 ©丸山くがね・ＫＡＤＯＫＡＷＡ刊／オーバーロード製作委員会
 ©三月・KADOKAWA刊／ひなこのーと製作委員会
 ©水野あつ<br>©2021 by XING MUSIC ENTERTAINMENT,INC.

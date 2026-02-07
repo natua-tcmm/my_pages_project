@@ -24,6 +24,7 @@ load_dotenv(dotenv_path)
 
 title_base = "| △Natua♪▽のツールとか保管所"
 API_TOKEN = os.environ.get("CHUNIREC_API_TOKEN")
+CHUNITHM_ALL_URL = "https://natua.pythonanywhere.com/my_apps/songdata_chunithm.json"
 
 # --------------------------------------------------
 
@@ -60,8 +61,15 @@ def chunithm_rating_all(request):
             response = {"player_data": player_data, "records": records_data_list}
 
             # ベスト枠を算出
+            const_map = get_chunithm_const_map_from_public_url()
+            response["records"] = merge_records_with_public_const(response["records"], const_map)
             response["records"] = [r for r in response["records"] if (not r["is_const_unknown"])]
-            rating_all_best_songs_raw = sorted(response["records"], key=lambda x: x["rating"], reverse=True)[:waku_count]
+            response["records"] = [r for r in response["records"] if calculate_rating(r["score"], r["const"]) is not None]
+            rating_all_best_songs_raw = sorted(
+                response["records"],
+                key=lambda x: calculate_rating(x["score"], x["const"]) or -1,
+                reverse=True,
+            )[:waku_count]
             music_rate_list = []
             music_rate_old_list = []
             rating_all_best_songs_str = []
@@ -161,6 +169,62 @@ def get_chunirec_player_all_records(user_name):
         raise requests.HTTPError
 
 
+def normalize_diff_key(diff: str) -> str:
+    diff_upper = diff.upper()
+    diff_map = {
+        "BAS": "basic",
+        "BASIC": "basic",
+        "ADV": "advanced",
+        "ADVANCED": "advanced",
+        "EXP": "expert",
+        "EXPERT": "expert",
+        "MAS": "master",
+        "MASTER": "master",
+        "ULT": "ultima",
+        "ULTIMA": "ultima",
+    }
+    return diff_map.get(diff_upper, "")
+
+
+def get_chunithm_const_map_from_public_url() -> dict:
+    r = requests.get(CHUNITHM_ALL_URL)
+    r.encoding = r.apparent_encoding
+    songs = r.json().get("songs", [])
+
+    const_map = {}
+    for song in songs:
+        title = song["meta"]["name"]
+        for diff_key in ["basic", "advanced", "expert", "master", "ultima"]:
+            diff_data = song.get(diff_key, {})
+            const_map[(title, diff_key)] = {
+                "const": diff_data.get("const"),
+                "is_const_unknown": diff_data.get("const_nodata", True),
+            }
+
+    return const_map
+
+
+def merge_records_with_public_const(records: list, const_map: dict) -> list:
+    merged_records = []
+    for record in records:
+        diff_key = normalize_diff_key(record["diff"])
+        const_info = const_map.get((record["title"], diff_key))
+
+        new_record = dict(record)
+
+        if not const_info:
+            # 公開データにない場合は未知として扱う
+            new_record["const"] = None
+            new_record["is_const_unknown"] = True
+        else:
+            new_record["const"] = const_info["const"]
+            new_record["is_const_unknown"] = const_info["is_const_unknown"] or const_info["const"] is None
+
+        merged_records.append(new_record)
+
+    return merged_records
+
+
 # レート値計算
 def calculate_rating(score, const):
     if score >= 1009000:
@@ -177,6 +241,9 @@ def calculate_rating(score, const):
         rating = const + (score - 975000) * 0.01 / 250
     else:
         rating = None
+
+    if rating is None:
+        return None
 
     rating += 0.00001
     rating = (int(rating * 100)) / 100
