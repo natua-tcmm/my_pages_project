@@ -535,14 +535,14 @@ class SongDataManager:
 
                                 # まだreiwaf5に反映されていないならスキップ
                                 if "ULT" not in matching_reiwa["data"]:
-                                    self.ult_const_nodata = True
+                                    song.ult_const_nodata = True
 
                                 elif matching_reiwa["data"]["ULT"]["is_const_unknown"] or matching_reiwa["data"]["ULT"]["const"] == 0:
-                                    self.ult_const = matching_reiwa["data"]["ULT"]["level"]
-                                    self.ult_const_nodata = True
+                                    song.ult_const = matching_reiwa["data"]["ULT"]["level"]
+                                    song.ult_const_nodata = True
                                 else:
-                                    self.ult_const = matching_reiwa["data"]["ULT"]["const"]
-                                    self.ult_const_nodata = False
+                                    song.ult_const = matching_reiwa["data"]["ULT"]["const"]
+                                    song.ult_const_nodata = False
 
                                 break
 
@@ -584,39 +584,59 @@ class SongDataManager:
             # あと10年くらいはやらなくてもいいと思う
 
             # ADVANCED
-            if (
-                song.adv_const_nodata
-                and not (matching_reiwa["data"]["ADV"]["is_const_unknown"] or matching_reiwa["data"]["ADV"]["const"] == 0)
-                and matching_reiwa["data"]["ADV"]["level"] >= 10
-            ):
+            if matching_reiwa["data"]["ADV"]["level"] < 10:
+                new_adv_const = matching_reiwa["data"]["ADV"]["level"]
+                new_adv_const_nodata = False
+            elif matching_reiwa["data"]["ADV"]["is_const_unknown"] or matching_reiwa["data"]["ADV"]["const"] == 0:
+                new_adv_const = matching_reiwa["data"]["ADV"]["level"]
+                new_adv_const_nodata = True
+            else:
+                new_adv_const = matching_reiwa["data"]["ADV"]["const"]
+                new_adv_const_nodata = False
+
+            if song.adv_const != new_adv_const or song.adv_const_nodata != new_adv_const_nodata:
                 messages.append(
-                    f"定数更新: {song.song_name} ADVANCED {song.adv_const} -> {matching_reiwa['data']['ADV']['const']}"
+                    f"定数更新: {song.song_name} ADVANCED {song.adv_const} -> {new_adv_const}"
                 )
-                song.adv_const = matching_reiwa["data"]["ADV"]["const"]
-                song.adv_const_nodata = False
+                song.adv_const = new_adv_const
+                song.adv_const_nodata = new_adv_const_nodata
                 self.update_song_offi_ids.append(song.song_official_id)
+
             # EXPERT
-            if (
-                song.exp_const_nodata
-                and not (matching_reiwa["data"]["EXP"]["is_const_unknown"] or matching_reiwa["data"]["EXP"]["const"] == 0)
-                and matching_reiwa["data"]["EXP"]["level"] >= 10
-            ):
+            if matching_reiwa["data"]["EXP"]["level"] < 10:
+                new_exp_const = matching_reiwa["data"]["EXP"]["level"]
+                new_exp_const_nodata = False
+            elif matching_reiwa["data"]["EXP"]["is_const_unknown"] or matching_reiwa["data"]["EXP"]["const"] == 0:
+                new_exp_const = matching_reiwa["data"]["EXP"]["level"]
+                new_exp_const_nodata = True
+            else:
+                new_exp_const = matching_reiwa["data"]["EXP"]["const"]
+                new_exp_const_nodata = False
+
+            if song.exp_const != new_exp_const or song.exp_const_nodata != new_exp_const_nodata:
                 messages.append(
-                    f"定数更新: {song.song_name} EXPERT {song.exp_const} -> {matching_reiwa['data']['EXP']['const']}"
+                    f"定数更新: {song.song_name} EXPERT {song.exp_const} -> {new_exp_const}"
                 )
-                song.exp_const = matching_reiwa["data"]["EXP"]["const"]
-                song.exp_const_nodata = False
+                song.exp_const = new_exp_const
+                song.exp_const_nodata = new_exp_const_nodata
                 self.update_song_offi_ids.append(song.song_official_id)
+
             # MASTER
-            if song.mas_const_nodata and not (
-                matching_reiwa["data"]["MAS"]["is_const_unknown"] or matching_reiwa["data"]["MAS"]["const"] == 0
-            ):
+            if matching_reiwa["data"]["MAS"]["is_const_unknown"] or matching_reiwa["data"]["MAS"]["const"] == 0:
+                new_mas_const = matching_reiwa["data"]["MAS"]["level"]
+                new_mas_const_nodata = True
+            else:
+                new_mas_const = matching_reiwa["data"]["MAS"]["const"]
+                new_mas_const_nodata = False
+
+            if song.mas_const != new_mas_const or song.mas_const_nodata != new_mas_const_nodata:
                 messages.append(
-                    f"定数更新: {song.song_name} MASTER {song.mas_const} -> {matching_reiwa['data']['MAS']['const']}"
+                    f"定数更新: {song.song_name} MASTER {song.mas_const} -> {new_mas_const}"
                 )
-                song.mas_const = matching_reiwa["data"]["MAS"]["const"]
-                song.mas_const_nodata = False
+                song.mas_const = new_mas_const
+                song.mas_const_nodata = new_mas_const_nodata
                 self.update_song_offi_ids.append(song.song_official_id)
+
             # ULTIMA
             if song.has_ultima:
 
@@ -624,15 +644,27 @@ class SongDataManager:
                 if "ULT" not in matching_reiwa["data"]:
                     pass
 
-                elif song.ult_const_nodata and not (
-                    matching_reiwa["data"]["ULT"]["is_const_unknown"] or matching_reiwa["data"]["ULT"]["const"] == 0
-                ):
-                    messages.append(
-                        f"定数更新: {song.song_name} ULTIMA {song.ult_const} -> {matching_reiwa['data']['ULT']['const']}"
-                    )
-                    song.ult_const = matching_reiwa["data"]["ULT"]["const"]
-                    song.ult_const_nodata = False
-                    self.update_song_offi_ids.append(song.song_official_id)
+                elif matching_reiwa["data"]["ULT"]["is_const_unknown"] or matching_reiwa["data"]["ULT"]["const"] == 0:
+                    new_ult_const = matching_reiwa["data"]["ULT"]["level"]
+                    new_ult_const_nodata = True
+                    if song.ult_const != new_ult_const or song.ult_const_nodata != new_ult_const_nodata:
+                        messages.append(
+                            f"定数更新: {song.song_name} ULTIMA {song.ult_const} -> {new_ult_const}"
+                        )
+                        song.ult_const = new_ult_const
+                        song.ult_const_nodata = new_ult_const_nodata
+                        self.update_song_offi_ids.append(song.song_official_id)
+
+                else:
+                    new_ult_const = matching_reiwa["data"]["ULT"]["const"]
+                    new_ult_const_nodata = False
+                    if song.ult_const != new_ult_const or song.ult_const_nodata != new_ult_const_nodata:
+                        messages.append(
+                            f"定数更新: {song.song_name} ULTIMA {song.ult_const} -> {new_ult_const}"
+                        )
+                        song.ult_const = new_ult_const
+                        song.ult_const_nodata = new_ult_const_nodata
+                        self.update_song_offi_ids.append(song.song_official_id)
 
         # 定数不明曲一覧
         # messages.append("-----\n定数不明曲一覧")

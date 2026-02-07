@@ -702,36 +702,62 @@ class SongDataManager:
                     # ...
 
                     # ADVANCED
-                    if song.adv_const_nodata and not bool(matching_reiwa["data"].get("ADV", {}).get("is_const_unknown")) and string_level_to_float(
-                        matching_reiwa["data"].get("ADV", {}).get("level", "0")
-                    ) >= 10:
+                    advanced_info = matching_reiwa["data"].get("ADV", {})
+                    level_advanced = string_level_to_float(advanced_info.get("level", "0"))
+                    if level_advanced < 10:
+                        new_adv_const = level_advanced
+                        new_adv_const_nodata = False
+                    elif bool(advanced_info.get("is_const_unknown")):
+                        new_adv_const = string_level_to_float(advanced_info.get("level", "0"))
+                        new_adv_const_nodata = True
+                    else:
+                        new_adv_const = advanced_info.get("const")
+                        new_adv_const_nodata = False
+
+                    if song.adv_const != new_adv_const or song.adv_const_nodata != new_adv_const_nodata:
                         messages.append(
-                            f"定数更新: {song.song_name} ADVANCED {song.adv_const} -> {matching_reiwa['data'].get('ADV', {}).get('const')}"
+                            f"定数更新: {song.song_name} ADVANCED {song.adv_const} -> {new_adv_const}"
                         )
-                        song.adv_const = matching_reiwa["data"].get("ADV", {}).get("const")
-                        song.adv_const_nodata = False
+                        song.adv_const = new_adv_const
+                        song.adv_const_nodata = new_adv_const_nodata
                         self.update_song_offi_ids.append(song.song_official_id)
 
                     # EXPERT
-                    if (
-                        song.exp_const_nodata
-                        and not bool(matching_reiwa["data"].get("EXP", {}).get("is_const_unknown"))
-                        and string_level_to_float(matching_reiwa["data"].get("EXP", {}).get("level", "0")) >= 10
-                    ):
+                    expert_info = matching_reiwa["data"].get("EXP", {})
+                    level_expert = string_level_to_float(expert_info.get("level", "0"))
+                    if level_expert < 10:
+                        new_exp_const = level_expert
+                        new_exp_const_nodata = False
+                    elif bool(expert_info.get("is_const_unknown")):
+                        new_exp_const = string_level_to_float(expert_info.get("level", "0"))
+                        new_exp_const_nodata = True
+                    else:
+                        new_exp_const = expert_info.get("const")
+                        new_exp_const_nodata = False
+
+                    if song.exp_const != new_exp_const or song.exp_const_nodata != new_exp_const_nodata:
                         messages.append(
-                            f"定数更新: {song.song_name} EXPERT {song.exp_const} -> {matching_reiwa['data'].get('EXP', {}).get('const')}"
+                            f"定数更新: {song.song_name} EXPERT {song.exp_const} -> {new_exp_const}"
                         )
-                        song.exp_const = matching_reiwa["data"].get("EXP", {}).get("const")
-                        song.exp_const_nodata = False
+                        song.exp_const = new_exp_const
+                        song.exp_const_nodata = new_exp_const_nodata
                         self.update_song_offi_ids.append(song.song_official_id)
 
                     # MASTER
-                    if song.mas_const_nodata and not bool(matching_reiwa["data"].get("MAS", {}).get("is_const_unknown")):
+                    master_info = matching_reiwa["data"].get("MAS", {})
+                    if bool(master_info.get("is_const_unknown")):
+                        new_mas_const = string_level_to_float(master_info.get("level", "0"))
+                        new_mas_const_nodata = True
+                    else:
+                        new_mas_const = master_info.get("const")
+                        new_mas_const_nodata = False
+
+                    if song.mas_const != new_mas_const or song.mas_const_nodata != new_mas_const_nodata:
                         messages.append(
-                            f"定数更新: {song.song_name} MASTER {song.mas_const} -> {matching_reiwa['data'].get('MAS', {}).get('const')}"
+                            f"定数更新: {song.song_name} MASTER {song.mas_const} -> {new_mas_const}"
                         )
-                        song.mas_const = matching_reiwa["data"].get("MAS", {}).get("const")
-                        song.mas_const_nodata = False
+                        song.mas_const = new_mas_const
+                        song.mas_const_nodata = new_mas_const_nodata
                         self.update_song_offi_ids.append(song.song_official_id)
 
 
@@ -746,12 +772,20 @@ class SongDataManager:
                     pass
                 else:
                     # LUNATICをもつ曲
-                    if song.lun_const_nodata and not bool(matching_reiwa["data"].get("LUN", {}).get("is_const_unknown")):
+                    lun_info = matching_reiwa["data"].get("LUN", {})
+                    if bool(lun_info.get("is_const_unknown")) and lun_info.get("level") != "0":
+                        new_lun_const = string_level_to_float(lun_info.get("level", "0"))
+                        new_lun_const_nodata = True
+                    else:
+                        new_lun_const = lun_info.get("const")
+                        new_lun_const_nodata = False
+
+                    if song.lun_const != new_lun_const or song.lun_const_nodata != new_lun_const_nodata:
                         messages.append(
-                            f"定数更新: {song.song_name} LUNATIC {song.lun_const} -> {matching_reiwa['data'].get('LUN', {}).get('const')}"
+                            f"定数更新: {song.song_name} LUNATIC {song.lun_const} -> {new_lun_const}"
                         )
-                        song.lun_const = matching_reiwa["data"].get("LUN", {}).get("const")
-                        song.lun_const_nodata = False
+                        song.lun_const = new_lun_const
+                        song.lun_const_nodata = new_lun_const_nodata
                         self.update_song_offi_ids.append(song.song_official_id)
 
         # ジャンル名の付与
