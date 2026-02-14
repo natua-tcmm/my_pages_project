@@ -186,7 +186,7 @@ def get_ongeki_score_log_player_data(user_id: str) -> tuple:
         # OngekiScoreLog楽曲IDを取得
         match_result = MUSIC_ID_PATTERN.search(str(list(r.contents[1].descendants)[2]))
         if not match_result:
-            raise ValueError(f"[ongeki_op][error] OngekiScoreLog楽曲IDが不明です title:{music_title}")
+            raise ValueError(f"[fetch_osl][error] OngekiScoreLog楽曲IDが不明です title:{music_title}")
         music_id = int(match_result.group(1).split("/")[-2])
 
         music_data = None
@@ -201,7 +201,7 @@ def get_ongeki_score_log_player_data(user_id: str) -> tuple:
                 case 487:
                     music_artist = "SEGA SOUND STAFF「セガNET麻雀 MJ」"
                 case _:
-                    raise ValueError(f"[ongeki_op][error] Singularityのアーティストが不明です music_id:{music_id}")
+                    raise ValueError(f"[fetch_osl][error] Singularityのアーティストが不明です music_id:{music_id}")
 
 
             for m in ongeki_all:
@@ -220,7 +220,7 @@ def get_ongeki_score_log_player_data(user_id: str) -> tuple:
 
         # 楽曲データが見つからない場合
         if not music_data:
-            # print(f"[ongeki_op][warning] 楽曲DBにデータないぞ title:{music_title}")
+            # print(f"[fetch_osl][warning] 楽曲DBにデータないぞ title:{music_title}")
             invalid_music_list.append(music_title)
             continue
 
@@ -252,7 +252,7 @@ def get_ongeki_score_log_player_data(user_id: str) -> tuple:
             record_data["music_rate_old"] = calc_music_rate_old(record_data["score_rank"], record_data["t-score"], record_data["const"])
         except Exception as e:
             print(
-                f"[ongeki_op][error] 旧計算式 単曲レート計算に失敗: {str(e)} | {music_title} Rank {record_data['score_rank']} {record_data['t-score']} {record_data['const']}"
+                f"[fetch_osl][error] 旧計算式 単曲レート計算に失敗: {str(e)} | {music_title} Rank {record_data['score_rank']} {record_data['t-score']} {record_data['const']}"
             )
             # record_data["music_rate"] = 0
 
@@ -260,7 +260,7 @@ def get_ongeki_score_log_player_data(user_id: str) -> tuple:
             record_data["music_rate"] = calc_music_rate(record_data["score_rank"], record_data["t-score"], record_data["const"], record_data["is_FC"], record_data["is_AB"], record_data["is_FB"])
         except Exception as e:
             print(
-                f"[ongeki_op][error] 新計算式 単曲レート計算に失敗: {str(e)} | {music_title} Rank {record_data['score_rank']} {record_data['t-score']} {record_data['const']}"
+                f"[fetch_osl][error] 新計算式 単曲レート計算に失敗: {str(e)} | {music_title} Rank {record_data['score_rank']} {record_data['t-score']} {record_data['const']}"
             )
             # record_data["music_rate"] = 0
 
