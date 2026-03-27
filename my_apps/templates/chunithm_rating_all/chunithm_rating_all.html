@@ -22,12 +22,15 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        {% if is_beta %}
+        <!-- {% if is_beta %}
           {% include '../common/info_alert.html' %}
-        {% endif %}
+        {% endif %} -->
+
+        {% include "../common/site_migration_notice.html" with migration_url="https://www.st1027.org/tools/chunithm_rating_all" %}
+
 
         <!-- ここにいろいろ書く -->
-        <div class="row">
+        <!-- <div class="row">
           <div class="col">
             <div class="card card-primary card-outline">
               <div class="card-header">
@@ -37,7 +40,6 @@
               <div class="card-body">
                 <div class="row justify-content-center">
                   <div class="col-12 col-md-10">
-                    <!-- chunirecID入力窓 -->
                     <div class="row justify-content-center align-items-center mb-3">
                       <div class="col-auto">
                         <div class="input-group mb-1">
@@ -75,7 +77,6 @@
 
                     <i id="loading-text" style="display: none;" class="ml-2 fas fa-spinner fa-pulse"></i>
 
-                    <!-- 出力 -->
                     <div class="row justify-content-center align-items-center mb-3">
                       <div class="col-auto">
                         <div id="summary" class="table-responsive"></div>
@@ -89,7 +90,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
