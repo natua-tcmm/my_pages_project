@@ -15,7 +15,6 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.contrib import admin
 from django.urls import include, path
 from django.shortcuts import redirect
 from django.http import HttpResponse
@@ -25,7 +24,6 @@ def robots_txt(request):
     return HttpResponse(content, content_type="text/plain")
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
     path("my_apps/", include("my_apps.urls"), name="my_apps"),
     path("", lambda request: redirect("my_apps/top")),
     path('robots.txt', robots_txt),

@@ -54,13 +54,11 @@ SESSION_COOKIE_SECURE = True
 # 有効となるアプリケーション
 INSTALLED_APPS = [
     "my_apps.apps.MyAppsConfig",
-    "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "import_export",
 ]
 
 # 有効となるミドルウェア
@@ -72,7 +70,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "my_apps.middleware.AccessLogMiddleware",
 ]
 
 # 最初に見に行くURLルーティングテーブルの場所
@@ -106,15 +103,8 @@ WSGI_APPLICATION = "config.wsgi.application"
 # データベースの場所
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "natua$myApps",
-        "USER": "natua",
-        "PASSWORD": os.environ.get("MYSQL_PASSWORD"),
-        "HOST": "natua.mysql.pythonanywhere-services.com",
-        "PORT": "3306",
-        "OPTIONS": {
-            "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 

@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <meta http-equiv="refresh" content="5;url={{ target_url }}" />
+    <link rel="stylesheet" href="{% static 'simple_redirect.css' %}" />
+</head>
+<body>
+    <main class="redirect-page">
+        <section class="redirect-card">
+            <p class="redirect-label">Site Migration</p>
+            <h1>{{ page_name }}</h1>
+            <p class="redirect-message">{{ message }}</p>
+            <a class="redirect-button" href="{{ target_url }}">新サイトへ移動</a>
+            <p class="redirect-subtext">5秒後に自動で移動します: <span>{{ target_url }}</span></p>
+        </section>
+    </main>
+</body>
+</html>

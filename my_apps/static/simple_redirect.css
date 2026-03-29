@@ -1,0 +1,93 @@
+:root {
+    color-scheme: light;
+    --bg: #f6f7fb;
+    --card: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --border: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.redirect-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.redirect-card {
+    width: min(100%, 640px);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgb(15 23 42 / 8%);
+}
+
+.redirect-label {
+    margin: 0 0 12px;
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.redirect-card h1 {
+    margin: 0 0 16px;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.redirect-message,
+.redirect-note,
+.redirect-subtext {
+    margin: 0;
+    line-height: 1.7;
+}
+
+.redirect-message {
+    margin-bottom: 10px;
+}
+
+.redirect-note {
+    margin-bottom: 24px;
+    color: var(--muted);
+}
+
+.redirect-button {
+    display: inline-block;
+    padding: 14px 22px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.2s ease;
+}
+
+.redirect-button:hover {
+    background: var(--accent-hover);
+}
+
+.redirect-subtext {
+    margin-top: 18px;
+    color: var(--muted);
+    word-break: break-all;
+}
+
+.redirect-subtext span {
+    color: var(--text);
+}
