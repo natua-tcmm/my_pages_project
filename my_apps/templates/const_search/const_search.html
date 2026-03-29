@@ -22,13 +22,14 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            {% if is_beta %}
+            <!-- {% if is_beta %}
             {% include '../common/info_alert.html' %}
-            {% endif %}
+            {% endif %} -->
+            {% include "../common/site_migration_notice.html" with migration_url="https://www.st1027.org/tools/const_search" %}
 
             <!-- ここにいろいろ書く -->
             <!-- 検索のカード -->
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col">
                     <div class="card card-primary card-outline">
                         <div class="card-header">
@@ -60,12 +61,10 @@
                                 </div>
                             </div>
 
-                            <!-- 検索窓 -->
                             <div class="row justify-content-center">
                                 <div class="col-12 col-md-10">
                                     <form id="ajax-search" action="{% url 'my_apps:const_search_page' %}" method="POST">
                                         {% csrf_token %}
-                                        <!-- 入力フォーム -->
                                         <div class="input-group input-group-lg mb-1">
                                             <input name="query" type="text" class="form-control" id="query"
                                                 placeholder="検索…" aria-label="search" aria-describedby="inputHelp"
@@ -76,7 +75,6 @@
                                             </div>
                                         </div>
 
-                                        <!-- 主要チェックボックス群 -->
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="is_use_name"
                                                 value="option1" checked>
@@ -101,10 +99,8 @@
                                             <label class="form-check-label mb-0" for="is-disp-bonus">ボーナストラックを表示</label>
                                         </div>
 
-                                        <!-- 詳細オプション -->
                                         <div id="detail-option" style="display: none;">
 
-                                            <!-- LUNATIC譜面の扱い -->
                                             <div id="is_use_lunatic_option-wrapper" style="display: none;">
                                                 <div class="form-check mb-1">
                                                     <input class="form-check-input" type="checkbox"
@@ -131,7 +127,6 @@
                                                 </div>
                                             </div>
 
-                                            <!-- BPMの範囲を指定… -->
                                             <div class="form-check mb-1">
                                                 <input class="form-check-input" type="checkbox" id="is_use_bpm">
                                                 <label class="form-check-label mb-0" for="is_use_bpm"
@@ -145,7 +140,6 @@
                                                 </p>
                                             </div>
 
-                                            <!-- ノーツ数の範囲を指定… -->
                                             <div class="form-check mb-1">
                                                 <input class="form-check-input" type="checkbox" id="is_use_notes">
                                                 <label class="form-check-label mb-0" for="is_use_notes"
@@ -166,11 +160,9 @@
                             </div>
 
 
-                            <!-- 区切りhr -->
 
                             <hr class="mt-3 mb-3" />
 
-                            <!-- 検索情報 -->
                             <div class="row justify-content-center">
                                 <div class="col-auto d-flex align-items-center">
                                     <p class="mb-0">
@@ -194,7 +186,6 @@
                                 </div>
                             </div>
 
-                            <!-- 検索結果 -->
                             <div class="row justify-content-center search-result">
                                 <div class="col-12 col-md-10">
                                     <div id="post-songs" class="list-group">
@@ -225,7 +216,6 @@
                 </div>
             </div>
 
-            <!-- 権利表示 -->
             <div class="row">
                 <div class="col">
                     <div class="card card-outline card-info collapsed-card">
@@ -245,15 +235,15 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
 </div>
-<script>
+<!-- <script>
     var csrfmiddlewaretoken = '{{ csrf_token }}'
     var send_url = '{% url "my_apps:const_search_page" %}'
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="{% static 'const_search/script.js' %}"></script>
+<script src="{% static 'const_search/script.js' %}"></script> -->
 {% endblock %}
