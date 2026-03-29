@@ -13,5 +13,7 @@ urlpatterns = [
     path("const_search", views.const_search, name="const_search_page"),
     path("ongeki_rating_all", views.ongeki_rating_all, name="ongeki_rating_all_page"),
     path("ongeki_op", views.ongeki_op, name="ongeki_op_page"),
-    re_path(r"^(?!top$|chunithm_rating_all$|const_search$|ongeki_rating_all$|ongeki_op$).+$", views.redirect_to_top),
+    path("songdata_chunithm.json", views.songdata_chunithm, name="songdata_chunithm_json"),
+    path("songdata_ongeki.json", views.songdata_ongeki, name="songdata_ongeki_json"),
+    re_path(r"^(?!top$|chunithm_rating_all$|const_search$|ongeki_rating_all$|ongeki_op$|songdata_chunithm\.json$|songdata_ongeki\.json$).+$", views.redirect_to_top),
 ]

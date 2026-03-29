@@ -7,6 +7,8 @@ MIGRATION_TARGETS = {
     "const_search": "https://www.st1027.org/tools/const_search",
     "ongeki_rating_all": "https://www.st1027.org/tools/ongeki_rating_all",
     "ongeki_op": "https://www.st1027.org/tools/ongeki_op",
+    "songdata_chunithm_json": "https://ntools.st1027.org/json/songdata_chunithm.json",
+    "songdata_ongeki_json": "https://ntools.st1027.org/json/songdata_ongeki.json",
 }
 
 
@@ -39,6 +41,14 @@ def ongeki_rating_all(request):
 
 def ongeki_op(request):
     return render_migration_page(request, "オンゲキ版OVERPOWER", MIGRATION_TARGETS["ongeki_op"])
+
+
+def songdata_chunithm(request):
+    return redirect(MIGRATION_TARGETS["songdata_chunithm_json"], permanent=True)
+
+
+def songdata_ongeki(request):
+    return redirect(MIGRATION_TARGETS["songdata_ongeki_json"], permanent=True)
 
 
 def redirect_to_top(request, *_args, **_kwargs):

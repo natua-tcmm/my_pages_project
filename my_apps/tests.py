@@ -27,6 +27,24 @@ class RedirectSiteRoutingTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "https://www.st1027.org/tools/ongeki_op")
 
+    def test_songdata_chunithm_json_redirects_to_new_json_url(self):
+        response = self.client.get("/my_apps/songdata_chunithm.json")
+        self.assertRedirects(
+            response,
+            "https://ntools.st1027.org/json/songdata_chunithm.json",
+            fetch_redirect_response=False,
+            status_code=301,
+        )
+
+    def test_songdata_ongeki_json_redirects_to_new_json_url(self):
+        response = self.client.get("/my_apps/songdata_ongeki.json")
+        self.assertRedirects(
+            response,
+            "https://ntools.st1027.org/json/songdata_ongeki.json",
+            fetch_redirect_response=False,
+            status_code=301,
+        )
+
     def test_legacy_page_redirects_to_top(self):
         response = self.client.get("/my_apps/fullbell")
         self.assertRedirects(response, "/my_apps/top")
